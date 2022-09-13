@@ -1,0 +1,18 @@
+body {
+    background-color: black;
+}
+
+.quadro {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 30em;
+    width: 50em;
+    border-radius: 1em;
+    
+}
+
+.faixa {
+    display: flex;
+    justify-content: center;
+}
