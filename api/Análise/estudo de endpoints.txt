@@ -1,0 +1,16 @@
+(1)/POST    /adm/cadastrarAdm
+request {
+    "nome": "",
+    "telefone": "",
+    "nascimento: "",
+    "email": "",
+    "senha": "",
+    "cpf":"",
+    "rg":""
+}
+
+response 204()
+
+//////////////////////////////////////////
+
+
