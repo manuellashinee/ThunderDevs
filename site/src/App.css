@@ -1,11 +1,33 @@
-body {
+*{
+    margin: 0px;
+}
+
+.logo{
+    margin-bottom: 2em;
+}
+
+.container {
+    background-image: url('../public/images/cinemaa.svg');
+    background-color: black;
+    height: 100vh;
+    background-size: cover;
+}
+
+.a{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.la {
     background-color: black;
 }
 
 .quadro {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    opacity: 76%;
+    background-color: #595959;
     height: 30em;
     width: 50em;
     border-radius: 1em;
@@ -15,4 +37,28 @@ body {
 .faixa {
     display: flex;
     justify-content: center;
+}
+
+.she {
+    display: flex;
+    flex-direction: row;
+}
+
+.harry {
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+    
+}
+
+.can {
+    opacity: 76%;
+    background-color: #595959;
+    width: 30em;
+    height: 2em;
+    border-radius: 5px;
+}
+
+input {
+    border: solid #ffff;
 }
