@@ -30,7 +30,7 @@ function App() {
           <div><input className='can'/></div>
         </div>
         </div>
-        <div className='descricao'><p>FAÇA SEU LOGIN PARA TER ACESSO AO NOSSO CATÁLOGO IMPERDÍVEL, NOSSO PLANO CINEMA, BONÛS E OFERTAS UNICOS!</p></div>
+        <div className='descricao'><p>FAÇAAAA SEU LOGIN PARA TER ACESSO AO NOSSO CATÁLOGO IMPERDÍVEL, NOSSO PLANO CINEMA, BONÛS E OFERTAS UNICOS!</p></div>
        </div>
 
       </div>
