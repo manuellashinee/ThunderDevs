@@ -8,7 +8,15 @@ function App() {
       </div>
       <div className='a'>
       <div className='quadro'>
+        <div className='linha1'>
+        <hr></hr>
+        </div>
+        <div className='faixao'>
         <div className='faixa'><h1>LOGIN</h1> <img src='../images/cortapra18.svg'/></div>
+        </div>
+        <div className='linha2'>
+        <hr></hr>
+        </div>
 
        <div className='she'>
     
