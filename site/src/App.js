@@ -1,4 +1,5 @@
-import './App.css';
+import './App.scss';
+import '../src/common/common.scss'
 
 function App() {
   return (
@@ -17,21 +18,31 @@ function App() {
         <div className='linha2'>
         <hr></hr>
         </div>
+        <div><p>SE AINDA NÃO TEM LOGIN, CADASTRE-SE.</p></div>
+
 
        <div className='she'>
     
        <div className='harry'>
         <div className='squad1'>
-          <div> <p>E-MAIL:</p></div>
+          <div> <p className='titulo-1'>E-MAIL:</p></div>
           <div><input className='can'/></div>
         </div>
         <div className='squad2'>
-          <div> <p>SENHA:</p></div>
+          <div> <p className='titulo-1'>SENHA:</p></div>
           <div><input className='can'/></div>
         </div>
         </div>
         <div className='descricao'><p>FAÇAAAA SEU LOGIN PARA TER ACESSO AO NOSSO CATÁLOGO IMPERDÍVEL, NOSSO PLANO CINEMA, BONÛS E OFERTAS UNICOS!</p></div>
        </div>
+
+       <div className='botoes'>
+
+        <div className='b1'><button>ENTRAR</button></div>
+
+        <div className='b2'><button>CADASTRE-SE</button></div>
+       </div>
+
 
       </div>
       </div>

@@ -24,6 +24,7 @@
 }
 
 .quadro {
+    padding: 2em;
     display: flex;
     flex-direction: column;
     opacity: 76%;
@@ -34,15 +35,22 @@
     
 }
 .linha1 {
-
+  margin-top: 10px;
 }
-.linha2{
 
+hr {
+    margin: 10px;
+}
+
+.linha2{
 }
 
 .faixao {
 display: flex;
 justify-content: center;
+background-color: #8d8989;
+margin-left: 10px;
+margin-right: 10px;
 }
 
 .faixa {
@@ -66,7 +74,6 @@ img {
 .harry {
     display: flex;
     flex-direction: column;
-    margin: 2em;
     
 }
 
@@ -81,3 +88,20 @@ img {
 input {
     border: solid #ffff;
 }
+
+.botoes {
+    display: flex;
+    flex-direction: row;
+}
+
+.b1 {
+    margin-right: 2em;
+
+}
+
+.titulo-1{
+    font-family: 'LSB';
+    color: white;
+    opacity: 100%;
+}
+
