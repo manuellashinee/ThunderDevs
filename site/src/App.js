@@ -25,7 +25,7 @@ function App() {
     
        <div className='harry'>
         <div className='squad1'>
-          <div> <p className='titulo-1'>E-MAIL:</p></div>
+          <div> <p className='titulo-1'>E-MAIL delicia:</p></div>
           <div><input className='can'/></div>
         </div>
         <div className='squad2'>
