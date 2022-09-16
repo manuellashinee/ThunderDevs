@@ -41,6 +41,7 @@ function App() {
         <div className='b1'><button>ENTRAR</button></div>
 
         <div className='b2'><button>CADASTRE-SE</button></div>
+        <h1>oi</h1>
        </div>
 
 
