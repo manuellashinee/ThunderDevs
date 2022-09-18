@@ -1,0 +1,16 @@
+*{
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    opacity: 89%;
+}
+
+.cadastrar-page {
+    background-image: url('../../../public/images/cinemaa.svg');
+    background-size: cover;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
