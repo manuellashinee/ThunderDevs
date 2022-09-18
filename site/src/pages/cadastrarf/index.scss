@@ -3,14 +3,42 @@
     box-sizing: border-box;
 }
 
+//filter: blur(8px);
+//-webkit-filter: blur(8px);
+
 body{
-    background-color: black;
-    opacity: 89%;
+    background-image: url('../../../public/images/cinemaa.svg');
 }
 
-.cadastrar-page {
-    background-image: url('../../../public/images/cinemaa.svg');
+
+.pagina-cadastro{
+
+    .cadastrar-page{
     background-size: cover;
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
+    display: flex;
+    opacity: 89%;
+    background-color: black;
+    flex-direction: column; 
+    padding: 0em 2em; 
+    }
+
+    .logo-botoes{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .logo{
+    opacity: 100%;
+    height: 4em;
+    padding: 10px;
+    }
+
+    .voltar-botao{
+        display: flex;
+        flex-direction: column;
+    }
+
 }
+
+

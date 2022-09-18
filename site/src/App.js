@@ -3,6 +3,7 @@ import '../src/common/common.scss'
 
 function App() {
   return (
+    <section className='pagina-login'>
     <section className='container'>
       <div className='la'>
         <img className='logo' src='../images/logo.svg'/>
@@ -46,6 +47,7 @@ function App() {
 
       </div>
       </div>
+    </section>
     </section>
   );
 }
