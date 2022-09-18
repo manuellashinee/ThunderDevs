@@ -34,7 +34,7 @@ function App() {
           <div><input className='can'/></div>
         </div>
         </div>
-        <div className='descricao'><p>FAÇAAAA SEU LOGIN PARA TER ACESSO AO NOSSO CATÁLOGO IMPERDÍVEL, NOSSO PLANO CINEMA, BONÛS E OFERTAS UNICOS!</p></div>
+        <div className='descricao'><p>FAÇA SEU LOGIN PARA TER ACESSO AO NOSSO CATÁLOGO IMPERDÍVEL, NOSSO PLANO CINEMA, BONÛS E OFERTAS UNICOS!</p></div>
        </div>
 
        <div className='botoes'>
@@ -42,7 +42,6 @@ function App() {
         <div className='b1'><button className='primeiro'>ENTRAR</button></div>
 
         <div className='b2'><button>CADASTRE-SE</button></div>
-        <h1>oi</h1>
        </div>
 
 
