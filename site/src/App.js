@@ -31,7 +31,7 @@ function App() {
         </div>
         <div className='squad2'>
           <div> <p className='titulo-1'>SENHA:</p></div>
-          <div><input className='can'/></div>
+          <div><input type='password' className='can'/></div>
         </div>
         </div>
         <div className='descricao'><p>FAÇA SEU LOGIN PARA TER ACESSO AO NOSSO CATÁLOGO IMPERDÍVEL, NOSSO PLANO CINEMA, BONÛS E OFERTAS UNICOS!</p></div>
