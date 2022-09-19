@@ -19,7 +19,7 @@ body{
     opacity: 89%;
     background-color: black;
     flex-direction: column; 
-    padding: 0em 2em; 
+    padding: 2em 2em 0em; 
     }
 
     .logo-botoes{
@@ -29,16 +29,71 @@ body{
     }
 
     .logo{
-    opacity: 100%;
-    height: 4em;
-    padding: 10px;
+        opacity: 100%;
+        height: 5em;
+        padding: 10px;
     }
 
     .voltar-botao{
         display: flex;
         flex-direction: column;
+        align-items: flex-end;
     }
 
+    .flecha {
+        width: 2.1em;
+        margin-bottom: 1em;
+        display: flex;
+        margin-right: 5px;
+    }
+
+    .salvar-botao{
+        font-family: 'LSB';
+        background-color: #AE4EDB;
+        font-size: 1em;
+        color: white;
+        padding: 10px 2em;
+        border-radius: 10px;
+        margin-bottom: 1em;
+    }
+
+    .salvar-botao:hover{
+        color: #AE4EDB;
+        background-color: white;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    /*container*/
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 2em;
+        justify-content: center;
+        background-color: #595959;
+        opacity: 80%;
+    }
+
+    .colunas{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .coluna1{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .coluna2{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .coluna-2-campos{
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 
