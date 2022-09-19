@@ -1,8 +1,8 @@
 import { Router } from 'express';
 const server = Router();
-import { CadastrarFilme } from "../repository/usuarioRepository";
+
+import multer from "multer" ;
+const upload = multer({dest: 'storage/fotosfilmes'}) 
 
 
-erver.post('/adm/CadastrarFilme' , async (req, resp) => {
-    
-}
+
