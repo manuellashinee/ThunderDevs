@@ -11,5 +11,6 @@ server.use(express.json());
 
 server.use(admController);
 server.use(usuarioController);
+server.use()
 
 server.listen(process.env.PORT, () => console.log(`API conectada na porta ${process.env.PORT}`));
