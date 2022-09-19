@@ -1,6 +1,6 @@
 import { con } from "./connection.js"
 
-export async function login (email, senha) {
+export async function loginUsu(email, senha){
      const comando = 
      `
     SELECT ID_USUARIO 		   id,
@@ -8,8 +8,8 @@ export async function login (email, senha) {
         DS_EMAIL		     email
     FROM TB_USUARIO
     WHERE DS_EMAIL 	        = ?
-    AND DS_SENHA	        = ?  `
+    AND DS_SENHA	        = ?  `;
 
     const [linhas] = await con.query(comando, [email, senha])
-    return linhas[0];
+    return linhas[0]
 }
