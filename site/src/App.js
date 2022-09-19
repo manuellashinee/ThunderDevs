@@ -39,9 +39,9 @@ function App() {
 
        <div className='botoes'>
 
-        <div className='b1'><button className='primeiro'>ENTRAR</button></div>
+        <div className='b1'><button className='primeiro  salvar-botao'>ENTRAR</button></div>
 
-        <div className='b2'><button>CADASTRE-SE</button></div>
+        <div className='b2'><button className='primeiro salvar-botao'>CADASTRE-SE</button></div>
        </div>
 
 
