@@ -27,6 +27,7 @@ body{
         opacity: 100%;
         height: 5em;
         padding: 10px;
+        mix-blend-mode: lighten;
     }
 
     .voltar-botao{
@@ -62,17 +63,29 @@ body{
     /*container*/
 
     .container {
-        display: flex;
-        flex-direction: column;
-        padding: 2em;
-        justify-content: center;
-        background-color: #595959;
-        opacity: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 81vh;
+    }
+    .centro {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    opacity: 76%;
+    background-color: #595959;
+    width: 70%;
+    border-radius: 1em;
+    
     }
 
     .colunas{
         display: flex;
-        flex-direction: row;
+    flex-direction: row;
+    margin-top: 3em;
+    justify-content: space-between;
+    margin-left: 15px;
     }
 
     .coluna1{
@@ -88,6 +101,64 @@ body{
     .coluna-2-campos{
         display: flex;
         flex-direction: row;
+    }
+
+    .coluna-2-campos > * {
+        margin-right: 1em;
+    }
+
+    /*campos*/
+
+    .c-titulo{
+        font-family: 'LSB';
+        font-size: 1.7em;
+        color: #F5F5F5;
+    }
+
+    .colunas > * {
+        margin-right: 3em;
+    }
+
+    .campos {
+        display: flex;
+        font-family: 'LSB';
+        color: #F5F5F5;
+        width: max-content ;
+        margin-bottom: 0.4em;
+    }
+
+    
+    .input-linha {
+    opacity: 76%;
+    background-color: #595959;
+    height: 2em;
+    width: none;
+    border-radius: 5px;
+    }
+
+    .input-linha2 {
+        opacity: 76%;
+        background-color: #595959;
+        height: 15em;
+        width: none;
+        border-radius: 5px;
+        }
+
+    .input-linhas {
+        opacity: 76%;
+        background-color: #595959;
+        height: 2em;
+        border-radius: 5px;
+    }
+    
+
+    input{
+        border: solid #ffff;
+        margin-bottom: 1em;
+    }
+
+    .checkbox{
+        margin-right: 1em;
     }
 }
 

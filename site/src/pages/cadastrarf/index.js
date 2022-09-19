@@ -14,28 +14,29 @@ export default function Cadastrar(){
             </div>
 
             <div className='container'>
-            <p>CADASTRAR FILME:</p>
+                <div className='centro'>
+                <p className='c-titulo'>CADASTRAR FILME:</p>
                 <div className='colunas'>
                     <div className='coluna1'>
-                        <p>NOME:</p>
-                        <input type='text'/>
-                        <p>DURAÇÃO:</p>
-                        <input type='text'/>
-                        <p>ATOR PRINCIPAL:</p>
-                        <input type='text'/>
-                        <p>DIRETOR:</p>
-                        <input type='text'/>
+                        <p className='campos'>NOME:</p>
+                        <input className='input-linha' type='text'/>
+                        <p className='campos'>DURAÇÃO:</p>
+                        <input className='input-linha' type='text'/>
+                        <p className='campos'>ATOR PRINCIPAL:</p>
+                        <input className='input-linha' type='text'/>
+                        <p className='campos'>DIRETOR:</p>
+                        <input className='input-linha' type='text'/>
                         <div className='coluna-2-campos'>
                             <div className='coluna1'>
-                                <p>GENÊRO:</p>
-                                <select> 
+                                <p className='campos'>GENÊRO:</p>
+                                <select className='campos input-linhas'> 
                                     <option disabled selected hidden> Selecione</option>
                                     <option>COMÉDIA</option>
                                 </select>
                             </div>
                             <div className='coluna1'>
-                                <p>FRANQUIA:</p>
-                                <select> 
+                                <p className='campos'>FRANQUIA:</p>
+                                <select  className='campos input-linhas'> 
                                     <option disabled selected hidden> Selecione</option>
                                     <option>MARVEL STUDIOS</option>
                                     <option>DC COMICS</option>
@@ -43,25 +44,25 @@ export default function Cadastrar(){
                                 </select>
                             </div>
                         </div>
-                <p>CLASSIFICAÇÃO:</p>
-                <input type='text'/>
-                <p>DATA DE LANÇAMENTO:</p>
-                <input type="date"/>
+                <p className='campos'>CLASSIFICAÇÃO:</p>
+                <input className='input-linha' type='text'/>
+                <p className='campos'>DATA DE LANÇAMENTO:</p>
+                <input className='input-linha' type="date"/>
                 <div className='coluna-2-campos'>
                             <div className='coluna1'>
-                                <p>TOMATO METER</p>
-                                <input type='text' placeholder='CAMPO NÃO OBRIGATÓRIO'/>
+                                <p className='campos'>TOMATO METER</p>
+                                <input className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO'/>
                             </div>
                             <div className='coluna1'>
-                                <p>AUDIENCE SCORE</p>
-                                <input type='text' placeholder='CAMPO NÃO OBRIGATÓRIO'/>
+                                <p className='campos'>AUDIENCE SCORE</p>
+                                <input className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO'/>
                             </div>
                         </div>
                         <div className='coluna-2-campos'>
-                            <p>DESTAQUE:</p>
-                            <input type='checkbox' />
-                            <p>SITUAÇÃO:</p>
-                            <select> 
+                            <p className='campos'>DESTAQUE:</p>
+                            <input className='input-linha checkbox' type='checkbox' />
+                            <p className='campos'>SITUAÇÃO:</p>
+                            <select className='campos  input-linhas'> 
                                     <option disabled selected hidden> Selecione</option>
                                     <option>ATIVO</option>
                                     <option>INATIVO</option>
@@ -69,14 +70,17 @@ export default function Cadastrar(){
                         </div>
                     </div>
                     <div className='coluna2'>
-                        <p>SINOPSE:</p>
-                        <input type='text'/>
-                        <p>IMAGEM:</p>
-                        <input type='file'/>
-                        <p>AVALIAÇÃO:</p>
-                        <input type='text' placeholder='CAMPO NÃO OBRIGATÓRIO'/>
+                        <p className='campos'>SINOPSE:</p>
+                        <input  className='input-linha2' type='text'/>
+                        <p className='campos'>IMAGEM:</p>
+                        <input className='input-linha2' type='file'/>
+                        <p className='campos'>AVALIAÇÃO:</p>
+                        <input className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO'/>
                     </div>
                 </div>
+
+                </div>
+           
             </div>
         </div>
         </section>
