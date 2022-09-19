@@ -1,6 +1,7 @@
 import './App.scss';
 import '../src/common/common.scss'
 
+
 function App() {
   return (
     <section className='pagina-login'>

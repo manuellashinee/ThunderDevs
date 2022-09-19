@@ -10,7 +10,7 @@ server.post('/login/adm', async (req, resp) => {
         const resposta = await loginAdm(email,senha);
 
         if (!resposta) {
-            throw new Error('Usuário ou senha inválidos!')
+            throw new Error('Credenciais inválidas!')
         }else{
             resp.status(203).send({
                 resposta
