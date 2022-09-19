@@ -8,7 +8,8 @@
 }
 
 .container {
-    background-image: url('../public/images/cinemaa.svg');
+
+    background-image: url('../public/images/LOGIN.svg');
     background-color: black;
     height: 100vh;
     background-size: cover;
@@ -16,8 +17,10 @@
 
 .a{
  display: flex;
- align-items: center;
+ flex-direction: column;
  justify-content: center;
+ align-items: center;
+ height: 85vh;
 }
 
 .la {
@@ -30,14 +33,17 @@
     flex-direction: column;
     opacity: 76%;
     background-color: #595959;
-    height: 28em;
-    width: 55em;
+    width: 70%;
     border-radius: 1em;
     
 }
 .linha1 {
   margin-top: 10px;
 }
+
+.linha2 {
+    margin-bottom: 2em;
+  }
 
 hr {
     margin: 7px;
@@ -109,7 +115,7 @@ img {
     display: flex;
     font-family: 'LM';
     font-size: 1.3em;
-    margin-top: 1.5em;
+    margin-top: 1em;
     margin-left: 3em;
     margin-right: 3em;
     color: #ffff;
@@ -122,8 +128,9 @@ input {
 .botoes {
     display: flex;
     flex-direction: row;
-    margin-top: 5em;
+    margin-top: 1em;
     margin-left: 2em;
+    margin-bottom: 2em;
 }
 
 .b1 {
@@ -131,15 +138,8 @@ input {
 }
 
 .primeiro {
-    padding: 8px;
-    padding-left: 25px;
-    padding-right: 25px;
-}
-
-.segundo {
-    padding: 8px;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding: 8px  25px 10px 25px;
+    
 }
 
 .titulo-1{
@@ -154,7 +154,14 @@ button {
     color: #ffff;
     background-color: #AE4EDB;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
 }
+.salvar-botao:hover{
+    color: #AE4EDB;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
 
 }

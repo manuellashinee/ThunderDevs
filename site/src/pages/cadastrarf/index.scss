@@ -3,11 +3,8 @@
     box-sizing: border-box;
 }
 
-//filter: blur(8px);
-//-webkit-filter: blur(8px);
-
 body{
-    background-image: url('../../../public/images/cinemaa.svg');
+    background-image: url('../../../public/images/LOGIN.svg');
 }
 
 
@@ -16,8 +13,6 @@ body{
     .cadastrar-page{
     background-size: cover;
     display: flex;
-    opacity: 89%;
-    background-color: black;
     flex-direction: column; 
     padding: 2em 2em 0em; 
     }
