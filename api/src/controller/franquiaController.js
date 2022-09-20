@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { consultaFranquia } from '../repository/franquiaRepository';
+import { consultaFranquia } from '../repository/franquiaRepository.js';
 const server = Router();
 
 server.get('/franquia',async (req, resp) =>{
@@ -12,3 +12,6 @@ server.get('/franquia',async (req, resp) =>{
         });
     }
 })
+
+
+export default server;
