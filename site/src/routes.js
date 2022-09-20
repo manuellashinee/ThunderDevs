@@ -4,6 +4,7 @@ import './index.scss';
 import App from './App';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Cadastrar from './pages/cadastrarf';
+import LoginAdm from  './pages/adm/login';
 
 export default function Rotas (){
     return(
@@ -11,6 +12,7 @@ export default function Rotas (){
     <Routes>
         <Route path='/login' element={<App/>}/>
         <Route path='/cadastrarfilme' element={<Cadastrar/>}/>
+        <Route path='/loginAdm' element={<LoginAdm/>}/>
     </Routes>
     </BrowserRouter>
     );
