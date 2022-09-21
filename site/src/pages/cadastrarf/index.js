@@ -1,7 +1,12 @@
 import './index.scss'
+
 import '../../common/common.scss'
+import {consultarFranquias} from '../../api/franquiaApi.js'
+import {consultarGeneros} from '../../api/generoApi.js'
 
 export default function Cadastrar(){
+
+
     return (
         <section className='pagina-cadastro'>
         <div className='cadastrar-page'>
