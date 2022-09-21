@@ -2,14 +2,15 @@
     margin: 0px;
 }
 
-.pagina-login{
+.adm-login{
 .logo{
     margin-bottom: 2em;
+    mix-blend-mode: lighten;
 }
 
 .container {
 
-    background-image: url('../public/images/LOGIN.svg');
+    background-image: url('../../../../public/images/LOGIN.svg');
     background-color: black;
     height: 100vh;
     background-size: cover;
@@ -33,11 +34,11 @@
     border-radius: 1em;
     
 }
-.linha1 {
+.line1 {
   margin-top: 10px;
 }
 
-.linha2 {
+.line2 {
     margin-bottom: 2em;
   }
 
@@ -49,7 +50,7 @@ hr {
 .faixao {
 display: flex;
 justify-content: center;
-background-color: #8d8989;
+background-color: #b1abab;
 margin-left: 7px;
 margin-right: 7px;
 }
@@ -59,25 +60,14 @@ margin-right: 7px;
     justify-content: center;
 }
 
-.log {
-    padding-left: 5px;
-}
 
-.login{
-    font-family: 'LM';
-    color: #ffff;
-}
 
 h1 {
     font-size: 35px;
     font-family: 'LR';
 }
 
-img {
-    height: 40px;
-}
-
-.she {
+.informacoes {
     display: flex;
     flex-direction: row;
     margin-top: 3em;
@@ -85,21 +75,21 @@ img {
     margin-left: 15px;
 }
 
-.harry {
+.inserir {
     display: flex;
     flex-direction: column;
     
 }
 
-.squad2 {
+.quadro2 {
     margin-top: 2em;
 }
 
-.titulo-1 {
+.info{
     margin-bottom: 10px;
 }
 
-.can {
+.poder {
     opacity: 76%;
     background-color: #595959;
     width: 30em;
@@ -107,7 +97,7 @@ img {
     border-radius: 5px;
 }
 
-.descricao {
+.textinho {
     display: flex;
     font-family: 'LM';
     font-size: 1.3em;
@@ -121,7 +111,7 @@ input {
     border: solid #ffff;
 }
 
-.botoes {
+.botozinhos {
     display: flex;
     flex-direction: row;
     margin-top: 1em;
@@ -129,16 +119,16 @@ input {
     margin-bottom: 2em;
 }
 
-.b1 {
+.B1 {
     margin-right: 2em;
 }
 
-.primeiro {
+.segundo {
     padding: 8px  25px 10px 25px;
     
 }
 
-.titulo-1{
+.info{
     font-family: 'LSB';
     color: white;
     opacity: 100%;
@@ -152,7 +142,7 @@ button {
     border: none;
     border-radius: 12px;
 }
-.salvar-botao:hover{
+.save:hover{
     color: #AE4EDB;
     background-color: white;
     cursor: pointer;
