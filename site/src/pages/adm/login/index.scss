@@ -5,11 +5,12 @@
 .adm-login{
 .logo{
     margin-bottom: 2em;
+    mix-blend-mode: lighten;
 }
 
 .container {
 
-    background-image: url('../public/images/LOGIN.svg');
+    background-image: url('../../../../public/images/LOGIN.svg');
     background-color: black;
     height: 100vh;
     background-size: cover;
@@ -21,10 +22,6 @@
  justify-content: center;
  align-items: center;
  height: 85vh;
-}
-
-.la {
-    background-color: black;
 }
 
 .quadro {
@@ -53,7 +50,7 @@ hr {
 .faixao {
 display: flex;
 justify-content: center;
-background-color: #8d8989;
+background-color: #b1abab;
 margin-left: 7px;
 margin-right: 7px;
 }
