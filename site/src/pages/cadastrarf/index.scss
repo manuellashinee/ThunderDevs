@@ -1,7 +1,3 @@
-*{
-    margin: 0px;
-    box-sizing: border-box;
-}
 
 body{
     background-image: url('../../../public/images/LOGIN.svg');
@@ -151,14 +147,20 @@ body{
         border-radius: 5px;
     }
     
+    select{
+        border: 2px solid #ffff;
+        font-family: 'LSB';
+    }
 
     input{
-        border: solid #ffff;
+        border: 2px solid #ffff;
         margin-bottom: 1em;
+        font-family: 'LSB';
+       
     }
 
     .checkbox{
-        margin-right: 1em;
+        margin-right: 14%;
     }
 }
 
