@@ -7,6 +7,10 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+<<<<<<< HEAD
+=======
+
+>>>>>>> e181a2377228e5a8603a89ff4a73f8bb2ef66fe5
     "local-storage": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
