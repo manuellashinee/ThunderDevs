@@ -1,5 +1,5 @@
 import './index.scss'
-import { useState,useEffect} from 'react'
+import { useState, useEffect} from 'react'
 import '../../common/common.scss'
 import {consultarFranquias} from '../../api/franquiaApi.js'
 import {consultarGeneros} from '../../api/generoApi.js'
@@ -22,6 +22,9 @@ export default function Cadastrar(){
     const [avaliacao, setAvaliacao] = useState();
     const [destaque, setDestaque] = useState(false);
     const [situacao, setSituacao] = useState("");
+    const [imagem, setImagem] = useState();
+    const [id, setId] = useState(0);
+   
 
 
     async function carregarFranquias(){
@@ -34,24 +37,22 @@ export default function Cadastrar(){
         setGeneros(r);
     }
 
-    async function salvarFilme(){
+    async function SalvarFilme(){
         try{
         const r = await confirmarFilme(idfraquia,idgenero,nome,duracao,classificacao,lancamento,ator,tomato,audience,sinopse,diretor,avaliacao,destaque,situacao);
         alert('filme bem cadastrado')
+    
     }catch(err){
         
         console.log(err.message)
         alert('filme não cadastrado')
     }
 
-
-    }
-
-    useEffect(()=> {
+   
+    useEffect(() => {
         carregarFranquias();
         carregarGeneros();
     }, [])
-
 
 
     return (
@@ -61,7 +62,7 @@ export default function Cadastrar(){
                 <img className='logo' src='../images/logo.svg' />
                 <div className='voltar-botao'>
                     <img className='flecha' src='../images/flecha.svg' />
-                    <button className='salvar-botao' onClick={salvarFilme}>SALVAR</button>
+                    <button className='salvar-botao' onClick={SalvarFilme}>SALVAR</button>
                 </div>
             </div>
 
@@ -125,7 +126,7 @@ export default function Cadastrar(){
                         <p className='campos'>SINOPSE:</p>
                         <input  className='input-linha2' type='text' value= {sinopse} onChange={e=> setSinopse(e.target.value)}/>
                         <p className='campos'>IMAGEM:</p>
-                        <input className='input-linha2' type='file'/>
+                        <input className='input-linha2' type='file' id='imagemCapa' onChange={e => setImagem(e.target.files[0])}/>
                         <p className='campos'>AVALIAÇÃO:</p>
                         <input className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO' value= {avaliacao} onChange={e=> setAvaliacao(Number(e.target.value))}/>
                     </div>
@@ -137,4 +138,5 @@ export default function Cadastrar(){
         </div>
         </section>
     );
+}
 }

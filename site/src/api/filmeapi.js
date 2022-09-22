@@ -5,3 +5,15 @@ export async function confirmarFilme(franquia,genero,nome,duracao,classificacao,
     const asnwer = await axios.post('http://localhost:5000/adm/filme', {franquia,genero,nome,duracao,classificacao,lancamento,ator,tomato,audience,sinopse,diretor,avaliacao,destaque,situacao});
     return asnwer.data;
 }
+
+export async function enviarImageFilme(id, imagem) {
+    const formData = new FormData();
+    formData.append(`imagem` , imagem);
+
+    const resposta = await api.put(`/adm/filme/${id}/imagem`, formData, {
+        headers: {
+            "Content-Type" : "multipart/form-data"
+        },
+    });
+    return resposta.status;
+}
