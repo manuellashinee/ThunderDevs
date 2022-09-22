@@ -9,7 +9,7 @@
 
 .container {
 
-    background-image: url('../public/images/LOGIN.svg');
+    background-image: url('../../../public/images/LOGIN.svg');
     background-color: black;
     height: 100vh;
     background-size: cover;
@@ -31,7 +31,7 @@
     background-color: #595959;
     width: 70%;
     border-radius: 1em;
-    
+
 }
 .linha1 {
   margin-top: 10px;
@@ -88,7 +88,7 @@ img {
 .harry {
     display: flex;
     flex-direction: column;
-    
+
 }
 
 .squad2 {
@@ -103,8 +103,6 @@ img {
     opacity: 76%;
     background-color: #595959;
     width: 30em;
-    color: white;
-    font-family: 'LM';
     height: 2em;
     border-radius: 5px;
 }
@@ -137,7 +135,7 @@ input {
 
 .primeiro {
     padding: 8px  25px 10px 25px;
-    
+
 }
 
 .titulo-1{
@@ -145,8 +143,6 @@ input {
     color: white;
     opacity: 100%;
 }
-
-
 button {
     font-family: 'LSB';
     color: #ffff;
