@@ -4,6 +4,7 @@ import { useState, useEffect} from 'react'
 import {consultarFranquias} from '../../api/franquiaApi.js'
 import {consultarGeneros} from '../../api/generoApi.js'
 import { confirmarFilme, enviarImagemFilme } from '../../api/filmeapi'
+import storage, { set } from 'local-storage'
 
 export default function Cadastrar(){
     const [fraquias, setFranquias] = useState([]);
@@ -39,14 +40,18 @@ export default function Cadastrar(){
 
     async function SalvarFilme(){
         try{
-        console.log(idfraquia)
+            const usuario = storage('usuario-logado').id;
+            if(usuario === 0) throw new Error('Você nao é um usuario logado')
 
-        const r = await confirmarFilme(Number(idfraquia),Number(idgenero),nome,duracao,classificacao,lancamento,ator,tomato,audience,sinopse,diretor,avaliacao,destaque,situacao);
-        const filme = await enviarImagemFilme(r.id, imagem);
+        if(id === 0) {
        
-        alert('filme bem cadastrado')
-
-
+        const r = await confirmarFilme(Number(idfraquia),Number(idgenero),nome,duracao,classificacao,lancamento,ator,tomato,audience,sinopse,diretor,avaliacao,destaque,situacao, usuario);
+        const filme = await enviarImagemFilme(r.id, imagem);
+        setId(r.id)
+        
+        alert('filme cadastrado com sucesso')
+       
+     }
     }catch(err){
         
         console.log(err.message)
