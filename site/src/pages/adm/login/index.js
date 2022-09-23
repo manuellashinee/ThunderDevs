@@ -1,33 +1,22 @@
 import './index.scss';
 import '../../../common/common.scss'
-<<<<<<< HEAD
 import { useState, useRef, useEffect } from 'react';
 import{ useNavigate } from 'react-router-dom';
 import storage from 'local-storage'
 import { loginAdm } from '../../../api/loginadmApi.js';
-
-
-
-
-=======
-
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
-import storage from 'local-storage'
-import { loginAdm } from '../../../api/loginadmApi.js';
 
->>>>>>> e181a2377228e5a8603a89ff4a73f8bb2ef66fe5
+
+
+
+
+
 
  export default function Index() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
-<<<<<<< HEAD
   const [carregando, setCarregando] = useState(false);
-=======
->>>>>>> e181a2377228e5a8603a89ff4a73f8bb2ef66fe5
-
   const navigate = useNavigate();
 
    async function entrarClick() {
@@ -80,10 +69,7 @@ import { loginAdm } from '../../../api/loginadmApi.js';
         <div className='squad2'>
           <div> <p className='titulo-1'>SENHA:</p></div>
           <div><input type='password' className='can' value={senha} onChange={e => setSenha(e.target.value)}/></div>
-<<<<<<< HEAD
-=======
 
->>>>>>> e181a2377228e5a8603a89ff4a73f8bb2ef66fe5
         </div>
         </div>
         <div className='descricao'><p>OLÁ ADMINISTRADOR, LOGUE PARA ACESSAR AS FUNCIONALIDADES DO SITEMA.</p></div>

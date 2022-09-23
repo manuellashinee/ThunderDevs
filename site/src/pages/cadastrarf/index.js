@@ -1,6 +1,6 @@
 import './index.scss'
-import { useState, useEffect} from 'react'
 import '../../common/common.scss'
+import { useState, useEffect} from 'react'
 import {consultarFranquias} from '../../api/franquiaApi.js'
 import {consultarGeneros} from '../../api/generoApi.js'
 import { confirmarFilme } from '../../api/filmeapi'
@@ -47,6 +47,7 @@ export default function Cadastrar(){
         console.log(err.message)
         alert('filme não cadastrado')
     }
+}
 
    
     useEffect(() => {
@@ -138,5 +139,4 @@ export default function Cadastrar(){
         </div>
         </section>
     );
-}
 }
