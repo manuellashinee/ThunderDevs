@@ -6,3 +6,13 @@ export async function cadastroFilme(filme){
     const [linhas] = await con.query(comando, [filme.idfranquia,filme.idgenero,filme.nome, filme.duracao,filme.classificacao,filme.lancamento,filme.ator,filme.tomato,filme.audience,filme.sinopse,filme.diretor,filme.avaliacao,filme.destaque,filme.situacao])
     return linhas[0]
 }
+
+export async function alterarImagem(imagem, id) {
+    const comando =
+    `UPDATE tb_filme 
+        SET img_capa    = ?
+    WHERE id_filme      = ?`;
+
+    const [resposta] = await con.query(comando, [imagem, id]);
+    return resposta.affectedRows;
+}

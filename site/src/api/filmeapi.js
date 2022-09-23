@@ -6,7 +6,7 @@ export async function confirmarFilme(idfranquia,idgenero,nome,duracao,classifica
     return asnwer.data;
 }
 
-export async function enviarImageFilme(id, imagem) {
+export async function enviarImagemFilme(id, imagem) {
     const formData = new FormData();
     formData.append(`imagem` , imagem);
 

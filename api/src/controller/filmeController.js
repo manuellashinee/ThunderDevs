@@ -28,6 +28,9 @@ server.put('/adm/filme/:id/imagem', upload.single('imagem'), async (req, resp) =
         const { id } = req.params;
         const imagem = req.file.path;
 
+        const resposta = await alterarImagem(imagem, id);
+        if (resposta != 1)
+            throw new Error('A imagem não pode ser salva.');
 
         resp.status(204).send();
     }catch (err) {

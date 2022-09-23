@@ -19,6 +19,6 @@ server.use(franquiaController);
 server.use(generoController);
 
 
-server.use('/storage/fotosfilme', express.static('storage/fotosfilme'));
+server.use('/storage/fotosfilmes', express.static('storage/fotosfilmes'));
  
 server.listen(process.env.PORT, () => console.log(`API conectada na porta ${process.env.PORT}`));

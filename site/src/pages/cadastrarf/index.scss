@@ -162,6 +162,22 @@ body{
     .checkbox{
         margin-right: 14%;
     }
+
+
+    #imagemCapa {
+        visibility: hidden;
+        position: absolute;
+    
+    }
+    
+    .imagem-capa {
+        height: 15em;
+        width: none;
+        border-radius: 5px;
+    }
 }
+
+
+
 
 

@@ -3,7 +3,7 @@ import '../../common/common.scss'
 import { useState, useEffect} from 'react'
 import {consultarFranquias} from '../../api/franquiaApi.js'
 import {consultarGeneros} from '../../api/generoApi.js'
-import { confirmarFilme } from '../../api/filmeapi'
+import { confirmarFilme, enviarImagemFilme } from '../../api/filmeapi'
 
 export default function Cadastrar(){
     const [fraquias, setFranquias] = useState([]);
@@ -40,8 +40,13 @@ export default function Cadastrar(){
     async function SalvarFilme(){
         try{
         console.log(idfraquia)
+
         const r = await confirmarFilme(Number(idfraquia),Number(idgenero),nome,duracao,classificacao,lancamento,ator,tomato,audience,sinopse,diretor,avaliacao,destaque,situacao);
+        const filme = await enviarImagemFilme(r.id, imagem);
+       
         alert('filme bem cadastrado')
+
+
     }catch(err){
         
         console.log(err.message)
@@ -55,6 +60,13 @@ export default function Cadastrar(){
         carregarGeneros();
     }, [])
 
+    function escolherImagem() {
+        document.getElementById('imagemCapa').click();
+    }
+
+    function mostrarImagem() {
+        return URL.createObjectURL(imagem);
+    }
 
     return (
         <section className='pagina-cadastro'>
@@ -126,8 +138,23 @@ export default function Cadastrar(){
                     <div className='coluna2'>
                         <p className='campos'>SINOPSE:</p>
                         <input  className='input-linha2' type='text' value= {sinopse} onChange={e=> setSinopse(e.target.value)}/>
+                        
+                        
                         <p className='campos'>IMAGEM:</p>
+                        <div className= 'upload-capa' onClick={escolherImagem}>
+                            {!imagem &&
+                                <img src='../images/icon.svg' alt='' />
+                            }
+
+                            {imagem &&
+                                <img className='imagem-capa' src={mostrarImagem()} alt=''/>
+
+                            }
+
                         <input className='input-linha2' type='file' id='imagemCapa' onChange={e => setImagem(e.target.files[0])}/>
+                        </div>
+                       
+                        
                         <p className='campos'>AVALIAÇÃO:</p>
                         <input className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO' value= {avaliacao} onChange={e=> setAvaliacao(Number(e.target.value))}/>
                     </div>
