@@ -39,15 +39,15 @@ export default function Cadastrar(){
 
     async function SalvarFilme(){
         try{
-        const r = await confirmarFilme(idfraquia,idgenero,nome,duracao,classificacao,lancamento,ator,tomato,audience,sinopse,diretor,avaliacao,destaque,situacao);
+        console.log(idfraquia)
+        const r = await confirmarFilme(Number(idfraquia),Number(idgenero),nome,duracao,classificacao,lancamento,ator,tomato,audience,sinopse,diretor,avaliacao,destaque,situacao);
         alert('filme bem cadastrado')
-    
     }catch(err){
         
         console.log(err.message)
         alert('filme não cadastrado')
-    }
-}
+    }}
+
 
    
     useEffect(() => {
@@ -105,11 +105,11 @@ export default function Cadastrar(){
                 <div className='coluna-2-campos'>
                             <div className='coluna1'>
                                 <p className='campos'>TOMATO METER</p>
-                                <input className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO' value= {tomato} onChange={e=> setTomato(e.target.value)}/>
+                                <input className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO' value= {tomato} onChange={e=> setTomato(Number(e.target.value))}/>
                             </div>
                             <div className='coluna1'>
                                 <p className='campos'>AUDIENCE SCORE</p>
-                                <input value= {audience} onChange={e=> setAudience(e.target.value)}className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO'/>
+                                <input value= {audience} onChange={e=> setAudience(Number(e.target.value))}className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO'/>
                             </div>
                         </div>
                         <div className='coluna-2-campos'>
@@ -118,8 +118,8 @@ export default function Cadastrar(){
                             <p className='campos'>SITUAÇÃO:</p>
                             <select className='campos  input-linhas' value= {situacao} onChange={e=> setSituacao(e.target.value)}> 
                                     <option disabled selected hidden> Selecione</option>
-                                    <option>ATIVO</option>
-                                    <option>INATIVO</option>
+                                    <option value="ATIVO" >ATIVO</option>
+                                    <option value="INATIVO">INATIVO</option>
                             </select>
                         </div>
                     </div>
