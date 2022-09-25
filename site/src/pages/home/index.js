@@ -80,6 +80,10 @@ export default function Home(){
                 <Cabecalhoo/>
                 <hr/>
             </div>
+
+            <div>
+            <img src="../images/interesse.png" alt=""/>
+            </div>
         </section>
     );
 }
