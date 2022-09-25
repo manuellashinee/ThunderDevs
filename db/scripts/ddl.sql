@@ -86,7 +86,7 @@ create table TB_FILME(
 	NM_DIRETOR          VARCHAR(100),
 	VL_AVALIACAO        DECIMAL(2,1),
 	BT_DESTAQUE         BOOL,
-	DS_SITUACAO         varchar(50),,
+	DS_SITUACAO         varchar(50),
     
     foreign key (ID_FRANQUIA) references  TB_FRANQUIA(ID_FRANQUIA),
     foreign key (ID_GENERO) references  TB_GENERO(ID_GENERO)
