@@ -82,7 +82,7 @@ create table TB_FILME(
 	NR_TOMATO_METER     INT,
 	NR_AUDIENCE_SCORE   INT,
 	DS_SINOPSE          VARCHAR(600),
-	IMG_CAPA            BLOB,
+	IMG_CAPA            VARCHAR(300),
 	NM_DIRETOR          VARCHAR(100),
 	VL_AVALIACAO        DECIMAL(2,1),
 	BT_DESTAQUE         BOOL,
