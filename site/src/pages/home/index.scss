@@ -119,6 +119,8 @@
     .container2{
         margin: 0;
         padding: 0;
+        margin-top: 3em;
+        margin-bottom: 3em;
         height: 70vh;
         display: flex;
         justify-content: center;
@@ -271,12 +273,15 @@
         transition: 0.2s;
     }
 
+    /*rodape*/
+
     .rodape {
         display: flex;
         flex-direction: row;
         background-color: #33283F;
         justify-content: space-around;
         padding-top: 2em;
+        border-radius: 0px 3em 0px 0px;
     }
 
     .redeS {
