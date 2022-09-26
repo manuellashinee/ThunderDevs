@@ -41,19 +41,19 @@ export default function Home(){
             <input type= "radio" name ="radio-btn" id="radio4"/>
 
        <div class="slide first">
-            <img className='img-carrossel' src="../images/tartarugas.jpg" alt=""/>
+            <img className='img-carrossel' src="../images/red.jpg" alt=""/>
        </div>
 
        <div class="slide">
-        <img className='img-carrossel' src="../images/amizade.jpg" alt="" />
+        <img className='img-carrossel' src="../images/encanto.webp" alt="" />
     </div>
 
     <div class="slide">
-        <img className='img-carrossel' src="../images/ticoeteco.jpg" alt="" />
+        <img className='img-carrossel' src="../images/telefone.jpg" alt="" />
    </div>
 
    <div class="slide">
-    <img className='img-carrossel' src="../images/img-interessante.jpg" alt="" />
+    <img className='img-carrossel' src="../images/avatar.webp" alt="" />
     </div>
        <div class="navigation-auto">
         <div class="auto-btn1"></div>
