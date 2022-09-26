@@ -7,6 +7,10 @@ import LoginAdm from  './pages/adm/login';
 import LoginUsuario from './pages/usuarioLogin';
 import Home from './pages/home';
 import Cabecalhoo from './componentes/cabecalho';
+import EmBreve from './pages/user/embreve';
+import EmCartaz from './pages/user/emcartaz';
+import SnackBar from './pages/user/snackbar';
+import Catalago from './pages/user/catalogo';
 
 export default function Rotas (){
     return(
@@ -17,6 +21,10 @@ export default function Rotas (){
         <Route path='/cadastrarfilme' element={<Cadastrar/>}/>
         <Route path='/login' element={<LoginUsuario/>}/>
         <Route path='/loginAdm' element={<LoginAdm/>}/>
+        <Route path='/embreve' element={<EmBreve/>}/>
+        <Route path='/emcartaz' element={<EmCartaz/>}/>
+        <Route path='/snackbar' element={<SnackBar/>}/>
+        <Route path='/catalogo' element={<Catalago/>}/>
     </Routes>
     </BrowserRouter>
     );
