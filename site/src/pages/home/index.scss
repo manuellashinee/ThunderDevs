@@ -42,7 +42,9 @@
 
     .salvar-botao:hover{
         color: white;
-        background-color: #AE4EDB;
+        padding: 8px 2em;
+        background-color: rgb(151, 0, 151);
+        border: 3px solid white;
         cursor: pointer;
         transition: 0.2s;
     }
@@ -95,6 +97,7 @@
         text-align: center;
        align-items: center;
        padding: 2em;
+       background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(19, 18, 18));
     }
 
     hr{
@@ -225,4 +228,47 @@
     #radio4:checked ~ .navigation-auto .auto-btn4{
         background: #ffff;
     }
+
+    /*interesse*/
+    .resumo-interesse{
+        background-image: url('../../../public/images/LOGIN.svg');
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+       align-items: center;
+       padding: 2em;
+    }
+
+    .img-interesse{
+        margin-bottom: -7em;
+    }
+
+    .sub-titulo-i{
+        color: white;
+        font-family: 'LR';
+        padding: 8em 0em 4em;
+        font-size: 1.2em;
+        width: 34em;
+    }
+
+    .salvar-botao-i{
+        font-family: 'LM';
+        background-color: #AE4EDB;
+        font-size: 1.6em;
+        color: white;
+        padding: 10px 2em;
+        border-radius: 10px;
+        margin-bottom: 1em;
+        text-decoration: none;
+    }
+
+    .salvar-botao-i:hover{
+        color: #AE4EDB;
+        background-color: white;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+
 }

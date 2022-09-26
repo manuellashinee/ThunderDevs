@@ -23,7 +23,7 @@ export default function Home(){
                 </div>
             <nav >
                <a className='links' href='#INICIO'> INICIO </a>
-               <a className='links' href='# EM CARTAZ'> EM CARTAZ </a>
+               <a className='links' href='#EM CARTAZ'> EM CARTAZ </a>
                <a className='links' href='#EM BREVE'> EM BREVE </a>
                <a className='links' href='#SNACK BAR'> SNACK BAR </a>
             </nav>
@@ -81,8 +81,12 @@ export default function Home(){
                 <hr/>
             </div>
 
-            <div>
-            <img src="../images/interesse.png" alt=""/>
+            <div className='resumo-interesse'>
+            <img className='img-interesse' src="../images/interesse.png" alt=""/>
+            <p className='texto1-l'>VEJA AGORA O NOSSO CATÁLOGO COMPLETO</p>
+            <hr/>
+            <p className='sub-titulo-i'>NOSSO CATALÓGO POSSUI OS MAIS DIVERSOS FILMES, DE DIVERSOS GENÊROS PARA TODOS OS TIPOS DE AUDIÊNCIA</p>
+            <Link to='' className='salvar-botao-i'>VER CATÁLOGO</Link>
             </div>
         </section>
     );
