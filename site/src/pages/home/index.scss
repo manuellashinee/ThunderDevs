@@ -271,5 +271,72 @@
         transition: 0.2s;
     }
 
+    .rodape {
+        display: flex;
+        flex-direction: row;
+        background-color: #33283F;
+        justify-content: space-around;
+        padding-top: 2em;
+    }
+
+    .redeS {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sociais {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+    }
+
+    .popcorn {
+        opacity: 100%;
+        height: 10em;
+        padding: 10px;
+        mix-blend-mode: lighten; 
+    }
+
+    .logoo {
+        font-family: 'LSB';
+        color: #ffff;
+        font-size: 10px;
+    }
+
+    .filme {
+        font-family: 'LSB';
+        color: #ffff;
+        
+    }
+
+    h1 {
+        font-size: 1.5em;
+        font-family: 'LSB';
+    }
+
+    .snack {
+        font-family: 'LSB';
+        color: #ffff;
+    }
+
+    .salas {
+        font-family: 'LSB';
+        color: #ffff;
+    }
+
+    .contatos {
+        font-family: 'LSB';
+        color: #ffff;
+    }
+
+    .desc {
+        font-size: 12px;
+        
+    }
+
+    .espaco {
+        margin-top: 15px;
+    }
 
 }
