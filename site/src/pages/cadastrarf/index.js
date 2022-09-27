@@ -4,7 +4,7 @@ import { useState, useEffect} from 'react'
 import {consultarFranquias} from '../../api/franquiaApi.js'
 import {consultarGeneros} from '../../api/generoApi.js'
 import { confirmarFilme, enviarImagemFilme } from '../../api/filmeapi'
-import storage, { set } from 'local-storage'
+import storage from 'local-storage'
 
 export default function Cadastrar(){
     const [fraquias, setFranquias] = useState([]);
@@ -24,7 +24,7 @@ export default function Cadastrar(){
     const [destaque, setDestaque] = useState(false);
     const [situacao, setSituacao] = useState("");
     const [imagem, setImagem] = useState();
-    const [id, setId] = useState(0);
+    const [idfilme, setIdFilme] = useState(0);
    
 
 
@@ -40,22 +40,17 @@ export default function Cadastrar(){
 
     async function SalvarFilme(){
         try{
-            const usuario = storage('usuario-logado').id;
-            if(usuario === 0) throw new Error('Você nao é um usuario logado')
-
-        if(id === 0) {
        
-        const r = await confirmarFilme(Number(idfraquia),Number(idgenero),nome,duracao,classificacao,lancamento,ator,tomato,audience,sinopse,diretor,avaliacao,destaque,situacao, usuario);
-        const filme = await enviarImagemFilme(r.id, imagem);
-        setId(r.id)
-        
+        const resposta = await confirmarFilme(Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao);
+        console.log(resposta);
+        setIdFilme(resposta.idfilme);
+        const filme = await enviarImagemFilme(idfilme, imagem);
+       
         alert('filme cadastrado com sucesso')
-       
-     }
+        
     }catch(err){
         
-        console.log(err.message)
-        alert('filme não cadastrado')
+        alert(err.message)
     }}
 
 
@@ -92,7 +87,7 @@ export default function Cadastrar(){
                         <p className='campos' >NOME:</p>
                         <input className='input-linha' type='text' value= {nome} onChange={e=> setNome(e.target.value)}/>
                         <p className='campos' >DURAÇÃO:</p>
-                        <input className='input-linha' type='text' value= {duracao} onChange={e=> setDuracao(Number(e.target.value))}/>
+                        <input className='input-linha' type='text' value= {duracao} onChange={e=> setDuracao(e.target.value)}/>
                         <p className='campos' >ATOR PRINCIPAL:</p>
                         <input className='input-linha' type='text' value= {ator} onChange={e=> setAtor(e.target.value)}/>
                         <p className='campos' >DIRETOR:</p>
@@ -116,17 +111,17 @@ export default function Cadastrar(){
                             </div>
                         </div>
                 <p className='campos'>CLASSIFICAÇÃO:</p>
-                <input className='input-linha' type='text' value= {classificacao} onChange={e=> setClassificacao(Number(e.target.value))}/>
+                <input className='input-linha' type='text' value= {classificacao} onChange={e=> setClassificacao(e.target.value)}/>
                 <p className='campos'>DATA DE LANÇAMENTO:</p>
                 <input className='input-linha' type="date" value= {lancamento} onChange={e=> setLancamento(e.target.value)}/>
                 <div className='coluna-2-campos'>
                             <div className='coluna1'>
                                 <p className='campos'>TOMATO METER</p>
-                                <input className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO' value= {tomato} onChange={e=> setTomato(Number(e.target.value))}/>
+                                <input className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO' value= {tomato} onChange={e=> setTomato(e.target.value)}/>
                             </div>
                             <div className='coluna1'>
                                 <p className='campos'>AUDIENCE SCORE</p>
-                                <input value= {audience} onChange={e=> setAudience(Number(e.target.value))}className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO'/>
+                                <input value= {audience} onChange={e=> setAudience(e.target.value)}className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO'/>
                             </div>
                         </div>
                         <div className='coluna-2-campos'>
@@ -161,7 +156,7 @@ export default function Cadastrar(){
                        
                         
                         <p className='campos'>AVALIAÇÃO:</p>
-                        <input className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO' value= {avaliacao} onChange={e=> setAvaliacao(Number(e.target.value))}/>
+                        <input className='input-linha' type='text' placeholder='CAMPO NÃO OBRIGATÓRIO' value= {avaliacao} onChange={e=> setAvaliacao(e.target.value)}/>
                     </div>
                 </div>
 
