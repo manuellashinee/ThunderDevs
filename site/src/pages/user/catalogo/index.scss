@@ -1,0 +1,44 @@
+.catalogo-page{
+    display: flex;
+    flex-direction: column;
+    background-color: #1A1919;
+
+    .img-navegar-page{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .navegacao{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .linhas-c{
+        color: #4D4949;
+    }
+
+    p{
+        color: white;
+    }
+
+    .icons-c{
+        padding: 8em 10px;
+    }
+
+    .icon-c img {
+        padding: 1.3em 0em;
+    }
+
+    .logo{
+        mix-blend-mode: lighten;
+        width: 7.5em;
+    }
+
+    .cabecalho-pesquisa{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-image: url('../../../../public/images/paisagem.svg');
+        background-size: 100%;
+    }
+}

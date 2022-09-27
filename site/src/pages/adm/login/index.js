@@ -7,11 +7,6 @@ import { loginAdm } from '../../../api/loginadmApi.js';
 import axios from 'axios'
 
 
-
-
-
-
-
  export default function Index() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
