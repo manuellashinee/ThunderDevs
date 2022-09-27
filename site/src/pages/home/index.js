@@ -1,6 +1,5 @@
 import './index.scss'
 import '../../common/common.scss'
-import Cabecalhoo from '../../componentes/cabecalho';
 import { Link } from 'react-router-dom';
 
 export default function Home(){
@@ -77,7 +76,6 @@ export default function Home(){
             <div className='resumo-l'>
                 <hr/>
                 <p className='texto1-l'>Viva a melhor experiência em assistir um filme em São Paulo. POPCORN TIME é a maior rede de cinemas multiplex do Brasil.</p>
-                <Cabecalhoo/>
                 <hr/>
             </div>
 
