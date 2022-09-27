@@ -1,6 +1,7 @@
 import './index.scss'
 import '../../common/common.scss'
 import { Link } from 'react-router-dom';
+import Cabecalho from  '../components/cabecalho/index'
 
 export default function Home(){
 
@@ -16,20 +17,7 @@ export default function Home(){
     return(
         <section className='landing-page'>
 
-        <div className='cabecalho'>
-                <div className='img-logo'>
-                <img className='logo' src='../images/logo.svg'/>
-                </div>
-            <nav >
-               <a className='links' href='#INICIO'> INICIO </a>
-               <a className='links' href='/emcartaz'> EM CARTAZ </a>
-               <a className='links' href='/embreve'> EM BREVE </a>
-               <a className='links' href='/snackbar'> SNACK BAR </a>
-            </nav>
-            <div className='botao-login'>
-            <Link to='/login' className='salvar-botao'>LOGIN</Link>
-            </div>
-        </div>
+            <Cabecalho/>
 
         <div className='container2'>
       <div class="slider">
