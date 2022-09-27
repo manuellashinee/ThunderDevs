@@ -1,5 +1,6 @@
 import './index.scss'
 import '../../common/common.scss'
+import  Cards from '../components/filmeCards/index'
 import Cabecalhoo from '../../componentes/cabecalho';
 import { Link } from 'react-router-dom';
 
