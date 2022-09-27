@@ -157,9 +157,11 @@
     .navigation-manual {
         position: absolute;
         width: 800px;
-        margin-top: 29em;
+        margin-top: 36em;
         display: flex;
         justify-content: center;
+        margin-left: 10em;
+
     }
     
     .manual-btn {
@@ -201,7 +203,8 @@
         display: flex;
         width: 800px;
         justify-content: center;
-        margin-top: 464px;
+        margin-top: 36em;
+        margin-left: 10em;
     }
     .navigation-auto div {
         border: 2px solid #ffff; 
