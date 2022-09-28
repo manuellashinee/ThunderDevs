@@ -1,0 +1,32 @@
+.img-textos{
+    display: flex;
+    flex-direction: column;
+
+    .img-card{
+        width: 221px;
+        height: 280px;
+        padding: 15px;
+        border-radius: 25px;
+    }
+
+    .textos-c{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .titulo-c{
+        font-family: 'LSB';
+        text-align: center;
+        padding: 1em 0em;
+        font-size: 17px;
+        width: 10em;
+    }
+
+    .data-c{
+        font-family: 'LR';
+        text-align: center;
+        margin-bottom: 2em;
+    }
+}

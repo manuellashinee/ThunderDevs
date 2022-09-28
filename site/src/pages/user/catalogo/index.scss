@@ -52,8 +52,8 @@
 
     .pesquisa-design{
         background-color: #1A1919;
-        border: 2px solid white;
-        border-radius: 10px;
+        border: 2px solid rgb(206, 206, 206);
+        border-radius: 5px;
         font-family: 'LM';
         color: white;
         position: relative;
@@ -90,5 +90,47 @@
         font-size: 2em;
         width: 20em;
         margin-top: 9em;
-    }    
+    }   
+    
+    /*pagina-baixo*/
+
+    .pagina-baixo{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .texto-select{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 4em 1.5em;
+    }
+
+    .texto-catalogo{
+        font-family: 'LR';
+        color: white;
+    }
+
+    .campos {
+        display: flex;
+        font-family: 'LSB';
+        color: #F5F5F5;
+        width: max-content ;
+        margin-bottom: 0.4em;
+    }
+
+    .input-linhas {
+        opacity: 76%;
+        background-color: #1A1919;
+        height: 2em;
+        width: 16%;
+        border-radius: 5px;
+        border: 2px solid white;
+    }
+    
+    .cards-filmes{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }

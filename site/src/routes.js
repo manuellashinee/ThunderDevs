@@ -11,6 +11,7 @@ import EmCartaz from './pages/user/emcartaz';
 import SnackBar from './pages/user/snackbar';
 import Catalago from './pages/user/catalogo';
 import Cards from './pages/components/filmeCards';
+import HomeAdm from './pages/adm/homeadm';
 
 export default function Rotas (){
     return(
@@ -18,6 +19,7 @@ export default function Rotas (){
     <Routes>
         <Route path='/home' element={<Home/>}/>
         <Route path='/cadastrarfilme' element={<Cadastrar/>}/>
+        <Route path='/homeadm' element={<HomeAdm/>}/>
         <Route path='/login' element={<LoginUsuario/>}/>
         <Route path='/loginAdm' element={<LoginAdm/>}/>
         <Route path='/embreve' element={<EmBreve/>}/>
