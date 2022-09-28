@@ -2,6 +2,7 @@ import './index.scss';
 import '../../../common/common.scss'
 import { useState, useRef, useEffect } from 'react';
 import{ useNavigate } from 'react-router-dom';
+import LoadingBar from 'react-top-loading-bar';
 import storage from 'local-storage'
 import { loginAdm } from '../../../api/loginadmApi'
 
@@ -16,7 +17,7 @@ import { loginAdm } from '../../../api/loginadmApi'
   const ref= useRef();
 
   useEffect(() => {
-    if(storage('usuario-logado')) {
+    if(storage('ADM-logado')) {
 
     }
 })
@@ -28,10 +29,11 @@ import { loginAdm } from '../../../api/loginadmApi'
 
     try{
       const asnwer = await loginAdm(email,senha);
-      storage('usuario-logado', asnwer);
-      console.log(storage('usuario-logado'))
+      storage('ADM-logado', asnwer);
+      console.log(storage('ADM-logado'))
+      console.log(asnwer);
       navigate('/cadastrarfilme');
-
+      
     } catch(err) {
       ref.current.complete();
       setCarregando(false);
@@ -48,6 +50,7 @@ import { loginAdm } from '../../../api/loginadmApi'
 
   return (
     <section className='pagina-login'>
+       <LoadingBar color='rgba(254, 193, 138, 1)' ref={ref} />
     <section className='container'>
       <div className='la'>
         <img className='logo' src='../images/logo.svg'/>
@@ -84,7 +87,7 @@ import { loginAdm } from '../../../api/loginadmApi'
 
         <div className='b1'><button className='primeiro  salvar-botao' onClick={entrarClick} disabled={carregando} >ENTRAR</button></div>
        </div>
-       <div className='form-entrar'>{erro}</div>
+     
 
       </div>
       </div>

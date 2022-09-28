@@ -43,8 +43,8 @@ export default function Cadastrar(){
        
         const resposta = await confirmarFilme(Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao);
         console.log(resposta);
-        setIdFilme(resposta.idfilme);
-        const filme = await enviarImagemFilme(idfilme, imagem);
+        setIdFilme(resposta.id);
+        const filme = await enviarImagemFilme(imagem, idfilme);
        
         alert('filme cadastrado com sucesso')
         
