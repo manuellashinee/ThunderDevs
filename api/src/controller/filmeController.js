@@ -9,9 +9,11 @@ server.post('/adm/filme', async (req, resp) =>{
     try{
         const filme = req.body;
 
-        await cadastroFilme(filme);
+        const idfilme = await cadastroFilme(filme);
 
-        resp.status(204).send();
+        resp.send({ 
+            id: idfilme
+         });
     }
     catch (err) {
         return resp.status(400).send({
@@ -29,12 +31,10 @@ server.put('/adm/filme/:id/imagem', upload.single('imagem'), async (req, resp) =
         const imagem = req.file.path;
 
         const resposta = await alterarImagem(imagem, id);
-        if (resposta != 1)
-            throw new Error('A imagem não pode ser salva.');
-
+        
         resp.status(204).send();
     }catch (err) {
-        resp.status(400).send({
+        resp.status(404).send({
             erro:err.message
         })
     }

@@ -1,5 +1,6 @@
 import './index.scss'
 import '../../common/common.scss'
+import { Link } from 'react-router-dom';
 import { useState, useEffect} from 'react'
 import {consultarFranquias} from '../../api/franquiaApi.js'
 import {consultarGeneros} from '../../api/generoApi.js'
@@ -42,11 +43,10 @@ export default function Cadastrar(){
         try{
        
         const resposta = await confirmarFilme(Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao);
-        console.log(resposta);
-        setIdFilme(resposta.id);
-        const filme = await enviarImagemFilme(imagem, idfilme);
+        
+        const filme = await enviarImagemFilme(imagem, resposta.id);
        
-        alert('filme cadastrado com sucesso')
+        alert('filme cadastrado com sucesso');
         
     }catch(err){
         
@@ -74,7 +74,7 @@ export default function Cadastrar(){
             <div className='logo-botoes'>
                 <img className='logo' src='../images/logo.svg' />
                 <div className='voltar-botao'>
-                    <img className='flecha' src='../images/flecha.svg' />
+                    <Link to='/homeadm'><img className='flecha' src='../images/flecha.svg' /></Link>
                     <button className='salvar-botao' onClick={SalvarFilme}>SALVAR</button>
                 </div>
             </div>
