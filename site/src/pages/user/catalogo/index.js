@@ -20,13 +20,15 @@ export default function Catalogo(){
               <hr className='linhas-c'/>
            </div>
            
-          <div className='cabecalho-pesquisa'>
+            <div className='cabecalho-pesquisa'>
             <div>
             <img className='logo' src='../images/logo.svg'/>
+            <p className='bem-vindes'>BEM VINDES AO NOSSO CATÁLOGO</p>
             </div>
 
-            <div>
-            <input type='text'/>
+            <div className='pesquisa-input'>
+              <input className='pesquisa-design' type='text'/>
+              <button  className='pesquisar-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
              </div>
           </div>
          </div>

@@ -26,19 +26,69 @@
     }
 
     .icon-c img {
+        width: 2em;
         padding: 1.3em 0em;
     }
 
     .logo{
         mix-blend-mode: lighten;
         width: 7.5em;
+        margin-top: 1em;
     }
 
     .cabecalho-pesquisa{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        background-repeat: no-repeat;
         background-image: url('../../../../public/images/paisagem.svg');
         background-size: 100%;
+        width: 100vw;
     }
+
+    .pesquisa-input{
+      padding: 2em;
+    }
+
+    .pesquisa-design{
+        background-color: #1A1919;
+        border: 2px solid white;
+        border-radius: 10px;
+        font-family: 'LM';
+        color: white;
+        position: relative;
+        width: 90%;
+        min-width: 7em;
+        height: 2em;
+    }
+
+    .pesquisar-icon{
+       background-color:inherit;
+       border: none;
+    }
+
+    .img-pesquisa{
+        width: 80%;
+        margin-top: 5px;
+        height: auto;
+    }
+
+    .img-pesquisa:hover{
+        cursor: pointer;
+    }
+
+    .pesquisa-input .pesquisar-icon{
+        position: absolute;
+        transform: translate(-100%, 0%);
+    }
+
+    .bem-vindes{
+        display: flex;
+        font-family: 'LB';
+        color: #D7D7D7;
+        padding: 1em;
+        font-size: 2em;
+        width: 20em;
+        margin-top: 9em;
+    }    
 }
