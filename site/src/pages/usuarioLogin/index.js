@@ -1,9 +1,10 @@
 import '../../common/common.scss'
 import './index.scss'
 import { useState, useRef, useEffect } from 'react';
+import LoadingBar from 'react-top-loading-bar';
 import{ useNavigate } from 'react-router-dom';
 import storage from 'local-storage'
-import {login} from '../../api/loginApi'
+import { loginUsu} from '../../api/loginApi'
 
 
 
@@ -29,9 +30,11 @@ export default function Index() {
 
       try {
 
-          const asnwer = await login(email,senha);
+          const asnwer = await loginUsu(email,senha);
           storage('usuario-logado', asnwer);
           console.log(storage('usuario-logado'))
+          navigate('/cadastrarfilme')
+
 
     
 
@@ -47,6 +50,7 @@ export default function Index() {
 
   return (
     <section className='pagina-login'>
+    <LoadingBar color='rgba(254, 193, 138, 1)' ref={ref} />
     <section className='container'>
       <div className='la'>
         <img className='logo' src='../images/logo.svg'/>
@@ -73,8 +77,8 @@ export default function Index() {
           <div><input className='can' value={email}  onChange={e => setEmail(e.target.value) }/></div>
         </div>
         <div className='squad2'>
-          <div> <p className='titulo-1' value={senha}  onChange={e => setSenha(e.target.value) }>SENHA:</p></div>
-          <div><input type='password' className='can'/></div>
+          <div> <p className='titulo-1' >SENHA:</p></div>
+          <div><input type='password' className='can' value={senha}  onChange={e => setSenha(e.target.value) }/></div>
         </div>
         </div>
         <div className='descricao'><p>FAÇA SEU LOGIN PARA TER ACESSO AO NOSSO CATÁLOGO IMPERDÍVEL, NOSSO PLANO CINEMA, BONÛS E OFERTAS UNICOS!</p></div>
@@ -82,7 +86,7 @@ export default function Index() {
 
        <div className='botoes'>
 
-        <div className='b1'><button className='primeiro  salvar-botao' nClick={entrarClick} disabled={carregando}>ENTRAR</button></div>
+        <div className='b1'><button className='primeiro  salvar-botao' onClick={entrarClick} disabled={carregando}>ENTRAR</button></div>
 
         <div className='b2'><button className='primeiro salvar-botao'>CADASTRE-SE</button></div>
        </div>

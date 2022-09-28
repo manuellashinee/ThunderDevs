@@ -12,7 +12,7 @@ server.post('/adm/login', async (req, resp) => {
         if (!resposta) {
             throw new Error('Credenciais inválidas!')
         }else{
-            resp.status(204).send()
+            resp.send(resposta)
         }
     }
     catch (err) {
