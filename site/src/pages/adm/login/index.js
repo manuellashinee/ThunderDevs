@@ -3,8 +3,8 @@ import '../../../common/common.scss'
 import { useState, useRef, useEffect } from 'react';
 import{ useNavigate } from 'react-router-dom';
 import storage from 'local-storage'
-import { loginAdm } from '../../../api/loginadmApi.js';
-import axios from 'axios'
+import { loginAdm } from '../../../api/loginadmApi'
+
 
 
  export default function Index() {
@@ -13,18 +13,28 @@ import axios from 'axios'
   const [erro, setErro] = useState('');
   const [carregando, setCarregando] = useState(false);
   const navigate = useNavigate();
+  const ref= useRef();
+
+  useEffect(() => {
+    if(storage('usuario-logado')) {
+
+    }
+})
+
 
    async function entrarClick() {
+    ref.current.continuousStart()
+    setCarregando(true);
 
     try{
-      const r = await axios.post('http://localhost:5000/adm/login', {
-      email : email, 
-      senha : senha
-    });
-
-    navigate('/cadastrarfilme');
+      const asnwer = await loginAdm(email,senha);
+      storage('usuario-logado', asnwer);
+      console.log(storage('usuario-logado'))
+      navigate('/cadastrarfilme');
 
     } catch(err) {
+      ref.current.complete();
+      setCarregando(false);
       if (err.response.status === 404) {
         setErro(err.response.data.erro)
       }
@@ -72,7 +82,7 @@ import axios from 'axios'
 
        <div className='botoes'>
 
-        <div className='b1'><button className='primeiro  salvar-botao' onClick={entrarClick} >ENTRAR</button></div>
+        <div className='b1'><button className='primeiro  salvar-botao' onClick={entrarClick} disabled={carregando} >ENTRAR</button></div>
        </div>
        <div className='form-entrar'>{erro}</div>
 
