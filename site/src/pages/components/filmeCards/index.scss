@@ -1,0 +1,97 @@
+.filmes-salvos{
+
+    border: 2px solid #fff;
+    border-radius: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.descricao {
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    margin-bottom: 1em;
+
+}
+
+.alinhamento {
+    position: relative;
+    top: 1em;
+    
+}
+
+.editar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+   
+}
+
+.edit-img {
+width: 25px;
+position: relative;
+left: 4em;
+}
+
+.remover {
+    display: flex;
+    flex-direction: row;
+}
+
+.remove-img {
+    width: 35px;
+    position: relative;
+    left: 4em;
+    }
+
+.esquerda {
+    display: flex;
+    margin-left: 1em;
+    
+}
+
+.padrao {
+    display: flex;
+    flex-direction: row;
+
+    label {       
+        color: grey;
+        font-size: 15px;
+    }
+
+    h2 {
+        text-align: start;
+        font-family: 'LM';
+        font-size: 1em;
+        color: #fff;
+       
+    }
+
+
+       
+}
+
+.img-capa {
+    width: 182px;
+    height: 245px;
+    padding: 15px;
+}
+
+h1 {
+    color: #fff;
+    font-family: 'LSB';
+}
+
+
+.borda {
+    display: flex;
+}
+
+.desc {
+    margin-top: 2px;
+    margin-left: 6px;
+}
+
