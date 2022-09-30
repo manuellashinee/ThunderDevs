@@ -2,7 +2,7 @@ import { Router } from 'express';
 const server = Router();
 
 import multer from "multer" ;
-import { cadastroFilme, alterarImagem} from '../repository/filmeRepository.js';
+import { cadastroFilme, alterarImagem, consultarTodosFilme, consultarFilmeGenero, consultarFilmeFranquia} from '../repository/filmeRepository.js';
 const upload = multer({dest: 'storage/fotosfilmes'}) 
 
 server.post('/adm/filme', async (req, resp) =>{
@@ -39,6 +39,44 @@ server.put('/adm/filme/:id/imagem', upload.single('imagem'), async (req, resp) =
         })
     }
 })
+
+server.get('/consulta/filme', async (req, resp) =>{
+    try{
+        const filmes=  await consultarTodosFilme();
+        resp.send(filmes);
+    } 
+    catch (err) {
+        return resp.status(400).send({
+            erro: err.message
+        })
+    }
+} )
+
+server.get('/consulta/genero/filme/:idgenero', async (req, resp) =>{
+    try{
+        const  id = req.params.idgenero
+        const filmes =  await consultarFilmeGenero(id);
+        resp.send(filmes);
+    } 
+    catch (err) {
+        return resp.status(400).send({
+            erro: err.message
+        })
+    }
+} )
+
+server.get('/consulta/franquia/filme/:idfranquia', async (req, resp) =>{
+    try{
+        const  id = req.params.idfranquia
+        const filmes=  await consultarFilmeFranquia(id);
+        resp.send(filmes);
+    } 
+    catch (err) {
+        return resp.status(400).send({
+            erro: err.message
+        })
+    }
+} )
 
 
 export default server;
