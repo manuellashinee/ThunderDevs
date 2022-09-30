@@ -53,6 +53,7 @@ export default function Catalogo(){
               <FilmeC imagem='../images/red.jpg' titulo='RED: CRESCER É UMA FERA' data='15/12/2022'/>
             </div>
            </div>
+           <hr/>
         </section>
     );
 }
