@@ -23,7 +23,7 @@ export default function Cadastrar(){
     const [diretor, setDiretor] = useState("");
     const [avaliacao, setAvaliacao] = useState();
     const [destaque, setDestaque] = useState(false);
-    const [situacao, setSituacao] = useState("");
+    const [situacao, setSituacao] = useState("ATIVO");
     const [imagem, setImagem] = useState();
     const [idfilme, setIdFilme] = useState(0);
    
