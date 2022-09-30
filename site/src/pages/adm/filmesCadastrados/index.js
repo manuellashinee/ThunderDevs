@@ -2,6 +2,7 @@ import './index.scss'
 import '../../../common/common.scss'
 import { Link } from 'react-router-dom';
 import FilmeCards from '../../components/filmeCards/index';
+import CabecalhoP from '../../components/cabecalho-pesquisa';
 
 export default function Filmes(){
 
@@ -10,14 +11,7 @@ export default function Filmes(){
     return(
         <section className='salvos'>
     <div className='head'>
-        <div>
-        <img src='../images/logo.svg'/>
-        </div>
-
-         <div className='pesquisa-input'>
-              <input className='pesquisa-design' type='text'/>
-              <button  className='pesquisar-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
-        </div>
+        <CabecalhoP/>
      </div>
      <div>
         <h1>FILMES CADASTRADOS:</h1>
