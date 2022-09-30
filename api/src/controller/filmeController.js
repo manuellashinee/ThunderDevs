@@ -2,7 +2,7 @@ import { Router } from 'express';
 const server = Router();
 
 import multer from "multer" ;
-import { cadastroFilme, alterarImagem, consultarTodosFilme, consultarFilmeGenero, consultarFilmeFranquia} from '../repository/filmeRepository.js';
+import { cadastroFilme, alterarImagem, consultarTodosFilme, consultarFilmeGenero, consultarFilmeFranquia, removerFilme, alterarFilme} from '../repository/filmeRepository.js';
 const upload = multer({dest: 'storage/fotosfilmes'}) 
 
 server.post('/adm/filme', async (req, resp) =>{
@@ -67,7 +67,7 @@ server.get('/consulta/genero/filme/:idgenero', async (req, resp) =>{
 
 server.get('/consulta/franquia/filme/:idfranquia', async (req, resp) =>{
     try{
-        const  id = req.params.idfranquia
+        const  id = req.params.idfranquia;
         const filmes=  await consultarFilmeFranquia(id);
         resp.send(filmes);
     } 
@@ -76,6 +76,38 @@ server.get('/consulta/franquia/filme/:idfranquia', async (req, resp) =>{
             erro: err.message
         })
     }
+} )
+
+server.delete('/adm/filme/:id', async (req, resp)=>{
+    try{
+        const  id = req.params.id;
+        const remove = await removerFilme(id);
+        resp.status(204).send();
+    }
+    catch (err) {
+        return resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.put('/adm/filme/:id', async (req, resp ) =>{
+        try{
+            const id= req.params.id;
+            const filme = req.body;
+            const alteracao= await alterarFilme(filme, id);
+           if(alteracao === 1){
+            resp.status(204).send();
+           }
+           else{
+            throw new Error('filme não pode ser')
+           }
+        }
+        catch (err) {
+            return resp.status(400).send({
+                erro: err.message
+            })
+        }
 } )
 
 

@@ -84,3 +84,34 @@ export async function consultarFilmeFranquia(idfranquia){
     const [resposta] = await con.query(comando, [idfranquia])
     return resposta;
 }
+
+export async function removerFilme(id){
+    const comando= `    
+                    delete from tb_filme 
+                        where id_filme = ? `;
+    const [resposta] = await con.query(comando, [id])
+    return resposta;
+}
+
+export async function alterarFilme(filme, idfilme){
+    const comando= `  
+                UPDATE TB_filme 
+	                SET
+                    ID_FRANQUIA= ?,
+                    ID_GENERO= ? ,
+                    NM_FILME= ?,
+                    NR_DURACAO= ?,
+                    NR_CLASSIFICACAO = ?,
+                    DT_LANCAMENTO = ?,
+                    NM_ATOR= ?,
+                    NR_TOMATO_METER= ?,
+                    NR_AUDIENCE_SCORE =? ,
+                    DS_SINOPSE= ?,
+                    NM_DIRETOR=?,
+                    VL_AVALIACAO=?,
+                    BT_DESTAQUE = ?,
+                    DS_SITUACAO = ?
+                WHERE ID_FILME =?`
+    const [resposta] = await con.query(comando, [filme.idfranquia,filme.idgenero,filme.nome, filme.duracao,filme.classificacao,filme.lancamento,filme.ator,filme.tomato,filme.audience,filme.sinopse,filme.diretor,filme.avaliacao,filme.destaque,filme.situacao, idfilme])
+    return resposta.affectedRows;           
+}
