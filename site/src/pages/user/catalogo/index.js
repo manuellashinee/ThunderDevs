@@ -8,8 +8,8 @@ export default function Catalogo(){
         <section className='catalogo-page'>
          <div className='img-navegar-page'>
            <div className='navegacao'>
-              <p>FOTO</p>
-              <p>NOME</p>
+              <img className='icon-persona' src='../images/popcorn.png'/>
+              <p className='texto-catalogo'>juliana</p>
 
               <div className='icons-c'>
               <Link to='/home' className='icon-c'><img src='../images/Burger.svg'/></Link>
@@ -53,7 +53,28 @@ export default function Catalogo(){
               <FilmeC imagem='../images/red.jpg' titulo='RED: CRESCER É UMA FERA' data='15/12/2022'/>
             </div>
            </div>
-           <hr/>
+
+<hr/>
+           <div className='pagina-baixo'>
+
+    <div className='texto-select'>
+    <p className='texto-catalogo'>FILMES DIVERSOS</p>
+
+    <select  className='campos input-linhas'> 
+     <option disabled selected hidden> Selecione a categoria </option>
+         <option>LALALALALALLA</option>
+    </select>
+    </div>
+
+<div className='cards-filmes'>
+  <FilmeC imagem='../images/filmeruim.png' titulo='THOR AMOR E TROVÃO' data='15/12/2022'/>
+  <FilmeC imagem='../images/amizade.jpg' titulo='NARUTO E SASUKE' data='15/12/2022'/>
+  <FilmeC imagem='../images/img-interessante.jpg' titulo='EVANGELION' data='15/12/2022'/>
+  <FilmeC imagem='../images/ticoeteco.jpg' titulo='TARTARUGAS NINJAS' data='15/12/2022'/>
+  <FilmeC imagem='../images/red.jpg' titulo='RED: CRESCER É UMA FERA' data='15/12/2022'/>
+</div>
+</div>
+          
         </section>
     );
 }
