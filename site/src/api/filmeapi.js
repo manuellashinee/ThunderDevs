@@ -18,3 +18,8 @@ export async function enviarImagemFilme(imagem, id) {
     });
     return resposta.status;
 }
+
+export async function vizualizarTFilmes(){
+    const asnwer= await api.get('/consulta/filme')
+    return asnwer.data;
+}

@@ -3,10 +3,21 @@ import '../../../common/common.scss'
 import { Link } from 'react-router-dom';
 import FilmeCards from '../../components/filmeCards/index';
 import CabecalhoP from '../../components/cabecalho-pesquisa';
+import { useEffect, useState } from 'react';
+import { vizualizarTFilmes } from '../../../api/filmeapi';
 
 export default function Filmes(){
+    const [filmes, setFilmes] = useState([])
 
-   
+    async function carregarFilmes(){
+        const resp = await vizualizarTFilmes();
+        console.log(resp);
+        setFilmes(resp);
+    }
+     
+    useEffect(() => {
+        carregarFilmes();
+    }, [])
 
     return(
         <section className='salvos'>
@@ -28,15 +39,9 @@ export default function Filmes(){
         </div>
 
      </div>
-
-     <FilmeCards imagem='../images/moonlight.png' nome='MOONLIGHT: SOBRE A LUZ DO LUAR' sinopse='Black trilha uma jornada de autoconhecimento  enquanto tenta escapar do caminho fácil da criminalidade e do mundo das drogas de Miami...' duracao='180 min'  atores='Sam Worthington, Zoe Saldana, Sigourney Weaver '
-     diretor=' Barry Jenkins' genero='Aventura' classificacao='12 anos' avaliacao='4.5' lancamento=''/>
-    
-
-            
-
-        
-
+        {filmes.map(item =>
+        <FilmeCards  item= {item}/>
+        )}
         </section>
     );
 }

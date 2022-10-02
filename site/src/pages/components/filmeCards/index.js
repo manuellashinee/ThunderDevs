@@ -3,13 +3,19 @@ import '../../../common/common.scss'
 
 export default function FilmeCards(props) {
 
+    function mostrarImagem(imagem) {
+        if (!imagem)
+          return './images/logo.svg'
+        else
+          return `http://localhost:5000/${imagem}`
+      }
 
     return (
         <section className='filmes-salvos'>
             <div className='borda'>
 
             <div>
-            <img className='img-capa' src={props.imagem}/>
+            <img className='img-capa' src={mostrarImagem(props.item.capa)}/>
             </div>
            
             
@@ -18,7 +24,7 @@ export default function FilmeCards(props) {
 
             <div className='editar'>
                 <div className='titulo'>
-                <h1 className='nome-titulo'>{props.nome}</h1>
+                <h1 className='nome-titulo'>{props.item.nome}</h1>
                 </div>
 
                     <div className='esquerda'>
@@ -33,7 +39,7 @@ export default function FilmeCards(props) {
 
                 <div className='remover'>
                     <div className='desc'>
-                <label className='sinopse'>{props.sinopse}</label>
+                <label className='sinopse'>{props.item.sinopse}</label>
                     </div>
 
                     <div>
@@ -49,7 +55,7 @@ export default function FilmeCards(props) {
                 </div>
 
                 <div className='desc'>
-                <label className='duracao'>{props.duracao}</label>
+                <label className='duracao'>{props.item.duracao}</label>
                 </div>
                 
             </div>
@@ -60,7 +66,7 @@ export default function FilmeCards(props) {
                 </div>
 
                 <div className='desc'>
-                <label className='atores'>{props.atores}</label>
+                <label className='atores'>{props.item.ator}</label>
                 </div>
                 
             </div>
@@ -71,7 +77,7 @@ export default function FilmeCards(props) {
                 </div>
 
                 <div className='desc'>
-                <label className='diretor'>{props.diretor}</label>
+                <label className='diretor'>{props.item.diretor}</label>
                 </div>
                 
             </div>
@@ -82,7 +88,7 @@ export default function FilmeCards(props) {
                 </div>
 
                 <div className='desc'>
-                <label className='genero'>{props.genero}</label>
+                <label className='genero'>{props.item.genero}</label>
                 </div>
                 
             </div>
@@ -93,7 +99,7 @@ export default function FilmeCards(props) {
                 </div>
 
                 <div className='desc'>
-                <label className='classificacao'>{props.classificacao}</label>
+                <label className='classificacao'>{props.item.classificacao}</label>
                 </div>
                 
             </div>
@@ -104,7 +110,7 @@ export default function FilmeCards(props) {
                 </div>
 
                 <div className='desc'>
-                <label className='avaliacao'>{props.avaliacao}</label>
+                <label className='avaliacao'>{props.item.avaliacao}</label>
                 </div>
                 
             </div>
@@ -115,7 +121,7 @@ export default function FilmeCards(props) {
                 </div>
 
                 <div className='desc'>
-                <label className='lancamento'>{props.lancamento}</label>
+                <label className='lancamento'>{props.item.lancamento}</label>
                 </div>
                 
             </div>
