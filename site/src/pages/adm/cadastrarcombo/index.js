@@ -29,15 +29,15 @@ export default function Cadastrarcombo(){
                     <div className='coluna2'>
                       
                         <p className='campos'>IMAGEM:</p>
-                        <input type='file'/>
+                        <input className='input-linha2' type='file'/>
                     
                     </div>
                 </div>
-
-                </div>
+                <div className=''>
                 <button className='salvar-botao'>COMBOS REGISTRADOS:</button>
+                </div>
+                </div>
             </div>
-           
         </div>
         </section>
     );

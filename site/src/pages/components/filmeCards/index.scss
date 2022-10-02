@@ -1,14 +1,15 @@
 .filmes-salvos{
-
     border: 2px solid #fff;
     border-radius: 1em;
     margin-left: 2em;
     margin-right: 2em;
+    margin-bottom: 1em;
 }
 
 .descricao {
     display: flex;
     flex-direction: column;
+   
 }
 
 .titulo {
@@ -17,23 +18,28 @@
 }
 
 .alinhamento {
+    display: flex;
     position: relative;
     top: 1em;
+    justify-content: space-between;
     
 }
 
+
+
 .editar {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
+    flex-direction: column;
+    padding: 2em;
+   align-items: flex-end;
    
 }
 
 .edit-img {
 width: 25px;
 position: relative;
-left: 4em;
+margin-bottom: 1em;
+left: 0em;
 }
 
 .remover {
@@ -44,7 +50,7 @@ left: 4em;
 .remove-img {
     width: 35px;
     position: relative;
-    left: 4em;
+    left: 0em;
     }
 
 .esquerda {
@@ -88,6 +94,8 @@ h1 {
 
 .borda {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .desc {

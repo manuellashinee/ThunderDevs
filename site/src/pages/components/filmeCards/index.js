@@ -11,27 +11,18 @@ export default function FilmeCards(props) {
       }
 
     return (
-        <section className='filmes-salvos'>
-            <div className='borda'>
-
-            <div>
-            <img className='img-capa' src={mostrarImagem(props.item.capa)}/>
-            </div>
+    <section className='filmes-salvos'>
+        <div className='borda'>
            
             
             <div className='alinhamento'>
+            <div>
+            <img className='img-capa' src={mostrarImagem(props.item.capa)}/>
+            </div>
             <div className='descricao'>
-
-            <div className='editar'>
-                <div className='titulo'>
+            <div className='titulo'>
                 <h1 className='nome-titulo'>{props.item.nome}</h1>
                 </div>
-
-                    <div className='esquerda'>
-                         <img className='edit-img' src='../images/edit.svg'/>
-                    </div>
-            </div>
-
                <div className='padrao'>
                 <div>
                 <h2>Sinopse:</h2>
@@ -42,9 +33,6 @@ export default function FilmeCards(props) {
                 <label className='sinopse'>{props.item.sinopse}</label>
                     </div>
 
-                    <div>
-                        <img className='remove-img' src='../images/circle-x.svg'/>
-                    </div>
                 </div>
                 
             </div>
@@ -123,9 +111,20 @@ export default function FilmeCards(props) {
                 <div className='desc'>
                 <label className='lancamento'>{props.item.lancamento}</label>
                 </div>
-                
+
             </div>
+           
+
         </div>
+        </div>
+        <div className='editar'>
+
+                    
+        <img className='edit-img' src='../images/edit.svg'/>
+
+
+        <img className='remove-img' src='../images/circle-x.svg'/>
+
         </div>
 
      </div>

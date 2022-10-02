@@ -21,8 +21,9 @@ export default function Filmes(){
 
     return(
         <section className='salvos'>
+            
     <div className='head'>
-        <CabecalhoP/>
+    <CabecalhoP/>
      </div>
      <div>
         <h1>FILMES CADASTRADOS:</h1>
@@ -35,7 +36,7 @@ export default function Filmes(){
         </div>
 
         <div>
-            <img src='../images/circle-mais.svg'/>
+            <Link to='/cadastrarfilme'><img src='../images/circle-mais.svg'/></Link>
         </div>
 
      </div>
