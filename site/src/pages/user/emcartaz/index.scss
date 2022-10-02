@@ -1,0 +1,15 @@
+.em-cartaz{
+    .cards-filmes{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 2em;
+        padding: 1em;
+    }
+
+    .cards-filmes > * {
+        border: 1px solid white;
+        margin-right: 1.5em;
+        border-radius: 30px;
+    }
+}

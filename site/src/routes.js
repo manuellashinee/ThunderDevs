@@ -13,6 +13,7 @@ import Catalago from './pages/user/catalogo';
 import FilmeCards from './pages/components/filmeCards';
 import HomeAdm from './pages/adm/homeadm';
 import Filmes from './pages/adm/filmesCadastrados';
+import Cadastrarcombo from './pages/adm/cadastrarcombo';
 
 export default function Rotas (){
     return(
@@ -29,6 +30,7 @@ export default function Rotas (){
         <Route path='/catalogo' element={<Catalago/>}/>
         <Route path='/filmeCard' element={<FilmeCards/>}/>
         <Route path='/filmes' element={<Filmes/>}/>
+        <Route path='/cadastrarcombo' element={<Cadastrarcombo/>}/>
     </Routes>
     </BrowserRouter>
     );

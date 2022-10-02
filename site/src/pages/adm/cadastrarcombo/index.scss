@@ -1,18 +1,13 @@
-
-body{
-    background-image: url('../../../public/images/LOGIN.svg');
-    background-repeat: no-repeat;
-    background-size: 150vw;
-}
-
-
-.pagina-cadastro{
+.pagina-cadastro-c{
+    background-image: url('../../../../public/images/comboback.svg');
+    width: 100%;
+    background-size: 100%;
 
     .cadastrar-page{
     background-size: cover;
     display: flex;
     flex-direction: column; 
-    padding: 1em 2em 0em;
+    padding: 4em 2em 0em; 
     }
 
     .logo-botoes{
@@ -47,9 +42,9 @@ body{
         font-size: 1em;
         color: white;
         padding: 10px 2em;
-        border: none;
         border-radius: 10px;
         margin-bottom: 1em;
+        border: none;
     }
 
     .salvar-botao:hover{
@@ -74,17 +69,19 @@ body{
     flex-direction: column;
     opacity: 76%;
     background-color: #595959;
-    width: fit-content;
+    width: 60em;
+    margin-bottom: 3em;
     border-radius: 1em;
     
     }
 
     .colunas{
-        display: flex;
+    display: flex;
     flex-direction: row;
     margin-top: 3em;
     justify-content: space-between;
     margin-left: 15px;
+    margin-bottom: 3em;
     }
 
     .coluna1{
@@ -115,7 +112,7 @@ body{
     }
 
     .colunas > * {
-        padding: 0em 6em;
+        margin-right: 3em;
     }
 
     .campos {
@@ -131,7 +128,8 @@ body{
     opacity: 76%;
     background-color: #595959;
     height: 2em;
-    width: none;
+    width: 20em;
+    margin-bottom: 2em;
     border-radius: 5px;
     }
 
@@ -177,13 +175,6 @@ body{
         height: 15em;
         width: none;
         border-radius: 5px;
-    }
-
-    textarea{
-        border: 2px solid #ffff;
-        margin-bottom: 1em;
-        font-family: 'LSB';
-       color: white;
     }
 }
 

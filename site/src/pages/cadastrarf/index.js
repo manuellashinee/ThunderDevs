@@ -137,7 +137,7 @@ export default function Cadastrar(){
                     </div>
                     <div className='coluna2'>
                         <p className='campos'>SINOPSE:</p>
-                        <input  className='input-linha2' type='text' value= {sinopse} onChange={e=> setSinopse(e.target.value)}/>
+                        <textarea className='input-linha2' type='text' value= {sinopse} onChange={e=> setSinopse(e.target.value)}/>
                         
                         
                         <p className='campos'>IMAGEM:</p>
