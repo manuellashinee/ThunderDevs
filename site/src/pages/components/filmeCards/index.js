@@ -104,13 +104,15 @@ export default function FilmeCards(props) {
             </div>
 
             <div className='padrao'>
-                <div>
+                
+             <div>
                 <h2>Lançamento:</h2>     
-                </div>
-
+             </div>
+             
                 <div className='desc'>
                 <label className='lancamento'>{props.item.lancamento}</label>
-                </div>
+              </div>
+            
 
             </div>
            
@@ -118,16 +120,19 @@ export default function FilmeCards(props) {
         </div>
         </div>
         <div className='editar'>
-
-                    
+  
         <img className='edit-img' src='../images/edit.svg'/>
 
 
-        <img className='remove-img' src='../images/circle-x.svg'/>
+        <img className='remove-img' src='../images/circle-x.svg'/>  
+       
+        <div className='l'> 
+            <p>ADICIONAR FILME A UMA SALA</p>
+        </div>
+        </div>
+        
 
         </div>
-
-     </div>
         </section>
     );
 
