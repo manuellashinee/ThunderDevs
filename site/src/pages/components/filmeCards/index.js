@@ -3,11 +3,16 @@ import '../../../common/common.scss'
 import {removerFilme} from '../../../api/filmeapi.js'
 import { confirmAlert } from 'react-confirm-alert';
 
+
 export default function FilmeCards(props) {
   
-   
+   async function recarregarFilme(){
+      window.location.reload();
+   }
    
     async function removerFilmeClick(id, nome){
+
+
 
         confirmAlert({
             title: 'Remover filme',
@@ -18,9 +23,11 @@ export default function FilmeCards(props) {
                 onClick: async () => {
                       const resposta = await removerFilme(id);
                     
+                      recarregarFilme();
+                     
                       
-                  alert('Filme removido');
-      
+                      
+                 
                 }
               },
               {
