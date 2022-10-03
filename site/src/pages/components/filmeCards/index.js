@@ -140,7 +140,7 @@ export default function FilmeCards(props) {
              </div>
              
                 <div className='desc'>
-                <label className='lancamento'>{props.item.lancamento}</label>
+                <label className='lancamento'>{ props.item.lancamento.substr(0,10)}</label>
               </div>
             
 
