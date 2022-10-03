@@ -23,3 +23,8 @@ export async function vizualizarTFilmes(){
     const asnwer= await api.get('/consulta/filme')
     return asnwer.data;
 }
+
+export async function removerFilme(id) {
+    const resposta = await api.delete(`/filme/${id}`);
+    return resposta.status;
+}

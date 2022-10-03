@@ -32,7 +32,7 @@ export default function Filmes(){
      <div className='setas-circle'>
 
         <div>
-            <img src='../images/Arrow 1.svg'/>
+            <img src='../images/Arrow 1.svg' />
         </div>
 
         <div>
