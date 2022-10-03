@@ -1,13 +1,14 @@
 .pagina-cadastro-c{
     background-image: url('../../../../public/images/comboback.svg');
-    width: 100%;
-    background-size: 100%;
+    height: 100vh;
+    background-size: 110%;
+    background-repeat: no-repeat;
 
     .cadastrar-page{
     background-size: cover;
     display: flex;
     flex-direction: column; 
-    padding: 4em 2em 0em; 
+    padding: 0em 2em 0em; 
     }
 
     .logo-botoes{
@@ -27,6 +28,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        margin-top: 2em;
     }
 
     .flecha {
@@ -61,7 +63,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 81vh;
+    height: 100vh;
+   
     }
     .centro {
     padding: 2em;

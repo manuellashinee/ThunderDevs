@@ -34,7 +34,7 @@ export default function Cadastrarcombo(){
                     </div>
                 </div>
                 <div className=''>
-                <button className='salvar-botao'>COMBOS REGISTRADOS:</button>
+                <button className='salvar-botao'>COMBOS REGISTRADOS</button>
                 </div>
                 </div>
             </div>

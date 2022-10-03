@@ -42,6 +42,7 @@ export default function Filmes(){
                 <input className='pesquisa-design' type='text' value={nomefilme} onChange={e=> setNomeFilme(e.target.value)}  />
                 <button  className='pesquisar-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
                 </div>
+              
             </div>
         </div>
         <div className='a'>
