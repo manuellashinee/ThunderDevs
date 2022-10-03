@@ -28,3 +28,8 @@ export async function removerFilme(id) {
     const resposta = await api.delete(`/adm/filme/${id}`);
     return resposta.status;
 }
+
+export async function FiltrarFilmeNome(nome){
+    const asnwer= await api.get(`/consulta/nome/filme?nome=${nome}`)
+    return asnwer.data;
+}
