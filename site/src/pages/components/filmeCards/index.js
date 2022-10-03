@@ -53,9 +53,12 @@ export default function FilmeCards(props) {
            
             
             <div className='alinhamento'>
+                
             <div>
             <img className='img-capa' src={mostrarImagem(props.item.capa)}/>
             </div>
+
+
             <div className='descricao'>
             <div className='titulo'>
                 <h1 className='nome-titulo'>{props.item.nome}</h1>
@@ -147,7 +150,7 @@ export default function FilmeCards(props) {
              </div>
              
                 <div className='desc'>
-                <label className='lancamento'>{props.item.lancamento}</label>
+                <label className='lancamento'>{ props.item.lancamento.substr(0,10)}</label>
               </div>
             
 

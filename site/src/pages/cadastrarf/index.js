@@ -143,7 +143,7 @@ export default function Cadastrar(){
                         <p className='campos'>IMAGEM:</p>
                         <div className= 'upload-capa' onClick={escolherImagem}>
                             {!imagem &&
-                                <img src='../images/icon.svg' alt='' />
+                                <img className='image-capa' src='../images/icon.svg' alt='' />
                             }
 
                             {imagem &&
