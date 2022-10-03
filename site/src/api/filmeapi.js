@@ -23,3 +23,9 @@ export async function vizualizarTFilmes(){
     const asnwer= await api.get('/consulta/filme')
     return asnwer.data;
 }
+
+
+export async function FiltrarFilmeNome(nome){
+    const asnwer= await api.get(`/consulta/nome/filme?nome=${nome}`)
+    return asnwer.data;
+}
