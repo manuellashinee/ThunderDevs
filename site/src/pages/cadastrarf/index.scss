@@ -139,7 +139,7 @@ body{
         opacity: 76%;
         background-color: #595959;
         height: 15em;
-        width: 20em;
+        width: 24em;
         border-radius: 5px;
         }
 
@@ -166,6 +166,18 @@ body{
         margin-right: 14%;
     }
 
+    .upload-capa {
+        width: 20em;
+        height: 15em;
+        border: #F5F5F5 2px solid;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+   
+       
+    }
+
 
     #imagemCapa {
         visibility: hidden;
@@ -175,8 +187,15 @@ body{
     
     .imagem-capa {
         height: 15em;
-        width: none;
+        width: 20em;
         border-radius: 5px;
+    }
+
+    .image-capa {
+        height: 5em;
+        width: 2em;
+
+        cursor: pointer;
     }
 
     textarea{
@@ -184,7 +203,44 @@ body{
         margin-bottom: 1em;
         font-family: 'LSB';
        color: white;
+      
     }
+}
+
+.ImagemPetv{
+    width: 40em;
+    height: 20em;
+    background-color: #8CC4D6;
+    color: #000000;
+    border-radius: 40px;
+    padding-bottom: 12em;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.imagem-pet{
+    width: 40em;
+    height: 20em;
+    border-radius: 2.6em;
+}
+
+.ImagemPett {
+    width: 15em;
+    height: 20em;
+    cursor: pointer;
+ 
+}
+
+#imagemCapa{
+    position: absolute;
+    visibility: hidden;
+    
+    
+    
+    
 }
 
 
