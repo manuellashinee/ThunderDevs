@@ -46,9 +46,12 @@ export default function FilmeCards(props) {
            
             
             <div className='alinhamento'>
+                
             <div>
             <img className='img-capa' src={mostrarImagem(props.item.capa)}/>
             </div>
+
+
             <div className='descricao'>
             <div className='titulo'>
                 <h1 className='nome-titulo'>{props.item.nome}</h1>
