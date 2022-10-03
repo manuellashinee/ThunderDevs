@@ -1,7 +1,37 @@
 import './index.scss'
 import '../../../common/common.scss'
+import {removerFilme} from '../../../api/filmeapi.js'
+import { confirmAlert } from 'react-confirm-alert';
 
 export default function FilmeCards(props) {
+  
+   
+   
+    async function removerFilmeClick(id, nome){
+
+        confirmAlert({
+            title: 'Remover filme',
+            message:`Deseja remover o filme ${nome}?`,
+            buttons: [
+              {
+                label: 'Sim',
+                onClick: async () => {
+                      const resposta = await removerFilme(id);
+                    
+                      
+                  alert('Filme removido');
+      
+                }
+              },
+              {
+                label:'Não'
+              }
+      
+      
+            ]
+          })
+      
+    }
 
     function mostrarImagem(imagem) {
         if (!imagem)
@@ -123,7 +153,7 @@ export default function FilmeCards(props) {
         <img className='edit-img' src='../images/edit.svg'/>
 
 
-        <img className='remove-img' src='../images/circle-x.svg'/>
+        <img className='remove-img' src='../images/circle-x.svg' onClick={() => removerFilmeClick(props.item.id , props.item.nome)}/>
 
         </div>
 

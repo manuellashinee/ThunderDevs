@@ -25,6 +25,6 @@ export async function vizualizarTFilmes(){
 }
 
 export async function removerFilme(id) {
-    const resposta = await api.delete(`/filme/${id}`);
+    const resposta = await api.delete(`/adm/filme/${id}`);
     return resposta.status;
 }

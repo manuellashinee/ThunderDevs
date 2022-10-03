@@ -15,6 +15,7 @@ import HomeAdm from './pages/adm/homeadm';
 import Filmes from './pages/adm/filmesCadastrados';
 import Cadastrarcombo from './pages/adm/cadastrarcombo';
 
+
 export default function Rotas (){
     return(
     <BrowserRouter>
