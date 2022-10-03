@@ -2,47 +2,66 @@ import './index.scss'
 import '../../../common/common.scss'
 import { Link } from 'react-router-dom';
 import FilmeCards from '../../components/filmeCards/index';
-import CabecalhoP from '../../components/cabecalho-pesquisa';
 import { useEffect, useState } from 'react';
-import { vizualizarTFilmes } from '../../../api/filmeapi';
+import { vizualizarTFilmes, FiltrarFilmeNome } from '../../../api/filmeapi';
 
 export default function Filmes(){
     const [filmes, setFilmes] = useState([])
+    const [nomefilme, setNomeFilme] = useState (""); 
+
+   
 
     async function carregarFilmes(){
         const resp = await vizualizarTFilmes();
         console.log(resp);
         setFilmes(resp);
     }
+
+    async function flitrar(){
+        const fil= await FiltrarFilmeNome(nomefilme)
+        setFilmes(fil);
+    }
+
+    useEffect(() => {
+        flitrar();
+    }, [nomefilme])
      
     useEffect(() => {
         carregarFilmes();
     }, [])
 
     return(
-        <section className='salvos'>
+    <section className='salvos'>
             
-    <div className='head'>
-    <CabecalhoP/>
-     </div>
-     <div className='a'>
-        <h1>FILMES CADASTRADOS:</h1>
-     </div>
-
-     <div className='setas-circle'>
-
-        <div>
-            <img className='voltar'  src='../images/Arrow 1.svg'/>
+        <div className='head'>
+        <div className='cabecalho-pesquisa'>
+                <div>
+                <img className='logo' src='../images/logo.svg'/>
+                </div>
+                <div className='pesquisa-input'>
+                <input className='pesquisa-design' type='text' value={nomefilme} onChange={e=> setNomeFilme(e.target.value)}  />
+                <button  className='pesquisar-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
+                </div>
+            </div>
+        </div>
+        <div className='a'>
+            <h1>FILMES CADASTRADOS:</h1>
         </div>
 
-        <div>
-            <Link to='/cadastrarfilme'><img className='voltar' src='../images/circle-mais.svg'/></Link>
-        </div>
+        <div className='setas-circle'>
 
-     </div>
-        {filmes.map(item =>
-        <FilmeCards  item= {item}/>
-        )}
+            <div>
+                <img className='voltar'  src='../images/Arrow 1.svg'/>
+            </div>
+
+            <div>
+                <Link to='/cadastrarfilme'><img className='voltar' src='../images/circle-mais.svg'/></Link>
+            </div>
+
+        </div>
+            {filmes.map(item =>
+            <FilmeCards  item= {item}/>
+            )}
         </section>
     );
 }
