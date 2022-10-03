@@ -25,18 +25,18 @@ export default function Filmes(){
     <div className='head'>
     <CabecalhoP/>
      </div>
-     <div>
+     <div className='a'>
         <h1>FILMES CADASTRADOS:</h1>
      </div>
 
      <div className='setas-circle'>
 
         <div>
-            <img src='../images/Arrow 1.svg'/>
+            <img className='voltar'  src='../images/Arrow 1.svg'/>
         </div>
 
         <div>
-            <Link to='/cadastrarfilme'><img src='../images/circle-mais.svg'/></Link>
+            <Link to='/cadastrarfilme'><img className='voltar' src='../images/circle-mais.svg'/></Link>
         </div>
 
      </div>
