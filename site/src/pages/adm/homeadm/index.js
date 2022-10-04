@@ -16,6 +16,7 @@ export default function HomeAdm() {
                     <h1 className='titulo-adm'>BEM VINDO, <span className='cor-texto'>ADMISTRADOR(A)!</span></h1>
                     <p className='sub-titu'>DESEJAMOS AS BOAS VINDAS AO SISTEMA <span className='sub-titu-s'>POPCORN TIME</span></p>
                 </div>
+                <hr/>
             </div>
         </section>
     );

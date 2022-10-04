@@ -14,6 +14,7 @@
     }
     
     .logo{
+        width: 8em;
         margin-bottom: 2em;
         mix-blend-mode: lighten;
     }
@@ -40,6 +41,7 @@
     .tt-adm{
         display: flex;
         flex-direction: column;
+        padding: 0em 1em;
     }
 
     .cor-texto{
@@ -53,8 +55,10 @@
     }
 
     .sub-titu{
+        margin-top: 10px;
         font-family: 'LR';
         color: white;
+        margin-bottom: 5em;
     }
 
     .sub-titu-s{
