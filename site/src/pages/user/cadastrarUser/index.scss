@@ -1,0 +1,130 @@
+*{
+    margin: 0px;
+}
+
+.pagina-cadastro{
+.logo{
+    margin-bottom: 2em;
+}
+
+.container {
+
+    background-color: black;
+    height: 100vh;
+    background-size: cover;
+}
+
+.a{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ height: 85vh;
+}
+
+.quadro {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    opacity: 76%;
+    background-color: #595959;
+    width: 115%;
+    border-radius: 1em;
+
+}
+
+.tituluzinho {
+    display: flex;
+    align-items: flex-start;
+    font-size: 2em;
+}
+
+.she {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1em;
+    justify-content: space-between;
+    
+}
+
+.harry {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.coluna2{
+    margin-left: 1em;
+}
+
+.squad2 {
+    margin-top: 1em;
+}
+
+.titulo-1 {
+    margin-bottom: 10px;
+}
+
+.can {
+    opacity: 76%;
+    background-color: #595959;
+    width: 30em;
+    height: 2em;
+    border-radius: 5px;
+}
+
+.descricao {
+    display: flex;
+    font-family: 'LM';
+    font-size: 1.3em;
+    margin-top: 1em;
+    margin-left: 3em;
+    margin-right: 3em;
+    color: #ffff;
+}
+
+input {
+    border: solid #ffff;
+}
+
+
+
+.b1 {
+    margin-right: 2em;
+}
+
+.primeiro {
+    padding: 8px  25px 10px 25px;
+
+}
+
+.titulo-1{
+    font-family: 'LSB';
+    color: white;
+    opacity: 100%;
+}
+button {
+    font-family: 'LSB';
+    color: #ffff;
+    background-color: #AE4EDB;
+    border: none;
+    border-radius: 12px;
+    padding: 0.8em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.fine-botao:hover{
+    color: #AE4EDB;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.final {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+}
