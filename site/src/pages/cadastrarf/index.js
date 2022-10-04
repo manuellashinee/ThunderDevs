@@ -29,17 +29,10 @@ export default function Cadastrar(){
     const [idfilme, setIdFilme] = useState(0);
     const {idParam} = useParams();
     
-    useEffect(() => {
-        if(idParam) {
-        carregarFilme();
-        }
-
-    })
+   
 
     async function carregarFilme(){
-        const resposta = await buscarPorId(idParam);
-        setFranquias(resposta.fraquias);
-        setGeneros(resposta.generos);
+        const [resposta] = await buscarPorId(Number(idParam));
         setIdFranquias(resposta.idfranquia);
         setIdGeneros(resposta.idgenero);
         setNome(resposta.nome);
@@ -48,14 +41,14 @@ export default function Cadastrar(){
         setLancamento(resposta.lancamento.substr(0, 10));
         setAtor(resposta.ator);
         setTomato(resposta.tomato);
-        setAudience(resposta.audience);
+        setAudience(resposta.audiencia);
         setSinopse(resposta.sinopse);
         setDiretor(resposta.diretor);
         setAvaliacao(resposta.avaliacao);
         setDestaque(resposta.destaque);
         setSituacao(resposta.situacao);
 
-        setImagem(resposta.imagem);
+        setImagem(resposta.capa);
         setIdFilme(resposta.idfilme);
 
     }
@@ -71,6 +64,13 @@ export default function Cadastrar(){
         setGeneros(r);
     }
 
+    
+    useEffect(() => {
+        if(idParam !=0 ) {
+        carregarFilme();
+        }}, [])
+
+
     async function SalvarFilme(){
         try{
         
@@ -78,15 +78,17 @@ export default function Cadastrar(){
         const resposta = await confirmarFilme(Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao);
         const filme = await enviarImagemFilme(imagem, resposta.id);
         setIdFilme(resposta.idfilme);
+        alert('filme cadastrado com sucesso');
         }
         else{
 
             await alterarFilme(idfilme, Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao);
             if (typeof (imagem) == 'object')
-            await enviarImagemFilme(idfilme, imagem);
+            await enviarImagemFilme(imagem,idfilme);
+            alert('filme alterado com sucesso');
         }
         
-        alert.success('filme cadastrado com sucesso');
+        
         
     }catch(err){
         
@@ -192,7 +194,6 @@ export default function Cadastrar(){
 
                             {imagem &&
                                 <img className='imagem-capa' src={mostrarImagem()} alt=''/>
-
                             }
 
                         <input className='input-linha2' type='file' id='imagemCapa' onChange={e => setImagem(e.target.files[0])}/>

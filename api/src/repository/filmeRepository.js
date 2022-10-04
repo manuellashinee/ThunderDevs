@@ -145,3 +145,27 @@ export async function pesquisarFilmeNome(nome){
     const [resposta] = await con.query(comando, [nome])
     return resposta;         
 }
+
+export async function consultarFilmeId(idfilme){
+    const comando= `select  
+                        ID_FILME as id,
+                        ID_FRANQUIA as franquia,
+                        ID_GENERO as genero,
+                        NM_FILME as nome,
+                        NR_DURACAO as duracao,
+                        NR_CLASSIFICACAO as classificacao,
+                        DT_LANCAMENTO as lancamento,
+                        NM_ATOR as ator,
+                        NR_TOMATO_METER as tomato,
+                        NR_AUDIENCE_SCORE as audiencia,
+                        DS_SINOPSE as sinopse,
+                        IMG_CAPA as capa,
+                        NM_DIRETOR as diretor,
+                        VL_AVALIACAO  as avaliacao,
+                        BT_DESTAQUE as destaque,
+                        DS_SITUACAO as situacao 
+                    from tb_FILME
+                    where id_filme = ?;`;
+    const [resposta] = await con.query(comando,  [idfilme])
+    return resposta;
+}
