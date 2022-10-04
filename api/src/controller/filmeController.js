@@ -95,6 +95,7 @@ server.put('/adm/filme/:id', async (req, resp ) =>{
         try{
             const id= req.params.id;
             const filme = req.body;
+
             const alteracao= await alterarFilme(filme, id);
            if(alteracao === 1){
             resp.status(204).send();

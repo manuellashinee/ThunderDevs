@@ -35,21 +35,9 @@ export async function FiltrarFilmeNome(nome){
 }
 
 export async function alterarFilme(idfranquia,idgenero,nome,duracao,classificacao,lancamento,ator,tomato,audience,sinopse,diretor,avaliacao,destaque,situacao,id ) {
-    const resposta = await api.put(`/adm/filme/${id}` , {
-        idfranquia : idfranquia,
-        idgenero: idgenero,
-    nome : nome, 
-    duracao : duracao,
-    classificacao : classificacao,
-    lancamento : lancamento,
-    ator : ator,
-    tomato: tomato,
-    audience : audience,
-    sinopse : sinopse,
-    diretor : diretor,
-    avaliacao : avaliacao,
-    destaque : destaque,
-    situacao : situacao
+
+    const resposta = await api.put(`/adm/filme/${id}` , {idfranquia,idgenero,nome,duracao,
+    classificacao, lancamento,ator,tomato,audience,sinopse,diretor,avaliacao,destaque,situacao
     })
     return resposta.data;
 }
