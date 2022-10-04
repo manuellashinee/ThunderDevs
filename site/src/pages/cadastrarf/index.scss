@@ -2,7 +2,8 @@
 body{
     background-image: url('../../../public/images/LOGIN.svg');
     background-repeat: no-repeat;
-    background-size: 150vw;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 
@@ -183,8 +184,8 @@ body{
     }
     
     .imagem-capa {
-        height: 15em;
-        width: 20em;
+        max-height: 14em;
+        max-width: 20em;
         border-radius: 5px;
     }
 

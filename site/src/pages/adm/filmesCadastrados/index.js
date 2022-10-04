@@ -13,7 +13,7 @@ export default function Filmes(){
 
     async function carregarFilmes(){
         const resp = await vizualizarTFilmes();
-        console.log(resp);
+        
         setFilmes(resp);
     }
 

@@ -33,8 +33,8 @@ export default function Cadastrar(){
 
     async function carregarFilme(){
         const [resposta] = await buscarPorId(Number(idParam));
-        setIdFranquias(resposta.idfranquia);
-        setIdGeneros(resposta.idgenero);
+        setIdFranquias(resposta.franquia);
+        setIdGeneros(resposta.genero);
         setNome(resposta.nome);
         setDuracao(resposta.duracao);
         setClassificacao(resposta.classificacao);
@@ -49,7 +49,7 @@ export default function Cadastrar(){
         setSituacao(resposta.situacao);
 
         setImagem(resposta.capa);
-        setIdFilme(resposta.idfilme);
+        setIdFilme(resposta.id);
 
     }
 
@@ -82,7 +82,7 @@ export default function Cadastrar(){
         }
         else{
 
-            await alterarFilme(idfilme, Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao);
+           const resposta = await alterarFilme( Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao, idfilme);
             if (typeof (imagem) == 'object')
             await enviarImagemFilme(imagem,idfilme);
             alert('filme alterado com sucesso');
