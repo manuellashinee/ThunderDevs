@@ -100,7 +100,7 @@ server.put('/adm/filme/:id', async (req, resp ) =>{
             resp.status(204).send();
            }
            else{
-            throw new Error('filme não pode ser')
+            throw new Error('filme não pode ser alterado')
            }
         }
         catch (err) {

@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect} from 'react'
 import {consultarFranquias} from '../../api/franquiaApi.js'
 import {consultarGeneros} from '../../api/generoApi.js'
-import { confirmarFilme, enviarImagemFilme } from '../../api/filmeapi'
+import { alterarFilme, confirmarFilme, enviarImagemFilme, buscarPorId, buscarImagem } from '../../api/filmeapi'
 import storage from 'local-storage'
+import { useParams} from 'react-router-dom'
 
 export default function Cadastrar(){
     const [fraquias, setFranquias] = useState([]);
@@ -26,7 +27,38 @@ export default function Cadastrar(){
     const [situacao, setSituacao] = useState("ATIVO");
     const [imagem, setImagem] = useState();
     const [idfilme, setIdFilme] = useState(0);
-   
+    const {idParam} = useParams();
+    
+    useEffect(() => {
+        if(idParam) {
+        carregarFilme();
+        }
+
+    })
+
+    async function carregarFilme(){
+        const resposta = await buscarPorId(idParam);
+        setFranquias(resposta.fraquias);
+        setGeneros(resposta.generos);
+        setIdFranquias(resposta.idfranquia);
+        setIdGeneros(resposta.idgenero);
+        setNome(resposta.nome);
+        setDuracao(resposta.duracao);
+        setClassificacao(resposta.classificacao);
+        setLancamento(resposta.lancamento.substr(0, 10));
+        setAtor(resposta.ator);
+        setTomato(resposta.tomato);
+        setAudience(resposta.audience);
+        setSinopse(resposta.sinopse);
+        setDiretor(resposta.diretor);
+        setAvaliacao(resposta.avaliacao);
+        setDestaque(resposta.destaque);
+        setSituacao(resposta.situacao);
+
+        setImagem(resposta.imagem);
+        setIdFilme(resposta.idfilme);
+
+    }
 
 
     async function carregarFranquias(){
@@ -41,11 +73,19 @@ export default function Cadastrar(){
 
     async function SalvarFilme(){
         try{
-       
-        const resposta = await confirmarFilme(Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao);
         
+        if(idfilme === 0 ){
+        const resposta = await confirmarFilme(Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao);
         const filme = await enviarImagemFilme(imagem, resposta.id);
-       
+        setIdFilme(resposta.idfilme);
+        }
+        else{
+
+            await alterarFilme(idfilme, Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao);
+            if (typeof (imagem) == 'object')
+            await enviarImagemFilme(idfilme, imagem);
+        }
+        
         alert('filme cadastrado com sucesso');
         
     }catch(err){
@@ -65,7 +105,11 @@ export default function Cadastrar(){
     }
 
     function mostrarImagem() {
-        return URL.createObjectURL(imagem);
+        if(typeof(imagem) == 'object'){
+        return URL.createObjectURL(imagem); }
+        else {
+            return buscarImagem(imagem);
+        }
     }
 
     return (

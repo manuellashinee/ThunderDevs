@@ -22,6 +22,7 @@ export default function Rotas (){
     <Routes>
         <Route path='/home' element={<Home/>}/>
         <Route path='/cadastrarfilme' element={<Cadastrar/>}/>
+        <Route path='/cadastrarfilme/:idParam' element={<Cadastrar/>}/>
         <Route path='/homeadm' element={<HomeAdm/>}/>
         <Route path='/login' element={<LoginUsuario/>}/>
         <Route path='/loginAdm' element={<LoginAdm/>}/>

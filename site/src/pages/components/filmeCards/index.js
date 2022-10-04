@@ -2,18 +2,20 @@ import './index.scss'
 import '../../../common/common.scss'
 import {removerFilme} from '../../../api/filmeapi.js'
 import { confirmAlert } from 'react-confirm-alert';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function FilmeCards(props) {
-  
+    const navigate = useNavigate();
+
+    function editarFilme(id) {
+        navigate(`/adm/filmes/${id}`);
+    }
    async function recarregarFilme(){
       window.location.reload();
    }
    
     async function removerFilmeClick(id, nome){
-
-
-
         confirmAlert({
             title: 'Remover filme',
             message:`Deseja remover o filme ${nome}?`,
@@ -25,16 +27,11 @@ export default function FilmeCards(props) {
                     
                       recarregarFilme();
                      
-                      
-                      
-                 
                 }
               },
               {
                 label:'Não'
               }
-      
-      
             ]
           })
       
@@ -47,6 +44,7 @@ export default function FilmeCards(props) {
           return `http://localhost:5000/${imagem}`
       }
 
+      
     return (
     <section className='filmes-salvos'>
         <div className='borda'>
@@ -161,7 +159,7 @@ export default function FilmeCards(props) {
         </div>
         <div className='editar'>
   
-        <img className='edit-img' src='../images/edit.svg'/>
+        <img className='edit-img' src='../images/edit.svg' onClick={() => editarFilme(props.item.id)}/>
 
 
         <img className='remove-img' src='../images/circle-x.svg' onClick={() => removerFilmeClick(props.item.id , props.item.nome)}/>

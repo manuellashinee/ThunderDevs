@@ -33,3 +33,32 @@ export async function FiltrarFilmeNome(nome){
     const asnwer= await api.get(`/consulta/nome/filme?nome=${nome}`)
     return asnwer.data;
 }
+
+export async function alterarFilme(id,idfranquia,idgenero,nome,duracao,classificacao,lancamento,ator,tomato,audience,sinopse,diretor,avaliacao,destaque,situacao ) {
+    const resposta = api.put(`/adm/filme/${id}` , {
+    idfranquia : idfranquia,
+    idgenero : idgenero,
+    nome : nome, 
+    duracao : duracao,
+    classificacao : classificacao,
+    lancamento : lancamento,
+    ator : ator,
+    tomato: tomato,
+    audience : audience,
+    sinopse : sinopse,
+    diretor : diretor,
+    avaliacao : avaliacao,
+    destaque : destaque,
+    situacao : situacao
+    })
+    return resposta.data;
+}
+
+export async function buscarPorId(id){
+    const resposta = await api.get(`/adm/filme/${id}`);
+    return resposta.data;
+}
+
+export function buscarImagem(imagem) {
+    return `${api.getUri()}/${imagem}`
+}
