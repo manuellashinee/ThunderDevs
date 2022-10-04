@@ -86,11 +86,11 @@ export default function Cadastrar(){
             await enviarImagemFilme(idfilme, imagem);
         }
         
-        alert('filme cadastrado com sucesso');
+        alert.success('filme cadastrado com sucesso');
         
     }catch(err){
         
-        alert(err.message)
+        alert.error(err.message);
     }}
 
 
