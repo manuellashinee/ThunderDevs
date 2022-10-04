@@ -9,8 +9,9 @@ export default function FilmeCards(props) {
     const navigate = useNavigate();
 
     function editarFilme(id) {
-        navigate(`/adm/filmes/${id}`);
+        navigate(`/cadastrarfilme/${id}`);
     }
+    
    async function recarregarFilme(){
       window.location.reload();
    }

@@ -34,10 +34,10 @@ export async function FiltrarFilmeNome(nome){
     return asnwer.data;
 }
 
-export async function alterarFilme(id,idfranquia,idgenero,nome,duracao,classificacao,lancamento,ator,tomato,audience,sinopse,diretor,avaliacao,destaque,situacao ) {
-    const resposta = api.put(`/adm/filme/${id}` , {
-    idfranquia : idfranquia,
-    idgenero : idgenero,
+export async function alterarFilme(idfranquia,idgenero,nome,duracao,classificacao,lancamento,ator,tomato,audience,sinopse,diretor,avaliacao,destaque,situacao,id ) {
+    const resposta = await api.put(`/adm/filme/${id}` , {
+        idfranquia : idfranquia,
+        idgenero: idgenero,
     nome : nome, 
     duracao : duracao,
     classificacao : classificacao,
