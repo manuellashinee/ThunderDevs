@@ -1,6 +1,6 @@
 import './index.scss'
 import '../../../common/common.scss'
-import {removerFilme} from '../../../api/filmeapi.js'
+import { removerFilme } from '../../../api/filmeapi.js'
 import { confirmAlert } from 'react-confirm-alert';
 import { useNavigate } from 'react-router-dom';
 

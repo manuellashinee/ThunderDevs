@@ -120,7 +120,7 @@ export default function Cadastrar(){
             <div className='logo-botoes'>
                 <img className='logo' src='../images/logo.svg' />
                 <div className='voltar-botao'>
-                    <Link to='/homeadm'><img className='flecha' src='../images/flecha.svg' /></Link>
+                    <Link to='/filmes'><img className='flecha' src='../images/flecha.svg' /></Link>
                     <button className='salvar-botao' onClick={SalvarFilme}>SALVAR</button>
                 </div>
             </div>

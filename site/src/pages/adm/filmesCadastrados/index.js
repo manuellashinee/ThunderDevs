@@ -31,6 +31,7 @@ export default function Filmes(){
     }, [])
 
     return(
+        <section className='aa'>
     <section className='salvos'>
             
         <div className='head'>
@@ -63,6 +64,7 @@ export default function Filmes(){
             {filmes.map(item =>
             <FilmeCards  item= {item}/>
             )}
+        </section>
         </section>
     );
 }
