@@ -22,7 +22,8 @@ export async function consultarTodosFilme(){
     `   select 
             ID_FILME as id,
             ID_FRANQUIA as franquia,
-            ID_GENERO as genero,
+            tb_FILME.id_genero as idgenero,
+            NM_GENERO as genero
             NM_FILME as nome,
             NR_DURACAO as duracao,
             NR_CLASSIFICACAO as classificacao,
@@ -36,7 +37,9 @@ export async function consultarTodosFilme(){
             VL_AVALIACAO  as avaliacao,
             BT_DESTAQUE as destaque,
             DS_SITUACAO as situacao 
-        from tb_FILME`;
+        from tb_FILME
+        inner join tb_genero on tb_genero.id_genero = tb_filme.id_genero`;
+
     const [resposta] = await con.query(comando)
     return resposta;
 }
@@ -125,7 +128,8 @@ export async function pesquisarFilmeNome(nome){
                 SELECT 
                     ID_FILME as id,
                     ID_FRANQUIA as franquia,
-                    ID_GENERO as genero,
+                    tb_FILME.id_genero as idgenero,
+                    NM_GENERO as genero,
                     NM_FILME as nome,
                     NR_DURACAO as duracao,
                     NR_CLASSIFICACAO as classificacao,
@@ -140,6 +144,7 @@ export async function pesquisarFilmeNome(nome){
                     BT_DESTAQUE as destaque,
                     DS_SITUACAO as situacao 
                 from tb_FILME
+                inner join tb_genero on tb_genero.id_genero = tb_filme.id_genero
                 where NM_FIlME like "${nome}%" `;
 
     const [resposta] = await con.query(comando, [nome])
