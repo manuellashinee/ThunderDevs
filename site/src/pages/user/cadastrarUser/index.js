@@ -4,7 +4,7 @@ import '../../../common/common.scss'
 export default function CadastrarUser() {
 
     return(
-      <section className='pagina-cadastro'>
+      <section className='pagina-cadastro2'>
       <section className='container'>
       <div className='la'>
         <div>
