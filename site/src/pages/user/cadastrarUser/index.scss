@@ -2,9 +2,22 @@
     margin: 0px;
 }
 
+
 .pagina-cadastro2{
+
+.la {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-left: 1em;
+}
 .logo{
     margin-bottom: 2em;
+}
+
+.flecha {
+    margin-left: 10px;
 }
 
 .container {
@@ -19,7 +32,7 @@
  flex-direction: column;
  justify-content: center;
  align-items: center;
- height: 85vh;
+ height: 75vh;
 }
 
 .quadro {
@@ -28,9 +41,13 @@
     flex-direction: column;
     opacity: 76%;
     background-color: #595959;
-    width: 115%;
+    width: 80%;
     border-radius: 1em;
 
+}
+
+.squad1 {
+    margin-bottom: 1em;
 }
 
 .tituluzinho {
@@ -57,9 +74,6 @@
     margin-left: 1em;
 }
 
-.squad2 {
-    margin-top: 1em;
-}
 
 .titulo-1 {
     margin-bottom: 10px;
@@ -69,8 +83,8 @@
     opacity: 76%;
     background-color: #595959;
     width: 30em;
-    height: 2em;
-    border-radius: 5px;
+    height: 3em;
+    border-radius: 12px;
 }
 
 .descricao {
@@ -85,12 +99,6 @@
 
 input {
     border: solid #ffff;
-}
-
-
-
-.b1 {
-    margin-right: 2em;
 }
 
 .primeiro {
@@ -124,6 +132,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 2em;
 }
 
 
