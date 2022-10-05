@@ -10,9 +10,14 @@
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
+    margin-left: 1em;
 }
 .logo{
     margin-bottom: 2em;
+}
+
+.flecha {
+    margin-left: 10px;
 }
 
 .container {
@@ -27,7 +32,7 @@
  flex-direction: column;
  justify-content: center;
  align-items: center;
- height: 85vh;
+ height: 75vh;
 }
 
 .quadro {
@@ -36,9 +41,13 @@
     flex-direction: column;
     opacity: 76%;
     background-color: #595959;
-    width: 115%;
+    width: 80%;
     border-radius: 1em;
 
+}
+
+.squad1 {
+    margin-bottom: 1em;
 }
 
 .tituluzinho {
@@ -74,8 +83,8 @@
     opacity: 76%;
     background-color: #595959;
     width: 30em;
-    height: 2em;
-    border-radius: 5px;
+    height: 3em;
+    border-radius: 12px;
 }
 
 .descricao {
