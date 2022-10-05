@@ -7,7 +7,12 @@ export default function CadastrarUser() {
       <section className='pagina-cadastro'>
       <section className='container'>
       <div className='la'>
+        <div>
         <img className='logo' src='../images/logo.svg'/>
+        </div>
+        <div>
+          <img className='flecha' src='../images/Arrow 1.svg'/>
+        </div>
       </div>
       <div className='a'>
       <div className='quadro'>
@@ -57,7 +62,7 @@ export default function CadastrarUser() {
         </div>
         
         
-        <div className='squad2'>
+        <div className='squad1'>
           <div> <p className='titulo-1'>CONFIRME SUA SENHA:</p></div>
           <div><input type='password' className='can'/></div>
         </div>
