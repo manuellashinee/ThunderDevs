@@ -48,7 +48,8 @@ export default function CadastrarUser() {
         <div className='harry coluna2'>
         <div className='squad1'>
           <div> <p className='titulo-1'>DATA DE NASCIMENTO:</p></div>
-          <div><input className='can'/></div>
+          <div><input className='can' type='date'/>
+          </div>
         </div>
 
         <div className='squad1'>

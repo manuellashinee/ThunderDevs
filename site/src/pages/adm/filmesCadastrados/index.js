@@ -53,7 +53,7 @@ export default function Filmes(){
         <div className='setas-circle'>
 
             <div>
-                <img className='voltar'  src='../images/Arrow 1.svg'/>
+               <Link to='/homeadm'><img className='voltar'  src='../images/Arrow 1.svg'/></Link>
             </div>
 
             <div>

@@ -47,6 +47,7 @@ export default function FilmeCards(props) {
 
       
     return (
+    <section className='filmes3'>
     <section className='filmes-salvos'>
         <div className='borda'>
            
@@ -173,6 +174,7 @@ export default function FilmeCards(props) {
         
 
         </div>
+        </section>
         </section>
     );
 

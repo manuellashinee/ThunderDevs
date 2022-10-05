@@ -1,0 +1,41 @@
+.componente-adm{
+    display: flex;
+    flex-direction: column;
+    padding: 3em 0em;
+    margin-right: 2em;
+    
+
+    .card-principal{
+        display: flex;
+        border-radius: 20px;
+        flex-direction: column;
+        background-color: #232323;
+        border: #F5F5F5 solid 2px;
+        margin-top: -2em;
+    }
+
+    .card-img{
+        background-image: url('../../../../public/images/circuloroxo.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 6em;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .texto-card{
+        padding: 6em 2em;
+        font-family: 'LM';
+        color: #fff;
+        width: 25em;
+        text-align: center;
+    }
+
+   .img-card{
+    width: 6em;
+    padding: 10px;
+    margin-left: 2px;
+   }
+}
