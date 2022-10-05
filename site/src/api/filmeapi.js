@@ -50,3 +50,14 @@ export async function buscarPorId(id){
 export function buscarImagem(imagem) {
     return `${api.getUri()}/${imagem}`
 }
+
+
+export async function FiltrarFilmeFranquia(idfranquia){
+    const asnwer= await api.get(`/consulta/franquia/filme/${idfranquia}`)
+    return asnwer.data;
+}
+
+export async function FiltrarFilmeGenero(idgenero){
+    const asnwer= await api.get(`/consulta/genero/filme/${idgenero}`)
+    return asnwer.data;
+}

@@ -149,7 +149,7 @@ export default function FilmeCards(props) {
              </div>
              
                 <div className='desc'>
-                <label className='lancamento'>{ props.item.lancamento.substr(0,10)}</label>
+                <label className='lancamento'>{props.item.lancamento.substr(8,2)}/{props.item.lancamento.substr(5,2)}/{props.item.lancamento.substr(0,4)}</label>
               </div>
             
 
