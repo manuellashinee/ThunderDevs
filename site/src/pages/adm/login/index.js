@@ -50,7 +50,7 @@ import { loginAdm } from '../../../api/loginadmApi'
 
   return (
     <section className='pagina-login'>
-       <LoadingBar color='rgba(254, 193, 138, 1)' ref={ref} />
+       <LoadingBar color='rgba(174, 78, 219, 1)' ref={ref} />
     <section className='container'>
       <div className='la'>
         <img className='logo' src='../images/logo.svg'/>

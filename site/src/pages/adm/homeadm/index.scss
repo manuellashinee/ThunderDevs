@@ -50,6 +50,8 @@
     }
 
     .titulo-adm{
+        font-family: 'LSB';
+        color: white;
         font-size: 2em;    
         padding: 10em 0em 0em 0em;
     }
@@ -63,5 +65,36 @@
 
     .sub-titu-s{
         font-family: 'LB';
+    }
+
+    /*parte-baixo*/
+    .parte-baixo{
+        display: flex;
+        flex-direction: column;
+        background-color: #1A1919;
+    }
+
+    .parte-cards{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .textos-baixo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .titulo-texto{
+        font-family: 'LSB';
+        color: white;
+        margin-top: 3em;
+        font-size: 2em;
+    }
+
+    .card-p {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
