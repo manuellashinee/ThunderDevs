@@ -70,9 +70,9 @@ export default function PedidoSnack(props) {
 
         </div>
         </div>
-        <div className='editar'>
+        <div className='edit'>
   
-        <img className='edit-img' src='../images/check_circle.svg'/>
+        <img className='aceitar-img' src='../images/check_circle.svg'/>
 
 
         <img className='remove-img' src='../images/circle-x.svg'/>
