@@ -9,18 +9,17 @@ import { consultarGeneros } from '../../../api/generoApi';
 
 export default function Catalogo() {
   const [filmes, setFilmes] = useState([]);
-  const [filmesFranquia, setFilmesFranquia] = useState();
-  const [filmesGenero, setFilmesGenero] = useState();
+  const [filmesFranquia, setFilmesFranquia] = useState([]);
+  const [filmesGenero, setFilmesGenero] = useState([]);
   const [franquia, setFranquias] = useState([]);
   const [genero, setGeneros] = useState([]);
-  const [idfraquia, setIdFranquias] = useState();
-  const [idgenero, setIdGeneros] = useState();
+  const [idfraquia, setIdFranquias] = useState(1);
+  const [idgenero, setIdGeneros] = useState(1);
   
 
 
   async function afilmes() {
     const resp = await vizualizarTFilmes();
-    console.log('asdfasdfasdf');
     setFilmes(resp);
   }
 
@@ -39,12 +38,14 @@ export default function Catalogo() {
   async function fFilmes(){
     const resp = await FiltrarFilmeFranquia(idfraquia);
     setFilmesFranquia(resp);
+    console.log(resp)
   }
 
   
   async function gFilmes(){
     const resp = await FiltrarFilmeGenero(idgenero);;
     setFilmesGenero(resp);
+    console.log(resp)
   }
 
   useEffect(() => {
@@ -97,7 +98,6 @@ export default function Catalogo() {
           <p className='texto-catalogo'>FILMES POR FRANQUIA</p>
 
           <select className='campos input-linhas' value ={idfraquia} onChange={e => setIdFranquias(e.target.value)}>
-            <option disabled selected hidden> Selecione a categoria </option>
             {franquia.map(item =>
               <option value={item.idfranquia}>{item.Nome}</option>
             )}
@@ -105,11 +105,8 @@ export default function Catalogo() {
         </div>
 
         <div className='cards-filmes'>
-          {/* <FilmeC imagem='../images/filmeruim.png' titulo='THOR AMOR E TROVÃO' data='15/12/2022' />
-          <FilmeC imagem='../images/amizade.jpg' titulo='NARUTO E SASUKE' data='15/12/2022' />
-          <FilmeC imagem='../images/img-interessante.jpg' titulo='EVANGELION' data='15/12/2022' />
-          <FilmeC imagem='../images/ticoeteco.jpg' titulo='TARTARUGAS NINJAS' data='15/12/2022' />
-          <FilmeC imagem='../images/red.jpg' titulo='RED: CRESCER É UMA FERA' data='15/12/2022' /> */}
+          {filmesFranquia.map(item =>
+          <FilmeC item= {item} /> )}
         </div>
       </div>
 
@@ -117,10 +114,9 @@ export default function Catalogo() {
       <div className='pagina-baixo'>
 
         <div className='texto-select'>
-          <p className='texto-catalogo'>FILMES POR GENÊRO</p>
+          <p className='texto-catalogo'>FILMES POR GÊNERO</p>
 
           <select className='campos input-linhas' value={idgenero} onChange={e => setIdGeneros(e.target.value)}>
-            <option disabled selected hidden> Selecione o Gênero </option>
             {genero.map(item=>
               <option value={item.idgenero}>{item.Nome}</option>
             )}
@@ -128,11 +124,9 @@ export default function Catalogo() {
         </div>
 
         <div className='cards-filmes'>
-          {/* <FilmeC imagem='../images/filmeruim.png' titulo='THOR AMOR E TROVÃO' data='15/12/2022' />
-          <FilmeC imagem='../images/amizade.jpg' titulo='NARUTO E SASUKE' data='15/12/2022' />
-          <FilmeC imagem='../images/img-interessante.jpg' titulo='EVANGELION' data='15/12/2022' />
-          <FilmeC imagem='../images/ticoeteco.jpg' titulo='TARTARUGAS NINJAS' data='15/12/2022' />
-          <FilmeC imagem='../images/red.jpg' titulo='RED: CRESCER É UMA FERA' data='15/12/2022' /> */}
+          {filmesGenero.map(item=> 
+          <FilmeC item={item} />
+          )}
         </div>
         <hr></hr>
         <div className='texto-select'>

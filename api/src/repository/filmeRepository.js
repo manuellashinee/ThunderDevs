@@ -44,50 +44,54 @@ export async function consultarTodosFilme(){
     return resposta;
 }
 
-export async function consultarFilmeGenero(idgenero){
-    const comando= `select  
-                        ID_FILME as id,
-                        ID_FRANQUIA as franquia,
-                        ID_GENERO as genero,
-                        NM_FILME as nome,
-                        NR_DURACAO as duracao,
-                        NR_CLASSIFICACAO as classificacao,
-                        DT_LANCAMENTO as lancamento,
-                        NM_ATOR as ator,
-                        NR_TOMATO_METER as tomato,
-                        NR_AUDIENCE_SCORE as audiencia,
-                        DS_SINOPSE as sinopse,
-                        IMG_CAPA as capa,
-                        NM_DIRETOR as diretor,
-                        VL_AVALIACAO  as avaliacao,
-                        BT_DESTAQUE as destaque,
-                        DS_SITUACAO as situacao 
+export async function consultarFilmeGenero(idgener){
+    const comando= `SELECT 
+                    ID_FILME as id,
+                    ID_FRANQUIA as franquia,
+                    TB_FILME.id_genero as idgenero,
+                    NM_GENERO as genero,
+                    NM_FILME as nome,
+                    NR_DURACAO as duracao,
+                    NR_CLASSIFICACAO as classificacao,
+                    DT_LANCAMENTO as lancamento,
+                    NM_ATOR as ator,
+                    NR_TOMATO_METER as tomato,
+                    NR_AUDIENCE_SCORE as audiencia,
+                    DS_SINOPSE as sinopse,
+                    IMG_CAPA as capa,
+                    NM_DIRETOR as diretor,
+                    VL_AVALIACAO  as avaliacao,
+                    BT_DESTAQUE as destaque,
+                    DS_SITUACAO as situacao 
                     from tb_FILME
-                    where id_genero = ?;`;
-    const [resposta] = await con.query(comando,  [idgenero])
+                    inner join tb_genero on tb_genero.id_genero = tb_filme.id_genero
+                    where tb_filme.id_genero = ?;`;
+    const [resposta] = await con.query(comando,  [idgener])
     return resposta;
 }
 
 export async function consultarFilmeFranquia(idfranquia){
-    const comando= `select  
-                        ID_FILME as id,
-                        ID_FRANQUIA as franquia,
-                        ID_GENERO as genero,
-                        NM_FILME as nome,
-                        NR_DURACAO as duracao,
-                        NR_CLASSIFICACAO as classificacao,
-                        DT_LANCAMENTO as lancamento,
-                        NM_ATOR as ator,
-                        NR_TOMATO_METER as tomato,
-                        NR_AUDIENCE_SCORE as audiencia,
-                        DS_SINOPSE as sinopse,
-                        IMG_CAPA as capa,
-                        NM_DIRETOR as diretor,
-                        VL_AVALIACAO  as avaliacao,
-                        BT_DESTAQUE as destaque,
-                        DS_SITUACAO as situacao 
+    const comando= `SELECT 
+                    ID_FILME as id,
+                    tb_filme.ID_FRANQUIA as idfranquia,
+                    NM_franquia as franquia,
+                    id_genero as idgenero,
+                    NM_FILME as nome,
+                    NR_DURACAO as duracao,
+                    NR_CLASSIFICACAO as classificacao,
+                    DT_LANCAMENTO as lancamento,
+                    NM_ATOR as ator,
+                    NR_TOMATO_METER as tomato,
+                    NR_AUDIENCE_SCORE as audiencia,
+                    DS_SINOPSE as sinopse,
+                    IMG_CAPA as capa,
+                    NM_DIRETOR as diretor,
+                    VL_AVALIACAO  as avaliacao,
+                    BT_DESTAQUE as destaque,
+                    DS_SITUACAO as situacao 
                     from tb_FILME
-                    where id_franquia = ?;`;
+                    inner join tb_franquia on tb_franquia.id_franquia = tb_filme.id_franquia
+                    where tb_filme.id_franquia = ?;`;
     const [resposta] = await con.query(comando, [idfranquia])
     return resposta;
 }
