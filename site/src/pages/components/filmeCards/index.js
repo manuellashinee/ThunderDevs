@@ -82,7 +82,7 @@ export default function FilmeCards(props) {
                 </div>
 
                 <div className='desc'>
-                <label className='duracao'>{props.item.duracao}</label>
+                <label className='duracao'>{props.item.duracao} min</label>
                 </div>
                 
             </div>
@@ -126,7 +126,7 @@ export default function FilmeCards(props) {
                 </div>
 
                 <div className='desc'>
-                <label className='classificacao'>{props.item.classificacao}</label>
+                <label className='classificacao'>{props.item.classificacao} Anos</label>
                 </div>
                 
             </div>
