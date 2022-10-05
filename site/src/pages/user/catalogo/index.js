@@ -37,7 +37,7 @@ export default function Catalogo(){
            <div className='pagina-baixo'>
 
             <div className='texto-select'>
-              <p className='texto-catalogo'>FILMES DA MARVEL</p>
+              <p className='texto-catalogo'>FILMES POR FRANQUIA</p>
 
               <select  className='campos input-linhas'> 
                 <option disabled selected hidden> Selecione a categoria </option>
@@ -58,12 +58,25 @@ export default function Catalogo(){
            <div className='pagina-baixo'>
 
     <div className='texto-select'>
-    <p className='texto-catalogo'>FILMES DIVERSOS</p>
+    <p className='texto-catalogo'>FILMES POR GENÊRO</p>
 
     <select  className='campos input-linhas'> 
      <option disabled selected hidden> Selecione a categoria </option>
          <option>LALALALALALLA</option>
     </select>
+    </div>
+
+<div className='cards-filmes'>
+  <FilmeC imagem='../images/filmeruim.png' titulo='THOR AMOR E TROVÃO' data='15/12/2022'/>
+  <FilmeC imagem='../images/amizade.jpg' titulo='NARUTO E SASUKE' data='15/12/2022'/>
+  <FilmeC imagem='../images/img-interessante.jpg' titulo='EVANGELION' data='15/12/2022'/>
+  <FilmeC imagem='../images/ticoeteco.jpg' titulo='TARTARUGAS NINJAS' data='15/12/2022'/>
+  <FilmeC imagem='../images/red.jpg' titulo='RED: CRESCER É UMA FERA' data='15/12/2022'/>
+</div>
+<hr></hr>
+<div className='texto-select'>
+    <p className='texto-catalogo'>FILMES DIVERSOS</p>
+
     </div>
 
 <div className='cards-filmes'>

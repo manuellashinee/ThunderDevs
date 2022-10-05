@@ -14,6 +14,7 @@ import FilmeCards from './pages/components/filmeCards';
 import HomeAdm from './pages/adm/homeadm';
 import Filmes from './pages/adm/filmesCadastrados';
 import Cadastrarcombo from './pages/adm/cadastrarcombo';
+import CadastrarUser from './pages/user/cadastrarUser';
 
 
 export default function Rotas (){
@@ -33,6 +34,7 @@ export default function Rotas (){
         <Route path='/filmeCard' element={<FilmeCards/>}/>
         <Route path='/filmes' element={<Filmes/>}/>
         <Route path='/cadastrarcombo' element={<Cadastrarcombo/>}/>
+        <Route path='/cadastraruser' element={<CadastrarUser/>}/>
     </Routes>
     </BrowserRouter>
     );
