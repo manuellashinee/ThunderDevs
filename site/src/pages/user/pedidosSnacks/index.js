@@ -10,18 +10,29 @@ export default function PedidosSnacks()  {
         <section className='pedidos-combos'>
     <section className='salvados'>
             
-        <div className='cabecao'>
-        <div className='cabecalho-search'>
-                <div>
+    <div className='head'>
+        <div className='cabecalho-pesquisa'>
+            <div>
                 <img className='logo' src='../images/logo.svg'/>
-                </div>
-                <div className='search-input'>
-                <input className='search-design' type='text'/>
-                <button  className='searching-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
-                </div>
-              
             </div>
+            <div className='foto'>
+
+             <div className='pesquisa-input'>
+                <input className='pesquisa-design' type='text'/>
+                <button  className='pesquisar-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
+             </div>
+
+               <div className='foto-perfil'>
+               <div><img  className='perfil' src='../images/elizinha.svg'/></div>
+               <div><p>Manu</p></div>
+               </div>
+                
+            </div>
+              
+              
         </div>
+    </div>
+        
         <div className='title'>
             <h1>PEDIDOS SNACKS:</h1>
         </div>
