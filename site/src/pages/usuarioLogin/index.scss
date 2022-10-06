@@ -1,5 +1,6 @@
 *{
     margin: 0px;
+    text-decoration: none;
 }
 
 .pagina-login{
@@ -133,6 +134,11 @@ input {
     margin-right: 2em;
 }
 
+.b2{
+    margin-top: 8px;
+    font-size: 14px;
+}
+
 .primeiro {
     padding: 8px  25px 10px 25px;
 
@@ -143,7 +149,8 @@ input {
     color: white;
     opacity: 100%;
 }
-button {
+
+.salvar-botao {
     font-family: 'LSB';
     color: #ffff;
     background-color: #AE4EDB;
