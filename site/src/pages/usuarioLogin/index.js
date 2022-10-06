@@ -5,7 +5,7 @@ import LoadingBar from 'react-top-loading-bar';
 import{ useNavigate } from 'react-router-dom';
 import storage from 'local-storage'
 import { loginUsu} from '../../api/loginApi'
-
+import { Link } from 'react-router-dom';
 
 
 export default function Index() {
@@ -90,7 +90,7 @@ export default function Index() {
         <div className='b1'><button className='primeiro  salvar-botao' onClick={entrarClick} disabled={carregando}>ENTRAR</button></div>
         
 
-        <div className='b2'><button className='primeiro salvar-botao'>CADASTRE-SE</button></div>
+        <div className='b2'><Link to='/cadastraruser' className='primeiro salvar-botao'>CADASTRE-SE</Link></div>
         <div>{erro}</div>
        </div>
 

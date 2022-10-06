@@ -43,15 +43,19 @@ export default function HomeAdm() {
             </div>
             <div className='card-p'>
                 <div className='parte-cards'>
-                <Cacete imagem='../images/add.svg' texto='ADICIONE UM FILME AO NOSSO CATALÓGO.'/>
-                <Cacete imagem='../images/add.svg' texto='VEJA, ADICIONE, ALTERE OU REMOVA UM FILME JÁ CADASTRADO.'/>
+                <Link to='/cadastrarfilme'><Cacete imagem='../images/add.svg' texto='ADICIONE UM FILME AO NOSSO CATALÓGO.'/></Link>
+                <Link to='/filmes'><Cacete imagem='../images/edit.svg' texto='VEJA, ADICIONE, ALTERE OU REMOVA UM FILME JÁ CADASTRADO.'/></Link>
                 </div>
                 <div className='parte-cards'>
-                <Cacete imagem='../images/add.svg' texto='ADICIONE UM COMBO (ALIMENTO)  E VEJA OS DO SNACK BAR.'/>
-                <Cacete imagem='../images/add.svg' texto='VEJA OS PEDIDOS FEITOS ATÉ AGORA.'/>
+                <Link to='/cadastrarcombo'><Cacete imagem='../images/pizza.svg' texto='ADICIONE UM COMBO (ALIMENTO)  E VEJA OS DO SNACK BAR.'/></Link>
+                <Cacete imagem='../images/feito.svg' texto='VEJA OS PEDIDOS QUE FORAM FEITOS ATÉ AGORA.'/>
                 </div>
-                <Cacete imagem='../images/add.svg' texto='ADICIONE UMA IMAGEM AO NOSSO CARROSSEL DA PÁGINA INICIAL.'/>
+                <Cacete2 imagem='../images/image.svg' texto='ADICIONE UMA IMAGEM AO NOSSO CARROSSEL DA PÁGINA INICIAL.'/>
             </div> 
+            <div className='sair-adm'>
+                <Link to='/home'><img src='../images/Login.png' /></Link>
+                <p className='sair-palavra'>SAIR</p>
+            </div>
             </div>
         </section>
     );
