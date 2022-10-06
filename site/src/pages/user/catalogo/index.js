@@ -6,6 +6,8 @@ import { FiltrarFilmeFranquia, FiltrarFilmeGenero, vizualizarTFilmes } from '../
 import { useState, useEffect } from 'react';
 import { consultarFranquias } from '../../../api/franquiaApi';
 import { consultarGeneros } from '../../../api/generoApi';
+import storage from 'local-storage';
+import { useNavigate } from 'react-router-dom';
 
 export default function Catalogo() {
   const [filmes, setFilmes] = useState([]);
@@ -16,7 +18,13 @@ export default function Catalogo() {
   const [idfraquia, setIdFranquias] = useState(1);
   const [idgenero, setIdGeneros] = useState(1);
   
+  const navigate = useNavigate();
 
+
+  function sairClick(){
+    storage.remove('usuario-logado');
+    navigate('/home')
+  }
 
   async function afilmes() {
     const resp = await vizualizarTFilmes();
@@ -73,8 +81,10 @@ export default function Catalogo() {
             <Link to='/home' className='icon-c'><img src='../images/Burger.svg' /></Link>
             <hr className='linhas-c' />
             <Link to='/home' className='icon-c'><img src='../images/shopping_cart.svg' /></Link>
+            <div onClick={sairClick}>
             <hr className='linhas-c' />
             <Link to='/home' className='icon-c'><img src='../images/Login.png' /></Link>
+            </div>
           </div>
           <hr className='linhas-c' />
         </div>

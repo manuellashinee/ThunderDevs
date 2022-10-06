@@ -33,7 +33,7 @@ export default function Index() {
           const asnwer = await loginUsu(email,senha);
           storage('usuario-logado', asnwer);
           console.log(storage('usuario-logado'))
-          navigate('/cadastrarfilme')
+          navigate('/catalogo')
 
 
     
@@ -87,12 +87,15 @@ export default function Index() {
        <div className='botoes'>
 
         <div className='b1'><button className='primeiro  salvar-botao' onClick={entrarClick} disabled={carregando}>ENTRAR</button></div>
+        
 
         <div className='b2'><button className='primeiro salvar-botao'>CADASTRE-SE</button></div>
+        <div>{erro}</div>
        </div>
 
 
       </div>
+      
       </div>
     </section>
     </section>

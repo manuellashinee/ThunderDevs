@@ -86,6 +86,7 @@ import { loginAdm } from '../../../api/loginadmApi'
        <div className='botoes'>
 
         <div className='b1'><button className='primeiro  salvar-botao' onClick={entrarClick} disabled={carregando} >ENTRAR</button></div>
+        <div>{erro}</div>
        </div>
      
 
