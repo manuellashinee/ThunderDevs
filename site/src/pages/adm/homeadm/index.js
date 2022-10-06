@@ -1,8 +1,10 @@
 import './index.scss';
 import '../../../common/common.scss'
 import Cacete from '../../components/cardshomeadm';
+import Cacete2 from '../../components/cardadm2';
+
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import storage from 'local-storage';
 
 export default function HomeAdm() {
