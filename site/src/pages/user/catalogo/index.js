@@ -8,6 +8,7 @@ import { consultarFranquias } from '../../../api/franquiaApi';
 import { consultarGeneros } from '../../../api/generoApi';
 import storage from 'local-storage';
 import { useNavigate } from 'react-router-dom';
+import Carrossel from '../../components/carrossel';
 
 export default function Catalogo() {
   const [filmes, setFilmes] = useState([]);
@@ -151,7 +152,7 @@ export default function Catalogo() {
           )}
         </div>
       </div>
-
+            <Carrossel/>
     </section>
   );
 }
