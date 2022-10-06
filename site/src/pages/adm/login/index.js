@@ -16,11 +16,7 @@ import { loginAdm } from '../../../api/loginadmApi'
   const navigate = useNavigate();
   const ref= useRef();
 
-  useEffect(() => {
-    if(storage('ADM-logado')) {
-
-    }
-})
+ 
 
 
    async function entrarClick() {

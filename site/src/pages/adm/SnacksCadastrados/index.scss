@@ -1,0 +1,130 @@
+.combos-cadastrados{
+    .cabecao {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .setas-circle {
+        display: flex;
+        padding: 0em 2em;
+        margin-bottom: 1em;
+    }
+    
+    .voltar {
+        width: 2.5em;
+    }
+    
+    .title {
+        padding: 0em 2em;
+        margin-bottom: 10px;
+    }
+    
+    
+    .pesquisa-input{
+        padding: 2em;
+      }
+    
+      .pesquisa-design{
+          background-color: #1A1919;
+          border: 2px solid rgb(206, 206, 206);
+          border-radius: 5px;
+          font-family: 'LM';
+          color: white;
+          position: relative;
+          width: 90%;
+          min-width: 7em;
+          height: 2em;
+      }
+    
+      .pesquisar-icon{
+         background-color:inherit;
+         border: none;
+      }
+    
+      .img-pesquisa{
+          width: 80%;
+          margin-top: 5px;
+          height: auto;
+      }
+    
+      .img-pesquisa:hover{
+          cursor: pointer;
+      }
+    
+      .pesquisa-input .pesquisar-icon{
+          position: absolute;
+          transform: translate(-100%, 0%);
+      }
+    
+        .logo{
+            mix-blend-mode: lighten;
+            width: 7.5em;
+            margin-top: 1em;
+            margin-left: 2em;
+        }
+
+        .foto {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .perfil {
+            width: 3em;
+        }
+        
+        .foto-perfil {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-right: 3em;
+
+            p {
+                color: #ffff;
+                font-family: 'LR';
+            }
+        }
+        .cabecalho-pesquisa{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100vw;
+        }
+        
+        .pesquisa-input{
+          padding: 2em;
+        }
+        
+        .pesquisa-design{
+            background-color: #1A1919;
+            border: 2px solid rgb(206, 206, 206);
+            border-radius: 5px;
+            font-family: 'LM';
+            color: white;
+            position: relative;
+            width: 90%;
+            min-width: 7em;
+            height: 2em;
+        }
+        
+        .pesquisar-icon{
+           background-color:inherit;
+           border: none;
+        }
+        
+        .img-pesquisa{
+            width: 80%;
+            margin-top: 5px;
+            height: auto;
+        }
+        
+        .img-pesquisa:hover{
+            cursor: pointer;
+        }
+        
+        .pesquisa-input .pesquisar-icon{
+            position: absolute;
+            transform: translate(-100%, 0%);
+        }
+    }
