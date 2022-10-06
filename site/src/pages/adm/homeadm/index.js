@@ -1,6 +1,8 @@
 import './index.scss';
 import '../../../common/common.scss'
 import Cacete from '../../components/cardshomeadm';
+import Cacete2 from '../../components/cardadm2';
+import { Link } from 'react-router-dom';
 
 export default function HomeAdm() {
     return(
@@ -14,7 +16,7 @@ export default function HomeAdm() {
                 </div>
                 </div>
                 <div className='tt-adm'>
-                    <h1 className='titulo-adm'>BEM VINDO, <span className='cor-texto'>ADMISTRADOR(A)!</span></h1>
+                    <h1 className='titulo-adm'>BEM VINDO, <span className='cor-texto'>ADMINISTRADOR(A)!</span></h1>
                     <p className='sub-titu'>DESEJAMOS AS BOAS VINDAS AO SISTEMA <span className='sub-titu-s'>POPCORN TIME</span></p>
                 </div>
                 <hr/>
@@ -27,15 +29,19 @@ export default function HomeAdm() {
             </div>
             <div className='card-p'>
                 <div className='parte-cards'>
-                <Cacete imagem='../images/add.svg' texto='ADICIONE UM FILME AO NOSSO CATALÓGO.'/>
-                <Cacete imagem='../images/add.svg' texto='VEJA, ADICIONE, ALTERE OU REMOVA UM FILME JÁ CADASTRADO.'/>
+                <Link to='/cadastrarfilme'><Cacete imagem='../images/add.svg' texto='ADICIONE UM FILME AO NOSSO CATALÓGO.'/></Link>
+                <Link to='/filmes'><Cacete imagem='../images/edit.svg' texto='VEJA, ADICIONE, ALTERE OU REMOVA UM FILME JÁ CADASTRADO.'/></Link>
                 </div>
                 <div className='parte-cards'>
-                <Cacete imagem='../images/add.svg' texto='ADICIONE UM COMBO (ALIMENTO)  E VEJA OS DO SNACK BAR.'/>
-                <Cacete imagem='../images/add.svg' texto='VEJA OS PEDIDOS FEITOS ATÉ AGORA.'/>
+                <Link to='/cadastrarcombo'><Cacete imagem='../images/pizza.svg' texto='ADICIONE UM COMBO (ALIMENTO)  E VEJA OS DO SNACK BAR.'/></Link>
+                <Cacete imagem='../images/feito.svg' texto='VEJA OS PEDIDOS QUE FORAM FEITOS ATÉ AGORA.'/>
                 </div>
-                <Cacete imagem='../images/add.svg' texto='ADICIONE UMA IMAGEM AO NOSSO CARROSSEL DA PÁGINA INICIAL.'/>
+                <Cacete2 imagem='../images/image.svg' texto='ADICIONE UMA IMAGEM AO NOSSO CARROSSEL DA PÁGINA INICIAL.'/>
             </div> 
+            <div className='sair-adm'>
+                <Link to='/home'><img src='../images/Login.png' /></Link>
+                <p className='sair-palavra'>SAIR</p>
+            </div>
             </div>
         </section>
     );
