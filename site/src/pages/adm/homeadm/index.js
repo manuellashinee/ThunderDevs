@@ -1,8 +1,24 @@
 import './index.scss';
 import '../../../common/common.scss'
 import Cacete from '../../components/cardshomeadm';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import storage from 'local-storage';
 
 export default function HomeAdm() {
+
+    const [adm, setAdm] = useState('');
+   const navigate = useNavigate();
+    useEffect(() => {
+        if(!storage('Adm-Logado')){
+            navigate('/homeadm');
+        }
+        else{
+          const admLogado = storage('Adm-Logado');
+          setAdm(admLogado.nome);
+        }
+    }, [])
+  
     return(
         <section className='home-adm'>
             <div className='parte-cima'>
@@ -10,11 +26,11 @@ export default function HomeAdm() {
                 <img className='logo' src='../images/logo.svg'/>
                 <div className='icon-texto'>
                     <img className='icon-persona' src='../images/popcorn.png'/>
-                    <p className='texto-catalogo'>juliana</p>
+                    <p className='texto-catalogo'>{adm}</p>
                 </div>
                 </div>
                 <div className='tt-adm'>
-                    <h1 className='titulo-adm'>BEM VINDO, <span className='cor-texto'>ADMISTRADOR(A)!</span></h1>
+                    <h1 className='titulo-adm'>BEM VINDO, <span className='cor-texto'>{adm}!</span></h1>
                     <p className='sub-titu'>DESEJAMOS AS BOAS VINDAS AO SISTEMA <span className='sub-titu-s'>POPCORN TIME</span></p>
                 </div>
                 <hr/>

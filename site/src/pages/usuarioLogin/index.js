@@ -20,9 +20,10 @@ export default function Index() {
 
   useEffect(() => {
       if(storage('usuario-logado')) {
-
+        navigate('/home');
       }
   })
+  
 
   async function entrarClick() {
       ref.current.continuousStart()
