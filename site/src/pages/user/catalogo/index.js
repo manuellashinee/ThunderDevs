@@ -17,9 +17,18 @@ export default function Catalogo() {
   const [genero, setGeneros] = useState([]);
   const [idfraquia, setIdFranquias] = useState(1);
   const [idgenero, setIdGeneros] = useState(1);
-  
+  const [usuario, setUsuario] = useState('');
   const navigate = useNavigate();
-
+ 
+  useEffect(() => {
+      if(!storage('usuario-logado')){
+          navigate('/home');
+      }
+      else{
+        const usuarioLogado = storage('usuario-logado');
+        setUsuario(usuarioLogado.nome);
+      }
+  }, [])
 
   function sairClick(){
     storage.remove('usuario-logado');
@@ -75,16 +84,15 @@ export default function Catalogo() {
       <div className='img-navegar-page'>
         <div className='navegacao'>
           <img className='icon-persona' src='../images/popcorn.png' />
-          <p className='texto-catalogo'>juliana</p>
+          <p className='texto-catalogo'> {usuario}</p>
 
           <div className='icons-c'>
             <Link to='/home' className='icon-c'><img src='../images/Burger.svg' /></Link>
             <hr className='linhas-c' />
             <Link to='/home' className='icon-c'><img src='../images/shopping_cart.svg' /></Link>
-            <div onClick={sairClick}>
             <hr className='linhas-c' />
-            <Link to='/home' className='icon-c'><img src='../images/Login.png' /></Link>
-            </div>
+            <Link to='/home' className='icon-c'><img src='../images/Login.png'  onClick={sairClick} /></Link>
+
           </div>
           <hr className='linhas-c' />
         </div>
