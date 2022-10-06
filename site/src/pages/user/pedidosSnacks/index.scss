@@ -21,11 +21,11 @@
     }
     
     
-    .search-input{
+    .pesquisa-input{
         padding: 2em;
       }
     
-      .search-design{
+      .pesquisa-design{
           background-color: #1A1919;
           border: 2px solid rgb(206, 206, 206);
           border-radius: 5px;
@@ -37,7 +37,7 @@
           height: 2em;
       }
     
-      .searching-icon{
+      .pesquisar-icon{
          background-color:inherit;
          border: none;
       }
@@ -61,9 +61,31 @@
             mix-blend-mode: lighten;
             width: 7.5em;
             margin-top: 1em;
+            margin-left: 2em;
+        }
+
+        .foto {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .perfil {
+            width: 3em;
         }
         
-        .cabecalho-search{
+        .foto-perfil {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-right: 3em;
+
+            p {
+                color: #ffff;
+                font-family: 'LR';
+            }
+        }
+        .cabecalho-pesquisa{
             display: flex;
             flex-direction: row;
             justify-content: space-between;

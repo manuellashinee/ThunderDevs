@@ -32,8 +32,9 @@
 .edit {
     display: flex;
     flex-direction: column;
-    padding: 2em 10px;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
 }
 
 
@@ -47,7 +48,7 @@ margin-bottom: 1em;
 
 
 .remove-img {
-    width: 40px;
+    width: 56px;
     
     }
 
