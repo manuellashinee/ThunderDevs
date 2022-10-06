@@ -7,6 +7,8 @@ import usuarioController from './controller/usuarioController.js' ;
 import filmeController from './controller/filmeController.js' ;
 import franquiaController from './controller/franquiaController.js';
 import generoController from './controller/generoController.js' ;
+import comentarioController from './controller/comentarioController.js'
+import comboController from './controller/comboController.js'
 
 const server = express();
 server.use(cors());
@@ -17,6 +19,8 @@ server.use(usuarioController);
 server.use(filmeController) ;
 server.use(franquiaController);
 server.use(generoController);
+server.use(comentarioController)
+server.use(comboController);
 
 
 server.use('/storage/fotosfilmes', express.static('storage/fotosfilmes'));
