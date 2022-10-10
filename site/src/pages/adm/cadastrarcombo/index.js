@@ -3,6 +3,9 @@ import '../../../common/common.scss'
 import { Link } from 'react-router-dom';
 
 export default function Cadastrarcombo(){
+    
+
+
     return(
         <section className='pagina-cadastro-c'>
         <div className='cadastrar-page'>
