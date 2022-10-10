@@ -1,5 +1,5 @@
 import './index.scss'
-
+import FilmeC from '../filmesc';
 import  Carousel  from  "react-multi-carousel" ; 
 import  "react-multi-carousel/lib/styles.css" ; 
 
@@ -14,7 +14,7 @@ import  "react-multi-carousel/lib/styles.css" ;
 
 
 
-export default function Carrossel() {
+export default function Carrossel(props) {
     
     const responsive = {
         desktop: {
@@ -42,7 +42,7 @@ export default function Carrossel() {
                     responsive={responsive}
                     ssr={true}
                     infinite={true}
-                    autoPlay={true}
+                    //autoPlay={true}
                     autoPlaySpeed={2000}
                     keyBoardControl={true}
                     containerClass="carousel-container"
@@ -53,14 +53,13 @@ export default function Carrossel() {
                     //itemClass="carousel-item-padding-40-px"
                     >
 
+                
+                    <div><img className='sasuke' src={props.imagem} alt='dest' /></div>
                     <div><img className='sasuke' src='/images/amizade.jpg' alt='dest' /></div>
-                    <div><img src='/images/amizade.jpg' alt='dest' /></div>
-                    <div><img src='/images/amizade.jpg' alt='dest' /></div>
-                    <div><img src='/images/amizade.jpg' alt='dest' /></div>
-                    <div><img src='/images/amizade.jpg' alt='dest' /></div>
-                    <div><img src='/images/amizade.jpg' alt='dest' /></div>
-                    <div><img src='/images/amizade.jpg' alt='dest' /></div>
-                    
+                    <div><img className='sasuke' src='/images/amizade.jpg' alt='dest' /></div>
+                    <div><img className='sasuke' src='/images/amizade.jpg' alt='dest' /></div>
+                    <div><img className='sasuke' src='/images/amizade.jpg' alt='dest' /></div>
+                    <div><img className='sasuke' src='/images/amizade.jpg' alt='dest' /></div>
                 </Carousel>
         </section>
     )

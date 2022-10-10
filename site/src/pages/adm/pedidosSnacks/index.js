@@ -34,7 +34,7 @@ export default function PedidosSnacks()  {
     </div>
         
         <div className='title'>
-            <h1>PEDIDOS SNACKS:</h1>
+            <h1 className='titulo-snack'>PEDIDOS SNACKS:</h1>
         </div>
 
         <div className='setas-circle'>

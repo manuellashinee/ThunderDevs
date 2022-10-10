@@ -28,7 +28,7 @@ import { loginAdm } from '../../../api/loginadmApi'
       storage('ADM-logado', asnwer);
       console.log(storage('ADM-logado'))
       console.log(asnwer);
-      navigate('/cadastrarfilme');
+      navigate('/homeadm');
       
     } catch(err) {
       ref.current.complete();

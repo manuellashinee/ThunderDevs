@@ -160,7 +160,6 @@ export default function Catalogo() {
           )}
         </div>
       </div>
-            <Carrossel/>
     </section>
   );
 }

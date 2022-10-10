@@ -1,0 +1,37 @@
+.snackbar{
+    display: flex;
+    flex-direction: column;
+
+    .parte-1snack{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: url('../../../../public/images/comboback.svg');
+    }
+
+    .nome-titulo{
+        color: white;
+        font-family: 'LSB';
+        font-size: 2.5em;
+        padding: 4em 0em;
+    }
+
+    /*parte-2*/
+    .parte-2snack{
+        background-color: #1A1919;
+        background-size: cover;
+        padding: 2em;
+    }
+
+    .combo-nome{
+        color: white;
+        font-family: 'LSB';
+        font-size: 2em;
+        padding: 2em 0em 0em;
+    }
+
+    .card-snack{
+        display: flex;
+        flex-direction: row;
+    }
+}

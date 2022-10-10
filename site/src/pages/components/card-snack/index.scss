@@ -1,0 +1,44 @@
+.card-snack{
+    background-color: #1A1919;
+    background-size: cover;
+    padding: 1em;
+
+    .card2{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .img-card{
+        width: 14em;
+        height: 14em;
+        border-radius: 10px;
+    }
+
+    .textos{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .preco{
+        font-size: 1.4em;
+        color: white;
+        font-family: 'LB';
+        padding: 1em 0em;
+    }
+
+    .titu-combo{
+        font-family: 'LB';
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    .descricao{
+        width: 14em;
+        text-align: center;
+        color: #F5F5F5;
+        font-family: 'LR';
+        margin-bottom: 2em;
+        font-size: 13px;
+    }
+}
