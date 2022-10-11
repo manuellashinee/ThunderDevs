@@ -38,7 +38,7 @@ export default function Rotas (){
         <Route path='/cadastrarcombo' element={<Cadastrarcombo/>}/>
         <Route path='/cadastraruser' element={<CadastrarUser/>}/>
         <Route path='/pedidosnack' element={<PedidosSnacks/>}/>
-        <Route path='/snackscadastrados' element={<SnackCadastro/>}/>
+        <Route path='/snacks' element={<SnackCadastro/>}/>
     </Routes>
     </BrowserRouter>
     );

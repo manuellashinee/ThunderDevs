@@ -3,8 +3,8 @@ import {con} from './connection.js'
 export async function inserirCombo(combo){
     const comando=`insert into tb_combo(NM_COMBO,DS_COMBO,VL_PRECO)
                     values(?, ?, ?)`;
-    const resposta= await con.query(comando, [combo.nome, combo.descricao, combo.preco])
-    return resposta;
+    const [resposta]= await con.query(comando, [combo.nome, combo.descricao, combo.preco])
+    return resposta.insertId;
 }
 
 export async function pesquisarCombos(){

@@ -2,6 +2,8 @@ import './index.scss'
 import SnackCadastrado from '../../components/snacksCadastrados'
 
 export default function SnackCadastro() {
+    
+
     return (
         <section className='combos-cadastrados'>
         <section className='salvados'>
@@ -30,7 +32,7 @@ export default function SnackCadastro() {
         </div>
             
             <div className='title'>
-                <h1>SNACK'S CADASTRADOS:</h1>
+                <h1 className='servulo'>SNACK'S CADASTRADOS:</h1>
             </div>
     
             <div className='setas-circle'>

@@ -6,8 +6,10 @@ const server = Router();
 server.post('/adm/combo', async (req,resp)=>{
     try{
     const combo = req.body;
-    const resposta = await inserirCombo(combo);
-    resp.status(204).send()
+    const idcombo = await inserirCombo(combo);
+    resp.send({ 
+        id: idcombo
+     });
     }
     catch (err) {
         resp.status(404).send({
