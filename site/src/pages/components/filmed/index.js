@@ -35,7 +35,7 @@ export default function FilmeD(){
                     <p className='titulo'> amanha eu faço </p>
                     </div>
                     <div>
-                    <p className='comentarios-botao'>Comprar Ingressos</p>
+                    <p className='comentarios-botao'>Adicionar Comentário</p>
                     </div>
                 </div>
             </div>
