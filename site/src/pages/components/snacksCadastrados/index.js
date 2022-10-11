@@ -1,6 +1,32 @@
 import './index.scss';
+import { confirmAlert } from 'react-confirm-alert';
+import { retirarCombo } from '../../../api/comboapi.js';
 
 export default function SnackCadastrado(props) {
+
+    async function recarregarPage(){
+        window.location.reload();
+     }
+
+     async function removerComboClick(id, nome){
+        confirmAlert({
+            title: 'Remover combo',
+            message:`Deseja remover ${nome}?`,
+            buttons: [
+              {
+                label: 'Sim',
+                onClick: async () => {
+                      const resposta = await retirarCombo(id);
+                      recarregarPage();
+                }
+              },
+              {
+                label:'Não'
+              }
+            ]
+          })
+      
+    }
 
     function mostrarImagem(imagem) {
         if (!imagem)
@@ -60,7 +86,7 @@ export default function SnackCadastrado(props) {
         <img className='edit-img' src='../images/edit.svg'/>
 
 
-        <img className='remove-img' src='../images/circle-x.svg'/>
+        <img className='remove-img' src='../images/circle-x.svg' onClick={() => removerComboClick(props.item.idcombo , props.item.nome)}/>
        
        
         

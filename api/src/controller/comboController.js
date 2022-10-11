@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { inserirCombo, pesquisarComboNome, pesquisarCombos } from '../repository/comboRepository.js';
+import { inserirCombo, pesquisarComboId, pesquisarComboNome, pesquisarCombos, removerCombo } from '../repository/comboRepository.js';
 const server = Router();
 
 
@@ -41,6 +41,32 @@ server.get('/adm/combo/nome', async (req, resp)=>{
                 erro: err.message
             })
         }
+})
+
+server.get('/consulta/combo/:id', async (req, resp)=>{
+    try{
+        const {id} = req.params;
+        const resposta = await pesquisarComboId(id);
+        resp.send(resposta);
+    }
+        catch (err) {
+            return resp.status(400).send({
+                erro: err.message
+            })
+        }
+})
+
+server.delete('/adm/combo/:id', async (req, resp)=>{
+    try{
+        const  id = req.params.id;
+        const remove = await removerCombo(id);
+        resp.status(204).send();
+    }
+    catch (err) {
+        return resp.status(400).send({
+            erro: err.message
+        })
+    }
 })
 
 export default server;

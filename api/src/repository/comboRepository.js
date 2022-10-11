@@ -33,3 +33,26 @@ export async function pesquisarComboNome(nome){
     const [resposta] = await con.query(comando, [nome])
     return resposta;         
 }
+
+export async function pesquisarComboId(id){
+    const comando=` 
+                SELECT 
+                    ID_COMBO as idcombo,
+                    NM_COMBO as nome,
+                    DS_COMBO as descricao,
+                    VL_PRECO as preco,
+                    IMG_COMBO as foto
+                    from tb_combo
+                    where id_combo = ? `;
+
+    const [resposta] = await con.query(comando, [id])
+    return resposta;         
+}
+
+export async function removerCombo(id){
+    const comando= `    
+                    delete from tb_combo 
+                        where id_combo = ? `;
+    const [resposta] = await con.query(comando, [id])
+    return resposta;
+}
