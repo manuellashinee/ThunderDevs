@@ -18,3 +18,18 @@ export async function pesquisarCombos(){
     const [resposta] = await con.query(comando,[]);
     return resposta;
 }
+
+export async function pesquisarComboNome(nome){
+    const comando=` 
+                SELECT 
+                    ID_COMBO as idcombo,
+                    NM_COMBO as nome,
+                    DS_COMBO as descricao,
+                    VL_PRECO as preco,
+                    IMG_COMBO as foto
+                    from tb_combo
+                    where NM_combo like "%${nome}%" `;
+
+    const [resposta] = await con.query(comando, [nome])
+    return resposta;         
+}

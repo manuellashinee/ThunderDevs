@@ -2,6 +2,13 @@ import './index.scss';
 
 export default function SnackCadastrado(props) {
 
+    function mostrarImagem(imagem) {
+        if (!imagem)
+          return './images/logo.svg'
+        else
+          return `http://localhost:5000/${imagem}`
+      }
+
     return(
         <section className="lanches">
             
@@ -11,12 +18,12 @@ export default function SnackCadastrado(props) {
             <div className='alinhamento'>
                 
             <div>
-            <img className='img-capa-combo' src={props.capa}/>
+            <img className='img-capa-combo' src={mostrarImagem(props.item.foto)}/>
             </div>
 
             <div className='descricao'>
             <div className='titulo'>
-                <h1>{props.nome}</h1>
+                <h1>{props.item.nome}</h1>
                 </div>
               
 
@@ -27,7 +34,7 @@ export default function SnackCadastrado(props) {
                 </div>
 
                 <div className='desc'>
-                <label className='descricao-combo'>{props.descricao}</label>
+                <label className='descricao-combo'>{props.item.descricao}</label>
                 </div>
                 
             </div>
@@ -38,7 +45,7 @@ export default function SnackCadastrado(props) {
                 </div>
 
                 <div className='desc'>
-                <label className='total'>{props.valor}</label>
+                <label className='total'>{props.item.preco}</label>
                 </div>
                 
             </div>

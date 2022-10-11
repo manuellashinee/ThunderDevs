@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { inserirCombo, pesquisarCombos } from '../repository/comboRepository.js';
+import { inserirCombo, pesquisarComboNome, pesquisarCombos } from '../repository/comboRepository.js';
 const server = Router();
 
 
@@ -28,6 +28,19 @@ server.get('/adm/combo', async (req,resp)=>{
             erro: err.message
         });
     }
+})
+
+server.get('/adm/combo/nome', async (req, resp)=>{
+    try{
+        const {nome} = req.query;
+        const resposta = await pesquisarComboNome(nome);
+        resp.send(resposta);
+    }
+        catch (err) {
+            return resp.status(400).send({
+                erro: err.message
+            })
+        }
 })
 
 export default server;

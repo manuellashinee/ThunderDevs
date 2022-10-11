@@ -1,8 +1,31 @@
 import './index.scss'
 import SnackCadastrado from '../../components/snacksCadastrados'
+import { useEffect, useState } from 'react'
+import { FiltrarComboNome, vizualizarTCombos } from '../../../api/comboapi.js';
 
 export default function SnackCadastro() {
-    
+    const [combos, setCombos] = useState([]);
+    const [nome, setNome] = useState("");
+
+    async function carregarCombos(){
+        const resp = await vizualizarTCombos();
+        
+        setCombos(resp);
+    }
+
+    async function verCombosNome(nome){
+        const resp = await FiltrarComboNome(nome);
+        setCombos(resp);
+    }
+
+    useEffect(() => {
+        verCombosNome(nome);
+    }, [nome])
+
+
+    useEffect(() => {
+        carregarCombos();
+    }, [])
 
     return (
         <section className='combos-cadastrados'>
@@ -16,7 +39,7 @@ export default function SnackCadastro() {
                 <div className='foto'>
     
                  <div className='pesquisa-input'>
-                    <input className='pesquisa-design' type='text'/>
+                    <input className='pesquisa-design' type='text' value={nome} onChange={e=> setNome(e.target.value)}/>
                     <button  className='pesquisar-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
                  </div>
     
@@ -42,7 +65,9 @@ export default function SnackCadastro() {
                 </div>
     
             </div>
-                <SnackCadastrado capa ='../images/imagem_combo.svg' nome='COMBO BIG'  descricao='PIPOCA GRANDE, TRES REFRIGERANTE, TORTILAS COM QUEIJO CHEDAR E BALA FINI' valor='70,00'/>
+                {combos.map(item=>
+                <SnackCadastrado item={item} />
+                )}
             </section>
             </section>
     )
