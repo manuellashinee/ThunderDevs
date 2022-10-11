@@ -4,7 +4,7 @@
 export default function Rodape(){
 
 return(
-    <section className="rr">
+
 <div className='rodape'>
 
 <div className='redeS'>
@@ -71,6 +71,5 @@ return(
 </div>
 
 </div>
-</section>
 );
 }

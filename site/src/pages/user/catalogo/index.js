@@ -24,7 +24,7 @@ export default function Catalogo() {
  
   useEffect(() => {
       if(!storage('usuario-logado')){
-          navigate('/home');
+          navigate('/');
       }
       else{
         const usuarioLogado = storage('usuario-logado');
@@ -34,7 +34,7 @@ export default function Catalogo() {
 
   function sairClick(){
     storage.remove('usuario-logado');
-    navigate('/home')
+    navigate('/')
   }
 
   async function afilmes() {

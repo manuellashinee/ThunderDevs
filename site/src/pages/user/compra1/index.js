@@ -85,7 +85,7 @@ export default function Compra1(){
                 </div>
             </div>
         </div>
-       
+       <Rodape/>
         </section>
     );
 }

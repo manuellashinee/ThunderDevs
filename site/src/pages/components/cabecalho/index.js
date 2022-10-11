@@ -11,7 +11,7 @@ export default function Cards() {
                 <img className='logo' src='../images/logo.svg'/>
                 </div>
             <nav >
-               <a className='links' href='/home'> INICIO </a>
+               <a className='links' href='/'> INICIO </a>
                <a className='links' href='/emcartaz'> EM CARTAZ </a>
                <a className='links' href='/embreve'> EM BREVE </a>
                <a className='links' href='/snackbar'> SNACK BAR </a>

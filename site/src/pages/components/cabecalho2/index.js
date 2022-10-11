@@ -11,7 +11,7 @@ export default function Cabe2() {
                 <Link to='/'><img className='flecha-c' src='../images/flecha.svg' /></Link>
                 </div>
             <nav >
-               <a className='links' href='/home'> INICIO </a>
+               <a className='links' href='/'> INICIO </a>
                <a className='links' href='/emcartaz'> EM CARTAZ </a>
                <a className='links' href='/embreve'> EM BREVE </a>
                <a className='links' href='/snackbar'> SNACK BAR </a>

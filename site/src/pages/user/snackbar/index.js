@@ -4,6 +4,7 @@ import Cabe2 from  '../../components/cabecalho2/index'
 import ArdSnack from '../../components/card-snack';
 import { vizualizarTCombos } from '../../../api/comboapi.js';
 import { useEffect, useState } from 'react';
+import Cards from '../../components/cabecalho';
 
 export default function SnackBar(){
   const [combos, setCombos] = useState([]);
