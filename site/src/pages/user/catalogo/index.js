@@ -9,6 +9,7 @@ import { consultarGeneros } from '../../../api/generoApi';
 import storage from 'local-storage';
 import { useNavigate } from 'react-router-dom';
 import Carrossel from '../../components/carrossel';
+import Rodape from '../../components/rodape';
 
 export default function Catalogo() {
   const [filmes, setFilmes] = useState([]);

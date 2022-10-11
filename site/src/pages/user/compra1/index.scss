@@ -175,4 +175,55 @@
             border: 2px solid white;
             border-radius: 5px;
         }
+
+        /*parte-2*/
+        .data-p{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .data-p2{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .parte-2{
+            display: flex;
+            flex-direction: column;
+            background-color: #1A1919;
+            padding: 2em;
+        }
+
+        .textos-p2{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2em;
+            padding: 1em 3em;
+        }
+
+        .titulo1{
+            color: #ffff;
+            font-family: 'LB';
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+
+        .titulo2{
+            color: #ffff;
+            font-family: 'LB';
+            font-size: 1.1em;
+            margin-bottom: 7px;
+        }
+
+        .preco{
+            font-family: 'LR';
+            color: #ffff;
+        }
+
+        .salas{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
 }

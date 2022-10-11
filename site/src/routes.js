@@ -24,7 +24,7 @@ export default function Rotas (){
     return(
     <BrowserRouter>
     <Routes>
-        <Route path='/home' element={<Home/>}/>
+        <Route path='/' element={<Home/>}/>
         <Route path='/cadastrarfilme' element={<Cadastrar/>}/>
         <Route path='/cadastrarfilme/:idParam' element={<Cadastrar/>}/>
         <Route path='/homeadm' element={<HomeAdm/>}/>

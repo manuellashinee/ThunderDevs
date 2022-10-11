@@ -8,7 +8,7 @@ export default function Cabe2() {
                 <div className='cabecalho'>
                 <div className='img-logo'>
                 <img className='logo' src='../images/logo.svg'/>
-                <Link to='/home'><img className='flecha-c' src='../images/flecha.svg' /></Link>
+                <Link to='/'><img className='flecha-c' src='../images/flecha.svg' /></Link>
                 </div>
             <nav >
                <a className='links' href='/home'> INICIO </a>
