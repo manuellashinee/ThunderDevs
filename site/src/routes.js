@@ -17,6 +17,7 @@ import Cadastrarcombo from './pages/adm/cadastrarcombo';
 import CadastrarUser from './pages/user/cadastrarUser';
 import PedidosSnacks from './pages/adm/pedidosSnacks';
 import SnackCadastro from './pages/adm/SnacksCadastrados';
+import Compra1 from './pages/user/compra1';
 
 
 export default function Rotas (){
@@ -39,6 +40,7 @@ export default function Rotas (){
         <Route path='/cadastraruser' element={<CadastrarUser/>}/>
         <Route path='/pedidosnack' element={<PedidosSnacks/>}/>
         <Route path='/snacks' element={<SnackCadastro/>}/>
+        <Route path='/compra1' element={<Compra1/>}/>
     </Routes>
     </BrowserRouter>
     );
