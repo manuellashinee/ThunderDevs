@@ -1,6 +1,7 @@
 import './index.scss';
 import '../../../common/common.scss'
 import Nomelinha from '../../components/cartaz-breve';
+import { Link } from 'react-router-dom';
 import Rodape from '../../components/rodape';
 import Data1 from '../../components/data1';
 import Sala from '../../components/sala';
@@ -26,11 +27,11 @@ export default function Compra1(){
                    <div><img  className='perfil' src='../images/elizinha.svg'/></div>
                    <div><p>Manu</p></div>
                    </div>
-                    
                 </div>
                   
                   
             </div>
+            <Link to='/'><img className='flecha-c' src='../images/flecha.svg' /></Link>
             <div className='textos-cimabaixo'>
                 <p className='titulo'>AVATAR 2</p>
                 <div className='sub-textos'>

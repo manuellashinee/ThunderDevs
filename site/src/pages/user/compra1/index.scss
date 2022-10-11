@@ -30,6 +30,10 @@
     .pesquisa-input{
         padding: 2em;
       }
+
+      .flecha-c{
+        margin-left: 2em;
+    }
     
       .pesquisa-design{
           background-color: #1A1919;
@@ -186,6 +190,7 @@
         .data-p2{
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
         }
 
         .parte-2{
