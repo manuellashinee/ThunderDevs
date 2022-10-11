@@ -1,3 +1,4 @@
+.servulo{
 .flecha-c{
     margin-left: 2em;
 }
@@ -9,6 +10,12 @@
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100vw;
+}
+
+.cabecalho .botao-login{
+    display: flex;
+    padding: 2em 0em;
+    justify-content: center;
 }
 
 .pesquisa-input{
@@ -45,4 +52,5 @@
 .pesquisa-input .pesquisar-icon{
     position: absolute;
     transform: translate(-100%, 0%);
+}
 }

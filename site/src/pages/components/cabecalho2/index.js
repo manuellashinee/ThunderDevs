@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Cabe2() {
     return (
-        <section>
+        <section className='servulo'>
                 <div className='cabecalho'>
                 <div className='img-logo'>
                 <img className='logo' src='../images/logo.svg'/>
