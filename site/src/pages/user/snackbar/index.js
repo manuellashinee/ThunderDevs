@@ -2,8 +2,21 @@ import './index.scss';
 import '../../../common/common.scss'
 import Cabe2 from  '../../components/cabecalho2/index'
 import ArdSnack from '../../components/card-snack';
+import { vizualizarTCombos } from '../../../api/comboapi.js';
+import { useEffect, useState } from 'react';
 
 export default function SnackBar(){
+  const [combos, setCombos] = useState([]);
+
+  async function carregarCombos(){
+    const resp = await vizualizarTCombos();
+    setCombos(resp);
+  }
+
+  useEffect(() => {
+      carregarCombos();
+  }, [])
+
     return(
         <section className='snackbar'>
           <div className='parte-1snack'>
@@ -14,10 +27,9 @@ export default function SnackBar(){
             <p className='combo-nome'>COMBOS:</p>
           </div>
           <div className='card-snack'>
-            <ArdSnack imagem='/images/amizade.jpg' preco='170,00' nome='NARUTO & SASUKE' descricao='PIPOCA GRANDE, DOIS REFRIGERANTE E TORTILAS COM QUEIJO CHEDAR'/>
-            <ArdSnack imagem='/images/amizade.jpg'/>
-            <ArdSnack imagem='/images/amizade.jpg'/>
-            <ArdSnack imagem='/images/amizade.jpg'/>
+            {combos.map(item=>
+            <ArdSnack item = {item}/>
+            )}
           </div>
 
         </section>
