@@ -1,0 +1,99 @@
+.compra3-principal{
+    background-color: #1A1919;
+    .parte-2{
+        display: flex;
+        flex-direction: column;
+        padding: 2em;
+    }
+
+    .preco{
+        font-family: 'LR';
+        color: #ffff;
+    }
+
+    .assentos{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 2em 2em;
+    }
+
+    .titulo1{
+        color: #ffff;
+        font-family: 'LB';
+        margin-right: 1em;
+        font-size: 1.4em;
+        margin-bottom: 1em;
+    }
+
+
+
+    /*input-textop*/
+    .input-textop{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input-texto2{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 2em;
+    }
+
+    .titulo2{
+        color: #ffff;
+        font-family: 'LB';
+        margin-right: 1em;
+        font-size: 1.1em;
+        margin-bottom: 7px;
+    }
+
+    .titulo3{
+        color: #AE4EDB;
+        font-family: 'LB';
+        margin-right: 1em;
+        font-size: 1em;
+        margin-bottom: 7px;
+    }
+
+    .input-ingresso{
+        background-color: #1A1919;
+        border: 2px solid white;
+        width: 8em;
+        height: 2em;
+        border-radius: 7px;
+        color: #ffff;
+        font-family: 'LM';
+        text-align: center;
+    }
+
+    .total-botao{
+        margin-top: 4em;
+    }
+
+    .valor-total{
+        color: #AE4EDB;
+    }
+
+    .botao-prosseguir{
+        display: flex;
+        justify-content: center;
+        padding: 2em;
+    }
+
+    .botao-ir{
+        color: white;
+        background-color: #AE4EDB;
+        font-family: 'LM';
+        padding: 1em 5em;
+        border-radius: 20px;
+    }
+
+    .botao-ir:hover{
+        cursor: pointer;
+        color: #AE4EDB;
+        background-color: #ffff;
+        transition: 0.3s;
+    }
+}

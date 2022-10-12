@@ -1,7 +1,7 @@
 import './index.scss';
 import '../../../common/common.scss'
 import Nomelinha from '../../components/cartaz-breve';
-import { Link } from 'react-router-dom';
+import CompraCima from '../../components/compra-cima';
 import Rodape from '../../components/rodape';
 import Data1 from '../../components/data1';
 import Sala from '../../components/sala';
@@ -10,38 +10,8 @@ import Hora1 from '../../components/hora1';
 export default function Compra1(){
     return(
         <section className='compra1'>
-            <div className='parte-1'>
-            <div className='head'>
-            <div className='cabecalho-pesquisa'>
-                <div>
-                    <img className='logo' src='../images/logo.svg'/>
-                </div>
-                <div className='foto'>
-    
-                 <div className='pesquisa-input'>
-                    <input className='pesquisa-design' type='text'/>
-                    <button  className='pesquisar-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
-                 </div>
-    
-                   <div className='foto-perfil'>
-                   <div><img  className='perfil' src='../images/elizinha.svg'/></div>
-                   <div><p>Manu</p></div>
-                   </div>
-                </div>
-                  
-                  
-            </div>
-            <Link to='/'><img className='flecha-c' src='../images/flecha.svg' /></Link>
-            <div className='textos-cimabaixo'>
-                <p className='titulo'>AVATAR 2</p>
-                <div className='sub-textos'>
-                    <p className='categoria1'>12</p>
-                    <p className='categoria2'>180 min</p>
-                    <p className='categoria2'>AVENTURA</p>
-                </div>
-            </div>
-        </div>
-        </div>
+            
+     <CompraCima/>
 
         <div className='parte-2'>
             <div className='textos-p2'>
