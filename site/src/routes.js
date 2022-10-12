@@ -19,6 +19,7 @@ import PedidosSnacks from './pages/adm/pedidosSnacks';
 import SnackCadastro from './pages/adm/SnacksCadastrados';
 import Compra1 from './pages/user/compra1';
 import FilmeDetalhe from './pages/user/filmedetalhe';
+import MyPedido from './pages/user/myPedidos';
 
 
 export default function Rotas (){
@@ -43,6 +44,7 @@ export default function Rotas (){
         <Route path='/snacks' element={<SnackCadastro/>}/>
         <Route path='/compra1' element={<Compra1/>}/>
         <Route path='/filmedetalhe' element={<FilmeDetalhe/>}/>
+        <Route path='/meuspedidos' element={<MyPedido/>}/>
     </Routes>
     </BrowserRouter>
     );

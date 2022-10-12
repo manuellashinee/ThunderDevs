@@ -1,0 +1,84 @@
+.pedidos{
+    border: 2px solid #fff;
+    border-radius: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-bottom: 1em;
+}
+
+.descricao {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+
+.titulo {
+    margin-bottom: 1em;
+
+}
+
+.alinhamento {
+    display: flex;
+    position: relative;
+    top: 1em;
+    justify-content: space-between;
+    
+}
+.esquerda {
+    display: flex;
+    margin-left: 1em;
+    
+}
+
+.padrao {
+    display: flex;
+    flex-direction: row;
+
+    label {       
+        color: grey;
+        font-size: 15px;
+        font-family: 'LR';
+    }
+
+    h2 {
+        text-align: start;
+        font-family: 'LM';
+        font-size: 1em;
+        color: #fff;
+       
+    }
+
+
+       
+}
+
+.img-capa-filme {
+    width: 182px;
+    padding: 15px;
+}
+
+h1 {
+    font-family: 'LSB';
+}
+
+
+.borda {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
+.desc {
+    margin-top: 2px;
+    margin-left: 6px;
+}
+
+.desc-texto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
