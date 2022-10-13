@@ -93,7 +93,7 @@ export default function Catalogo() {
             <hr className='linhas-c' />
             <Link to='/home' className='icon-c'><img src='../images/shopping_cart.svg' /></Link>
             <hr className='linhas-c' />
-            <Link to='/home' className='icon-c'><img src='../images/Login.png'  onClick={sairClick} /></Link>
+            <Link to='/' className='icon-c'><img src='../images/Login.png'  onClick={sairClick} /></Link>
 
           </div>
           <hr className='linhas-c' />

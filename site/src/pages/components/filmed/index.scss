@@ -1,9 +1,12 @@
+
 .page-principal{
     display: flex;
     flex-direction: column;
-    background-image: url('../../../../public/images/outrofilmeruim.png');
+    background-image: url('../../../../public/images/outrofilmeruim.png'), linear-gradient(to top, #532290, rgb(37, 37, 37),  rgb(37, 37, 37));
+    background-blend-mode:lighten;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
 
     .filme-d-p{
     display: flex;
@@ -15,6 +18,7 @@
 
     .flecha-c{
         padding: 2em;
+        width: fit-content;
     }
 
     .img-filme{
@@ -99,7 +103,7 @@
         color: #DB1ED3;
         border-radius: 20px;
         font-family: 'LB';
-        padding: 1em 3em;
+        padding: 1em 1em;
         background-color: #fff;
     }
 

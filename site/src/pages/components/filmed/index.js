@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function FilmeD(){
     return(
         <section className='page-principal'>
-             <Link to='/'><img className='flecha-c' src='../images/flecha.svg' /></Link>
+             <Link to='/' className='flecha-c'><img  src='../images/flecha.svg' /></Link>
         <div className='filme-d-p'>
             <div className='imagems'>
                 <img className='img-filme' src='../images/filmeruim.png' />
