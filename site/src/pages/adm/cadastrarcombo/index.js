@@ -2,25 +2,34 @@ import './index.scss'
 import '../../../common/common.scss'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { confirmarCombo } from '../../../api/comboapi.js';
+import { confirmarCombo, enviarImagemCombo} from '../../../api/comboapi.js';
 
 export default function Cadastrarcombo(){
     const [nome, setNome] = useState("");
     const [descricao, setDescricao] = useState("");
     const [preco, setPreco] = useState();
     const [idcombo, setIdCombo] = useState(0);
+    const [imagem, setImagem] = useState();
 
     async function SalvarCombo(){
         try{
             if(idcombo === 0 ){
                 const resposta = await confirmarCombo(nome,descricao,preco);
+                const combo = await enviarImagemCombo(imagem, resposta.id);
                 setIdCombo(resposta.idcombo);
-                console.log(idcombo)
                 alert('combo cadastrado com sucesso');
             }
         }catch(err){
         alert.error(err.message);
     }
+    }
+    function escolherImagemcombo() {
+        document.getElementById('imagemCapacombo').click();
+    }
+
+    function mostrarImagemcombo() {
+    return URL.createObjectURL(imagem); 
+      
     }
 
     return(
@@ -49,8 +58,16 @@ export default function Cadastrarcombo(){
                     <div className='coluna2'>
                       
                         <p className='campos'>IMAGEM:</p>
-                        <input className='input-linha2' type='file'/>
-                    
+                        <div className='upload-capa-combo' onClick={escolherImagemcombo} >
+                        {!imagem && 
+                         <img className='image-capa-combo' src='../images/icon.svg' alt='' />
+                         }
+
+                        {imagem && 
+                        <img className='imagem-capa-combo' src={mostrarImagemcombo()} alt=''/>
+                        }
+                        <input className='input-linha2' type='file' id='imagemcapacombo' onChange={e => setImagem(e.target.files[0])} />
+                    </div>
                     </div>
                 </div>
                 <div className=''>

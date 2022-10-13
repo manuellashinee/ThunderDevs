@@ -24,3 +24,29 @@ export async function retirarCombo(id) {
     const resposta = await api.delete(`/adm/combo/${id}`);
     return resposta.status;
 }
+
+export async function enviarImagemCombo(imagem, id) {
+    const formData = new FormData();
+    formData.append(`imagem` , imagem);
+
+    const resposta = await api.put(`/adm/combo/${id}/imagem`, formData, {
+        headers: {
+            "Content-Type" : "multipart/form-data"
+        },
+    });
+    return resposta.status;
+}
+
+export async function alterarCombo(nome, descricao, preco, id){
+    const resposta = await api.put(`/adm/combo/${id}` , {nome, descricao, preco })
+    return resposta.data;
+}
+
+export async function buscarPorId(id){
+    const resposta = await api.get(`/adm/combo/${id}`);
+    return resposta.data;
+}
+
+export function buscarImagem(imagem) {
+    return `${api.getUri()}/${imagem}`
+}

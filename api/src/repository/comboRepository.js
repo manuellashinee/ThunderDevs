@@ -56,3 +56,5 @@ export async function removerCombo(id){
     const [resposta] = await con.query(comando, [id])
     return resposta;
 }
+
+

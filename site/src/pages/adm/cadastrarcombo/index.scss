@@ -169,17 +169,35 @@
         margin-right: 14%;
     }
 
+    .upload-capa-combo {
+        width: 20em;
+        height: 15em;
+        border: #F5F5F5 2px solid;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
 
-    #imagemCapa {
+
+
+    #imagemCapaCombo {
         visibility: hidden;
         position: absolute;
     
     }
     
-    .imagem-capa {
+    .imagem-capa-combo {
         height: 15em;
         width: none;
         border-radius: 5px;
+    }
+
+    .image-capa-combo {
+        height: 5em;
+        width: 2em;
+
+        cursor: pointer;
     }
 }
 
