@@ -3,82 +3,107 @@
     border-radius: 1em;
     margin-left: 2em;
     margin-right: 2em;
-    margin-bottom: 1em;
-}
 
-.descricao {
-    display: flex;
-    flex-direction: column;
-   
-}
-
-
-.titulo {
-    margin-bottom: 1em;
-
-}
-
-.alinhamento {
-    display: flex;
-    position: relative;
-    top: 1em;
-    justify-content: space-between;
+    .descricao {
+        display: flex;
+        flex-direction: column;
+       
+    }
     
-}
-.esquerda {
-    display: flex;
-    margin-left: 1em;
     
-}
-
-.padrao {
-    display: flex;
-    flex-direction: row;
-
-    label {       
-        color: grey;
-        font-size: 15px;
-        font-family: 'LR';
+    .titulo {
+        margin-bottom: 0.5em;
+    
+    }
+    .situa {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 10px;
+        font-size: 20px;
     }
 
-    h2 {
+    .stop {
+        margin-right: 5em;
+    }
+    .alinhamento {
+        display: flex;
+        position: relative;
+        top: 1em;
+        justify-content: space-between;
+        
+    }
+    .esquerda {
+        display: flex;
+        margin-left: 1em;
+        
+    }
+
+    
+    
+    .padrao {
+        display: flex;
+        flex-direction: row;
+    
+        label {       
+            color: grey;
+            font-size: 15px;
+            font-family: 'LR';
+        }
+    
+        h2 {
+            text-align: start;
+            font-family: 'LM';
+            font-size: 1em;
+            color: #fff;
+           
+        }        
+    }
+
+        h1 {
         text-align: start;
         font-family: 'LM';
-        font-size: 1em;
         color: #fff;
-       
+        font-size: 1.1em;
     }
-
-
-       
+    
+    .img-capa-filme {
+        width: 182px;
+        border-radius: 34px;
+        position: relative;
+        bottom: 9px;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-family: 'LSB';
+    }
+    
+    
+    .borda {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2px 0px;
+    }
+    
+    .desc {
+        margin-top: 2px;
+        margin-left: 6px;
+    }
+    
+    .desc-texto {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .situ{
+        width: 3em;
+        position: relative;
+        right: 2em;
+        top: 2em;    }
+    
+    
 }
-
-.img-capa-filme {
-    width: 182px;
-    padding: 15px;
-}
-
-h1 {
-    font-family: 'LSB';
-}
-
-
-.borda {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px 0px;
-}
-
-.desc {
-    margin-top: 2px;
-    margin-left: 6px;
-}
-
-.desc-texto {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 
