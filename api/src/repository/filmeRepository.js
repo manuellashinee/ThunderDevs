@@ -158,9 +158,11 @@ export async function pesquisarFilmeNome(nome){
 export async function consultarFilmeId(idfilme){
     const comando= `select  
                         ID_FILME as id,
-                        ID_FRANQUIA as franquia,
-                        ID_GENERO as genero,
+                        tb_filme.ID_FRANQUIA as franquia,
+                        tb_filme.ID_GENERO as genero,
                         NM_FILME as nome,
+                        NM_FRANQUIA as nomefranquia,
+                        NM_GENERO as nomegenero,
                         NR_DURACAO as duracao,
                         NR_CLASSIFICACAO as classificacao,
                         DT_LANCAMENTO as lancamento,
@@ -174,7 +176,9 @@ export async function consultarFilmeId(idfilme){
                         BT_DESTAQUE as destaque,
                         DS_SITUACAO as situacao 
                     from tb_FILME
-                    where id_filme = ?;`;
+                    inner join tb_franquia on tb_franquia.id_franquia = tb_filme.id_franquia
+                    inner join tb_genero on tb_genero.id_genero = tb_filme.id_genero
+                    where tb_filme.id_filme = ?;`;
     const [resposta] = await con.query(comando,  [idfilme])
     return resposta;
 }

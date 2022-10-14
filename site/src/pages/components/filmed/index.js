@@ -2,18 +2,28 @@ import './index.scss'
 import '../../../common/common.scss'
 import { Link } from 'react-router-dom';
 
-export default function FilmeD(){
+export default function FilmeD(props){
+    
+
+    function mostrarImagem(imagem) {
+        if (!imagem)
+          return './images/logo.svg'
+        else
+          return `http://localhost:5000/${imagem}`
+      }
+
+
     return(
-        <section className='page-principal'>
+        <section className='page-principal' >
              <Link to='/' className='flecha-c'><img  src='../images/flecha.svg' /></Link>
         <div className='filme-d-p'>
             <div className='imagems'>
-                <img className='img-filme' src='../images/filmeruim.png' />
+                <img className='img-filme' src={mostrarImagem(props.item.capa)}  />
             </div>
             <div className='alinhar'>
             <div className='parte-2'>
                 <div className='titu-botao'>
-                    <p className='titulo'>MOONLIGHT: SOBRE A LUZ DO LUAR</p>
+                    <p className='titulo'>{props.item.nome}</p>
                     <div>
                     <p className='compra-botao'>Comprar Ingressos</p>
                     </div>
@@ -21,13 +31,13 @@ export default function FilmeD(){
             </div>
             <hr className='linha-filme'/>
             <div className='campos'>
-                <p className='sinopse1'>Sinopse:<span className='sinopse2'>Black trilha uma jornada de autoconhecimento enquanto tenta escapar do caminho fácil da criminalidade e do mundo das drogas de Miami. Encontrando amor em locais surpreendentes, ele sonha com um futuro maravilhoso.
+                <p className='sinopse1'>Sinopse:<span className='sinopse2'>{props.item.sinopse}
 </span></p>
-            <p className='sub1'>Duração:<span className='sub2'>180 min</span></p>
-            <p className='sub1'>Atores Principais:<span className='sub2'>Zoe Saldana</span></p>
-            <p className='sub1'>Diretor:<span className='sub2'>Barry Jenkins</span></p>
-            <p className='sub1'>Gênero:<span className='sub2'>Aventura</span></p>
-            <p className='sub1'>Classificação:<span className='sub2'>12 Anos</span></p>
+            <p className='sub1'>Duração:<span className='sub2'>{props.item.duracao} min</span></p>
+            <p className='sub1'>Ator Principal:<span className='sub2'>{props.item.ator}</span></p>
+            <p className='sub1'>Diretor:<span className='sub2'>{props.item.diretor}</span></p>
+            <p className='sub1'>Gênero:<span className='sub2'>{props.item.nomegenero}</span></p>
+            <p className='sub1'>Classificação:<span className='sub2'>{props.item.classificacao} Anos</span></p>
             <div className='alinhar'>
                 <div className='parte-2'>
                     <div className='titu-botao'>

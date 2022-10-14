@@ -112,23 +112,17 @@ export default function Catalogo() {
         </div>
       </div>
 
-      <div className='pagina-baixo'>
+      <div className='texto-select'>
+          <p className='texto-catalogo'>FILMES DIVERSOS</p>
 
-        <div className='texto-select'>
-          <p className='texto-catalogo'>FILMES POR FRANQUIA</p>
-
-          <select className='campos input-linhas' value ={idfraquia} onChange={e => setIdFranquias(e.target.value)}>
-            {franquia.map(item =>
-              <option value={item.idfranquia}>{item.Nome}</option>
-            )}
-          </select>
         </div>
 
         <div className='cards-filmes'>
-          {filmesFranquia.map(item =>
-          <FilmeC item= {item} /> )}
+
+          {filmes.map(item=>
+            <FilmeC item= {item} />
+          )}
         </div>
-      </div>
 
       <hr />
       <div className='pagina-baixo'>
@@ -149,17 +143,24 @@ export default function Catalogo() {
           )}
         </div>
         <hr></hr>
-        <div className='texto-select'>
-          <p className='texto-catalogo'>FILMES DIVERSOS</p>
+        <div className='pagina-baixo'>
 
+        <div className='texto-select'>
+          <p className='texto-catalogo'>FILMES POR FRANQUIA</p>
+
+          <select className='campos input-linhas' value ={idfraquia} onChange={e => setIdFranquias(e.target.value)}>
+            {franquia.map(item =>
+              <option value={item.idfranquia}>{item.Nome}</option>
+            )}
+          </select>
         </div>
 
         <div className='cards-filmes'>
-
-          {filmes.map(item=>
-            <FilmeC item= {item} />
-          )}
+          {filmesFranquia.map(item =>
+          <FilmeC item= {item} /> )}
         </div>
+      </div>
+        
       </div>
     </section>
   );
