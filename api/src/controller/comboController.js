@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import multer from "multer" ;
-import { inserirCombo, pesquisarComboId, pesquisarComboNome, pesquisarCombos, removerCombo } from '../repository/comboRepository.js';
+import { inserirCombo, pesquisarComboId, pesquisarComboNome, pesquisarCombos, removerCombo, alterarImagemCombo, alterarCombo } from '../repository/comboRepository.js';
 const server = Router();
 const upload = multer({dest: 'storage/fotosfilmes'}) 
 
@@ -87,5 +87,27 @@ server.put('/adm/combo/:id/imagem', upload.single('imagem'), async (req, resp) =
         })
     }
 })
+
+server.put('/adm/combo/:id', async (req, resp ) =>{
+    try{
+        const id= req.params.id;
+        const combo = req.body;
+
+        const alteracao= await alterarCombo(combo, id);
+       if(alteracao === 1){
+        resp.status(204).send();
+       }
+       else{
+        throw new Error('Combo não pode ser alterado')
+       }
+    }
+    catch (err) {
+        return resp.status(400).send({
+            erro: err.message
+        })
+    }
+} )
+
+
 
 export default server;

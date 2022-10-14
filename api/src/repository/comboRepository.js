@@ -57,4 +57,26 @@ export async function removerCombo(id){
     return resposta;
 }
 
+export async function alterarImagemCombo(imagem, id) {
+    const comando =
+    `UPDATE tb_combo 
+        SET img_combo   = ?
+    WHERE id_combo      = ?`;
 
+    const [resposta] = await con.query(comando, [imagem, id]);
+    return resposta.affectedRows;
+}
+
+
+export async function alterarCombo(combo, idcombo){
+    const comando= `  
+                UPDATE TB_COMBO
+	                SET
+                    ID_COMBO 	?,
+                    NM_COMBO	?,
+                    DS_COMBO 	?,
+                    VL_PRECO 	?
+                WHERE ID_COMBO =?`
+    const [resposta] = await con.query(comando, [combo.nome, combo.descricao, combo.preco, idcombo])
+    return resposta.affectedRows;  
+}
