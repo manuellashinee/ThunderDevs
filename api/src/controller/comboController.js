@@ -108,6 +108,33 @@ server.put('/adm/combo/:id', async (req, resp ) =>{
     }
 } )
 
+server.get('/adm/combo/:id', async (req, resp)=>{
+    try{
+        const idcombo= req.params.id;
+        const resposta = await pesquisarComboId(idcombo);
+        resp.send(resposta);
+    }
+        catch (err) {
+            return resp.status(400).send({
+                erro: err.message
+            })
+        }
+})
+
+server.get('/consulta/nome/combo', async (req, resp)=>{
+    try{
+        const {nome} = req.query;
+        const resposta = await pesquisarComboNome(nome);
+        resp.send(resposta);
+    }
+        catch (err) {
+            return resp.status(400).send({
+                erro: err.message
+            })
+        }
+})
+
+
 
 
 export default server;

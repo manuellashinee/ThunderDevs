@@ -1,8 +1,15 @@
 import './index.scss';
 import { confirmAlert } from 'react-confirm-alert';
 import { retirarCombo } from '../../../api/comboapi.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function SnackCadastrado(props) {
+
+  const navigate = useNavigate();
+
+  function editarCombo(id) {
+      navigate(`/cadastrarcombo/${id}`);
+  }
 
     async function recarregarPage(){
         window.location.reload();
@@ -83,7 +90,7 @@ export default function SnackCadastrado(props) {
         </div>
         <div className='edit'>
   
-        <img className='edit-img' src='../images/edit.svg'/>
+        <img className='edit-img' src='../images/edit.svg' onClick={() => editarCombo(props.item.id)}/>
 
 
         <img className='remove-img' src='../images/circle-x.svg' onClick={() => removerComboClick(props.item.idcombo , props.item.nome)}/>

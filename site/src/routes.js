@@ -40,6 +40,7 @@ export default function Rotas (){
         <Route path='/filmeCard' element={<FilmeCards/>}/>
         <Route path='/filmes' element={<Filmes/>}/>
         <Route path='/cadastrarcombo' element={<Cadastrarcombo/>}/>
+        <Route path='/cadastrarcombo/:idParam' element={<Cadastrarcombo/>}/>
         <Route path='/cadastraruser' element={<CadastrarUser/>}/>
         <Route path='/pedidosnack' element={<PedidosSnacks/>}/>
         <Route path='/snacks' element={<SnackCadastro/>}/>

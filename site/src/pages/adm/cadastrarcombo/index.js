@@ -1,8 +1,10 @@
 import './index.scss'
 import '../../../common/common.scss'
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { confirmarCombo, enviarImagemCombo} from '../../../api/comboapi.js';
+import { useState, useEffect } from 'react';
+import { confirmarCombo, enviarImagemCombo, alterarCombo, buscarImagem, buscarPorId} from '../../../api/comboapi.js';
+import { useParams} from 'react-router-dom'
+
 
 export default function Cadastrarcombo(){
     const [nome, setNome] = useState("");
@@ -10,6 +12,7 @@ export default function Cadastrarcombo(){
     const [preco, setPreco] = useState();
     const [idcombo, setIdCombo] = useState(0);
     const [imagem, setImagem] = useState();
+    const {idParam} = useParams();
 
     async function SalvarCombo(){
         try{
@@ -17,8 +20,15 @@ export default function Cadastrarcombo(){
                 const resposta = await confirmarCombo(nome,descricao,preco);
                 const combo = await enviarImagemCombo(imagem, resposta.id);
                 setIdCombo(resposta.idcombo);
-                alert('combo cadastrado com sucesso');
+                alert('Combo cadastrado com sucesso');
             }
+            else{
+
+                const resposta = await alterarCombo(nome, descricao, Number(preco), idcombo);
+                 if (typeof (imagem) == 'object')
+                 await enviarImagemCombo(imagem, idcombo);
+                 alert('Combo alterado com sucesso');
+             }
         }catch(err){
         alert.error(err.message);
     }
@@ -28,9 +38,27 @@ export default function Cadastrarcombo(){
     }
 
     function mostrarImagemcombo() {
-    return URL.createObjectURL(imagem); 
-      
+        if(typeof(imagem) == 'object'){
+        return URL.createObjectURL(imagem); }
+        else {
+            return buscarImagem(imagem);
+        }
     }
+
+    async function carregarCombo(){
+        const [resposta] = await buscarPorId(Number(idParam));
+        setDescricao(resposta.descricao);
+        setPreco(resposta.preco);
+        setNome(resposta.nome);
+        setImagem(resposta.imagem);
+        setIdCombo(resposta.idcombo);
+
+    }
+
+    useEffect(() => {
+        if(idParam !=0 ) {
+        carregarCombo();
+        }}, [])
 
     return(
         <section className='pagina-cadastro-c'>
