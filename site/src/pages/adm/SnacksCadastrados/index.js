@@ -2,6 +2,7 @@ import './index.scss'
 import SnackCadastrado from '../../components/snacksCadastrados'
 import { useEffect, useState } from 'react'
 import { FiltrarComboNome, vizualizarTCombos } from '../../../api/comboapi.js';
+import { Link } from 'react-router-dom';
 
 export default function SnackCadastro() {
     const [combos, setCombos] = useState([]);
@@ -61,7 +62,7 @@ export default function SnackCadastro() {
             <div className='setas-circle'>
     
                 <div>
-                    <img className='voltar'  src='../images/Arrow 1.svg'/>
+                   <Link to='/homeadm'> <img className='voltar'  src='../images/Arrow 1.svg'/></Link>
                 </div>
     
             </div>

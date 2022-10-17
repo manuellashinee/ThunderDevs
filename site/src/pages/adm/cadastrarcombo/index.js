@@ -66,7 +66,7 @@ export default function Cadastrarcombo(){
                 <img className='logo' src='../images/logo.svg' />
                 <div className='voltar-botao'>
                     <Link to='/homeadm'><img className='flecha' src='../images/flecha.svg' /></Link>
-                    <button className='salvar-botao'>COMBOS REGISTRADOS</button>
+                    <Link to='/snacks'><button className='salvar-botao'>COMBOS REGISTRADOS</button></Link>
                 </div>
             </div>
 
