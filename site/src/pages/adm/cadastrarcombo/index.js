@@ -23,7 +23,6 @@ export default function Cadastrarcombo(){
                 alert('Combo cadastrado com sucesso');
             }
             else{
-
                 const resposta = await alterarCombo(nome, descricao, Number(preco), idcombo);
                  if (typeof (imagem) == 'object')
                  await enviarImagemCombo(imagem, idcombo);
@@ -50,7 +49,7 @@ export default function Cadastrarcombo(){
         setDescricao(resposta.descricao);
         setPreco(resposta.preco);
         setNome(resposta.nome);
-        setImagem(resposta.imagem);
+        setImagem(resposta.foto);
         setIdCombo(resposta.idcombo);
 
     }
