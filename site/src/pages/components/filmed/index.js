@@ -15,7 +15,7 @@ export default function FilmeD(props){
 
     return(
         <section className='page-principal' >
-             <Link to='/' className='flecha-c'><img  src='../images/flecha.svg' /></Link>
+             <Link to='/catalogo' className='flecha-c'><img  src='../images/flecha.svg' /></Link>
         <div className='filme-d-p'>
             <div className='imagems'>
                 <div className='container-filme'>

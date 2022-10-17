@@ -12,12 +12,6 @@ export default function CompraCima(){
                     <img className='logo' src='../images/logo.svg'/>
                 </div>
                 <div className='foto'>
-    
-                 <div className='pesquisa-input'>
-                    <input className='pesquisa-design' type='text'/>
-                    <button  className='pesquisar-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
-                 </div>
-    
                    <div className='foto-perfil'>
                    <div><img  className='perfil' src='../images/elizinha.svg'/></div>
                    <div><p>Manu</p></div>

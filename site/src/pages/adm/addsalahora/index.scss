@@ -1,0 +1,19 @@
+.add-sala{
+    display: flex;
+    flex-direction: column;
+    background-color: #1A1919;
+
+    .flecha {
+        width: 2.1em;
+        margin-bottom: 1em;
+        display: flex;
+        margin-left: 1em;
+    }
+
+    .salas{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

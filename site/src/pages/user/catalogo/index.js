@@ -162,6 +162,7 @@ export default function Catalogo() {
       </div>
         
       </div>
+      <Rodape/>
     </section>
   );
 }
