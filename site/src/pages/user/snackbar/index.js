@@ -27,7 +27,7 @@ export default function SnackBar(){
           <div className='parte-2snack'>
             <p className='combo-nome'>COMBOS:</p>
           </div>
-          <div className='card-snack'>
+          <div className='card-snack2'>
             {combos.map(item=>
             <ArdSnack item = {item}/>
             )}

@@ -90,7 +90,7 @@ export default function SnackCadastrado(props) {
         </div>
         <div className='edit'>
   
-        <img className='edit-img' src='../images/edit.svg' onClick={() => editarCombo(props.item.id)}/>
+        <img className='edit-img' src='../images/edit.svg' onClick={() => editarCombo(props.item.idcombo)}/>
 
 
         <img className='remove-img' src='../images/circle-x.svg' onClick={() => removerComboClick(props.item.idcombo , props.item.nome)}/>
