@@ -155,7 +155,7 @@ export default function Catalogo() {
           </select>
         </div>
 
-        <div className='cards-filmes'>
+        <div className='cards-filmes' id="style-1">
           {filmesFranquia.map(item =>
           <FilmeC item= {item} /> )}
         </div>

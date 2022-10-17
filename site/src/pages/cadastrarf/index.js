@@ -81,8 +81,7 @@ export default function Cadastrar(){
         alert('filme cadastrado com sucesso');
         }
         else{
-
-           const resposta = await alterarFilme( Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao, idfilme);
+            const resposta = await alterarFilme( Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao, idfilme);
             if (typeof (imagem) == 'object')
             await enviarImagemFilme(imagem,idfilme);
             alert('filme alterado com sucesso');
