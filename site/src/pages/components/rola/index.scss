@@ -1,0 +1,90 @@
+.rola-p{
+    display: flex;
+    flex-direction: column;
+
+    .data-sala{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sala-cor{
+        color: #AE4EDB;
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+
+    .datas{
+        font-size: 1.2em;
+        margin-bottom: 1em;
+        text-align: center;
+    }
+
+    .datas2{
+        font-size: 1.2em;
+        margin-top: 2em;
+        margin-bottom: 1em;
+        text-align: center;
+    }
+
+    .texto-data{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1.2em;
+    }
+
+    .input-linha {
+        display: flex;
+        background-color: #1A1919;
+        border: 2px solid white;
+        height: 2.2em;
+        border-radius: 10px;
+        color: white;
+        margin-left: 1em;
+        text-align: center;
+        font-size: 14px;
+        font-family: 'LM';
+    }
+    
+    .data-p{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .data-texto2{
+        color: white;
+        border: 2px solid white;
+        padding: 8px 10px;
+        font-size: 1.1em;
+        border-radius: 5px;
+        background-color: #1A1919;
+        text-align: center;
+        font-family: 'LM';
+    }
+
+    .data-p2{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .compra-botao{
+        display: flex;
+        color: white;
+        border-radius: 20px;
+        font-family: 'LB';
+        padding: 1em 3em;
+        background-color:  #AE4EDB;
+    }
+
+    .compra-botao:hover{
+        background-color: #fff;
+        color: #DB1ED3;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+}
