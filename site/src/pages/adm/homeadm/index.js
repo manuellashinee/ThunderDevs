@@ -55,7 +55,7 @@ export default function HomeAdm() {
                 <Cacete2 imagem='../images/image.svg' texto='ADICIONE UMA IMAGEM AO NOSSO CARROSSEL DA PÁGINA INICIAL.'/>
             </div> 
             <div className='sair-adm'>
-                <Link to='/home'><img src='../images/Login.png' /></Link>
+                <Link to='/'><img src='../images/Login.png' /></Link>
                 <p className='sair-palavra'>SAIR</p>
             </div>
             </div>
