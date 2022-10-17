@@ -2,7 +2,7 @@
 .page-principal{
     display: flex;
     flex-direction: column;
-    background-image: url('../../../../public/images/outrofilmeruim.png'), linear-gradient(to top, #532290, rgb(37, 37, 37),  rgb(37, 37, 37));
+    background-image: url(''), linear-gradient(to top, #532290, rgb(37, 37, 37),  rgb(37, 37, 37));
     background-blend-mode:lighten;
     background-repeat: no-repeat;
     background-size: cover;
@@ -44,7 +44,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-top: 1em;
+        margin-top: 1.3em;
     }
 
     .titulo{
@@ -52,6 +52,14 @@
         color: white;
         font-size: 1.7em;
         width: 13em;
+    }
+
+    .lancamento{
+        font-family: 'LB';
+        color: white;
+        padding: 10px;
+        border: 2px solid white;
+        border-radius: 10px;
     }
 
     .compra-botao{
@@ -99,12 +107,17 @@
         margin-left: 7px;
     }
 
+    .b{
+        padding: 0em 1em;
+    }
+
     .comentarios-botao{
         display: flex;
         color: #DB1ED3;
         border-radius: 20px;
+        width: 14em;
         font-family: 'LB';
-        padding: 1em 1em;
+        padding: 1em;
         background-color: #fff;
     }
 
@@ -115,5 +128,68 @@
         cursor: pointer;
     }
 
+    .container-filme{
+        position: relative;
+    }
+
+    .top-right-verde {
+        position: absolute;
+        top: 2em;
+        right: 4em;
+        color:  white;
+        font-family: 'LSB';
+        background-color: #0BB71C;
+        padding: 13px;
+        border-radius: 20em;
+      }
+
+      .top-right-vermelho {
+        position: absolute;
+        top: 2em;
+        right: 4em;
+        color:  white;
+        font-family: 'LSB';
+        background-color: #b70b0b;
+        padding: 13px;
+        border-radius: 20em;
+      }
+
+      .tomate-pipoca{
+        display: flex;
+        flex-direction: row;
+      }
+
+      .tp-img-inicio{
+        display: flex;
+        flex-direction: row;
+      }
+
+      .tp-principal{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-left: 13px;
+      }
+
+      .nota{
+        color: white;
+        font-family: 'LM';
+        font-size: 1.5em;
+      }
+
+      .tomate-pipoca-img{
+        width: 4em;
+      }
+
+      .textos-tp{
+        color: white;
+        font-family: 'LM';
+        font-size: 13px;
+        width: 10em;
+      }
+
+      .pipoca-img{
+        width: 5.3em;
+      }
 
 }
