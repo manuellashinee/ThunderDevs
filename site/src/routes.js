@@ -22,6 +22,7 @@ import Compra3 from './pages/user/compra3';
 import FilmeDetalhe from './pages/user/filmedetalhe';
 import MyPedido from './pages/user/myPedidos';
 import AddSaala from './pages/adm/addsalahora';
+import Assento from './pages/user/assentos';
 
 
 export default function Rotas (){
@@ -50,6 +51,7 @@ export default function Rotas (){
         <Route path='/meuspedidos' element={<MyPedido/>}/>
         <Route path='/compra3' element={<Compra3/>}/>
         <Route path='/addsala' element={<AddSaala/>}/>
+        <Route path='/assento' element={<Assento/>}/>
 
     </Routes>
     </BrowserRouter>

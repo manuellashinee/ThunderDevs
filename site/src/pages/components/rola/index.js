@@ -31,9 +31,11 @@ export default function Rolaa(props){
                     <Hora1 hora='19/12'/>
                     <Hora1 hora='20/12'/>
                 </div>
+                <div className='espacamento'>
                 <p className='compra-botao'>SALVAR</p>
+                </div>
             </div>
-            <hr/>
+            <hr className='linha'/>
         </section>
     );
 }
