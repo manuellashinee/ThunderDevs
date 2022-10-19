@@ -1,0 +1,33 @@
+.assento-page{
+    display: flex;
+    flex-direction: column;
+    background-color: #1A1919;
+
+    .seta-botao{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1em;
+        margin-bottom: 1.3em;
+    }
+
+    .flecha-c{
+        margin-left: 2em;
+    }
+
+    .botao-continuar{
+        color: white;
+        background-color: #AE4EDB;
+        font-family: 'LM';
+        padding: 10px 2em;
+        border-radius: 16px;
+    }
+
+    .botao-continuar:hover{
+        cursor: pointer;
+        color: #AE4EDB;
+        background-color: #ffff;
+        transition: 0.3s;
+    }
+
+}
