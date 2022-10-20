@@ -117,7 +117,10 @@ export default function MeusPedidos(props) {
 
                             <div className='padrao '>
                                 <div>
-                                    <h1>SITUAÇÃO:</h1>
+                                    <h1>SITUAÇÃO:<span className='verde'>DISPONÍVEL</span></h1>
+                                </div>
+                                <div>
+                                    <h1>SITUAÇÃO:<span className='vermelho'>EXPIRADO</span></h1>
                                 </div>
 
                                 <div className='desc'>
