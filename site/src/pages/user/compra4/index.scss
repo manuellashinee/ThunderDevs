@@ -11,6 +11,10 @@
         padding: 3em;
     }
 
+    .parte-2 > * {
+        margin-bottom: 2em;
+    }
+
     .textos-column{
         display: flex;
         flex-direction: column;
@@ -55,6 +59,14 @@
         padding: 1em 5em;
     }
 
+    .campo2{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 1em 3em;
+    }
+
     .texto-pagar{
       padding: 1em 0em;
       color: white;
@@ -75,6 +87,53 @@
         display: flex;
         flex-direction: row;
     }
+
+    .imagens > *{
+        margin-right: 1em;
+    }
+
+    .img-c{
+        width: 5em;
+        margin-top: 3em;
+    }
+
+    .cartao2{
+        display: flex;
+        flex-direction: column;
+        border: 2px solid white;
+        border-radius: 20px;
+        width: 54%;
+    }
+
+    .texto-centro{
+        display: flex;
+        justify-content: center;
+    }
+
+    .botao-continuar{
+        color: white;
+        background-color: #AE4EDB;
+        font-family: 'LM';
+        padding: 10px 2.4em;
+        border-radius: 16px;
+    }
+
+    .botao-continuar:hover{
+        cursor: pointer;
+        color: #AE4EDB;
+        background-color: #ffff;
+        transition: 0.3s;
+    }
    
+    .certinho{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .img-cc{
+        width: 20px;
+        height: 2em;
+    }
 }
 
