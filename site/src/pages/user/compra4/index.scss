@@ -4,12 +4,17 @@
     background-color: #1A1919;
 
     .parte-2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         padding: 3em;
     }
 
     .textos-column{
         display: flex;
         flex-direction: column;
+        padding: 1em 3em;
     }
 
     .pagamento{
@@ -19,6 +24,7 @@
     .pagamento2{
         color: white;
         font-family: 'LM';
+        margin-bottom: 3em;
     }
 
     /*cartao*/
@@ -27,6 +33,48 @@
         display: flex;
         flex-direction: column;
         border: 2px solid white;
+        border-radius: 20px;
     }
+
+    .cartao-texto{
+        padding: 1em;
+        font-family: 'LB';
+        color: #AE4EDB;
+    }
+
+    .campos-cartao{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 1em;
+    }
+
+    .campo1{
+        display: flex;
+        flex-direction: column;
+        padding: 1em 5em;
+    }
+
+    .texto-pagar{
+      padding: 1em 0em;
+      color: white;
+      font-family: 'LM';
+    }
+    
+    .input-pagar{
+        background-color: #1A1919;
+        color: white;
+        font-family: 'LM';
+        border: 2px solid white;
+        width: 20em;
+        height: 2em;
+        border-radius: 6px;
+    }
+
+    .imagens{
+        display: flex;
+        flex-direction: row;
+    }
+   
 }
 
