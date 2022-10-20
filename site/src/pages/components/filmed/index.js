@@ -49,14 +49,14 @@ export default function FilmeD(props){
                             <img className='tomate-pipoca-img' src='../images/tomate.svg'/>
                             <div className='tp-principal'>
                                 <p className='nota'>98%</p>
-                                <p className='textos-tp'>TOMATOMETER</p>
+                                <p className='textos-tp'>TOMATOMETER <span>{props.item.tomato}</span></p>
                             </div> 
 
                             <div className='tp-img-inicio'>
                             <img className='pipoca-img' src='../images/pipoca.svg'/>
                             <div className='tp-principal'>
                                 <p className='nota'>98%</p>
-                                <p className='textos-tp'>AUDIENCE SCORE</p>
+                                <p className='textos-tp'>AUDIENCE SCORE <span>{props.item.audience}</span></p>
                             </div> 
                             </div>
                         </div>
