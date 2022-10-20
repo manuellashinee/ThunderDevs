@@ -42,7 +42,11 @@ import { loginAdm } from '../../../api/loginadmApi'
   }
 
   
-  
+  useEffect(() => {
+    if(storage('adm-logado')) {
+      navigate('/');
+    }
+})
 
   return (
     <section className='pagina-login'>

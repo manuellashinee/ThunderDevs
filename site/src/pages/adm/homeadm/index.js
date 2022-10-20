@@ -11,6 +11,12 @@ export default function HomeAdm() {
 
     const [adm, setAdm] = useState('');
    const navigate = useNavigate();
+
+
+
+
+
+   
     useEffect(() => {
         if(!storage('Adm-Logado')){
             navigate('/homeadm');
@@ -20,6 +26,11 @@ export default function HomeAdm() {
           setAdm(admLogado.nome);
         }
     }, [])
+
+    function sairClick(){
+        storage.remove('usuario-logado');
+        navigate('/')
+      }
   
     return(
         <section className='home-adm'>
@@ -32,7 +43,7 @@ export default function HomeAdm() {
                 </div>
                 </div>
                 <div className='tt-adm'>
-                    <h1 className='titulo-adm'>BEM VINDO, <span className='cor-texto'>{adm}!</span></h1>
+                    <h1 className='titulo-adm'>BEM VINDO, <span className='cor-texto'>Administrador(a)!</span></h1>
                     <p className='sub-titu'>DESEJAMOS AS BOAS VINDAS AO SISTEMA <span className='sub-titu-s'>POPCORN TIME</span></p>
                 </div>
                 <hr/>
@@ -55,7 +66,7 @@ export default function HomeAdm() {
                 <Cacete2 imagem='../images/image.svg' texto='ADICIONE UMA IMAGEM AO NOSSO CARROSSEL DA PÁGINA INICIAL.'/>
             </div> 
             <div className='sair-adm'>
-                <Link to='/'><img src='../images/Login.png' /></Link>
+                <Link to='/'><img src='../images/Login.png'  onClick={sairClick}/></Link>
                 <p className='sair-palavra'>SAIR</p>
             </div>
             </div>

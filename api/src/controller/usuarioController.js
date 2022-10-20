@@ -17,38 +17,37 @@ server.post('/usuario/login' , async (req, resp) => {
     }
 })
 
-server.post('/usuario', async (req,resp)=>{
+server.post('/usuario', async (req, resp) =>{
     try{
-    const userNovo= req.body;
-    if(!userNovo.nome)
-    throw new Error('Nome obrigatório');
-    if(!userNovo.telefone)
-    throw new Error('Telefone obrigatório');
-    if(!userNovo.email)
-    throw new Error('Email obrigatório');
-    if(!userNovo.senha)
-    throw new Error('Senha obrigatório');
-    if(!userNovo.nascimento)
-    throw new Error('Nascimento obrigatório');
-    if(!userNovo.cpf)
-    throw new Error('Cpf obrigatório');
-    if(!userNovo.rg)
-    throw new Error('Rg é obrigatório');
 
-    const user= await cadastroUsuario(userNovo);
 
-    if(user===1)
-    resp.status(204).send();
-    else{
-        throw new Error('Não cadastrado')
+        const usuario = req.body;
+        if(!usuario.nome)
+        throw new Error('Nome obrigatório');
+        if(!usuario.telefone)
+        throw new Error('Telefone obrigatório');
+        if(!usuario.email)
+        throw new Error('Email obrigatório');
+        if(!usuario.senha)
+        throw new Error('Senha obrigatório');
+        if(!usuario.rg)
+        throw new Error('rg obrigatório');
+        if(!usuario.cpf)
+        throw new Error('Cpf obrigatório');
+    
+        const user= await cadastroUsuario(usuario);
+
+        if(user===1)
+        resp.status(204).send();
+        else{
+            throw new Error('Não cadastrado')
+        }
     }
-
-}catch(err){
-    console.log(err)
-    resp.status(400).send({
-        erro:err.message
-    });
-}
+    catch (err) {
+        return resp.status(400).send({
+            erro: err.message
+        })
+    }
 })
 
 

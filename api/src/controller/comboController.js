@@ -6,7 +6,16 @@ const upload = multer({dest: 'storage/fotosfilmes'})
 
 server.post('/adm/combo', async (req,resp)=>{
     try{
+
+      
+      
     const combo = req.body;
+    if(!combo.nome)
+    throw new Error('Nome é obrigatório');
+    if(!combo.descricao)
+    throw new Error('Descrição é obrigatório');
+    if(!combo.preco)
+    throw new Error('Informar o preço é obrigatório');
     const idcombo = await inserirCombo(combo);
     resp.send({ 
         id: idcombo
