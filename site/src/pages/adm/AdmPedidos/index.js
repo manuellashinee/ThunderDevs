@@ -1,7 +1,7 @@
 import './index.scss';
 import PedidosFeitos from '../../components/pedidosFeitos';
 
-export default function pedidosAdm() {
+export default function PedidosAdm() {
     return (
 
         <section className='pedidos-adm'>

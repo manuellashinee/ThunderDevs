@@ -40,8 +40,8 @@
 }
 
 
-.edit-img {
-width: 30px;
+.check-img {
+width: 35px;
 margin-left: 10px;
 margin-bottom: 1em;
 
@@ -98,7 +98,6 @@ h1 {
 .borda {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     padding: 10px 0px;
 }
 
@@ -111,6 +110,11 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.aceitar-recusa {
+    display: flex;
+    flex-direction:column;
 }
 }
 

@@ -125,11 +125,20 @@ export default function PedidosFeitos(props) {
             </div>
             </div>
             <div className='edit'>
+
+                <div className='aceitar-recusa'>
+                    <div><img className='check-img' src='../images/check_circle.svg' /></div>
+                    <div><p>ACEITAR</p></div>
+                </div>
+
+                <div className='aceitar-recusa'>
+                    <div><img className='remove-img' src='../images/circle-x.svg' /></div>
+                    <div><p>RECUSAR</p></div>
+                </div>
       
-            <img className='edit-img' src='../images/edit.svg' />
+            
     
     
-            <img className='remove-img' src='../images/circle-x.svg' />
            
             
             </div>
