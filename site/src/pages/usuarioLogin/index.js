@@ -20,7 +20,7 @@ export default function Index() {
 
   useEffect(() => {
       if(storage('usuario-logado')) {
-        navigate('/home');
+        navigate('/');
       }
   })
   
