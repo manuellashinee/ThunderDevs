@@ -1,4 +1,4 @@
-.pedidos{
+.my-combos{
     border: 2px solid #fff;
     border-radius: 1em;
     margin-left: 2em;
@@ -7,6 +7,7 @@
     .descricao {
         display: flex;
         flex-direction: column;
+        margin-top: 10px;
        
     }
     
@@ -49,6 +50,7 @@
             color: grey;
             font-size: 15px;
             font-family: 'LR';
+        
         }
     
         h2 {
@@ -57,7 +59,9 @@
             font-size: 1em;
             color: #fff;
            
-        }        
+        }    
+        
+        
     }
 
         h1 {
@@ -67,7 +71,7 @@
         font-size: 1.1em;
     }
     
-    .img-capa-filme {
+    .img-combo {
         width: 182px;
         border-radius: 34px;
         position: relative;
@@ -84,7 +88,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        padding: 2px 0px;
+        padding: 0px 0px;
     }
     
     .desc {

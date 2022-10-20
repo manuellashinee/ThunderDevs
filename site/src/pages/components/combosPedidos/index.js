@@ -1,9 +1,9 @@
 import './index.scss';
 
-export default function MeusPedidos(props) {
+export default function MeusCombos(props) {
 
     return (
-        <section className="pedidos">
+        <section className="my-combos">
 
             <div className='borda'>
 
@@ -11,7 +11,7 @@ export default function MeusPedidos(props) {
                 <div className='alinhamento'>
 
                     <div>
-                        <img className='img-capa-filme' src={props.capa} />
+                        <img className='img-combo' src={props.capa} />
                     </div>
 
                     <div className='descricao'>
@@ -34,72 +34,21 @@ export default function MeusPedidos(props) {
 
                         <div className='padrao'>
                             <div>
-                                <h2>MEIAS:</h2>
-                            </div>
-
-                            <div className='desc'>
-                                <label className='meias'>{props.meias} </label>
-                            </div>
-
-                        </div>
-
-                        <div className='padrao'>
-                            <div>
-                                <h2>INTEIRAS:</h2>
-                            </div>
-                            <div className='desc'>
-                                <label className='inteiras'>{props.inteiras}</label>
-                            </div>
-                        </div>
-
-                        <div className='padrao'>
-                            <div>
                                 <h2>FORMA DE PAGAMENTO:</h2>
                             </div>
 
                             <div className='desc'>
-                                <label className='pagamento'>{props.pagamento}</label>
-                            </div>
-                        </div>
-
-                        <div className='padrao'>
-                            <div>
-                                <h2>SALA:</h2>
-                            </div>
-
-                            <div className='desc'>
-                                <label className='sala'>{props.sala}</label>
+                                <label className='pagamento'>{props.pagamento} </label>
                             </div>
 
                         </div>
 
                         <div className='padrao'>
                             <div>
-                                <h2>ASSENTO</h2>
+                                <h2>DESCRIÇÃO DO COMBO:</h2>
                             </div>
-
                             <div className='desc'>
-                                <label className='assento'>{props.assento}</label>
-                            </div>
-                        </div>
-
-                        <div className='padrao'>
-                            <div>
-                                <h2>HORÁRIO</h2>
-                            </div>
-
-                            <div className='desc'>
-                                <label className='hora'>{props.hora}</label>
-                            </div>
-                        </div>
-
-                        <div className='padrao'>
-                            <div>
-                                <h2>DATA DE EXIBIÇÃO:</h2>
-                            </div>
-
-                            <div className='desc'>
-                                <label className='hora'>{props.hora}</label>
+                                <label className='descricao-combo'>{props.descricao}</label>
                             </div>
                         </div>
 
