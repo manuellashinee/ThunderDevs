@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { confirmarCombo, enviarImagemCombo, alterarCombo, buscarImagem, buscarPorId} from '../../../api/comboapi.js';
 import { useParams} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 export default function Cadastrarcombo(){
@@ -16,20 +19,28 @@ export default function Cadastrarcombo(){
 
     async function SalvarCombo(){
         try{
+           
+
+            if (!imagem) throw new Error('Escolha a imagem do combo.');
+            if (!nome ) throw new Error('O campo nome é obrigatório.');
+            if (isNaN (preco)) throw new Error('O campo preço é obrigatório.');
+            if (!descricao) throw new Error('O campo descrição é obrigatório.');
+
+
             if(idcombo === 0 ){
                 const resposta = await confirmarCombo(nome,descricao,preco);
                 const combo = await enviarImagemCombo(imagem, resposta.id);
                 setIdCombo(resposta.idcombo);
-                alert('Combo cadastrado com sucesso');
+                toast.success('Combo cadastrado com sucesso');
             }
             else{
                 const resposta = await alterarCombo(nome, descricao, Number(preco), idcombo);
                  if (typeof (imagem) == 'object')
                  await enviarImagemCombo(imagem, idcombo);
-                 alert('Combo alterado com sucesso');
+                 toast.success('Combo alterado com sucesso');
              }
         }catch(err){
-        alert.error(err.message);
+            toast.error(err.message);
     }
     }
     function escolherImagemcombo() {
@@ -61,6 +72,7 @@ export default function Cadastrarcombo(){
 
     return(
         <section className='pagina-cadastro-c'>
+              <ToastContainer />
         <div className='cadastrar-page'>
             <div className='logo-botoes'>
                 <img className='logo' src='../images/logo.svg' />
@@ -68,6 +80,7 @@ export default function Cadastrarcombo(){
                     <Link to='/homeadm'><img className='flecha' src='../images/flecha.svg' /></Link>
                     <Link to='/snacks'><button className='salvar-botao'>COMBOS REGISTRADOS</button></Link>
                 </div>
+                
             </div>
 
             <div className='container'>

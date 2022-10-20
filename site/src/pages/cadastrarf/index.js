@@ -7,6 +7,8 @@ import {consultarGeneros} from '../../api/generoApi.js'
 import { alterarFilme, confirmarFilme, enviarImagemFilme, buscarPorId, buscarImagem } from '../../api/filmeapi'
 import storage from 'local-storage'
 import { useParams} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Cadastrar(){
     const [fraquias, setFranquias] = useState([]);
@@ -78,8 +80,8 @@ export default function Cadastrar(){
             if (!nome ) throw new Error('O campo nome é obrigatório.');
             if (!idgenero) throw new Error('O campo gênero é obrigatório.');
             if (!idfraquia) throw new Error('O campo franquia é obrigatório.');
-            if ((ator) )throw new Error('O campo do ator é obrigatório.');
-            if ((sinopse)) throw new Error('O campo sinopse é obrigatório.');
+            if (!ator )throw new Error('O campo do ator é obrigatório.');
+            if (!sinopse) throw new Error('O campo sinopse é obrigatório.');
             if (isNaN (classificacao)) throw new Error('O campo classificação é obrigatório.');
             if (isNaN (duracao)) throw new Error('O campo duração é obrigatório.');
             if (!lancamento) throw new Error('O campo lançamento é obrigatório.');
@@ -92,20 +94,20 @@ export default function Cadastrar(){
         const resposta = await confirmarFilme(Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao);
         const filme = await enviarImagemFilme(imagem, resposta.id);
         setIdFilme(resposta.idfilme);
-        alert('filme cadastrado com sucesso');
+        toast.success('filme cadastrado com sucesso');
         }
         else{
             const resposta = await alterarFilme( Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao, idfilme);
             if (typeof (imagem) == 'object')
             await enviarImagemFilme(imagem,idfilme);
-            alert('filme alterado com sucesso');
+            toast.success('filme alterado com sucesso');
         }
         
         
         
     }catch(err){
         
-        alert.error(err.message);
+        toast.error(err.message);
     }}
 
 
@@ -129,6 +131,7 @@ export default function Cadastrar(){
 
     return (
         <section className='pagina-cadastro'>
+             <ToastContainer />
         <div className='cadastrar-page'>
             <div className='logo-botoes'>
                 <img className='logo' src='../images/logo.svg' />
