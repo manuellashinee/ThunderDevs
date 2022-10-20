@@ -2,6 +2,7 @@ import './index.scss'
 import '../../../common/common.scss'
 import { Link } from 'react-router-dom'
 import CabecalhoP from '../../components/cabecalho-sem-p';
+import Rodape from '../../components/rodape';
 
 export default function Assento(){
     return(
@@ -187,6 +188,7 @@ export default function Assento(){
             <div className='tela'>
                <p className='tela2'>TELA</p> 
             </div>
+            <Rodape/>
         </section>
     );
 }

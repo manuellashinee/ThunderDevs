@@ -1,7 +1,7 @@
 import './index.scss';
 import '../../../common/common.scss'
 import CompraCima from '../../components/compra-cima';
-
+import Rodape from '../../components/rodape';
 
 export default function Compra4(){
     return(
@@ -39,12 +39,32 @@ export default function Compra4(){
                             <input  className='input-pagar' type='text'/>
 
                             <div className='imagens'>
-                                <img src='../images/Visa.svg'/>
+                                <img className='img-c' src='../images/Visa.svg'/>
+                                <img className='img-c' src='../images/master.svg'/>
+                                <img className='img-c' src='../images/elo.svg'/>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div className='cartao2'>
+                    <div className='campo2'>
+                            <p className='texto-pagar'>VALOR:<span className='cartao-texto'>R$ 42,00</span></p>
+                            <p className='texto-pagar'>TAXA:<span className='cartao-texto'>R$ 05,00</span></p>
+                    </div>
+                    <hr/>
+                    <div className='texto-centro'>
+                    <p className='texto-pagar'>TOTAL:<span className='cartao-texto'>R$ 47,00</span></p>
+                    </div>
+                </div>
+
+                <div className='certinho'>
+               <p className='botao-continuar'>FINALIZAR</p>
+               
+               </div>
             </div>
+
+            <Rodape/>
         </section>
     );
 }

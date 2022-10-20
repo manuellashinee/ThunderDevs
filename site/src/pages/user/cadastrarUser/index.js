@@ -20,14 +20,15 @@ export default function CadastrarUser() {
           if(senha !=senha2)
           throw new Error('As senhas devem ser iguais')
 
-      const usuario = storage('usuario-logado');
-       const resposta = await cadastrarUsuario(usuario, nome,email,senha,nascimento,telefone, cpf, rg);
+      {/*const usuario = storage('usuario-logado');*/}
+
+       const resposta = await cadastrarUsuario(nome,email,senha,nascimento,telefone, cpf, rg);
       
        alert('Usuario cadastrado com sucesso!');
       }
       catch(err){
           console.log(err);
-          toast(err.message);
+          {/*toast(err.message);*/}
       }
      }
 
