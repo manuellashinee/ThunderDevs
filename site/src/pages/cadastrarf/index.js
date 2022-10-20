@@ -73,6 +73,20 @@ export default function Cadastrar(){
 
     async function SalvarFilme(){
         try{
+
+            if (!imagem) throw new Error('Escolha a imagem do filme.');
+            if (!nome ) throw new Error('O campo nome é obrigatório.');
+            if (!idgenero) throw new Error('O campo gênero é obrigatório.');
+            if (!idfraquia) throw new Error('O campo franquia é obrigatório.');
+            if ((ator) )throw new Error('O campo do ator é obrigatório.');
+            if ((sinopse)) throw new Error('O campo sinopse é obrigatório.');
+            if (isNaN (classificacao)) throw new Error('O campo classificação é obrigatório.');
+            if (isNaN (duracao)) throw new Error('O campo duração é obrigatório.');
+            if (!lancamento) throw new Error('O campo lançamento é obrigatório.');
+            if (!diretor) throw new Error('O campo diretor é obrigatório.');
+            if (!destaque) throw new Error('O campo destaque é obrigatório.');
+            if (!situacao) throw new Error('O campo situação é obrigatório.');
+
         
         if(idfilme === 0 ){
         const resposta = await confirmarFilme(Number(idfraquia),Number(idgenero),nome,Number(duracao),Number(classificacao),lancamento,ator,Number(tomato),Number(audience),sinopse,diretor,Number(avaliacao),destaque,situacao);
