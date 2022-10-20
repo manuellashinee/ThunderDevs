@@ -7,3 +7,4 @@ export async function loginUsu(email, senha) {
     });
     return asnwer.data;
 }
+

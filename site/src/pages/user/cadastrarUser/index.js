@@ -1,7 +1,37 @@
 import './index.scss'
 import '../../../common/common.scss'
+import { useState, useEffect} from 'react'
+import {cadastrarUsuario} from '../../../api/cadastrarUsu.js'
 
 export default function CadastrarUser() {
+    const [nome, setNome]= useState('');
+    const [telefone, setTelefone]= useState('');
+    const [email, setEmail]= useState('');
+    const [senha, setSenha]= useState('');
+    const [senha2, setSenha2]= useState('');
+    const [nascimento, setNascimento]= useState('');
+    const [cpf, setCpf]= useState('');
+    const [rg, setRg]= useState('');
+
+    async function salvarClick () {
+      try{
+          
+       
+          if(senha !=senha2)
+          throw new Error('As senhas devem ser iguais')
+
+      const usuario = storage('usuario-logado');
+       const resposta = await cadastrarUsuario(usuario, nome,email,senha,nascimento,telefone, cpf, rg);
+      
+       alert('Usuario cadastrado com sucesso!');
+      }
+      catch(err){
+          console.log(err);
+          toast(err.message);
+      }
+     }
+
+   
 
     return(
       <section className='pagina-cadastro2'>
