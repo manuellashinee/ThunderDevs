@@ -28,7 +28,7 @@ export default function FilmeD(props){
                 <div className='titu-botao'>
                     <p className='titulo'>{props.item.nome}</p>
                     <div>
-                    <p className='compra-botao'>Comprar Ingressos</p>
+                    <Link to='/compra1'><p className='compra-botao'>Comprar Ingressos</p></Link>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ export default function Assento(){
             <CabecalhoP/>
             <div className='seta-botao'>
                 <Link to='/'><img className='flecha-c' src='../images/flecha.svg' /></Link>
-                <p className='botao-continuar'>CONTINUAR</p>
+                <Link to='/compra3'><p className='botao-continuar'>CONTINUAR</p></Link>
             </div>
 
             <div className='assentos-inicio'>
