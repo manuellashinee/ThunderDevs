@@ -26,6 +26,7 @@ import Assento from './pages/user/assentos';
 import Compra4 from './pages/user/compra4';
 import MyCombos from './pages/user/myCombos';
 import PedidosAdm from './pages/adm/PedidosAdm';
+import PagamentoCombo from './pages/user/pagamentoCombo';
 
 
 export default function Rotas (){
@@ -58,6 +59,7 @@ export default function Rotas (){
         <Route path='/compra4' element={<Compra4/>}/>
         <Route path='/meuscombos' element={<MyCombos/>}/>
         <Route path='/pedidosadm' element={<PedidosAdm/>}/>
+        <Route path='/pagamentocombo' element={<PagamentoCombo/>}/>
 
     </Routes>
     </BrowserRouter>
