@@ -260,4 +260,37 @@
         margin-top: 15px;
     }
 
+    .textos-px{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: url('../../../public/images/cinema2.svg');
+        background-size: cover;
+    }
+
+    .img-back{
+        background-color: none;
+        padding: 1em;
+    }
+
+    .titulo-px{
+        color: white;
+        font-family: 'LSB';
+        padding: 1em;
+        font-size: 2.2em;
+    }
+
+    .texto-px{
+        color: white;
+        font-family: 'LR';
+        font-size: 1.2em;
+        width: 20em;
+        text-align: center;
+    }
+
+    .cards{
+        display: flex;
+        flex-direction: row;
+    }
+
 }

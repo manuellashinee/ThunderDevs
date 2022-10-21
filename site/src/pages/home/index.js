@@ -1,6 +1,7 @@
 import './index.scss'
 import '../../common/common.scss'
 import { Link } from 'react-router-dom';
+import Cacete3 from '../components/cardshome';
 import Cabecalho from  '../components/cabecalho/index'
 
 export default function Home(){
@@ -65,6 +66,18 @@ export default function Home(){
                 <hr/>
                 <p className='texto1-l'>Viva a melhor experiência em assistir um filme em São Paulo. POPCORN TIME é a maior rede de cinemas multiplex do Brasil.</p>
                 <hr/>
+            </div>
+
+            <div className='textos-px'>
+                <img className='img-back' src="../images/texto-treco.svg" alt=""/>
+                <p className='titulo-px'>PLANO ESPECIAL</p>
+                <p className='texto-px'>ALUGE UMA SALA DE CINEMA E TRAGA OS AMIGOS QUE QUISER! </p>
+
+                <div className='cards'>
+                    <Cacete3 imagem='../images/texto-treco.svg' titulo='PLANO CINEMA' texto='kakaalla'/>
+                    <Cacete3 imagem='../images/texto-treco.svg' titulo='COMBO REALIDADE AUMENTADA' texto='kakaalla'/>
+                    <Cacete3 imagem='../images/texto-treco.svg' titulo='COMBO POPCORN TIME'  texto='kakaalla'/>
+                </div>
             </div>
 
             <div className='resumo-interesse'>
