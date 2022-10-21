@@ -25,7 +25,7 @@ import AddSaala from './pages/adm/addsalahora';
 import Assento from './pages/user/assentos';
 import Compra4 from './pages/user/compra4';
 import MyCombos from './pages/user/myCombos';
-import PedidosAdm from './pages/adm/AdmPedidos';
+import PedidosAdm from './pages/adm/PedidosAdm';
 
 
 export default function Rotas (){

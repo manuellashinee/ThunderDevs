@@ -1,5 +1,6 @@
 import './index.scss';
 import PedidosFeitos from '../../components/pedidosFeitos';
+import { Link } from 'react-router-dom';
 
 export default function PedidosAdm() {
     return (
@@ -36,7 +37,7 @@ export default function PedidosAdm() {
 
         <div className='setas-circle'>
             <div>
-                <img className='voltar'  src='../images/Arrow 1.svg'/>
+              <Link to='/homeadm' > <img className='voltar'  src='../images/Arrow 1.svg'/></Link>
             </div>
         </div>
 

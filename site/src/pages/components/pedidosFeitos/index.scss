@@ -34,16 +34,15 @@
 .edit {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     padding: 1em;
 }
 
 
 .check-img {
 width: 35px;
-margin-left: 10px;
-margin-bottom: 1em;
+cursor: pointer;
 
 }
 
@@ -114,7 +113,20 @@ h1 {
 
 .aceitar-recusa {
     display: flex;
-    flex-direction:column;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.a-r{
+    color: #fff;
+    font-family: 'LM';
+    margin-left: 10px;
+}
+
+.branco{
+    color: #fff;
 }
 }
 

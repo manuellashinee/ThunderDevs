@@ -111,7 +111,7 @@ export default function PedidosFeitos(props) {
 
                 <div className='padrao stop '>
                                 <div>
-                                    <h1>TOTAL A PAGAR:</h1>
+                                    <h1 className='branco'>TOTAL A PAGAR:</h1>
                                 </div>
 
                                 <div className='desc'>
@@ -128,12 +128,12 @@ export default function PedidosFeitos(props) {
 
                 <div className='aceitar-recusa'>
                     <div><img className='check-img' src='../images/check_circle.svg' /></div>
-                    <div><p>ACEITAR</p></div>
+                    <div><p className='a-r'>ACEITAR</p></div>
                 </div>
 
                 <div className='aceitar-recusa'>
                     <div><img className='remove-img' src='../images/circle-x.svg' /></div>
-                    <div><p>RECUSAR</p></div>
+                    <div><p className='a-r'>RECUSAR</p></div>
                 </div>
       
             
