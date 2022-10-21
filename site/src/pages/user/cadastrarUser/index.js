@@ -1,8 +1,10 @@
 import './index.scss'
 import '../../../common/common.scss'
-import { useState, useEffect} from 'react'
+import { useState} from 'react'
 import {cadastrarUsuario} from '../../../api/cadastrarUsu.js'
 import storage from 'local-storage'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CadastrarUser() {
     const [nome, setNome]= useState('');
@@ -28,14 +30,14 @@ export default function CadastrarUser() {
        
           const usuario = storage('usuario-logado');
           const resposta = await cadastrarUsuario(nome,telefone, email, senha, senha2, nascimento, cpf, rg);
-          alert('Usuario cadastrado com sucesso!');
+          toast.success('Usuario cadastrado com sucesso!');
       
           
      
       }
       catch(err){
           console.log(err);
-          alert(err.message);
+          toast.error(err.message);
       }
      }
 
@@ -43,6 +45,7 @@ export default function CadastrarUser() {
 
     return(
       <section className='pagina-cadastro2'>
+         <ToastContainer />
       <section className='container'>
       <div className='la'>
         <div>
