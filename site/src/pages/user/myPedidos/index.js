@@ -39,7 +39,7 @@ export default function MyPedido()  {
 
         <div className='setas-circle'>
             <div>
-                <img className='voltar'  src='../images/Arrow 1.svg'/>
+            <Link to='/catalogo'>  <img className='voltar'  src='../images/Arrow 1.svg'/></Link>
             </div>
         </div>
 

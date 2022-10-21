@@ -1,5 +1,6 @@
 import './index.scss'
 import MeusCombos from '../../components/combosPedidos'
+import { Link } from 'react-router-dom'
 
 export default function MyCombos()  {
 
@@ -37,7 +38,7 @@ export default function MyCombos()  {
 
         <div className='setas-circle'>
             <div>
-                <img className='voltar'  src='../images/Arrow 1.svg'/>
+             <Link to='/catalogo'>   <img className='voltar'  src='../images/Arrow 1.svg'/> </Link>
             </div>
         </div>
 

@@ -89,9 +89,9 @@ export default function Catalogo() {
           <p className='texto-catalogo'> {usuario}</p>
 
           <div className='icons-c'>
-            <Link to='/home' className='icon-c'><img src='../images/Burger.svg' /></Link>
+            <Link to='/meuscombos' className='icon-c'><img src='../images/Burger.svg' /></Link>
             <hr className='linhas-c' />
-            <Link to='/home' className='icon-c'><img src='../images/shopping_cart.svg' /></Link>
+            <Link to='/meuspedidos' className='icon-c'><img src='../images/shopping_cart.svg' /></Link>
             <hr className='linhas-c' />
             <Link to='/' className='icon-c'><img src='../images/Login.png'  onClick={sairClick} /></Link>
 
