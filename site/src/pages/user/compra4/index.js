@@ -26,10 +26,10 @@ export default function Compra4(){
                             <p className='texto-pagar'>NÚMERO DE PARCELAS</p>
                             <select className='input-pagar'>
                             <option disabled selected hidden> Selecione</option>
-                                <option>2X SEM JUROS</option>
-                                <option>3X SEM JUROS</option>
-                                <option>4X SEM JUROS</option>
-                                <option>5X SEM JUROS</option>
+                                <option value="1">2X SEM JUROS</option>
+                                <option value="1">3X SEM JUROS</option>
+                                <option value="1">4X SEM JUROS</option>
+                                <option value="1">5X SEM JUROS</option>
                             </select>
                         </div>
                         <div className='campo1'>

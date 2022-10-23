@@ -10,25 +10,27 @@ export async function inserirPagamento(idPagamentoFilme , novopagamento){
         DS_CVV,
         NM_CARTAO,
         DS_BANDEIRA_CARTAO,
+        NR_PARCELAS,
         DS_FORMA_PAGAMENTO
     )
-    VALUES (?,?,?,?,?,?,?); 
+    VALUES (?,?,?,?,?,?,?,?); 
     `
 
     const [info] = await con.query(comando, [
         idPagamentoFilme,
-        novopagamento.numeroCartao,
+        novopagamento.numero,
         novopagamento.vencimento,
         novopagamento.codSeguranca,
-        novopagamento.nomeCartao,
-        novopagamento.bandeiraCartao,
+        novopagamento.nome,
+        novopagamento.bandeira,
+        novopagamento.parcelas,
         novopagamento.formaPagamento
 
     ]);
     return info.affectedRows;
 }
 
-export async function inserirIngresso(novoIngresso, idIngresso, idUsuario,idPagamentoFilme, idFilme,){
+export async function inserirIngresso(novoIngresso, idIngresso, idUsuario,idPagamentoFilme, idFilme){
     const comando = `
     INSERT INTO TB_INGRESSO(
         ID_INGRESSO,
@@ -47,10 +49,10 @@ export async function inserirIngresso(novoIngresso, idIngresso, idUsuario,idPaga
 `
 const [info] = await con.query(comando, [
     
-    idIngresso,
-    idUsuario,
-    idPagamentoFilme,
-    idFilme,
+   idIngresso,
+   idUsuario,
+   idPagamentoFilme,
+   idFilme,
    novoIngresso.inteiras,
    novoIngresso.meias,
    novoIngresso.total,
@@ -64,4 +66,3 @@ const [info] = await con.query(comando, [
 ]);
 return info.insertId;
 }
-
