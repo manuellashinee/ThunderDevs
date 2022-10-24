@@ -22,6 +22,7 @@ server.post('/usuario', async (req, resp) =>{
 
 
         const usuario = req.body;
+        
         if(!usuario.nome)
         throw new Error('Nome obrigatório');
         if(!usuario.telefone)
@@ -30,18 +31,15 @@ server.post('/usuario', async (req, resp) =>{
         throw new Error('Email obrigatório');
         if(!usuario.senha)
         throw new Error('Senha obrigatório');
-        if(!usuario.rg)
-        throw new Error('rg obrigatório');
         if(!usuario.cpf)
         throw new Error('Cpf obrigatório');
+        if(!usuario.rg)
+        throw new Error('rg obrigatório');
     
         const user= await cadastroUsuario(usuario);
 
-        if(user===1)
+
         resp.status(204).send();
-        else{
-            throw new Error('Não cadastrado')
-        }
     }
     catch (err) {
         return resp.status(400).send({
