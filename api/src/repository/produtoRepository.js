@@ -1,4 +1,4 @@
-import { con } from "./connection"
+import { con } from "./connection.js"
 
 export async function buscarIngressoPorId(id){
     const comando = `
