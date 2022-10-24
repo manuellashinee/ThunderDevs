@@ -27,10 +27,10 @@
     }
 
     .texto-card{
-        padding: 6em 2em;
+        padding: 3em 2em;
         font-family: 'LM';
         color: #fff;
-        width: 10em;
+        width: 20em;
         text-align: center;
     }
 
@@ -50,11 +50,17 @@
    }
 
    .preco-card{
-    padding: 2em 2em;
+    padding: 1em 0em;
     font-family: 'LM';
     color: #fff;
-    font-size: 1.4em;
-    width: 10em;
+    font-size: 2.7em;
+    text-align: center;
+   }
+
+   .preco-card2{
+    font-family: 'LM';
+    color: #fff;
+    font-size: 15px;
     text-align: center;
    }
 }

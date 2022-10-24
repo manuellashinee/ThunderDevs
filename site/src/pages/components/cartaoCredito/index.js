@@ -4,7 +4,7 @@ export default function CartaoCredito() {
 
     return(
 
-        <section className='cartao-credito'>
+        <section className='cartao-credito3'>
 
             
 
