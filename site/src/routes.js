@@ -54,7 +54,7 @@ export default function Rotas (){
         <Route path='/filmedetalhe/:idParam' element={<FilmeDetalhe/>}/>
         <Route path='/meuspedidos' element={<MyPedido/>}/>
         <Route path='/compra3' element={<Compra3/>}/>
-        <Route path='/addsala' element={<AddSaala/>}/>
+        <Route path='/addsala/:idParam' element={<AddSaala/>}/>
         <Route path='/assento' element={<Assento/>}/>
         <Route path='/compra4' element={<Compra4/>}/>
         <Route path='/meuscombos' element={<MyCombos/>}/>

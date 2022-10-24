@@ -1,12 +1,29 @@
 import './index.scss';
 import '../../../common/common.scss'
 import Hora1 from '../hora1';
+import { useEffect, useState } from 'react';
+import { vizualizarThoras } from '../../../api/horaApi.js';
 
 export default function Rolaa(props){
+        const [horas,setHoras]= useState([]);
+
+        async function carregarHoras(){
+            const resp = await vizualizarThoras();
+            
+            setHoras(resp);
+        }
+    
+        useEffect(() => {
+            carregarHoras();
+        }, [])
+
+
+
     return(
         <section className='rola-p'>
             <div className='data-sala'>
-                <p className='sala-cor'>SALA <span>{props.numero}</span></p>
+                <p className='sala-cor'>SALA <span>{props.item.Numero}</span></p>
+                <p className='datas'>FILME : NENHUM</p>
                 <p className='datas'>DATAS DISPONÍVEIS:</p>
             </div>
 
@@ -22,14 +39,9 @@ export default function Rolaa(props){
                 <p className='datas2'>HORÁRIOS:</p>
                 <div className='data-p'>
                 <div className='data-p2'>
-                    <Hora1 hora='15/12'/>
-                    <Hora1 hora='16/12'/>
-                    <Hora1 hora='17/12'/>
-                </div>
-                <div className='data-p2'>
-                    <Hora1 hora='18/12'/>
-                    <Hora1 hora='19/12'/>
-                    <Hora1 hora='20/12'/>
+                    {horas.map(item=>
+                    <Hora1 hora={item.horario}/>
+                    )}
                 </div>
                 <div className='espacamento'>
                 <p className='compra-botao'>SALVAR</p>

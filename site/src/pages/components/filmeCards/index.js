@@ -2,7 +2,7 @@ import './index.scss'
 import '../../../common/common.scss'
 import { removerFilme } from '../../../api/filmeapi.js'
 import { confirmAlert } from 'react-confirm-alert';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function FilmeCards(props) {
@@ -15,6 +15,11 @@ export default function FilmeCards(props) {
    async function recarregarFilme(){
       window.location.reload();
    }
+
+   function adicinoarASala(){
+    navigate(`/addsala/${props.item.id}`)
+  }
+
    
     async function removerFilmeClick(id, nome){
         confirmAlert({
@@ -168,7 +173,7 @@ export default function FilmeCards(props) {
        
        
         <div className='l'> 
-            <p>ADICIONAR FILME A UMA SALA</p>
+            <p onClick={adicinoarASala}>ADICIONAR FILME A UMA SALA</p>
         </div>
         </div>
         
