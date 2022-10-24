@@ -1,11 +1,12 @@
-export function CalcularTotal(meias, inteiras){
-    let total = meias + inteiras;
+function CalcularTotal(meias, inteiras){
+    let total =  meias + inteiras;
     return total;
 }
 
-export function criarNovoPedido(idUsuario, idIngresso, idFilme, idPagamentoFilme, total){
-
-    let total = CalcularTotal();
+function criarNovoPedido(idUsuario, idIngresso, idFilme, idPagamentoFilme){
+    
+   
+    let total = CalcularTotal(total.meias, total.inteiras);
 
     return {
         idIngresso: idIngresso,
@@ -21,4 +22,5 @@ export function criarNovoPedido(idUsuario, idIngresso, idFilme, idPagamentoFilme
         horario: horario,
         sala: sala
     }
+
 }

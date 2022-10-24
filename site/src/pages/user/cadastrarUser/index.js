@@ -21,15 +21,18 @@ export default function CadastrarUser() {
       try{
 
         if (!nome || !nome.trim()) throw new Error('O campo nome é obrigatório.');
+        if (isNaN(telefone)|| !telefone.trim()) throw new Error('O campo telefone é obrigatório.');
         if (!email) throw new Error('O campo email é obrigatório.');
         if (!senha) throw new Error('O campo senha é obrigatório.');
         if (!senha2) throw new Error('Por favor confirme sua senha.');
-        if (isNaN (telefone)) throw new Error('O campo telefone é obrigatório.');
         if (isNaN(cpf)|| !cpf.trim()) throw new Error('O CPF é obrigatório.');
         if (isNaN(rg)|| !rg.trim()) throw new Error('O rg é obrigatório.');
+        if(senha !=senha2)
+        throw new Error('As senhas devem ser iguais')
+
        
           const usuario = storage('usuario-logado');
-          const resposta = await cadastrarUsuario(nome,telefone, email, senha, senha2, nascimento, cpf, rg);
+          const resposta = await cadastrarUsuario(nome,telefone, email, senha, nascimento, cpf, rg);
           toast.success('Usuario cadastrado com sucesso!');
       
           

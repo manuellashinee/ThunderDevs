@@ -1,8 +1,8 @@
 import { inserirPagamento } from '../repository/pedidoRepository.js'
-import { criarNovoPedido } from '../../../site/src/api/novoProduto.js';
-
+import { } from '../../../site/src/api/novoProduto.js'
+import {buscarIngressoPorId} from '../repository/produtoRepository.js'
 import { Router } from 'express';
-import { buscarIngressoPorId } from '../repository/produtoRepository.js';
+
 const server = Router();
 
 server.post('/api/ingresso:idUsuario/', async (req, resp) => {
@@ -10,7 +10,7 @@ server.post('/api/ingresso:idUsuario/', async (req, resp) => {
       const { idUsuario } = req.params;
       const info = req.body;
 
-      const novoIngresso = criarNovoPedido(idUsuario, info)
+      const novoIngresso = criarNovoPedido(idUsuario, info);
 
       const idPedidoCriado = await inserirIngresso(novoIngresso);
       const idPagCriado = await inserirPagamento(idPedidoCriado, info.cartao);

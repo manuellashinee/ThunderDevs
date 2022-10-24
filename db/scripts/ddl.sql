@@ -86,7 +86,7 @@ create table TB_FILME(
 	DS_SINOPSE          VARCHAR(600),
 	IMG_CAPA            VARCHAR(5000),
 	NM_DIRETOR          VARCHAR(100),
-	VL_AVALIACAO        DECIMAL(2,1),
+	VL_AVALIACAO        DECIMAL(10,1),
 	BT_DESTAQUE         BOOL,
 	DS_SITUACAO         varchar(50),
     

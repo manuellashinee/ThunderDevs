@@ -74,9 +74,9 @@ export default function Home(){
                 <p className='texto-px'>ALUGE UMA SALA DE CINEMA E TRAGA OS AMIGOS QUE QUISER! </p>
 
                 <div className='cards'>
-                    <Cacete3 imagem='../images/texto-treco.svg' titulo='PLANO CINEMA' texto='kakaalla'/>
-                    <Cacete3 imagem='../images/texto-treco.svg' titulo='COMBO REALIDADE AUMENTADA' texto='kakaalla'/>
-                    <Cacete3 imagem='../images/texto-treco.svg' titulo='COMBO POPCORN TIME'  texto='kakaalla'/>
+                    <Cacete3 imagem='../images/tv.svg' titulo='COMBO PLANO CINEMA' texto='APROVEITE O BENEFICIOS DO CLASSICO PLANO CINEMA POR APENAS:' preco='570,'/>
+                    <Cacete3 imagem='../images/estrelinha.svg' titulo='COMBO REALIDADE AUMENTADA' texto='OS BENEFICIOS DO PLANO CINEMA COM ADIÇÃO DO 3D POR APENAS:' preco='800,'/>
+                    <Cacete3 imagem='../images/trovao.svg' titulo='COMBO POPCORN TIME'  texto='APROVEITE O BENEFICIOS DO PLANO CINEMA + 3D + COMBO PIPOCA POR APENAS:' preco='1.220,'/>
                 </div>
             </div>
 

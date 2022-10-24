@@ -20,7 +20,7 @@ export default function FilmeDetalhe(){
 
     return(
         <section className='filme-detalhes'>
-            <FilmeD item={filme} />
+            <FilmeD imagem2={'../../../../public/images/amizade.jpg'} item={filme} />
         </section>
     );
 }

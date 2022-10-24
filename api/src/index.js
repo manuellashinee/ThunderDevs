@@ -12,6 +12,8 @@ import comboController from './controller/comboController.js'
 import salaController from './controller/salaController.js'
 import horarioController from './controller/horarioController.js'
 import filmeSalaHoraController from './controller/filmeSalaHoraController.js'
+import pedido from './controller/pedido.js'
+
 
 const server = express();
 server.use(cors());
@@ -27,6 +29,7 @@ server.use(comboController);
 server.use(salaController);
 server.use(horarioController);
 server.use(filmeSalaHoraController);
+server.use(pedido);
 
 
 server.use('/storage/fotosfilmes', express.static('storage/fotosfilmes'));

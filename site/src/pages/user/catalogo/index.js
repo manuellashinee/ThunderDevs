@@ -124,7 +124,7 @@ export default function Catalogo() {
           )}
         </div>
 
-      <hr />
+      <hr className='linha2'/>
       <div className='pagina-baixo'>
 
         <div className='texto-select'>
@@ -142,7 +142,7 @@ export default function Catalogo() {
           <FilmeC item={item} />
           )}
         </div>
-        <hr></hr>
+        <hr className='linha2'></hr>
         <div className='pagina-baixo'>
 
         <div className='texto-select'>

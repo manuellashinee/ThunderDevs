@@ -13,7 +13,7 @@ export default function Cacete3(props){
            <p className='titulo-card'>{props.titulo}</p>
            <hr/>
            <p className='texto-card'>{props.texto}</p>
-           <p className='preco-card'>R${props.preco}</p>
+           <p className='preco-card'>R${props.preco}<span className='preco-card2'>99</span></p>
         </div>
     </section>
     );
