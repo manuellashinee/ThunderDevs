@@ -29,7 +29,6 @@ server.use(comboController);
 server.use(salaController);
 server.use(horarioController);
 server.use(filmeSalaHoraController);
-server.use(pedido);
 
 
 server.use('/storage/fotosfilmes', express.static('storage/fotosfilmes'));

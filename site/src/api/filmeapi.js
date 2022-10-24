@@ -61,3 +61,8 @@ export async function FiltrarFilmeGenero(idgenero){
     const asnwer= await api.get(`/consulta/genero/filme/${idgenero}`)
     return asnwer.data;
 }
+
+export async function consultaFilmeBreve(){
+    const asnwer= await api.get(`/filme/breve`)
+    return asnwer.data;
+}

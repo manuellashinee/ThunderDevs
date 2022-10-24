@@ -1,8 +1,28 @@
 import './index.scss'
 import '../../../common/common.scss'
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 export default function FilmeD(props){
+    const [atual, setAtual] = useState(true)
+
+        function verData(){
+        const lanca= Date.parse(props.item.lancamento);
+        const agora = Date.now();
+        const mento = agora - lanca;
+        console.log(mento);
+
+        if(mento<0){
+            setAtual(false)
+        }
+        else
+        setAtual(true)
+    
+    }
+
+    useEffect(() => {
+        verData();
+      }, [])
     
 
     function mostrarImagem(imagem) {
@@ -11,6 +31,8 @@ export default function FilmeD(props){
         else
           return `http://localhost:5000/${imagem}`
       }
+
+     
 
 
     return(
@@ -47,13 +69,13 @@ export default function FilmeD(props){
                 <div className='parte-2'>
                     <div className='titu-botao'>
                     <div className='tomate-pipoca'>
+                        {atual=== true?
                         <div className='tp-img-inicio'>
                             <img className='tomate-pipoca-img' src='../images/tomate.svg'/>
                             <div className='tp-principal'>
                                 <p className='nota'><span>{props.item.tomato}</span>%</p>
                                 <p className='textos-tp'>TOMATOMETER</p>
                             </div> 
-
                             <div className='tp-img-inicio'>
                             <img className='pipoca-img' src='../images/pipoca.svg'/>
                             <div className='tp-principal'>
@@ -62,7 +84,7 @@ export default function FilmeD(props){
                             </div> 
                             </div>
                         </div>
-                 {/*  <p className='lancamento'> LANÇAMENTO: <span>{props.item.lancamento.substr(8,2)}/{props.item.lancamento.substr(5,2)}/{props.item.lancamento.substr(0,4)}</span> </p> */}
+                    :<p className='lancamento'> LANÇAMENTO: <span>{props.item.lancamento.substr(8,2)}/{props.item.lancamento.substr(5,2)}/{props.item.lancamento.substr(0,4)}</span> </p>}
                     </div>
                     <div className='b'>
                     <p className='comentarios-botao'>Adicionar Comentário</p>
