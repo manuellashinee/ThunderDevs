@@ -6,24 +6,28 @@ import { useEffect, useState } from 'react';
 export default function FilmeD(props){
     const [atual, setAtual] = useState(true)
 
-        function verData(){
-        const lanca= Date.parse(props.item.lancamento);
-        const agora = Date.now();
-        const mento = agora - lanca;
-        console.log(mento);
+    // console.log('props.item.lancamento|>>>')
+    // console.log(props.item.lancamento)
 
-        if(mento<0){
+    function verData(){
+        // console.log('props.item.lancamento')
+        // console.log(props.item.lancamento)
+
+        let lanca= new Date(props.item.lancamento);
+        let agora = new Date();
+        let x= agora.getTime();
+        let mento = lanca.getTime();
+        let ver= x-mento;
+
+        console.log(ver)
+
+        if(ver<0){
             setAtual(false)
         }
         else
-        setAtual(true)
+            setAtual(true)
     
     }
-
-    useEffect(() => {
-        verData();
-      }, [])
-    
 
     function mostrarImagem(imagem) {
         if (!imagem)
@@ -32,6 +36,11 @@ export default function FilmeD(props){
           return `http://localhost:5000/${imagem}`
       }
 
+
+      useEffect(() => {
+        verData();
+      }, [props])
+    
      
 
 
