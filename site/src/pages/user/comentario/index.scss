@@ -1,0 +1,41 @@
+.bagui-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    p {
+        color: #fff;
+        font-family: 'LB';
+    }
+
+    .opinion {
+        
+        font-size: 1em;
+    }
+    .fds {
+        width: 46%;
+    }
+
+    .espaco {
+        margin-top: 2em;
+    }
+
+    .roxinho {
+        font-family: "LM";
+        background-color: #AE4EDB;
+        font-size: 1.6em;
+        color: white;
+        height: 2em;
+        border-radius: 12px;
+        margin-bottom: 1em;
+        text-decoration: none;
+        width: 6em;
+        border: none;
+    }
+    .roxinho:hover {
+        color: #532290;
+        background-color: white;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+}

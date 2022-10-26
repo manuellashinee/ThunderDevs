@@ -1,0 +1,76 @@
+.comentariozinho{
+
+
+    .head{
+        display: flex;
+        flex-direction: column;
+        background-image: url('../../../../public/images/turning-red.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .logo {
+        mix-blend-mode: lighten;
+        width: 7.5em;
+        margin-top: 1em;
+        margin-left: 2em;
+    }
+
+    .cabecalho-pesquisa{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: auto;
+    }
+
+    .flecha-c {
+        margin-left: 2em;
+    }
+
+    .foto-perfil{
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-right: 3em;
+
+        p {
+            color: white;
+        font-family: "LR";
+        }
+    }
+    
+    .textos-row {
+        display: flex;
+        flex-direction: row;
+
+        .pagamento {
+        color: white;
+        font-family: "LSB";
+        font-size: 2em;
+        padding: 0em 1em;
+        margin-top: 4em;
+        margin-bottom: 2em;
+        }
+
+        .pagamento2 {
+            display: flex;
+            align-items:flex-start ;
+            color: white;
+            font-size: 2em;
+            font-family: "LM";
+            position: relative;
+            left: -10px;
+            margin-top: 4em;
+        }
+    }
+    
+
+   
+    }
+
+
+    
+
+

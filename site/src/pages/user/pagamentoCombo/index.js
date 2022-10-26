@@ -12,7 +12,7 @@ export default function PagamentoCombo() {
         <section>
             <CompraCombo/>
 
-<CartaoCredito/>
+            <CartaoCredito/>
 
 
         </section>

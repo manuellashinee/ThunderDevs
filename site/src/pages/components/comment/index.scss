@@ -1,0 +1,31 @@
+.container-comentario {
+    margin-left: 3em;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    width: 30em;
+
+
+    
+    .little-photo {
+        display: flex;
+        flex-direction: row;
+
+        .alinhar {
+            display: flex;
+            flex-direction: column;
+            margin-left: 8px;
+            margin-top: 10px;
+            font-family: 'LB';
+            color: #fff;
+        }
+
+        .star-img {
+            display: flex;
+            width: 10px;
+            flex-direction: row;
+        }
+
+        
+        
+    }
+}
