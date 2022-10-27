@@ -1,11 +1,10 @@
 import './index.scss'
 import '../../../common/common.scss'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function ArdSnack(props){
 
     const navigate = useNavigate();
-    const {id} = useParams;
 
       function mostrarImagem(imagem) {
         if (!imagem)
@@ -16,13 +15,13 @@ export default function ArdSnack(props){
 
       
       function AbrirPagamento(id){
-        navigate('/pagamentocombo/${id}')
+        navigate('/pagamentocombo/' + id)
       }
 
 
 
     return(
-        <section className='card-snack' onClick={() => AbrirPagamento(props.item.id)}>
+        <section className='card-snack' onClick={() => AbrirPagamento(props.item.idcombo)}>
             <div className='card2'>
                 <img className='img-card' src={mostrarImagem(props.item.foto)}/>
                 <div className='textos'>

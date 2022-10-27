@@ -1,11 +1,26 @@
 import Comentar from "../../components/comment";
 import './index.scss'
 import Comentaras from "../../components/comentariozinho";
+import { useParams} from 'react-router-dom'
 import './index.scss'
 import '../../../common/common.scss'
+import { verComentarios } from "../../../api/comentarioApi.js";
+import { useEffect, useState } from "react";
 
 
 export default function Comentario() {
+    const [comentarios, setComentarios] = useState([]);
+    const {idParam} = useParams();
+
+    async function carregarComents(idfilme){
+        const resposta = await verComentarios(idfilme);
+        setComentarios(resposta);
+    }
+
+    useEffect(() => {
+        carregarComents(idParam);
+        }, [])
+
     
     return(
 
@@ -14,7 +29,9 @@ export default function Comentario() {
 
            <div className="bagui-row">
            <div>
-            <Comentar foto= '../images/elizinha.svg' usuario='Manu' filme='RED' comentario='FILMINHO MUITO LEGAL, ENVOLVENTE, ESPECIALMENTE O PANDA'/>
+            {comentarios.map(item=>
+            <Comentar item={item}/>
+            )}
              </div>
 
              <div className="opinion">

@@ -21,15 +21,15 @@
     }
 
     .roxinho {
-        font-family: "LM";
+        font-family: 'LM';
         background-color: #AE4EDB;
         font-size: 1.6em;
         color: white;
         height: 2em;
-        border-radius: 12px;
+        border-radius: 19px;
         margin-bottom: 1em;
         text-decoration: none;
-        width: 6em;
+        width: 10em;
         border: none;
     }
     .roxinho:hover {
@@ -38,4 +38,6 @@
         cursor: pointer;
         transition: 0.2s;
     }
+
+    
 }
