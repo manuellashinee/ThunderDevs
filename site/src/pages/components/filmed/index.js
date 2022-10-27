@@ -46,7 +46,7 @@ export default function FilmeD(props){
 
     return(
         <section className='page-principal' style={{ 
-            backgroundImage: `url(${props.imagem2})`
+            backgroundImage: `(${props.imagem2})`
         }}>
              <Link to='/catalogo' className='flecha-c'><img  src='../images/flecha.svg' /></Link>
         <div className='filme-d-p'>

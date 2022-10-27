@@ -1,17 +1,28 @@
 import './index.scss'
 import '../../../common/common.scss'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function ArdSnack(props){
 
-    function mostrarImagem(imagem) {
+    const navigate = useNavigate();
+    const {id} = useParams;
+
+      function mostrarImagem(imagem) {
         if (!imagem)
           return './images/logo.svg'
         else
           return `http://localhost:5000/${imagem}`
       }
 
+      
+      function AbrirPagamento(id){
+        navigate('/pagamentocombo/' + {id})
+      }
+
+
+
     return(
-        <section className='card-snack'>
+        <section className='card-snack' onClick={() => AbrirPagamento(props.item.id)}>
             <div className='card2'>
                 <img className='img-card' src={mostrarImagem(props.item.foto)}/>
                 <div className='textos'>
