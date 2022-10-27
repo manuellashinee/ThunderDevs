@@ -89,11 +89,11 @@ export default function Cadastrarcombo(){
                 <div className='colunas'>
                     <div className='coluna1'>
                         <p className='campos' >NOME DO COMBO:</p>
-                        <input className='input-linha' type='text' value={nome} onChange={e=> setNome(e.target.value)}/>
+                        <input className='input-linha  input-deco' type='text' value={nome} onChange={e=> setNome(e.target.value)}/>
                         <p className='campos' >DESCRIÇÃO DO COMBO:</p>
-                        <input className='input-linha' type='text'value={descricao}  onChange={e=> setDescricao(e.target.value)}  />
+                        <input className='input-linha  input-deco' type='text'value={descricao}  onChange={e=> setDescricao(e.target.value)}  />
                         <p className='campos' >PREÇO:</p>
-                        <input className='input-linha' type='text' value={preco} onChange={e=> setPreco(e.target.value)}/>
+                        <input className='input-linha  input-deco' type='text' value={preco} onChange={e=> setPreco(e.target.value)}/>
                       </div>
                     <div className='coluna2'>
                       
@@ -106,7 +106,7 @@ export default function Cadastrarcombo(){
                         {imagem && 
                         <img className='imagem-capa-combo' src={mostrarImagemcombo()} alt=''/>
                         }
-                        <input className='input-linha2' type='file' id='imagemcapacombo' onChange={e => setImagem(e.target.files[0])} />
+                        <input className='input-linha2' type='file' id='imagemCapaCombo' onChange={e => setImagem(e.target.files[0])} />
                     </div>
                     </div>
                 </div>
