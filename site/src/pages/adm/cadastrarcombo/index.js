@@ -44,7 +44,7 @@ export default function Cadastrarcombo(){
     }
     }
     function escolherImagemcombo() {
-        document.getElementById('imagemCapacombo').click();
+        document.getElementById('imagemcapaCombo').click();
     }
 
     function mostrarImagemcombo() {
@@ -106,7 +106,7 @@ export default function Cadastrarcombo(){
                         {imagem && 
                         <img className='imagem-capa-combo' src={mostrarImagemcombo()} alt=''/>
                         }
-                        <input className='input-linha2' type='file' id='imagemCapaCombo' onChange={e => setImagem(e.target.files[0])} />
+                        <input className='input-linha2' type='file' id='imagemcapaCombo' onChange={e => setImagem(e.target.files[0])} />
                     </div>
                     </div>
                 </div>
