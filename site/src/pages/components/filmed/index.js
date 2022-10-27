@@ -1,10 +1,11 @@
 import './index.scss'
 import '../../../common/common.scss'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 export default function FilmeD(props){
-    const [atual, setAtual] = useState(true)
+    const [atual, setAtual] = useState(true);
+    const navigate = useNavigate();
 
     // console.log('props.item.lancamento|>>>')
     // console.log(props.item.lancamento)
@@ -29,6 +30,10 @@ export default function FilmeD(props){
     
     }
 
+    function irComentarios(){
+        navigate(`/comentarios/${props.item.id}`)
+    }
+
     function mostrarImagem(imagem) {
         if (!imagem)
           return './images/logo.svg'
@@ -46,7 +51,7 @@ export default function FilmeD(props){
 
     return(
         <section className='page-principal' style={{ 
-            backgroundImage: `(${props.imagem2})`
+            backgroundImage: `(${props.item.capa})`
         }}>
              <Link to='/catalogo' className='flecha-c'><img  src='../images/flecha.svg' /></Link>
         <div className='filme-d-p'>
@@ -96,7 +101,7 @@ export default function FilmeD(props){
                     :<p className='lancamento'> LANÇAMENTO: <span>{props.item.lancamento.substr(8,2)}/{props.item.lancamento.substr(5,2)}/{props.item.lancamento.substr(0,4)}</span> </p>}
                     </div>
                     <div className='b'>
-                    <p className='comentarios-botao'>Adicionar Comentário</p>
+                    <p className='comentarios-botao' onClick={irComentarios} >Adicionar Comentário</p>
                     </div>
                 </div>
             </div>
