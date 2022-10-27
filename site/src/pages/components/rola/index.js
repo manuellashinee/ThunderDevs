@@ -18,12 +18,10 @@ export default function Rolaa(props){
         }, [])
 
 
-
     return(
         <section className='rola-p'>
             <div className='data-sala'>
                 <p className='sala-cor'>SALA <span>{props.item.Numero}</span></p>
-                <p className='datas'>FILME : NENHUM</p>
                 <p className='datas'>DATAS DISPONÍVEIS:</p>
             </div>
 
