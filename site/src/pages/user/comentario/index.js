@@ -72,6 +72,8 @@ export default function Comentario() {
                     >
 
                         <h1> Chupe minhas bola </h1>
+                        <input type='text'/>
+                        <button> COMENTAR </button>
                         <button onClick={fecharModalManual}> sair </button>
                     </Modal>
                 </div>
