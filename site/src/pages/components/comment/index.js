@@ -1,5 +1,6 @@
 import './index.scss'
 import '../../../common/common.scss'
+import { estrelasAvaliacao } from '../estrelasAvaliacao'
 
 export default function Comentar(props) {
     
@@ -11,7 +12,7 @@ export default function Comentar(props) {
             <div className='little-photo'>
                 <div>
                   
-                   <div><img  className='perfil' src={props.item.capa}/></div>
+                   <div  className='perfil'>{props.item.nome.substr(0,1)}</div>
                 </div>
                     
                    <div className='alinhar'>
@@ -23,15 +24,7 @@ export default function Comentar(props) {
             <div className='sentido'>
                     <p className='oo'>{props.item.frase}</p>
             </div>
-            
-            <div className='star-img'>
-                <img  src='../images/Star.svg'/>
-                <img src='../images/Star.svg'/>
-                <img src='../images/Star.svg'/>
-                <img src='../images/Star.svg'/>
-                <img src='../images/Star.svg'/>
-
-            </div>
+           {estrelasAvaliacao(props.item.avaliacao)}
             </div>
         </section>
     )

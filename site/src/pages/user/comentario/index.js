@@ -28,7 +28,7 @@ export default function Comentario() {
             <Comentaras nome='RED'/>
 
            <div className="bagui-row">
-           <div>
+           <div className="scrol">
             {comentarios.map(item=>
             <Comentar item={item}/>
             )}

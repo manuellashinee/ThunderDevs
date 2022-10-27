@@ -1,0 +1,27 @@
+.cont-avaliacao-star{     
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0px;
+    padding: 0px;
+    width: 7em;
+    height:2.4em;
+    .star-icon{ 
+                list-style-type: none;
+                cursor: pointer;
+                color: #ffffff;
+                font-size: 30px;
+                margin: 0px;
+        }
+
+    .star-icon::before{        
+         content:"\2605";
+    } 
+
+    .star-icon.ativo ~ .star-icon::before{
+        content: "\2606";
+    }
+
+
+}
