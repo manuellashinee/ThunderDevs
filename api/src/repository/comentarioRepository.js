@@ -14,6 +14,7 @@ export async function vizualizarComentarios(idfilme){
                         tb_comentario.id_usuario as idusuario,
                         nm_usuario as nome,
                         nm_filme as filme,
+		                img_capa as capa,
                         ds_frase as frase,
                         nr_avaliacao as avaliacao
                     from tb_comentario
