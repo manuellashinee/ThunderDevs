@@ -16,7 +16,7 @@ export default function ArdSnack(props){
 
       
       function AbrirPagamento(id){
-        navigate('/pagamentocombo/' + {id})
+        navigate('/pagamentocombo/${id}')
       }
 
 
