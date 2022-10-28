@@ -1,5 +1,4 @@
 import Comentar from "../../components/comment";
-import './index.scss'
 import Comentaras from "../../components/comentariozinho";
 import { useParams} from 'react-router-dom'
 import './index.scss'
@@ -32,9 +31,21 @@ export default function Comentario() {
             bottom: 'auto',
             marginRight: '-50%',
             transform : 'translate(-50%, -50%)',
-            borderRadius : '1em',
-            backgroundColor : 'red',
+            padding: '2em',
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'column',
+            marginTop: '2em',
+            opacity: '76%',
+            backgroundColor: '#595959',
+            width: '45%',
+            height: '59%',
+            border: '1px solid #fff',
+            borderRadius: '1em',
+
+            
         }
+    
     }
 
     async function carregarComents(idfilme){
@@ -71,10 +82,34 @@ export default function Comentario() {
                     style= {customStyles}
                     >
 
-                        <h1> Chupe minhas bola </h1>
-                        <input type='text'/>
-                        <button> COMENTAR </button>
-                        <button onClick={fecharModalManual}> sair </button>
+
+
+         <section className='centerzinho'>
+            <div className='quadro'>
+                <div className='coment-titulo'>
+                    <div className='titulo-center'><h1 className="tei">COMENTAR</h1></div>
+                </div>
+
+                <div className='inferno'>
+                <div className='estrela'>
+                        <img src='../images/Star.svg'/>
+                        <img src='../images/Star.svg'/>
+                        <img src='../images/Star.svg'/>
+                        <img src='../images/Star.svg'/>
+                        <img src='../images/Star.svg'/>
+                    </div>
+                    <div  className='estrela'><p>COMENTE:</p></div>
+                    
+
+                    <div><input className='opacidade'></input></div>
+                </div>
+
+                <div className='center-button'>
+                    <button className='purple4'>FINALIZAR</button>
+                </div>
+
+            </div>
+            </section>
                     </Modal>
                 </div>
              </div>

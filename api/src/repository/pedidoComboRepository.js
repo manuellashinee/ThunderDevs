@@ -27,7 +27,7 @@ export async function pedidoCombo(novoPedido){
         
 }
 
-export async function inserirPagamentoCombo(pagamentoCombo){
+export async function inserirPagamentoCombo(idPagamento, pagamentoCombo){
     const comando = `INSERT INTO TB_PAGAMENTO_COMBO(
         ID_PAGAMENTO_COMBO 		,
         NR_CARTAO 				,
@@ -40,9 +40,9 @@ export async function inserirPagamentoCombo(pagamentoCombo){
         
         const [info] = await con.query(comando, [ 
 
-            pagamentoCombo.idPagamento,
+            idPagamento,
             pagamentoCombo.cartao,
-            pagamentoCombo.vencimentoCartao,
+            pagamentoCombo.vencimento,
             pagamentoCombo.cvv,
             pagamentoCombo.bandeira,
             pagamentoCombo.formaPagamento

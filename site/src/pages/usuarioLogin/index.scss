@@ -159,11 +159,19 @@ input {
     border: none;
     border-radius: 12px;
 }
+
 .salvar-botao:hover{
     color: #AE4EDB;
     background-color: white;
     cursor: pointer;
     transition: 0.2s;
+}
+
+.erro-scss{
+    font-family: 'LB';
+    color: black;
+    font-size: 15px;
+    padding: 10px 0px;
 }
 
 
