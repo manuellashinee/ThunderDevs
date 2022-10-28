@@ -42,6 +42,8 @@ export default function Comentario() {
             height: '59%',
             border: '1px solid #fff',
             borderRadius: '1em',
+
+            
         }
     
     }
