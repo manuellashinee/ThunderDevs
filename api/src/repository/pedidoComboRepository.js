@@ -16,8 +16,8 @@ export async function pedidoCombo(novoPedido){
 
         novoPedido.idPedido,
         novoPedido.idusuario,
-        novoPedido.combo,
-        novoPedido.pagamento,
+        novoPedido.idcombo,
+        novoPedido.idpagamento,
         novoPedido.datapedido,
         novoPedido.status,
         novoPedido.total

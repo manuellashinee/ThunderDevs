@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { inserirPagamentoCombo, pedidoCombo } from '../repository/pedidoComboRepository';
+import { buscarComboPorId } from '../repository/produtoComboRespository';
 const server = Router();
 
 server.post('/api/pedidocombo/:idUsuario/', async (req, resp) => {
@@ -11,6 +12,11 @@ server.post('/api/pedidocombo/:idUsuario/', async (req, resp) => {
         const idPedidoComboCriado = await pedidoCombo(novoPedido);
         const idPagCombo = await inserirPagamentoCombo(info.cartao, idPedidoComboCriado);
         
+        for(let item of info.pedido){
+            const prod = await buscarComboPorId(item.id);
+        }
+
+         resp.status(204).send();
 
     }
     catch(err){
@@ -19,3 +25,4 @@ server.post('/api/pedidocombo/:idUsuario/', async (req, resp) => {
         });
     }
 })
+export default server;
