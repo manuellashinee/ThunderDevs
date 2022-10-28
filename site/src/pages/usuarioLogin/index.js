@@ -81,6 +81,7 @@ export default function Index() {
           <div> <p className='titulo-1' >SENHA:</p></div>
           <div><input type='password' className='can' value={senha}  onChange={e => setSenha(e.target.value) }/></div>
         </div>
+        <div className='erro-scss'>{erro}</div>
         </div>
         <div className='descricao'><p>FAÇA SEU LOGIN PARA TER ACESSO AO NOSSO CATÁLOGO IMPERDÍVEL, NOSSO PLANO CINEMA, BONÛS E OFERTAS UNICOS!</p></div>
        </div>
@@ -91,9 +92,9 @@ export default function Index() {
         
 
         <div className='b2'><Link to='/cadastraruser' className='primeiro salvar-botao'>CADASTRE-SE</Link></div>
-        <div>{erro}</div>
+        
        </div>
-
+      
 
       </div>
       
