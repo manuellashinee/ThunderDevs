@@ -2,6 +2,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: #1A1919;
+    min-height: 62vh;
+    padding: 2em;
+
 
     p {
         color: #fff;
@@ -39,6 +43,23 @@
         transition: 0.2s;
     }
 
+    .scrol{
+        overflow-y: auto;
+        max-height: 32em;
+        padding: 1.3em;
+    }
+    .scrol::-webkit-scrollbar{
+        height: 1.2em;      
+    }
+
+    .scrol::-webkit-scrollbar-track {
+        background: #1A1919;  
+    }
+
+    .scrol::-webkit-scrollbar-thumb{
+        background-color: none;
+        border: 2px solid white;
+    }
     .container {
         display: flex;
         align-items: center;

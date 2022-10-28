@@ -2,6 +2,25 @@
     margin-left: 3em;
     border-radius: 24px;
     border: 2px solid #fff;
+    width: 30em;
+    padding: 1em;
+    margin-top: 2em;
+    background-size: cover;
+    background-color: #1A1919;
+
+    .perfil{
+        background-color: #AE4EDB;
+        border-radius: 100px;
+        padding: 1em 1.3em;
+        color: #fff;
+        font-family: 'LB';
+    }
+
+    .sentido{
+        padding: 1em;
+    }
+
+
     width: 35em;
     height: 10em;
 
@@ -19,7 +38,7 @@
             margin-left: 8px;
             margin-top: 10px;
             font-family: 'LB';
-            color: #fff;
+            color: #fff
         }
 
         .user-photo {
@@ -28,6 +47,7 @@
             top: 0.5em;
         }
 
+     
         
 
         
