@@ -12,7 +12,7 @@ export default function Comentar(props) {
             <div className='little-photo'>
                 <div>
                   
-                   <div  className='perfil'>{props.item.nome.substr(0,1)}</div>
+                   <div><img  className='user-photo' src={props.foto}/></div>
                 </div>
                     
                    <div className='alinhar'>

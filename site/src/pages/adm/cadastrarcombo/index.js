@@ -44,7 +44,7 @@ export default function Cadastrarcombo(){
     }
     }
     function escolherImagemcombo() {
-        document.getElementById('imagemCapacombo').click();
+        document.getElementById('imagemCapaCombo').click();
     }
 
     function mostrarImagemcombo() {

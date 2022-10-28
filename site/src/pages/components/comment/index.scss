@@ -1,6 +1,6 @@
 .container-comentario {
     margin-left: 3em;
-    border-radius: 10px;
+    border-radius: 24px;
     border: 2px solid #fff;
     width: 30em;
     padding: 1em;
@@ -21,7 +21,12 @@
     }
 
 
+    width: 35em;
+    height: 10em;
 
+    .border {
+        margin-left: 1em;
+    }
     
     .little-photo {
         display: flex;
@@ -36,7 +41,15 @@
             color: #fff
         }
 
+        .user-photo {
+            width: 2.5em;
+            position: relative;
+            top: 0.5em;
+        }
+
      
+        
+
         
         
     }
