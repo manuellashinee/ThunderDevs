@@ -28,6 +28,7 @@ import MyCombos from './pages/user/myCombos';
 import PedidosAdm from './pages/adm/PedidosAdm';
 import PagamentoCombo from './pages/user/pagamentoCombo';
 import Comentario from './pages/user/comentario';
+import Comentar from './pages/user/comentar';
 
 
 export default function Rotas (){
@@ -62,6 +63,7 @@ export default function Rotas (){
         <Route path='/pedidosadm' element={<PedidosAdm/>}/>
         <Route path='/pagamentocombo/:idParam' element={<PagamentoCombo/>}/>
         <Route path='/comentarios/:idParam' element={<Comentario/>}/>
+        <Route path='/comentar' element={<Comentar/>}/>
 
     </Routes>
     </BrowserRouter>
