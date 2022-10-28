@@ -101,7 +101,7 @@ export default function Catalogo() {
 
         <div className='cabecalho-pesquisa'>
           <div>
-            <img className='logo' src='../images/logo.svg' />
+          <Link to='/'><img className='logo' src='../images/logo.svg' /></Link>
             <p className='bem-vindes'>BEM VINDES AO NOSSO CATÁLOGO</p>
           </div>
 

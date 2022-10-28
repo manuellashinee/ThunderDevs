@@ -1,8 +1,15 @@
 import './index.scss'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import storage from 'local-storage';
+import { useEffect, useState } from 'react';
 
 export default function Comentaras(props) {
+    const [usuario, setUsuario] = useState('');
 
+    useEffect(() => {
+          const usuarioLogado = storage('usuario-logado');
+          setUsuario(usuarioLogado.nome);
+    }, [])
 
     return(
         <section className='comentariozinho'>
@@ -14,8 +21,8 @@ export default function Comentaras(props) {
                 </div>
                 <div className='fotozinha'>
                    <div className='foto-perfil'>
-                   <div><img  className='perfil' src='../images/elizinha.svg'/></div>
-                   <div><p>Manu</p></div>
+                   <div  className='perfil'>{usuario.substr(0,1)}</div>
+                   <div><p>{usuario}</p></div>
                    </div>
                 </div>
                   
