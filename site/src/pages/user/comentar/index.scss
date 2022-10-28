@@ -1,0 +1,107 @@
+.comentar-page {
+
+    .centerzinho {
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    }
+
+    
+        .logo{
+            mix-blend-mode: lighten;
+        }
+    
+
+    .quadro {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    opacity: 76%;
+    background-color: #595959;
+    width: 45%;
+    height: 59%;
+    border: 1px solid #fff;
+    border-radius: 1em;
+    }
+
+    .titulo-center {
+        position: relative;
+        left: 9em;
+    }
+
+    .coment-titulo {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 2em;
+    }
+
+    .estrela {
+        margin-bottom: 1em;
+    }
+
+    p {
+        font-family: 'LR';
+        color: #fff;
+    }
+
+    .inferno {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    h1 {
+        font-family: 'LR';
+        font-size: 2em;
+        color: #fff;
+
+    }
+
+    input {
+        border: 2px solid #ffff;
+        margin-bottom: 1em;
+        font-family: 'LSB';
+        color: white;
+    }
+
+    .opacidade { 
+        opacity: 76%;
+        background-color: #595959;
+        height: 12em;
+        width: 28em;
+        border-radius: 10px;
+    }
+
+    .purple {
+        font-family: 'LM';
+        background-color: #AE4EDB;
+        font-size: 1em;
+        color: white;
+        height: 2em;
+        border-radius: 12px;
+        margin-bottom: 1em;
+        text-decoration: none;
+        width: 8em;
+        border: none;
+    }
+
+    .purple:hover {
+        color: #532290;
+        background-color: white;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .center-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 5em;
+    }
+
+
+}
