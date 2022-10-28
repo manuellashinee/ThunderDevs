@@ -21,15 +21,15 @@
     }
 
     .roxinho {
-        font-family: "LM";
+        font-family: 'LM';
         background-color: #AE4EDB;
         font-size: 1.6em;
         color: white;
         height: 2em;
-        border-radius: 12px;
+        border-radius: 19px;
         margin-bottom: 1em;
         text-decoration: none;
-        width: 6em;
+        width: 10em;
         border: none;
     }
     .roxinho:hover {
@@ -38,4 +38,22 @@
         cursor: pointer;
         transition: 0.2s;
     }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-button {
+        display: block;
+        width: 500px;
+        background-color: #532290;
+        border: 0px;
+        height: 50px;
+        margin-top: 200px;
+        color: white;
+    }
+
+    
 }

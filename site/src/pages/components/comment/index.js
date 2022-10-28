@@ -11,7 +11,7 @@ export default function Comentar(props) {
             <div className='little-photo'>
                 <div>
                   
-                   <div><img  className='perfil' src={props.item.capa}/></div>
+                   <div><img  className='user-photo' src={props.foto}/></div>
                 </div>
                     
                    <div className='alinhar'>
@@ -25,7 +25,7 @@ export default function Comentar(props) {
             </div>
             
             <div className='star-img'>
-                <img  src='../images/Star.svg'/>
+                <img src='../images/Star.svg'/>
                 <img src='../images/Star.svg'/>
                 <img src='../images/Star.svg'/>
                 <img src='../images/Star.svg'/>
