@@ -1,12 +1,14 @@
 
-export function criarNovoPedidoCombo(info, idPedido, idUsuario, total) {
+export function criarNovoPedidoCombo(idPedidoCombo, idUsuario, idcombo, idpagamentoCombo, pagamento, total) {
     let agora = new Date();
+   
     return{
-        idPedido : idPedido,
+        idPedidoCombo : idPedidoCombo,
         idusuario : idUsuario,
-        combo : info.combo,
+        idcombo : idcombo,
+        idpagamentoCombo: idpagamentoCombo,
         pagamento: pagamento,
-        datapedido: agora,
+        data: agora,
         status: 'Aguardando pagamento',
         total: total
     }

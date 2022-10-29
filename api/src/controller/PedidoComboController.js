@@ -9,14 +9,13 @@ server.post('/api/pedidocombo/:idUsuario/', async (req, resp) => {
     try{
         const { idUsuario } = req.params;
         const info = req.body;
-        const novoPedido = criarNovoPedidoCombo( info, idUsuario);
+        const novoPedido = criarNovoPedidoCombo( idUsuario, info);
 
         const idPedidoComboCriado = await pedidoCombo(novoPedido);
         const idPagCombo = await inserirPagamentoCombo(info.cartao, idPedidoComboCriado);
         
-        for(let item of info.pedidoCombo){
-            const prod = await buscarComboPorId(item.id);
-        }
+        const prod = await buscarComboPorId(idUsuario);
+        
 
          resp.status(204).send();
 

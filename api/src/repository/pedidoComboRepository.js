@@ -1,7 +1,7 @@
 import {con} from './connection.js'
 
 
-export async function pedidoCombo(novoPedido){
+export async function pedidoCombo( idPedidoCombo, idUsuario, idcombo, idpagamentoCombo, novoPedido){
     const comando = `INSERT INTO  TB_PEDIDO_COMBO(
         ID_PEDIDO_COMBO 	,
         ID_USUARIO 			,
@@ -14,20 +14,20 @@ export async function pedidoCombo(novoPedido){
 
         const [info] = await con.query(comando, [
 
-            novoPedido.idPedido,
-            novoPedido.idUsuario,
-            novoPedido.idcombo,
-            novoPedido.idpagamento,
-        novoPedido.datapedido,
-        novoPedido.status,
-        novoPedido.total
+            idPedidoCombo,
+            idUsuario,
+            idcombo,
+            idpagamentoCombo,
+            novoPedido.data,
+            novoPedido.status,
+            novoPedido.total
         
         ]);
         return info.insertId;;
         
 }
 
-export async function inserirPagamentoCombo(idPagamento, pagamentoCombo){
+export async function inserirPagamentoCombo(idpagamento, pagamentoCombo){
     const comando = `INSERT INTO TB_PAGAMENTO_COMBO(
         ID_PAGAMENTO_COMBO 		,
         NR_CARTAO 				,
@@ -40,10 +40,11 @@ export async function inserirPagamentoCombo(idPagamento, pagamentoCombo){
         
         const [info] = await con.query(comando, [ 
 
-            pagamentoCombo.idPagamento,
-            pagamentoCombo.cartao,
+            idpagamento,
+            pagamentoCombo.numero,
             pagamentoCombo.vencimento,
             pagamentoCombo.cvv,
+            pagamentoCombo.nome,
             pagamentoCombo.bandeira,
             pagamentoCombo.formaPagamento
 
