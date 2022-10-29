@@ -16,8 +16,12 @@
         background-color: #532290;
         transition: 0.3s;
     }
+
+    .horario-marcado {
+        background-color: #532290;
+    }
+    .horario-marcado:hover {
+        background-color: inherit;
+    }
 }
 
-.horario-marcado {
-    background-color: green;
-}
