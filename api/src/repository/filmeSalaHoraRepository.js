@@ -21,7 +21,7 @@ export async function odeioFilmes(){
 
 export async function horariosFilmeEmSala(filme, sala){
     const comando= 
-            `SELECT ds_horario
+            `SELECT ds_horario as horario
             FROM tb_FILME_SALA_HORARIO FSH
             INNER JOIN tb_filme_sala fs on fs.id_filme_sala = fsh.id_filme_sala
             INNER JOIN tb_sala_horario  SH on fsh.id_sala_horario = sh.id_sala_horario
@@ -33,4 +33,16 @@ export async function horariosFilmeEmSala(filme, sala){
 }
 
 
-
+export async function DataFilmeEmSala(filme, sala){
+const comando= 
+        `SELECT 	dt_de de,
+                    dt_ate ate
+        FROM tb_FILME_SALA_HORARIO FSH
+        INNER JOIN tb_filme_sala fs on fs.id_filme_sala = fsh.id_filme_sala
+        INNER JOIN tb_sala_horario  SH on fsh.id_sala_horario = sh.id_sala_horario
+        INNER JOIN tb_horario h on sh.id_horario = h.id_horario
+        WHERE fs.id_sala = ?
+        and fs.id_filme = ?;`;
+const [resposta] = await con.query(comando,[sala, filme]);
+return resposta;
+}

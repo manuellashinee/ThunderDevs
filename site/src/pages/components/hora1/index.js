@@ -12,8 +12,8 @@ export default function Hora1(props){
 
 
     return (
-        <section className={`data-inicial ${marcado()}`}>
-            <p className='data-p'>{props.hora}</p>
+        <section className='data-inicial'>
+            <p className={`data-p ${marcado()}`}>{props.hora}</p>
         </section>
     );
 }
