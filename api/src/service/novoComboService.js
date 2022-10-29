@@ -1,9 +1,6 @@
 
-export function criarNovoPedidoCombo(info, idPedido, idUsuario) {
-
-    let conclusao = meias + inteiras; 
+export function criarNovoPedidoCombo(info, idPedido, idUsuario, total) {
     let agora = new Date();
-
     return{
         idPedido : idPedido,
         idusuario : idUsuario,
@@ -11,6 +8,7 @@ export function criarNovoPedidoCombo(info, idPedido, idUsuario) {
         pagamento: pagamento,
         datapedido: agora,
         status: 'Aguardando pagamento',
-        total: conclusao
+        total: total
     }
+   
 }

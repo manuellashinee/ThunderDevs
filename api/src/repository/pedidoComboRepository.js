@@ -10,14 +10,14 @@ export async function pedidoCombo(novoPedido){
         DT_PEDIDO 			,
         DS_STATUS           ,
         VL_TOTAL 			,
-        )  values(?,?,?,?,?,?,?)`
+        )  VALUES(?,?,?,?,?,?,?)`
 
         const [info] = await con.query(comando, [
 
-        novoPedido.idPedido,
-        novoPedido.idusuario,
-        novoPedido.idcombo,
-        novoPedido.idpagamento,
+            novoPedido.idPedido,
+            novoPedido.idUsuario,
+            novoPedido.idcombo,
+            novoPedido.idpagamento,
         novoPedido.datapedido,
         novoPedido.status,
         novoPedido.total
@@ -40,7 +40,7 @@ export async function inserirPagamentoCombo(idPagamento, pagamentoCombo){
         
         const [info] = await con.query(comando, [ 
 
-            idPagamento,
+            pagamentoCombo.idPagamento,
             pagamentoCombo.cartao,
             pagamentoCombo.vencimento,
             pagamentoCombo.cvv,
