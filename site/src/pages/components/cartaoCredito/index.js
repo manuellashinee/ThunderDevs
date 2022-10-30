@@ -14,6 +14,7 @@ export default function CartaoCredito(props) {
     const [bandeira, setBandeira] = useState ('');
     const [formaPagamento, setFormaPagamento] = useState ('');
     const [total, setTotal] = useState ('');
+    
 
     const navigate = useNavigate();
 
@@ -21,12 +22,12 @@ export default function CartaoCredito(props) {
 
         try{
 
-            let combo = Storage('combospedidos')
-            let id = Storage('cliente-logado').id;
+            let idcombo = Storage('combospedidos')
+            let id= Storage('cliente-logado').id;
     
             let pedido= 
             {
-                idcombo: combo,
+                idcombo: idcombo,
                 pagamento : 
                 {
                 nome :  nome,
@@ -40,13 +41,13 @@ export default function CartaoCredito(props) {
               }
     
               const r = await salvarNovoPedido(id, pedido);
-              toast.dark('O pedido foi!');
+              alert('O pedido foi!');
               Storage('combospedidos', []);
               navigate('/');
 
         }
         catch (err) {
-            toast.error(err.response.data.erro);
+            alert(err);
         }
 
 
@@ -85,15 +86,15 @@ export default function CartaoCredito(props) {
                             <input  className='input-pagar' type='text' value={cvv} onChange={e => setCvv(e.target.value)}/>
 
                             <select className='imagens' value={bandeira}  onChange={e => setBandeira(e.target.value)}>
-                                <option><img className='img-c' src='../images/Visa.svg'/></option>
-                                <option><img className='img-c' src='../images/master.svg'/></option>
-                                <option><img className='img-c' src='../images/elo.svg'/></option>
+                                <option>elo</option>
+                                <option>mastecard</option>
+                                <option>visa</option>
                             </select>
 
                             <p>FORMA DE pagamento</p>
                             <select className='imagens' value={formaPagamento}  onChange={e => setFormaPagamento(e.target.value)}>
-                                <option><p>CREDITO</p></option>
-                                <option><p>DÉBITO</p></option>
+                                <option>CREDITO</option>
+                                <option>DÉBITO</option>
                             </select>
                         </div>
                     </div>
@@ -101,7 +102,7 @@ export default function CartaoCredito(props) {
 
                 <div className='cartao2'>
                     <div className='campo2'>
-                            <p className='texto-pagar'>VALOR:<span className='cartao-texto'>{props.item.idcombo.preco}</span></p>
+                            <p className='texto-pagar'>VALOR:<span className='cartao-texto'>{}</span></p>
                             <p className='texto-pagar'>TAXA:<span className='cartao-texto'>R$ 05,00</span></p>
                     </div>
                     <hr/>
