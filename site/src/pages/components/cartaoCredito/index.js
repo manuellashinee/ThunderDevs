@@ -5,7 +5,7 @@ import { salvarNovoPedido } from '../../../api/pedidoAPI';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom'
 
-export default function CartaoCredito() {
+export default function CartaoCredito(props) {
 
     const [nome, setNome] = useState ('');
     const [vencimento, setVencimento] = useState ('');
