@@ -5,16 +5,14 @@ import { criarNovoPedidoCombo } from '../service/novoComboService.js';
 import { buscarComboPorId } from '../repository/produtoComboRespository.js';
 const server = Router();
 
-server.post('/api/pedidocombo/:idUsuario/', async (req, resp) => {
+server.post('/api/pedidocombo/:idUsuario', async (req, resp) => {
     try{
         const { idUsuario } = req.params;
         const info = req.body;
-        const novoPedido = criarNovoPedidoCombo( idUsuario, info);
+        const novoPedido = criarNovoPedidoCombo(idUsuario, info);
 
         const idPedidoComboCriado = await pedidoCombo(novoPedido);
-        const idPagCombo = await inserirPagamentoCombo(info.cartao, idPedidoComboCriado);
-        
-        const prod = await buscarComboPorId(idUsuario);
+        const idPagCombo = await inserirPagamentoCombo(info.pagamento, idPedidoComboCriado);
         
 
          resp.status(204).send();

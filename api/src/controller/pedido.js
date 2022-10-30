@@ -1,11 +1,10 @@
 import { inserirPagamento } from '../repository/pedidoRepository.js'
-import { } from '../../../site/src/api/novoProduto.js'
 import {buscarIngressoPorId} from '../repository/produtoRepository.js'
 import { Router } from 'express';
 
 const server = Router();
 
-server.post('/api/ingresso:idUsuario/', async (req, resp) => {
+server.post('/api/ingresso/:idUsuario', async (req, resp) => {
     try {
       const { idUsuario } = req.params;
       const info = req.body;

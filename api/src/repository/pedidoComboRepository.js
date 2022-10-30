@@ -1,36 +1,31 @@
 import {con} from './connection.js'
 
 
-export async function pedidoCombo( idPedidoCombo, idUsuario, idcombo, idpagamentoCombo, novoPedido){
+export async function pedidoCombo(novoPedido){
     const comando = `INSERT INTO  TB_PEDIDO_COMBO(
-        ID_PEDIDO_COMBO 	,
         ID_USUARIO 			,
         ID_COMBO 			,
-        ID_PAGAMENTO_COMBO 	,
         DT_PEDIDO 			,
         DS_STATUS           ,
-        VL_TOTAL 			,
-        )  VALUES(?,?,?,?,?,?,?)`
+        VL_TOTAL 			
+        )  VALUES(?,?,?,?,?)`
 
         const [info] = await con.query(comando, [
-
-            idPedidoCombo,
-            idUsuario,
-            idcombo,
-            idpagamentoCombo,
+            novoPedido.idusuario,
+            novoPedido.idcombo,
             novoPedido.data,
             novoPedido.status,
             novoPedido.total
         
         ]);
-        return info.insertId;;
+        return info.insertId;
         
 }
 
-export async function inserirPagamentoCombo(idpagamento, pagamentoCombo){
+export async function inserirPagamentoCombo(pagamentoCombo,idpedido){
     const comando = `INSERT INTO TB_PAGAMENTO_COMBO(
-        ID_PAGAMENTO_COMBO 		,
-        NR_CARTAO 				,
+        ID_PEDIDO_COMBO         ,
+        DS_CARTAO 				,
         DT_VENCIMENTO_CARTAO 	,
         DS_CVV 					,
         NM_CARTAO 			    ,
@@ -40,7 +35,7 @@ export async function inserirPagamentoCombo(idpagamento, pagamentoCombo){
         
         const [info] = await con.query(comando, [ 
 
-            idpagamento,
+            idpedido,
             pagamentoCombo.numero,
             pagamentoCombo.vencimento,
             pagamentoCombo.cvv,
