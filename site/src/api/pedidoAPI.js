@@ -1,11 +1,9 @@
 import { api } from "./url.js";
 
-import axios from 'axios'
-const api = axios.create({
-    baseURL: api
-})
-
-export async function salvarNovoPedido(id, novoPedido){
-    const r = await api.post('/api/pedidocombo/' + id, novoPedido);
-    return r.data;
+export async function salvarNovoPedido(idUsuario, novoPedido){
+    try{const r = await api.post(`/pedidocombo/`+idUsuario, novoPedido);
+    return r.data
+}catch(err){
+    console.log(err.message)
+};
 }
