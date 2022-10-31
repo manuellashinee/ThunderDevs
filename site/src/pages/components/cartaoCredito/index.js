@@ -27,7 +27,7 @@ export default function CartaoCredito(props) {
     
             let pedido= 
             {
-                idcombo: idcombo,
+                combo: idcombo,
                 pagamento : 
                 {
                 nome :  nome,
