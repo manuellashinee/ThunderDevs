@@ -23,7 +23,7 @@ export default function CartaoCredito(props) {
         try{
 
             let idcombo = Storage('combospedidos')
-            let id= Storage('cliente-logado').id;
+            let id= Storage('usuario-logado').id;
     
             let pedido= 
             {
