@@ -156,3 +156,39 @@
     }
     
 }
+
+.cont-avaliacao-star2{     
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0px;
+    padding: 0px;
+    width: 7em;
+    height:2.4em;
+    .star-icon2{ 
+                list-style-type: none;
+                cursor: pointer;
+                color: #ffffff;
+                font-size: 30px;
+                margin: 0px;
+        }
+
+    .star-icon2::before{        
+         content:"\2605";
+    } 
+
+    .star-icon2.ativo ~ .star-icon2::before{
+        content: "\2606";
+    }
+
+    .cont-avaliacao-star2:hover .star-icon2::before{
+        content: "\2605";     
+    }     
+
+    .star-icon2:hover ~ .star-icon2::before{ 
+        content: "\2606";  
+    } 
+
+
+}

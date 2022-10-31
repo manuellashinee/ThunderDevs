@@ -34,7 +34,7 @@ export default function Comentaras(props) {
                 <h1 className='pagamento'>COMENTÁRIOS:</h1>
                 </div>
                 <div className='pagamento2'>
-                <p>{props.nome}</p>
+                <p>{props.info[1].filme}</p>
                 </div>
 
                 </div>
