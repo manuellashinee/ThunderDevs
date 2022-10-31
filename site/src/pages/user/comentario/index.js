@@ -3,17 +3,20 @@ import Comentaras from "../../components/comentariozinho";
 import { useParams} from 'react-router-dom'
 import './index.scss'
 import '../../../common/common.scss'
-import { verComentarios } from "../../../api/comentarioApi.js";
+import { adicionarComentario, verComentarios } from "../../../api/comentarioApi.js";
 import { useEffect, useState } from "react";
+import Storage, { use } from 'local-storage'
 import Modal from  'react-modal'
 
 Modal.setAppElement('#root')
 
 
-export default function Comentario() {
+export default function Comentario(props) {
     const [comentarios, setComentarios] = useState([]);
     const {idParam} = useParams();
     const [abrirModal, setAbrirModal] = useState(false)
+    const [estrelas, setEstrelas] = useState(1);
+    const [frase, setFrase]= useState("");
 
     function abrirModalManual(){
         setAbrirModal(true)
@@ -21,6 +24,18 @@ export default function Comentario() {
 
     function fecharModalManual(){
         setAbrirModal(false)
+    }
+
+    function lerEstrelas(valor, estrela) {
+      
+        if (valor <= estrela)
+            return 'star-icon2 ativo'
+        else
+            return 'star-icon2'
+        
+
+
+
     }
 
     const customStyles = {
@@ -55,14 +70,20 @@ export default function Comentario() {
 
     useEffect(() => {
         carregarComents(idParam);
-        }, [])
+        }, [comentarios])
 
+       async function enviarcoment(){
+        const x= await adicionarComentario(idParam,Storage('usuario-logado').id,frase,estrelas);
+        fecharModalManual();
+        setEstrelas(1);
+        setFrase("");
+       }
     
     return(
 
         <section>
 
-            <Comentaras nome='RED'/>
+            <Comentaras info={comentarios}/>
 
            <div className="bagui-row">
            <div className="scrol">
@@ -92,20 +113,22 @@ export default function Comentario() {
 
                 <div className='inferno'>
                 <div className='estrela'>
-                        <img src='../images/Star.svg'/>
-                        <img src='../images/Star.svg'/>
-                        <img src='../images/Star.svg'/>
-                        <img src='../images/Star.svg'/>
-                        <img src='../images/Star.svg'/>
+                    <ul className='cont-avaliacao-star2'>
+                        <li className={lerEstrelas(estrelas,1)} onClick={e=> setEstrelas(1)}></li>
+                        <li className={lerEstrelas(estrelas,2)} onClick={e=> setEstrelas(2)}></li>
+                        <li className={lerEstrelas(estrelas,3)} onClick={e=> setEstrelas(3)}></li>
+                        <li className={lerEstrelas(estrelas,4)} onClick={e=> setEstrelas(4)}></li>
+                        <li className={lerEstrelas(estrelas,5)} onClick={e=> setEstrelas(5)}></li>
+                    </ul>
                     </div>
                     <div  className='estrela'><p>COMENTE:</p></div>
                     
 
-                    <div><input className='opacidade'></input></div>
+                    <div><input className='opacidade' value={frase} onChange={e=> setFrase(e.target.value)}></input></div>
                 </div>
 
                 <div className='center-button'>
-                    <button className='purple4'>FINALIZAR</button>
+                    <button className='purple4' onClick={enviarcoment}>FINALIZAR</button>
                 </div>
 
             </div>

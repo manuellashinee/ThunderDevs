@@ -1,5 +1,6 @@
 import './index.scss'
 import '../../../common/common.scss'
+import Storage, { use } from 'local-storage'
 import { useNavigate } from 'react-router-dom'
 
 export default function ArdSnack(props){
@@ -14,14 +15,14 @@ export default function ArdSnack(props){
       }
 
       
-      function AbrirPagamento(id){
-        navigate('/pagamentocombo/' + id)
+      function AbrirPagamento(idusu, idcombo){
+        navigate(`/pagamentocombo/${idusu}/${idcombo}`)
       }
 
 
 
     return(
-        <section className='card-snack' onClick={() => AbrirPagamento(props.item.idcombo)}>
+        <section className='card-snack' onClick={() => AbrirPagamento(Storage('usuario-logado').id,props.item.idcombo)}>
             <div className='card2'>
                 <img className='img-card' src={mostrarImagem(props.item.foto)}/>
                 <div className='textos'>

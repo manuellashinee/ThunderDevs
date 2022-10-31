@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import Storage, { use } from 'local-storage'
 import './index.scss'
-import { salvarNovoPedido } from '../../../api/pedidoAPI';
+import { salvarNovoPedido } from '../../../api/pedidoAPI.js';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function CartaoCredito(props) {
 
@@ -14,6 +14,7 @@ export default function CartaoCredito(props) {
     const [bandeira, setBandeira] = useState ('');
     const [formaPagamento, setFormaPagamento] = useState ('');
     const [total, setTotal] = useState ('');
+    const {idParamCombo} = useParams();
     
 
     const navigate = useNavigate();
@@ -21,13 +22,11 @@ export default function CartaoCredito(props) {
     async function salvarPedido(){
 
         try{
-
-            let idcombo = Storage('combospedidos')
-            let id= Storage('cliente-logado').id;
+            let id = Storage('usuario-logado').id;
     
             let pedido= 
             {
-                combo: idcombo,
+                idcombo: idParamCombo,
                 pagamento : 
                 {
                 nome :  nome,
@@ -38,12 +37,12 @@ export default function CartaoCredito(props) {
                 formaPagamento : formaPagamento
                 },
                 total: total
-              }
+            }
     
-              const r = await salvarNovoPedido(id, pedido);
-              alert('O pedido foi!');
-              Storage('combospedidos', []);
-              navigate('/');
+            const r = await salvarNovoPedido(id, pedido);
+            alert('O pedido foi!');
+            Storage('combospedidos', []);
+            navigate('/');
 
         }
         catch (err) {
@@ -54,18 +53,20 @@ export default function CartaoCredito(props) {
     }
 
     function calcularTotal(idcombo){
-        let total = idcombo.preco + 5.00;
+        let total = {idcombo}.preco + 5.00;
         setTotal(total)
     }
 
     useEffect(() => {
+        calcularTotal(idParamCombo)
     }, [])
 
     return(
 
         <section className='cartao-credito3'>
 
-            
+            <p>NOME: <span></span></p>
+            <p></p>
 
             <div className='parte-2'>
                 <div className='cartao1'>
@@ -77,24 +78,26 @@ export default function CartaoCredito(props) {
                             <input className='input-pagar' type='number' value={numero} onChange={e => setNumero(e.target.value)}/>
                             <p className='texto-pagar'>NOME DO CARTÃO</p>
                             <input  className='input-pagar' type='text' value={nome} onChange={e => setNome(e.target.value)}/>
+                            <p className='texto-pagar'>FORMA DE PAGAMENTO</p>
+                            <select className='input-pagar' value={formaPagamento}  onChange={e => setFormaPagamento(e.target.value)}>
+                                <option disabled selected hidden> Selecione </option>
+                                <option>CRÉDITO</option>
+                                <option>DÉBITO</option>
+                            </select>
                             
                         </div>
                         <div className='campo1'>
                             <p className='texto-pagar'>NM/AA</p>
-                            <input  className='input-pagar' type='number' value={vencimento} onChange={e => setVencimento(e.target.value)}/>
+                            <input  className='input-pagar' type='date' value={vencimento} onChange={e => setVencimento(e.target.value)}/>
                             <p className='texto-pagar'>CVV</p>
                             <input  className='input-pagar' type='text' value={cvv} onChange={e => setCvv(e.target.value)}/>
 
-                            <select className='imagens' value={bandeira}  onChange={e => setBandeira(e.target.value)}>
-                                <option>elo</option>
-                                <option>mastecard</option>
-                                <option>visa</option>
-                            </select>
-
-                            <p>FORMA DE pagamento</p>
-                            <select className='imagens' value={formaPagamento}  onChange={e => setFormaPagamento(e.target.value)}>
-                                <option>CREDITO</option>
-                                <option>DÉBITO</option>
+                            <p className='texto-pagar'>BANDEIRA</p>
+                            <select className='input-pagar' value={bandeira}  onChange={e => setBandeira(e.target.value)}>
+                                <option disabled selected hidden> Selecione</option>
+                                <option value={"elo"}>ELO</option>
+                                <option value={"mastercard"}>Mastercard</option>
+                                <option value={"visa"}>Visa</option>
                             </select>
                         </div>
                     </div>

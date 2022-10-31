@@ -61,7 +61,7 @@ export default function Rotas (){
         <Route path='/compra4' element={<Compra4/>}/>
         <Route path='/meuscombos' element={<MyCombos/>}/>
         <Route path='/pedidosadm' element={<PedidosAdm/>}/>
-        <Route path='/pagamentocombo/:idParam' element={<PagamentoCombo/>}/>
+        <Route path='/pagamentocombo/:idParam/:idParamCombo' element={<PagamentoCombo/>}/>
         <Route path='/comentarios/:idParam' element={<Comentario/>}/>
         <Route path='/comentar' element={<Comentar/>}/>
 
