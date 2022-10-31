@@ -5,7 +5,7 @@ import { criarNovoPedidoCombo } from '../service/novoComboService.js';
 import { buscarComboPorId } from '../repository/produtoComboRespository.js';
 const server = Router();
 
-server.post('/api/pedidocombo/:idUsuario', async (req, resp) => {
+server.post('/pedidocombo/:idUsuario', async (req, resp) => {
     try{
         const { idUsuario } = req.params;
         const info = req.body;
