@@ -88,6 +88,7 @@ export default function Cadastrar(){
             if (!diretor) throw new Error('O campo diretor é obrigatório.');
             if (!destaque) throw new Error('O campo destaque é obrigatório.');
             if (!situacao) throw new Error('O campo situação é obrigatório.');
+            
 
         
         if(idfilme === 0 ){

@@ -5,6 +5,7 @@ import {cadastrarUsuario} from '../../../api/cadastrarUsu.js'
 import storage from 'local-storage'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom'
 
 export default function CadastrarUser() {
     const [nome, setNome]= useState('');
@@ -27,6 +28,7 @@ export default function CadastrarUser() {
         if (!senha2) throw new Error('Por favor confirme sua senha.');
         if (isNaN(cpf)|| !cpf.trim()) throw new Error('O CPF é obrigatório.');
         if (isNaN(rg)|| !rg.trim()) throw new Error('O rg é obrigatório.');
+        if (!nascimento) throw new Error('O nascimento é obrigatório.');
         if(senha !=senha2)
         throw new Error('As senhas devem ser iguais')
 
@@ -55,7 +57,7 @@ export default function CadastrarUser() {
         <img className='logo' src='../images/logo.svg'/>
         </div>
         <div>
-          <img className='flecha' src='../images/Arrow 1.svg'/>
+          <Link to='/'><img className='flecha' src='../images/Arrow 1.svg'/></Link>
         </div>
       </div>
       <div className='a'>
