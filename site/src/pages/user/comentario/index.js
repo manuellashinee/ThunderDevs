@@ -5,15 +5,16 @@ import './index.scss'
 import '../../../common/common.scss'
 import { adicionarComentario, verComentarios } from "../../../api/comentarioApi.js";
 import { useEffect, useState } from "react";
-import Storage, { use } from 'local-storage'
+import Storage from 'local-storage'
 import Modal from  'react-modal'
 
 Modal.setAppElement('#root')
 
 
-export default function Comentario(props) {
+export default function Comentario() {
+
     const [comentarios, setComentarios] = useState([]);
-    const {idParam} = useParams();
+    const {idParamComent} = useParams();
     const [abrirModal, setAbrirModal] = useState(false)
     const [estrelas, setEstrelas] = useState(1);
     const [frase, setFrase]= useState("");
@@ -32,9 +33,6 @@ export default function Comentario(props) {
             return 'star-icon2 ativo'
         else
             return 'star-icon2'
-        
-
-
 
     }
 
@@ -51,14 +49,11 @@ export default function Comentario(props) {
             alignItems: 'center',
             flexDirection: 'column',
             marginTop: '2em',
-            opacity: '76%',
             backgroundColor: '#595959',
             width: '45%',
             height: '59%',
             border: '1px solid #fff',
             borderRadius: '1em',
-
-            
         }
     
     }
@@ -68,16 +63,19 @@ export default function Comentario(props) {
         setComentarios(resposta);
     }
 
-    useEffect(() => {
-        carregarComents(idParam);
-        }, [comentarios])
-
-       async function enviarcoment(){
-        const x= await adicionarComentario(idParam,Storage('usuario-logado').id,frase,estrelas);
+    async function enviarcoment(){
+        const x= await adicionarComentario(idParamComent,Storage('usuario-logado').id,frase,estrelas);
         fecharModalManual();
         setEstrelas(1);
         setFrase("");
        }
+
+    useEffect(() => {
+        carregarComents(idParamComent)
+        console.log(comentarios)
+        }, [comentarios])
+
+       
     
     return(
 
@@ -124,7 +122,7 @@ export default function Comentario(props) {
                     <div  className='estrela'><p>COMENTE:</p></div>
                     
 
-                    <div><input className='opacidade' value={frase} onChange={e=> setFrase(e.target.value)}></input></div>
+                    <div className="padding-coment"><textarea className='opacidade' value={frase} onChange={e=> setFrase(e.target.value)}></textarea></div>
                 </div>
 
                 <div className='center-button'>

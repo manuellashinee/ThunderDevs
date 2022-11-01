@@ -26,6 +26,15 @@ export default function CartaoCredito(props) {
 
     async function salvarPedido(){
         try{
+
+
+            if (!numero) throw new Error('O campo NÚMERO é obrigatório.');
+            if (!cvv) throw new Error('O campo CVV é obrigatório.');
+            if (!nome) throw new Error('O campo NOME é obrigatório.');
+            if (!bandeira) throw new Error('O campo BANDEIRA é obrigatório.');
+            if (!formaPagamento) throw new Error('O campo FORMA DE PAGAMENTO é obrigatório.');
+            if (!vencimento) throw new Error('O campo VENCIMENTO é obrigatório.');
+
             let id = Storage('usuario-logado').id;
     
             let pedido= 

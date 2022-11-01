@@ -89,9 +89,7 @@
         margin-bottom: 2em;
     }
 
-    .estrela {
-        margin-bottom: 1em;
-    }
+   
 
     p {
         font-family: 'LR';
@@ -105,56 +103,73 @@
         justify-content: center;
     
     }
-    h1 {
-        font-family: 'LR';
-        font-size: 2em;
-        color: #fff;
-
-    }
-
-    input {
-        border: 2px solid #ffff;
-        margin-bottom: 1em;
-        font-family: 'LSB';
-        color: white;
-    }
-
-    .opacidade { 
-        opacity: 76%;
-        background-color: #595959;
-        height: 12em;
-        width: 28em;
-        border-radius: 10px;
-    }
-
-    .purple4 {
-        font-family: 'LM';
-        background-color: #AE4EDB;
-        font-size: 1em;
-        color: white;
-        height: 2em;
-        border-radius: 12px;
-        margin-bottom: 1em;
-        text-decoration: none;
-        width: 8em;
-        border: none;
-    }
-
-    .purple4:hover {
-        color: #532290;
-        background-color: white;
-        cursor: pointer;
-        transition: 0.2s;
-    }
     
-    .center-button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: 5em;
-    }
     
+}
+
+.estrela {
+    margin-top: 1em;
+    font-family: "LSB";
+    color: white;
+}
+
+.tei {
+    font-family: 'LR';
+    font-size: 2em;
+    color: #fff;
+    
+
+}
+
+input {
+    border: 2px solid #ffff;
+    margin-bottom: 1em;
+    font-family: 'LSB';
+    color: white;
+}
+
+
+
+.opacidade { 
+    background-color: #595959;
+    height: 12em;
+    width: 28em;
+    border-radius: 10px;
+    color: white;
+    font-family: 'LM';
+    border: 2px solid white;
+}
+
+.padding-coment{
+    padding: 1em 0em;
+}
+
+.purple4 {
+    font-family: 'LM';
+    background-color: #AE4EDB;
+    font-size: 1em;
+    color: white;
+    height: 2em;
+    border-radius: 12px;
+    margin-bottom: 1em;
+    text-decoration: none;
+    width: 8em;
+    border: none;
+}
+
+.purple4:hover {
+    color: #532290;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 5em;
 }
 
 .cont-avaliacao-star2{     
