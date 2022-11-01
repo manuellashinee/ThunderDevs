@@ -5,13 +5,10 @@ import { estrelasAvaliacao } from '../estrelasAvaliacao'
 export default function Comentar(props) {
     
     return (
-
         <section className='container-comentario'>
             <div className='border'>
-
             <div className='little-photo'>
                 <div>
-                  
                    <div><img  className='user-photo' src={props.foto}/></div>
                 </div>
                     
