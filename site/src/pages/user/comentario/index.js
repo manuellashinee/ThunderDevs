@@ -49,7 +49,6 @@ export default function Comentario() {
             alignItems: 'center',
             flexDirection: 'column',
             marginTop: '2em',
-            opacity: '76%',
             backgroundColor: '#595959',
             width: '45%',
             height: '59%',
@@ -123,7 +122,7 @@ export default function Comentario() {
                     <div  className='estrela'><p>COMENTE:</p></div>
                     
 
-                    <div><input className='opacidade' value={frase} onChange={e=> setFrase(e.target.value)}></input></div>
+                    <div className="padding-coment"><textarea className='opacidade' value={frase} onChange={e=> setFrase(e.target.value)}></textarea></div>
                 </div>
 
                 <div className='center-button'>
