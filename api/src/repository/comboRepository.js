@@ -46,7 +46,7 @@ export async function pesquisarComboId(id){
                     where id_combo = ? `;
 
     const [resposta] = await con.query(comando, [id])
-    return resposta;         
+    return resposta[0];         
 }
 
 export async function removerCombo(id){

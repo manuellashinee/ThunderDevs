@@ -2,25 +2,29 @@ import { useState, useEffect } from 'react'
 import Storage, { use } from 'local-storage'
 import './index.scss'
 import { salvarNovoPedido } from '../../../api/pedidoAPI.js';
-import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom'
+import { buscarPorId } from '../../../api/comboapi';
 
 export default function CartaoCredito(props) {
-
     const [nome, setNome] = useState ('');
     const [vencimento, setVencimento] = useState ('');
     const [numero, setNumero] = useState ('');
     const [cvv, setCvv] = useState ('');
     const [bandeira, setBandeira] = useState ('');
     const [formaPagamento, setFormaPagamento] = useState ('');
-    const [total, setTotal] = useState ('');
+    const [total, setTotal] = useState ();
     const {idParamCombo} = useParams();
-    
-
+    const [combo, setCombo] = useState([])
     const navigate = useNavigate();
 
-    async function salvarPedido(){
+    async function carregarCombo(){
+        const resp= await buscarPorId(idParamCombo)
+        setCombo(resp);
+    }
 
+
+
+    async function salvarPedido(){
         try{
             let id = Storage('usuario-logado').id;
     
@@ -52,20 +56,23 @@ export default function CartaoCredito(props) {
 
     }
 
-    function calcularTotal(idcombo){
-        let total = {idcombo}.preco + 5.00;
-        setTotal(total)
+
+    function calcularTotal(){
+        let total = Number(combo.preco) + 5.00;
+        setTotal(Number(total));
+        console.log(combo.preco)
     }
 
     useEffect(() => {
-        calcularTotal(idParamCombo)
-    }, [])
+        carregarCombo(idParamCombo)
+        calcularTotal(combo)
+    }, [idParamCombo])
 
     return(
 
         <section className='cartao-credito3'>
 
-            <p>NOME: <span></span></p>
+            <p>NOME: <span>{}</span></p>
             <p></p>
 
             <div className='parte-2'>
@@ -105,12 +112,12 @@ export default function CartaoCredito(props) {
 
                 <div className='cartao2'>
                     <div className='campo2'>
-                            <p className='texto-pagar'>VALOR:<span className='cartao-texto'>{}</span></p>
+                            <p className='texto-pagar'>VALOR:<span className='cartao-texto'>{combo.preco}</span></p>
                             <p className='texto-pagar'>TAXA:<span className='cartao-texto'>R$ 05,00</span></p>
                     </div>
                     <hr/>
                     <div className='texto-centro'>
-                    <p className='texto-pagar'>TOTAL:<span className='cartao-texto'>{calcularTotal}</span></p>
+                    <p className='texto-pagar'>TOTAL:<span className='cartao-texto'>{total}</span></p>
                     </div>
                 </div>
 

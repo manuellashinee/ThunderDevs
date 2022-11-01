@@ -8,6 +8,7 @@ import Cards from '../../components/cabecalho';
 
 export default function SnackBar(){
   const [combos, setCombos] = useState([]);
+  console.log(combos)
 
   async function carregarCombos(){
     const resp = await vizualizarTCombos();

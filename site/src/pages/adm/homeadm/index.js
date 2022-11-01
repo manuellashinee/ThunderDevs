@@ -18,18 +18,18 @@ export default function HomeAdm() {
 
    
     useEffect(() => {
-        if(!storage('Adm-Logado')){
+        if(!storage('ADM-Logado')){
             navigate('/homeadm');
         }
         else{
-          const admLogado = storage('Adm-Logado');
+          const admLogado = storage('ADM-Logado');
           setAdm(admLogado.nome);
         }
     }, [])
 
     function sairClick(){
-        storage.remove('usuario-logado');
-        navigate('/')
+        storage.remove('ADM-logado');
+        navigate('/');
       }
   
     return(
