@@ -68,6 +68,45 @@ export default function Home(){
                 <hr/>
             </div>
 
+            <div className='ioio'>
+                <div className='juma'>
+                <h2 className='textocc2'>OS MELHORES PREÇOS</h2>
+                <h1 className='textocc'>VOCÊ ENCONTRA AQUI!</h1>
+                </div>
+                
+                <div className='after-hours'>
+                    <div className='Pray'>
+                        <div className='luv'>
+                            <img className='cry' src='../images/mini.jpg'/>
+                            <p>INGRESSO</p>
+                            <p>R$ 42,00</p>
+                        </div>
+                        <div className='luv'>
+                            <img className='cry' src='../images/mini.jpg'/>
+                            <p>INGRESSO</p>
+                            <p>R$ 42,00</p>
+                        </div>
+                        <div className='luv'>
+                            <img className='cry' src='../images/mini.jpg'/>
+                            <p>INGRESSO</p>
+                            <p>R$ 42,00</p>
+                        </div>
+                        <div className='luv'>
+                            <img className='cry' src='../images/mini.jpg'/>
+                            <p>INGRESSO</p>
+                            <p>R$ 42,00</p>
+                        </div>
+
+                        
+                    
+                    
+                    </div>
+                </div>
+            </div>
+
+
+
+
             <div className='textos-px'>
                 <img className='img-back' src="../images/texto-treco.svg" alt=""/>
                 <p className='titulo-px'>PLANO ESPECIAL</p>
