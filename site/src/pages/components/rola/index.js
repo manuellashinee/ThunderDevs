@@ -7,6 +7,7 @@ import { dataFilmeEmSala, horariosFilmeEmSala } from '../../../api/filmeHorario'
 import { useParams } from 'react-router-dom';
 import { marcado } from './services.js';
 
+
 export default function Rolaa(props){
         const [horas,setHoras]= useState([]);
         const [horasSelecionados,setHorasSelecionados]= useState([]);
@@ -21,16 +22,29 @@ export default function Rolaa(props){
             const resp2 = await horariosFilmeEmSala(idParam, props.item.idSala);
             setHorasSelecionados(resp2);
             const resp3= await dataFilmeEmSala(idParam,props.item.idSala);
-            setDataDe(`${resp3[props.item.idSala-1].de.substr(0,4)}-${resp3[0].de.substr(5,2)}-${resp3[0].de.substr(8,2)}`);
-            setDataAte(`${resp3[props.item.idSala-1].ate.substr(0,4)}-${resp3[0].ate.substr(5,2)}-${resp3[0].ate.substr(8,2)}`);
-            console.log(props.item.idSala-1);
-            
+            setDataDe(`${resp3[0].de.substr(0,4)}-${resp3[0].de.substr(5,2)}-${resp3[0].de.substr(8,2)}`);
+            setDataAte(`${resp3[0].ate.substr(0,4)}-${resp3[0].ate.substr(5,2)}-${resp3[0].ate.substr(8,2)}`);            
         }
+
+        function novosHorarios(horarios, hora){
+            let novasHoras= [...horarios];
+
+            if (horarios.find(item => item.horario === hora))
+            novasHoras.splice(novasHoras.indexOf(hora));
+            else{
+                novasHoras.push(hora);
+            }
+
+          
+            console.log(novasHoras);
+            }
+
+       
 
     
         useEffect(() => {
             carregarHoras();
-        }, [])
+        }, [props])
 
     return(
         <section className='rola-p'>
@@ -51,9 +65,11 @@ export default function Rolaa(props){
                 <p className='datas2'>HORÁRIOS:</p>
                 <div className='data-p'>
                 <div className='data-p2'>
-                    {horas.map(item=>
-                    <Hora1 hora={item.horario} marcado={marcado(horasSelecionados,item.horario)}/>
-                    )}
+                {horas.map(item =>
+                <span onClick={novosHorarios(horasSelecionados,item.horario)}>
+                    <Hora1 hora={item.horario} marcado={marcado(horasSelecionados,item.horario)} />
+                </span>
+                )}
                 </div>
                 <div className='espacamento'>
                 <p className='compra-botao'>SALVAR</p>
