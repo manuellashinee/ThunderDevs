@@ -126,36 +126,36 @@
         width: 28em;
         border-radius: 10px;
     }
-
-    .purple4 {
-        font-family: 'LM';
-        background-color: #AE4EDB;
-        font-size: 1em;
-        color: white;
-        height: 2em;
-        border-radius: 12px;
-        margin-bottom: 1em;
-        text-decoration: none;
-        width: 8em;
-        border: none;
-    }
-
-    .purple4:hover {
-        color: #532290;
-        background-color: white;
-        cursor: pointer;
-        transition: 0.2s;
-    }
-    
-    .center-button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: 5em;
-    }
-    
 }
+
+.purple4 {
+    font-family: 'LM';
+    background-color: #AE4EDB;
+    font-size: 1em;
+    color: white;
+    height: 2em;
+    border-radius: 12px;
+    margin-bottom: 1em;
+    text-decoration: none;
+    width: 8em;
+    border: none;
+}
+
+.purple4:hover {
+    color: #532290;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 5em;
+}
+
 
 .cont-avaliacao-star2{     
     display: flex;
