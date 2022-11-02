@@ -7,32 +7,54 @@ import { dataFilmeEmSala, horariosFilmeEmSala } from '../../../api/filmeHorario'
 import { useParams } from 'react-router-dom';
 import { marcado } from './services.js';
 
-export default function Rolaa(props){
-        const [horas,setHoras]= useState([]);
-        const [horasSelecionados,setHorasSelecionados]= useState([]);
-        const [dataDe, setDataDe]= useState();
-        const [dataAte, setDataAte]= useState();
 
-        const { idParam } = useParams();
+export default function Rolaa(props) {
+    const [horas, setHoras] = useState([]);
+    const [horasSelecionados, setHorasSelecionados] = useState([]);
+    const [dataDe, setDataDe] = useState();
+    const [dataAte, setDataAte] = useState();
 
-        async function carregarHoras(){
-            const resp = await vizualizarThoras();
-            setHoras(resp);
-            const resp2 = await horariosFilmeEmSala(idParam, props.item.idSala);
-            setHorasSelecionados(resp2);
-            const resp3= await dataFilmeEmSala(idParam,props.item.idSala);
-            setDataDe(`${resp3[props.item.idSala-1].de.substr(0,4)}-${resp3[0].de.substr(5,2)}-${resp3[0].de.substr(8,2)}`);
-            setDataAte(`${resp3[props.item.idSala-1].ate.substr(0,4)}-${resp3[0].ate.substr(5,2)}-${resp3[0].ate.substr(8,2)}`);
-            console.log(props.item.idSala-1);
-            
+    const { idParam } = useParams();
+
+    async function carregarHoras() {
+        const resp = await vizualizarThoras();
+        setHoras(resp);
+
+        const resp2 = await horariosFilmeEmSala(idParam, props.item.idSala);
+        setHorasSelecionados(resp2);
+
+        const resp3 = await dataFilmeEmSala(idParam, props.item.idSala);
+        if (resp3[0] != null && resp3[0].de != null) {
+            setDataDe(`${resp3[0].de.substr(0, 4)}-${resp3[0].de.substr(5, 2)}-${resp3[0].de.substr(8, 2)}`);
         }
 
-    
-        useEffect(() => {
-            carregarHoras();
-        }, [])
+        if (resp3[0] != null && resp3[0].ate != null) {
+            setDataAte(`${resp3[0].ate.substr(0, 4)}-${resp3[0].ate.substr(5, 2)}-${resp3[0].ate.substr(8, 2)}`);
+        }
 
-    return(
+    }
+
+    function novosHorarios(hora) {
+        let novasHoras = [...horasSelecionados];
+
+        if (horasSelecionados.find(item => item.horario === hora))
+            novasHoras.splice(novasHoras.findIndex(item => item.horario === hora), 1);
+        else {
+            novasHoras.push({ horario: hora});
+        }
+
+        console.log(novasHoras);
+        setHorasSelecionados(novasHoras);
+    }
+
+
+
+
+    useEffect(() => {
+        carregarHoras();
+    }, [props])
+
+    return (
         <section className='rola-p'>
             <div className='data-sala'>
                 <p className='sala-cor'>SALA <span>{props.item.Numero}</span></p>
@@ -41,25 +63,27 @@ export default function Rolaa(props){
 
             <div className='texto-data'>
                 <p>DE:</p>
-                <input className='data-texto2'  type='date' value={dataDe}/>
+                <input className='data-texto2' type='date' value={dataDe} />
             </div>
             <div className='texto-data'>
                 <p>ATÉ:</p>
-                <input className='data-texto2' type='date'  value={dataAte}/>
+                <input className='data-texto2' type='date' value={dataAte} />
             </div>
 
-                <p className='datas2'>HORÁRIOS:</p>
-                <div className='data-p'>
+            <p className='datas2'>HORÁRIOS:</p>
+            <div className='data-p'>
                 <div className='data-p2'>
-                    {horas.map(item=>
-                    <Hora1 hora={item.horario} marcado={marcado(horasSelecionados,item.horario)}/>
+                    {horas.map(item =>
+                        <span onClick={() => novosHorarios(item.horario)}>
+                            <Hora1 hora={item.horario} marcado={marcado(horasSelecionados, item.horario)} />
+                        </span>
                     )}
                 </div>
                 <div className='espacamento'>
-                <p className='compra-botao'>SALVAR</p>
+                    <p className='compra-botao'>SALVAR</p>
                 </div>
             </div>
-            <hr className='linha'/>
+            <hr className='linha' />
         </section>
     );
 }

@@ -13,9 +13,9 @@ server.post('/pedidocombo/:idUsuario', async (req, resp) => {
 
         const idPedidoComboCriado = await pedidoCombo(novoPedido);
         const idPagCombo = await inserirPagamentoCombo(info.pagamento, idPedidoComboCriado);
-        
+          
 
-         resp.status(204).send();
+         resp.send();
 
     }
     catch(err){

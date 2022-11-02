@@ -3,6 +3,8 @@ import '../../common/common.scss'
 import { Link } from 'react-router-dom';
 import Cacete3 from '../components/cardshome';
 import Cabecalho from  '../components/cabecalho/index'
+import Rodape from '../components/rodape';
+
 
 export default function Home(){
 
@@ -68,6 +70,45 @@ export default function Home(){
                 <hr/>
             </div>
 
+            <div className='ioio'>
+                <div className='juma'>
+                <h2 className='textocc2'>OS MELHORES PREÇOS</h2>
+                <h1 className='textocc'>VOCÊ ENCONTRA AQUI!</h1>
+                </div>
+                
+                <div className='after-hours'>
+                    <div className='Pray'>
+                        <div className='luv'>
+                            <img className='cry' src='../images/mini.jpg'/>
+                            <p>INGRESSO</p>
+                            <p>R$ 42,00</p>
+                        </div>
+                        <div className='luv'>
+                            <img className='cry' src='../images/mini.jpg'/>
+                            <p>INGRESSO</p>
+                            <p>R$ 42,00</p>
+                        </div>
+                        <div className='luv'>
+                            <img className='cry' src='../images/mini.jpg'/>
+                            <p>INGRESSO</p>
+                            <p>R$ 42,00</p>
+                        </div>
+                        <div className='luv'>
+                            <img className='cry' src='../images/mini.jpg'/>
+                            <p>INGRESSO</p>
+                            <p>R$ 42,00</p>
+                        </div>
+
+                        
+                    
+                    
+                    </div>
+                </div>
+            </div>
+
+
+
+
             <div className='textos-px'>
                 <img className='img-back' src="../images/texto-treco.svg" alt=""/>
                 <p className='titulo-px'>PLANO ESPECIAL</p>
@@ -88,72 +129,7 @@ export default function Home(){
             <Link to='/catalogo' className='salvar-botao-i'>VER CATÁLOGO</Link>
             </div>
 
-            <div className='rodape'>
-
-                <div className='redeS'>
-
-                    <div className='logoo'>
-                    <img className='popcorn' src='../images/logo.svg'/>
-                    <h2>SIGA NOSSAS REDES SOCIAS:</h2>
-                    </div>
-
-                    <div className='sociais'>
-                        <div>
-                            <img src='../images/insta/Solid/Brands/Instagram.svg'/>
-                        </div>
-                        
-                        <div>
-                            <img src='../images/face/Solid/Brands/Facebook.svg'/>
-                        </div>
-
-                        <div>
-                            <img src='../images/Solid/Brands/Twitter.svg'/>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div className='filme' >
-                    <div><h1>FILMES</h1></div>
-                    
-                    <div className='desc'>
-                    <div className='espaco'>Programação</div>
-                    <div className='espaco'>Em Cartaz</div>
-                    <div className='espaco'>Em Breve</div>
-                    <div className='espaco'>Ingressos</div>
-                    </div>
-                </div>
-
-                <div className='snack'>
-                   <div> <h1>SNACK BAR</h1></div>
-
-                    <div className='desc'>
-                    <div className='espaco'>Cardápio Snack Bar</div>
-                    <div className='espaco'>Cardápios Prime</div>
-                    </div>
-                </div>
-
-                <div className='salas'>
-                    <div> <h1>SALAS</h1></div>
-                   
-                   <div className='desc'>
-                   <div className='espaco'>3D</div>
-                    <div className='espaco'>XD</div>
-                    <div className='espaco'>2D</div>
-                   </div>
-
-                </div>
-
-                <div className='contatos'>
-                     <div> <h1>CONTATOS</h1></div>
-
-                    <div className='desc'>
-                        <div className='espaco'>contato@2022popcorntime@email.com</div>
-                    </div>
-
-                </div>
-           
-            </div>
+            <Rodape/>
 
 
         </section>

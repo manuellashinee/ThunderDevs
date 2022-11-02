@@ -46,3 +46,12 @@ const comando=
 const [resposta] = await con.query(comando,[sala, filme]);
 return resposta;
 }
+
+
+export async function colocarFilmeNaSala(idfilme,salaDados){
+    const comando= 
+        `insert into tb_filme_sala(id_filme, id_sala, dt_de, dt_ate)
+        values(?,?,?,?)`;
+const [resposta] = await con.query(comando,[idfilme, salaDados.idsala, salaDados.de, salaDados.ate]);
+return resposta.insertId;
+}
