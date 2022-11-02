@@ -46,3 +46,18 @@ export async function inserirPagamentoCombo(pagamentoCombo,idpedido){
         ]);
         return info.affectedRows;
 }
+
+export async function consultarTodosCombos(){
+    const comando= 
+    `   SELECT
+        ID_PEDIDO_COMBO 	as id,
+        ID_USUARIO 			as idUsuario,
+        ID_COMBO 			as idcombo,
+        DT_PEDIDO 			as datapedido,
+        DS_STATUS			as status,
+        VL_TOTAL 			as total
+        FROM TB_PEDIDO_COMBO`
+
+    const [resposta] = await con.query(comando)
+    return resposta;
+}

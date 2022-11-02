@@ -7,3 +7,8 @@ export async function salvarNovoPedido(idUsuario, novoPedido){
     console.log(err.message)
 };
 }
+
+export async function visualizarCombos(){
+    const asnwer= await api.get('/consulta/combo')
+    return asnwer.data;
+}

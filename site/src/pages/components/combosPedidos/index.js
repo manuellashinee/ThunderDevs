@@ -2,6 +2,8 @@ import './index.scss';
 
 export default function MeusCombos(props) {
 
+
+
     return (
         <section className="my-combos">
 
@@ -38,7 +40,7 @@ export default function MeusCombos(props) {
                             </div>
 
                             <div className='desc'>
-                                <label className='pagamento'>{props.pagamento} </label>
+                                <label className='pagamento'>{props.formaPagamento} </label>
                             </div>
 
                         </div>

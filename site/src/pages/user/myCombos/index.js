@@ -1,10 +1,24 @@
 import './index.scss'
 import MeusCombos from '../../components/combosPedidos'
+import { visualizarCombos } from '../../../api/pedidoAPI';
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+
 
 export default function MyCombos()  {
 
+    const [vercombo, setVerCombo] = useState([]);
 
+    async function verCombos() {
+        const resp = await visualizarCombos();
+        setVerCombo(resp);
+      }
+
+
+      useEffect(() => {
+        verCombos();
+    
+      }, [])
     return(
     <section className='meus-pedidos'>
         <section className='salvados'>
@@ -42,7 +56,11 @@ export default function MyCombos()  {
             </div>
         </div>
 
-        <MeusCombos capa='../images/combo-img.svg' nome='COMBO BIG' usuario='Manuella' pagamento='Pix' descricao='PIPOCA GRANDE, TRES REFRIGERANTE, TORTILAS COM QUEIJO CHEDAR E BALA FINI' />
+
+        {vercombo.map(item=>
+              <MeusCombos item={item} />
+          )}
+     
 
            
         </section>
