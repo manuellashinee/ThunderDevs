@@ -12,3 +12,8 @@ export async function visualizarCombos(){
     const asnwer= await api.get('/consulta/combo')
     return asnwer.data;
 }
+
+export async function retirarCombo(idCombo) {
+    const resposta = await api.delete(`/adm/combo/${idCombo}`);
+    return resposta.status;
+}

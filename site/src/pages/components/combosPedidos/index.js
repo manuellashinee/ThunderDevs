@@ -1,4 +1,7 @@
 import './index.scss';
+import { confirmAlert } from 'react-confirm-alert';
+import { retirarCombo } from '../../../api/pedidoAPI';
+
 
 export default function MeusCombos(props) {
 
@@ -8,6 +11,31 @@ export default function MeusCombos(props) {
         else
           return `http://localhost:5000/${imagem}`
       }
+
+      async function recarregarPageCombo(){
+        window.location.reload();
+     }
+
+      async function removerComboClick(id, nome){
+        confirmAlert({
+            title: 'Remover combo',
+            message:`Deseja remover ${nome}?`,
+            buttons: [
+              {
+                label: 'Sim',
+                onClick: async () => {
+                    const resposta = await retirarCombo(id)
+                    recarregarPageCombo();
+                    
+                }
+              },
+              {
+                label:'Não'
+              }
+            ]
+          })
+      
+    }
 
 
 
@@ -84,7 +112,7 @@ export default function MeusCombos(props) {
                 <div>
                     <div>
                         <div>
-                            <img className='situ' src='../images/circle-x.svg' />
+                            <img className='situ' src='../images/circle-x.svg'  onClick={() => removerComboClick(props.item.idcombo , props.item.nome)} />
                         </div>
                     </div>
                 </div>
