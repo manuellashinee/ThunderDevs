@@ -2,6 +2,13 @@ import './index.scss';
 
 export default function MeusCombos(props) {
 
+    function mostrarImagem(imagem) {
+        if (!imagem)
+          return './images/logo.svg'
+        else
+          return `http://localhost:5000/${imagem}`
+      }
+
 
 
     return (
@@ -13,13 +20,13 @@ export default function MeusCombos(props) {
                 <div className='alinhamento'>
 
                     <div>
-                        <img className='img-combo' src={props.capa} />
+                        <img className='img-combo' src={mostrarImagem(props.item.foto)} />
                     </div>
 
                     <div className='descricao'>
 
                         <div className='titulo'>
-                            <h1>{props.nome}</h1>
+                            <h1>{props.item.nome}</h1>
                         </div>
 
                         <div className='padrao'>
@@ -28,7 +35,7 @@ export default function MeusCombos(props) {
                             </div>
                             <div className='remover'>
                                 <div className='desc'>
-                                    <label className='usuario'>{props.usuario}</label>
+                                    <label className='usuario'>{props.item.idUsuario}</label>
                                 </div>
 
                             </div>
@@ -36,21 +43,10 @@ export default function MeusCombos(props) {
 
                         <div className='padrao'>
                             <div>
-                                <h2>FORMA DE PAGAMENTO:</h2>
-                            </div>
-
-                            <div className='desc'>
-                                <label className='pagamento'>{props.formaPagamento} </label>
-                            </div>
-
-                        </div>
-
-                        <div className='padrao'>
-                            <div>
                                 <h2>DESCRIÇÃO DO COMBO:</h2>
                             </div>
                             <div className='desc'>
-                                <label className='descricao-combo'>{props.descricao}</label>
+                                <label className='descricao-combo'>{props.item.descricao}</label>
                             </div>
                         </div>
 
@@ -62,20 +58,20 @@ export default function MeusCombos(props) {
                                 </div>
 
                                 <div className='desc'>
-                                    <label className='total'>{props.total}</label>
+                                    <label className='total'>{props.item.total}</label>
                                 </div>
                             </div>
 
                             <div className='padrao '>
                                 <div>
-                                    <h1>SITUAÇÃO:<span className='verde'>DISPONÍVEL</span></h1>
+                                    <h1>SITUAÇÃO:<span className='verde'>{props.item.status}</span></h1>
                                 </div>
                                 <div>
                                     <h1>SITUAÇÃO:<span className='vermelho'>EXPIRADO</span></h1>
                                 </div>
 
                                 <div className='desc'>
-                                    <label className='total'>{props.situaçaõ}</label>
+                                    <label className='total'>{props.situacao}</label>
                                 </div>
                             </div>
 
