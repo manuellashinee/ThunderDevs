@@ -47,22 +47,22 @@ export async function inserirPagamentoCombo(pagamentoCombo,idpedido){
         return info.affectedRows;
 }
 
-export async function consultarTodosCombos(){
+export async function consultarTodosCombos(id){
     const comando= 
-    `   SELECT
+    ` SELECT
+	nm_usuario			as nomeusuario,
     nm_combo            as nome,
     ds_combo            as descricao,
     img_combo            as foto,
     ID_PEDIDO_COMBO     as id,
-    ID_USUARIO             as idUsuario,
     DT_PEDIDO             as datapedido,
     DS_STATUS            as status,
     VL_TOTAL             as total
     FROM TB_PEDIDO_COMBO
-    inner join tb_combo on tb_combo.nm_combo = tb_combo.nm_combo;
-        
-        `
+    inner join tb_combo on tb_combo.nm_combo = tb_combo.nm_combo
+    inner join tb_usuario on tb_usuario.nm_usuario = tb_usuario.nm_usuario
+    where tb_usuario.id_usuario = ?`;
 
-    const [resposta] = await con.query(comando)
+    const [resposta] = await con.query(comando, [id])
     return resposta;
 }

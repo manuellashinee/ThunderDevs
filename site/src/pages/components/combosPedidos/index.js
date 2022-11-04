@@ -63,7 +63,7 @@ export default function MeusCombos(props) {
                             </div>
                             <div className='remover'>
                                 <div className='desc'>
-                                    <label className='usuario'>{props.item.idUsuario}</label>
+                                    <label className='usuario'>{props.item.nomeUsuario}</label>
                                 </div>
 
                             </div>

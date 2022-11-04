@@ -1,9 +1,24 @@
 import './index.scss'
 import '../../../common/common.scss'
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import PedidoSnack from '../../components/snackCards/index'
+import { visualizarCombos } from '../../../api/pedidoAPI';
+import { Link } from 'react-router-dom'
 
 export default function PedidosSnacks()  {
+
+    const [vercombo, setVerCombo] = useState([]);
+
+    async function verCombos() {
+        const resp = await visualizarCombos();
+        setVerCombo(resp);
+      }
+
+
+      useEffect(() => {
+        verCombos();
+    
+      }, [])
 
 
     return(
@@ -40,12 +55,13 @@ export default function PedidosSnacks()  {
         <div className='setas-circle'>
 
             <div>
-                <img className='voltar'  src='../images/Arrow 1.svg'/>
+               <Link to='/homeadm'> <img className='voltar'  src='../images/Arrow 1.svg'/></Link>
             </div>
 
         </div>
-           
-           <PedidoSnack capa ='../images/imagem_combo.svg' nome='Combo Big' usuario='Manuella' pagamento='pix' descricao='pipoca grande, três refris' total='170,00'  />
+        {vercombo.map(item=>
+           <PedidoSnack item={item}/>
+        )}
         </section>
         </section>
     )

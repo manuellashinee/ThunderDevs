@@ -79,6 +79,7 @@ export default function Cadastrarcombo(){
                 <div className='voltar-botao'>
                     <Link to='/homeadm'><img className='flecha' src='../images/flecha.svg' /></Link>
                     <Link to='/snacks'><button className='salvar-botao'>COMBOS REGISTRADOS</button></Link>
+                    <Link to='/pedidosnack'><button className='salvar-botao'>PEDIDOS SNACK</button></Link>
                 </div>
                 
             </div>

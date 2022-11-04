@@ -9,7 +9,7 @@ export async function salvarNovoPedido(idUsuario, novoPedido){
 }
 
 export async function visualizarCombos(){
-    const asnwer= await api.get('/consulta/combo')
+    const asnwer= await api.get('/consulta/pedido/comb/:idusu')
     return asnwer.data;
 }
 

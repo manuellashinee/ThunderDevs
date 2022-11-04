@@ -26,9 +26,10 @@ server.post('/pedidocombo/:idUsuario', async (req, resp) => {
     }
 })
 
-server.get('/consulta/combo', async (req, resp) =>{
+server.get('/consulta/pedido/comb/:idusu', async (req, resp) =>{
     try{
-        const combos=  await consultarTodosCombos();
+        const {idusu} =req.params
+        const combos=  await consultarTodosCombos(idusu);
         resp.send(combos);
     } 
     catch (err) {

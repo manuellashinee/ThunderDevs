@@ -1,8 +1,10 @@
 import './index.scss'
 import MeusCombos from '../../components/combosPedidos'
 import { visualizarCombos } from '../../../api/pedidoAPI';
+import storage from 'local-storage'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
+
 
 
 export default function MyCombos()  {
@@ -10,7 +12,7 @@ export default function MyCombos()  {
     const [vercombo, setVerCombo] = useState([]);
 
     async function verCombos() {
-        const resp = await visualizarCombos();
+        const resp = await visualizarCombos(storage('usuario-logado').idUsuario);
         setVerCombo(resp);
       }
 
