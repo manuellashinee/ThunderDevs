@@ -1,7 +1,7 @@
 import FilmeD from "../../components/filmed";
 import { useState, useEffect} from 'react'
 import { useParams} from 'react-router-dom'
-import { buscarPorId } from "../../../api/filmeapi";
+import { buscarFilmePorId } from "../../../api/filmeapi";
 
 
 export default function FilmeDetalhe(){
@@ -9,7 +9,7 @@ export default function FilmeDetalhe(){
     const {idParam} = useParams();
 
     async function carregarFilme(){
-        const [resposta] = await buscarPorId(Number(idParam));
+        const [resposta] = await buscarFilmePorId(Number(idParam));
         setFilme(resposta);
     }
 
