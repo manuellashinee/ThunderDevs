@@ -55,3 +55,4 @@ export async function colocarFilmeNaSala(idfilme,salaDados){
 const [resposta] = await con.query(comando,[idfilme, salaDados.idsala, salaDados.de, salaDados.ate]);
 return resposta.insertId;
 }
+

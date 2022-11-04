@@ -42,7 +42,7 @@ export async function alterarFilme(idfranquia,idgenero,nome,duracao,classificaca
     return resposta.data;
 }
 
-export async function buscarPorId(id){
+export async function buscarFilmePorId(id){
     const resposta = await api.get(`/adm/filme/${id}`);
     return resposta.data;
 }

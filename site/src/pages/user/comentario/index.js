@@ -7,6 +7,7 @@ import { adicionarComentario, verComentarios } from "../../../api/comentarioApi.
 import { useEffect, useState } from "react";
 import Storage from 'local-storage'
 import Modal from  'react-modal'
+import { buscarFilmePorId } from "../../../api/filmeapi.js";
 
 Modal.setAppElement('#root')
 
@@ -18,6 +19,7 @@ export default function Comentario() {
     const [abrirModal, setAbrirModal] = useState(false)
     const [estrelas, setEstrelas] = useState(1);
     const [frase, setFrase]= useState("");
+    const [filme,setFilme ]= useState([])
 
     function abrirModalManual(){
         setAbrirModal(true)
@@ -60,7 +62,9 @@ export default function Comentario() {
 
     async function carregarComents(idfilme){
         const resposta = await verComentarios(idfilme);
+        const f= await buscarFilmePorId(idfilme)
         setComentarios(resposta);
+        setFilme(f[0]);
     }
 
     async function enviarcoment(){
@@ -72,8 +76,7 @@ export default function Comentario() {
 
     useEffect(() => {
         carregarComents(idParamComent)
-        console.log(comentarios)
-        }, [comentarios])
+        }, [abrirModal])
 
        
     
@@ -81,7 +84,7 @@ export default function Comentario() {
 
         <section>
 
-            <Comentaras info={comentarios}/>
+            <Comentaras info= {filme} />
 
            <div className="bagui-row">
            <div className="scrol">

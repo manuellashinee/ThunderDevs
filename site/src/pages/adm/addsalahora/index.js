@@ -6,7 +6,7 @@ import './index.scss'
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { vizualizarTSalas } from "../../../api/salaApi.js";
-import { buscarPorId } from "../../../api/filmeapi.js";
+import { buscarFilmePorId } from "../../../api/filmeapi.js";
 
 export default function AddSaala(){
         const [salas, setSalas] = useState([]);
@@ -15,7 +15,7 @@ export default function AddSaala(){
         const {idParam} = useParams();
 
         async function carregarfilme1(){
-            const resp = await buscarPorId(idParam);
+            const resp = await buscarFilmePorId(idParam);
             setFilmead(resp);
             setNomead(resp[0].nome);
         }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect} from 'react'
 import {consultarFranquias} from '../../api/franquiaApi.js'
 import {consultarGeneros} from '../../api/generoApi.js'
-import { alterarFilme, confirmarFilme, enviarImagemFilme, buscarPorId, buscarImagem } from '../../api/filmeapi'
+import { alterarFilme, confirmarFilme, enviarImagemFilme, buscarFilmePorId, buscarImagem } from '../../api/filmeapi'
 import storage from 'local-storage'
 import { useParams} from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
@@ -34,7 +34,7 @@ export default function Cadastrar(){
    
 
     async function carregarFilme(){
-        const [resposta] = await buscarPorId(Number(idParam));
+        const [resposta] = await buscarFilmePorId(Number(idParam));
         setIdFranquias(resposta.franquia);
         setIdGeneros(resposta.genero);
         setNome(resposta.nome);

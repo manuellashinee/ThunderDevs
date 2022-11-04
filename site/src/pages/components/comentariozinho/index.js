@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 export default function Comentaras(props) {
     const [usuario, setUsuario] = useState('');
+    
 
     useEffect(() => {
           const usuarioLogado = storage('usuario-logado');
@@ -28,7 +29,7 @@ export default function Comentaras(props) {
                   
                   
             </div>
-            <Link to='/'><img className='flecha-c' src='../images/flecha.svg' /></Link>
+            <Link to="/catalogo"><img className='flecha-c' src='../images/flecha.svg' /></Link>
             <div className='textos-row'>
                 <div>
                 <h1 className='pagamento'>COMENTÁRIOS:</h1>
