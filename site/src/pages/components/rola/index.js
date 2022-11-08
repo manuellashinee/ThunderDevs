@@ -3,7 +3,7 @@ import '../../../common/common.scss'
 import Hora1 from '../hora1';
 import { useEffect, useState } from 'react';
 import { vizualizarThoras } from '../../../api/horaApi.js';
-import { dataFilmeEmSala, horariosFilmeEmSala } from '../../../api/filmeHorario';
+import { adddataFilmeEmSala, dataFilmeEmSala, horariosFilmeEmSala } from '../../../api/filmeHorario';
 import { useParams } from 'react-router-dom';
 import { marcado } from './services.js';
 
@@ -47,6 +47,11 @@ export default function Rolaa(props) {
         setHorasSelecionados(novasHoras);
     }
 
+    async function salvarDataFilme(){
+        const resposta = await adddataFilmeEmSala(idParam, props.item.idSala, dataDe,dataAte);
+        alert("filme foi");
+    }
+
 
 
 
@@ -63,11 +68,11 @@ export default function Rolaa(props) {
 
             <div className='texto-data'>
                 <p>DE:</p>
-                <input className='data-texto2' type='date' value={dataDe} />
+                <input className='data-texto2' type='date' value={dataDe} onChange={e=> setDataDe(e.target.value)} />
             </div>
             <div className='texto-data'>
                 <p>ATÉ:</p>
-                <input className='data-texto2' type='date' value={dataAte} />
+                <input className='data-texto2' type='date' value={dataAte} onChange={e=> setDataAte(e.target.value)} />
             </div>
 
             <p className='datas2'>HORÁRIOS:</p>
@@ -80,7 +85,7 @@ export default function Rolaa(props) {
                     )}
                 </div>
                 <div className='espacamento'>
-                    <p className='compra-botao'>SALVAR</p>
+                    <p className='compra-botao' onClick={salvarDataFilme}>SALVAR</p>
                 </div>
             </div>
             <hr className='linha' />

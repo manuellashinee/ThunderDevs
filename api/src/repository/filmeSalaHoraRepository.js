@@ -56,3 +56,11 @@ const [resposta] = await con.query(comando,[idfilme, salaDados.idsala, salaDados
 return resposta.insertId;
 }
 
+export async function removerFilmeAntigo(idSala,idfilme){
+    const comando= 
+        `delete tb_filme_sala_horario from tb_filme_sala_horario
+        INNER JOIN tb_filme_sala ON tb_filme_sala.id_filme_sala = tb_filme_sala_horario.id_filme_sala
+        where tb_filme_sala.id_sala =? and tb_filme_sala.id_filme= ?`;
+    const [resposta] = await con.query(comando,[idSala,idfilme]);
+    return resposta.affectedRows;
+}

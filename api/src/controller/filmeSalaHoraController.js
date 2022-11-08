@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { colocarFilmeNaSala, DataFilmeEmSala, horariosFilmeEmSala, odeioFilmes } from '../repository/filmeSalaHoraRepository.js';
+import { colocarFilmeNaSala, DataFilmeEmSala, horariosFilmeEmSala, odeioFilmes, removerFilmeAntigo } from '../repository/filmeSalaHoraRepository.js';
 const server = Router();
 
 server.get('/plusfilme', async (req, resp) =>{
@@ -38,8 +38,10 @@ server.get('/admin/filme/:filme/sala/:sala/data', async (req, resp) =>{
 server.post('/addsala/filme/:filme', async (req, resp) =>{
     try{
         const dados = req.body;
+        const remove= await removerFilmeAntigo(req.params.filme,dados.idsala);
         const resposta = await colocarFilmeNaSala(req.params.filme, dados);
-        resp.send({idFilmeSala:resposta});
+        resp.send({idFilmeSala:resposta,
+            filmeRemoveu:remove});
         }catch(err){
             resp.status(404).send({
                 erro: err.message
