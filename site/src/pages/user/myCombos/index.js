@@ -12,7 +12,7 @@ export default function MyCombos()  {
     const [vercombo, setVerCombo] = useState([]);
 
     async function verCombos() {
-        const resp = await visualizarCombos(storage('usuario-logado').idUsuario);
+        const resp = await visualizarCombos(storage('usuario-logado').id);
         setVerCombo(resp);
       }
 

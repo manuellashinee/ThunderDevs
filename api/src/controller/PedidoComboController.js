@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { consultarTodosCombos, pedidoCombo } from '../repository/pedidoComboRepository.js';
+import { consultarTodosCombos, consultarTodosCombosAdm, pedidoCombo } from '../repository/pedidoComboRepository.js';
 import { inserirPagamentoCombo } from '../repository/pedidoComboRepository.js';
 import { criarNovoPedidoCombo } from '../service/novoComboService.js';
 import { buscarComboPorId } from '../repository/produtoComboRespository.js';
@@ -26,10 +26,23 @@ server.post('/pedidocombo/:idUsuario', async (req, resp) => {
     }
 })
 
-server.get('/consulta/pedido/comb/:idusu', async (req, resp) =>{
+server.get('/consulta/pedido/combo/:idusu', async (req, resp) =>{
     try{
-        const {idusu} =req.params
-        const combos=  await consultarTodosCombos(idusu);
+        const  id= req.params.idusu;
+        const combos=  await consultarTodosCombos(id);
+        resp.send(combos);
+    } 
+    catch (err) {
+        return resp.status(400).send({
+            erro: err.message
+        })
+    }
+} )
+
+server.get('/consulta/pedido/combo', async (req, resp) =>{
+    try{
+        const  id= req.params;
+        const combos=  await consultarTodosCombosAdm(id);
         resp.send(combos);
     } 
     catch (err) {

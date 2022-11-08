@@ -2,7 +2,7 @@ import './index.scss'
 import '../../../common/common.scss'
 import { useState, useEffect } from 'react';
 import PedidoSnack from '../../components/snackCards/index'
-import { visualizarCombos } from '../../../api/pedidoAPI';
+import { visualizarCombos, visualizarCombosAdm } from '../../../api/pedidoAPI';
 import { Link } from 'react-router-dom'
 
 export default function PedidosSnacks()  {
@@ -10,7 +10,7 @@ export default function PedidosSnacks()  {
     const [vercombo, setVerCombo] = useState([]);
 
     async function verCombos() {
-        const resp = await visualizarCombos();
+        const resp = await visualizarCombosAdm();
         setVerCombo(resp);
       }
 
