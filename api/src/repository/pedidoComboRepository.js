@@ -87,3 +87,44 @@ export async function consultarTodosCombosAdm(){
     return resposta;
 }
 
+export async function consultarPedidoComboNome(nome){
+    const comando= 
+    ` SELECT
+	nm_usuario			as nomeusuario,
+    nm_combo            as nome,
+    ds_combo            as descricao,
+    img_combo            as foto,
+    ID_PEDIDO_COMBO     as id,
+    DT_PEDIDO             as datapedido,
+    DS_STATUS            as status,
+    VL_TOTAL             as total
+    FROM TB_PEDIDO_COMBO
+    inner join tb_combo on tb_pedido_combo.id_combo = tb_combo.id_combo
+    inner join tb_usuario on tb_usuario.id_usuario = TB_PEDIDO_COMBO.id_usuario 
+    order by nm_combo
+    where nm_combo like "%${nome}%"`;
+
+    const [resposta] = await con.query(comando, [nome])
+    return resposta;
+}
+
+export async function removerComboPedido(id){
+    const comando= `    
+                    delete from tb_pedido_combo 
+                        where id_pedido_combo = ? `;
+    const [resposta] = await con.query(comando, [id])
+    return resposta.affectedRows;
+}
+
+
+export async function removerComboPagamento(id){
+    const comando= `    
+                    delete from tb_pagamento_combo 
+                        where id_pagamento_combo = ? `;
+    const [resposta] = await con.query(comando, [id])
+    return resposta.affectedRows;
+}
+
+
+
+

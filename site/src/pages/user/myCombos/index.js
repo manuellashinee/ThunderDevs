@@ -1,6 +1,7 @@
 import './index.scss'
 import MeusCombos from '../../components/combosPedidos'
-import { visualizarCombos } from '../../../api/pedidoAPI';
+import { FiltrarComboNome, visualizarCombos } from '../../../api/pedidoAPI';
+
 import storage from 'local-storage'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
@@ -10,11 +11,22 @@ import { useState, useEffect } from 'react';
 export default function MyCombos()  {
 
     const [vercombo, setVerCombo] = useState([]);
+    const [ nomecombo, setNomecombo ] = useState("");
 
     async function verCombos() {
         const resp = await visualizarCombos(storage('usuario-logado').id);
         setVerCombo(resp);
       }
+
+      async function filtrarPedidoCombo(){
+        const fil= await FiltrarComboNome(nomecombo)
+        setVerCombo(fil);
+    }
+
+    useEffect(() => {
+        filtrarPedidoCombo();
+    }, [nomecombo])
+     
 
 
       useEffect(() => {
@@ -33,7 +45,7 @@ export default function MyCombos()  {
             <div className='foto'>
 
              <div className='pesquisa-input'>
-                <input className='pesquisa-design' type='text'/>
+                <input className='pesquisa-design' type='text'  value={nomecombo} onChange={e=> setNomecombo(e.target.value)}/>
                 <button  className='pesquisar-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
              </div>
 
