@@ -56,11 +56,46 @@ const [resposta] = await con.query(comando,[idfilme, salaDados.idsala, salaDados
 return resposta.insertId;
 }
 
-export async function removerFilmeAntigo(idSala,idfilme){
+export async function removerFilmeAntigoHoras(idSala,idfilme){
     const comando= 
         `delete tb_filme_sala_horario from tb_filme_sala_horario
         INNER JOIN tb_filme_sala ON tb_filme_sala.id_filme_sala = tb_filme_sala_horario.id_filme_sala
         where tb_filme_sala.id_sala =? and tb_filme_sala.id_filme= ?`;
     const [resposta] = await con.query(comando,[idSala,idfilme]);
     return resposta.affectedRows;
+}
+
+
+export async function removerFilmeAntigoData(idSala,idfilme){
+    const comando= 
+        `delete from tb_filme_sala
+        where id_sala =? and id_filme=?`;
+    const [resposta] = await con.query(comando,[idSala,idfilme]);
+    return resposta.affectedRows;
+}
+
+export async function verHoraiosPrainserir(idsala,horas){
+    const comando=`
+    select id_sala_horario as idSalaHora
+    from tb_sala_horario sh
+    inner join tb_horario h on h.id_horario = sh.id_horario
+    where sh.id_sala = ?
+      and ds_horario in (?)
+    `;
+    const [resposta] = await con.query(comando,[idsala,horas]);
+    return resposta;
+}
+
+
+export async function verUMHoraios(idsala,hora){
+    const comando=`
+    select id_sala_horario as idSalaHora,
+    id_horario as idhora
+    from tb_sala_horario sh
+    inner join tb_horario h on h.id_horario = sh.id_horario
+    where sh.id_sala = ?
+      and ds_horario =?
+    `;
+    const [resposta] = await con.query(comando,[idsala,hora]);
+    return resposta;
 }

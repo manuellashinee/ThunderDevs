@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { colocarFilmeNaSala, DataFilmeEmSala, horariosFilmeEmSala, odeioFilmes, removerFilmeAntigo } from '../repository/filmeSalaHoraRepository.js';
+import { colocarFilmeNaSala, DataFilmeEmSala, horariosFilmeEmSala, odeioFilmes, removerFilmeAntigoData, removerFilmeAntigoHoras, verHoraiosPrainserir, verUMHoraios } from '../repository/filmeSalaHoraRepository.js';
 const server = Router();
 
 server.get('/plusfilme', async (req, resp) =>{
@@ -38,16 +38,39 @@ server.get('/admin/filme/:filme/sala/:sala/data', async (req, resp) =>{
 server.post('/addsala/filme/:filme', async (req, resp) =>{
     try{
         const dados = req.body;
-        const remove= await removerFilmeAntigo(req.params.filme,dados.idsala);
+        const remove1= await removerFilmeAntigoData(req.params.filme,dados.idsala);
+        const remove2= await removerFilmeAntigoHoras(req.params.filme,dados.idsala);
         const resposta = await colocarFilmeNaSala(req.params.filme, dados);
         resp.send({idFilmeSala:resposta,
-            filmeRemoveu:remove});
+            filmeRemoveu:remove1,
+             filmeHorasRemoveu:remove2});
         }catch(err){
             resp.status(404).send({
                 erro: err.message
             });
         }
 } )
+
+server.get('/addsala/horas/:idsala', async (req,resp)=>{
+    try{
+        const {idsala}= req.params;
+        const horas = req.body;
+
+        for(let i = 0; i <= horas.length; i++ ){
+            const a= await verUMHoraios(idsala, horas[i])
+            if(!a){
+            }
+        }
+
+        const resposta= await verHoraiosPrainserir(idsala,horas)
+        resp.send(resposta)
+    }catch(err){
+        resp.status(404).send({
+            erro: err.message
+        });
+    }
+
+})
 
 
 
