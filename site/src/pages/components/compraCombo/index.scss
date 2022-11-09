@@ -8,6 +8,7 @@
         background-image: url('../../../../public/images/comboback.svg');
         background-repeat: no-repeat;
         background-size: 100%;
+        border-radius: 20px;
     }
 
     .logo {
@@ -25,7 +26,8 @@
     }
 
     .flecha-c {
-        margin-left: 2em;
+        margin-left: 2.5em;
+        margin-top: 1em;
     }
 
     .foto-perfil{
@@ -45,6 +47,7 @@
     .textos-column {
         display: flex;
         flex-direction: column;
+        margin-bottom: 1em;
 
         .pagamento {
         color: white;

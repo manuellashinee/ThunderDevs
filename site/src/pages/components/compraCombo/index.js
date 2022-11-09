@@ -27,7 +27,7 @@ export default function CompraCombo() {
             <div className='head'>
             <div className='cabecalho-pesquisa'>
                 <div>
-                    <img className='logo' src='../images/logo.svg'/>
+                    <img className='logo' src='../../images/logo.svg'/>
                 </div>
                 <div className='foto'>
                    <div className='foto-perfil'>
@@ -37,7 +37,7 @@ export default function CompraCombo() {
                 </div>
                   
             </div>
-            <Link to='/'><img className='flecha-c' src='../images/flecha.svg' /></Link>
+            <Link to='/'><img className='flecha-c' src='../../images/flecha.svg' /></Link>
             <div className='textos-column'>
                     <h1 className='pagamento'>PAGAMENTO:</h1>
                     <p className='pagamento2'>INFELIZMENTE SÓ ESTAMOS TRABALHANDO COM CARTÃO NO MOMENTO</p>

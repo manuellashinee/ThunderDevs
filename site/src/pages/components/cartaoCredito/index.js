@@ -81,7 +81,7 @@ export default function CartaoCredito(props) {
 
         <section className='cartao-credito3'>
 
-            <p>NOME: <span>{}</span></p>
+            <p><span>{}</span></p>
             <p></p>
 
             <div className='parte-2'>
