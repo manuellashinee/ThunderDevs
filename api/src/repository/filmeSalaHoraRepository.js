@@ -73,3 +73,29 @@ export async function removerFilmeAntigoData(idSala,idfilme){
     const [resposta] = await con.query(comando,[idSala,idfilme]);
     return resposta.affectedRows;
 }
+
+export async function verHoraiosPrainserir(idsala,horas){
+    const comando=`
+    select id_sala_horario as idSalaHora
+    from tb_sala_horario sh
+    inner join tb_horario h on h.id_horario = sh.id_horario
+    where sh.id_sala = ?
+      and ds_horario in (?)
+    `;
+    const [resposta] = await con.query(comando,[idsala,horas]);
+    return resposta;
+}
+
+
+export async function verUMHoraios(idsala,hora){
+    const comando=`
+    select id_sala_horario as idSalaHora,
+    id_horario as idhora
+    from tb_sala_horario sh
+    inner join tb_horario h on h.id_horario = sh.id_horario
+    where sh.id_sala = ?
+      and ds_horario =?
+    `;
+    const [resposta] = await con.query(comando,[idsala,hora]);
+    return resposta;
+}
