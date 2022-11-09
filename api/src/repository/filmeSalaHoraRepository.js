@@ -89,8 +89,7 @@ export async function verHoraiosPrainserir(idsala,horas){
 
 export async function verUMHoraios(idsala,hora){
     const comando=`
-    select id_sala_horario as idSalaHora,
-    id_horario as idhora
+    select id_sala_horario as idSalaHora
     from tb_sala_horario sh
     inner join tb_horario h on h.id_horario = sh.id_horario
     where sh.id_sala = ?
@@ -98,4 +97,21 @@ export async function verUMHoraios(idsala,hora){
     `;
     const [resposta] = await con.query(comando,[idsala,hora]);
     return resposta;
+}
+
+export async function umaHoraId(hora){
+    const comando= `
+    select ID_HORARIO as horario
+    from tb_horario
+    where ds_horario = ?`;
+    const [resposta] = await con.query(comando,[hora]);
+    return resposta[0];
+}
+
+export async function inserirUmaHora(idsala, idhora){
+    const comando=
+        `insert into tb_sala_horario(id_sala,id_horario)
+        values(?,?)`;
+        const [resposta] = await con.query(comando,[idsala,idhora]);
+        return resposta.insertId
 }
