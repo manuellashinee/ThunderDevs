@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { colocarFilmeNaSala, DataFilmeEmSala, horariosFilmeEmSala, inserirUmaHora, odeioFilmes, removerFilmeAntigoData, removerFilmeAntigoHoras, umaHoraId, verHoraiosPrainserir, verUMHoraios } from '../repository/filmeSalaHoraRepository.js';
+import { colocarFilmeNaSala, DataFilmeEmSala, horariosFilmeEmSala, inserirUmaHora, insertFinalSala, odeioFilmes, removerFilmeAntigoData, removerFilmeAntigoHoras, umaHoraId, verHoraiosPrainserir, verUMHoraios } from '../repository/filmeSalaHoraRepository.js';
 const server = Router();
 
 server.get('/plusfilme', async (req, resp) =>{
@@ -41,9 +41,7 @@ server.post('/addsala/filme/:filme', async (req, resp) =>{
         const remove1= await removerFilmeAntigoData(req.params.filme,dados.idsala);
         const remove2= await removerFilmeAntigoHoras(req.params.filme,dados.idsala);
         const resposta = await colocarFilmeNaSala(req.params.filme, dados);
-        resp.send({idFilmeSala:resposta,
-            filmeRemoveu:remove1,
-             filmeHorasRemoveu:remove2});
+        resp.send({idFilmeSala:resposta});
         }catch(err){
             resp.status(404).send({
                 erro: err.message
@@ -57,7 +55,6 @@ server.get('/addsala/horas/:idsala', async (req,resp)=>{
         const horas = req.body;
         for(let i = 0; i < horas.length; i++ ){
             const a= await verUMHoraios(idsala, horas[i])
-            console.log(a[0])
             if(a[0] === null || a[0] === undefined ){
                 const idhora= await umaHoraId(horas[i]) 
                 const x= await inserirUmaHora(idsala,idhora.horario);
@@ -74,6 +71,20 @@ server.get('/addsala/horas/:idsala', async (req,resp)=>{
         });
     }
 
+})
+
+server.post('/addsala/final', async (req,resp) =>{
+    try{
+        const ids = req.body;
+        for(let i = 0; i < ids.horas.length; i++ ){
+            const x= await insertFinalSala(ids.idsalafilme,ids.horas[i].idSalaHora)
+        }
+        resp.send()
+    }catch(err){
+        resp.status(404).send({
+            erro: err.message
+        });
+    }
 })
 
 

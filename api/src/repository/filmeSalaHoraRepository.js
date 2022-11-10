@@ -115,3 +115,10 @@ export async function inserirUmaHora(idsala, idhora){
         const [resposta] = await con.query(comando,[idsala,idhora]);
         return resposta.insertId
 }
+
+export async function insertFinalSala(idsalafilme,idsalahorario){
+    const comando=` insert into TB_FILME_SALA_HORARIO(id_filme_sala,id_sala_horario)
+                    values(?,?)`;
+    const [resposta] = await con.query(comando,[idsalafilme,idsalahorario]);
+    return resposta.insertId
+}
