@@ -32,7 +32,7 @@ export default function CompraCombo() {
                 <div className='foto'>
                    <div className='foto-perfil'>
                    <div><span className='letra-user'>{usuario[0]}</span></div>
-                   <div><p className='nome-user'>{usuario}</p></div>
+                   <div><p className='nome-embaixo'>{usuario}</p></div>
                    </div>
                 </div>
                   

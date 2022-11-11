@@ -18,10 +18,8 @@ export async function adddataFilmeEmSala(filme, idsala,de,ate ){
 }
 
 export async function addHorasFilmeEmSala(idsala,horas ){
-    try{const asnwer = await api.get(`/addsala/horas/${idsala}`, horas);
-    return asnwer.data;}catch(err){
-        console.log(err.message)
-    }
+    const asnwer = await api.post(`/addsala/horas/${idsala}`, {horas});
+    return asnwer.data;
 }
 
 export async function addFinalFilmeEmSala(idsalafilme,horas ){

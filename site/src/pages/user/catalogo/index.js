@@ -85,7 +85,7 @@ export default function Catalogo() {
     <section className='catalogo-page'>
       <div className='img-navegar-page'>
         <div className='navegacao'>
-          <img className='icon-persona' src='../images/popcorn.png' />
+          <span className='letra-user'>{usuario[0]}</span>
           <p className='texto-catalogo'> {usuario}</p>
 
           <div className='icons-c'>

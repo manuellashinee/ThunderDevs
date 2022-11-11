@@ -81,8 +81,19 @@
             flex-direction: row;
         }
 
-        .perfil {
-            width: 3em;
+        .letra-user{
+            color: #ffff;
+            font-family: 'LR';
+            font-size: 1em;
+            background-color: #AE4EDB;
+            padding: 1em 1.2em;
+            margin-right: 10px;
+            margin-top: 1em;
+            border-radius: 32px;
+        }
+
+        .nome-embaixo {
+            margin-top: 15px;
         }
         
         .foto-perfil {

@@ -1,12 +1,18 @@
 import './index.scss'
 import SnackCadastrado from '../../components/snacksCadastrados'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { FiltrarComboNome, vizualizarTCombos } from '../../../api/comboapi.js';
 import { Link } from 'react-router-dom';
+import storage from 'local-storage'
 
 export default function SnackCadastro() {
     const [combos, setCombos] = useState([]);
     const [nome, setNome] = useState("");
+
+    const [adm, setAdm ] = useState('');
+
+    const navigate = useNavigate();
 
     async function carregarCombos(){
         const resp = await vizualizarTCombos();
@@ -28,6 +34,16 @@ export default function SnackCadastro() {
         carregarCombos();
     }, [])
 
+    useEffect(() => {
+        if(!storage('ADM-Logado')){
+            navigate('/homeadm');
+        }
+        else{
+          const admLogado = storage('ADM-Logado');
+          setAdm(admLogado.nome);
+        }
+    }, [])
+
     return (
         <section className='combos-cadastrados'>
         <section className='salvados'>
@@ -45,8 +61,8 @@ export default function SnackCadastro() {
                  </div>
     
                    <div className='foto-perfil'>
-                   <div><img  className='perfil' src='../images/elizinha.svg'/></div>
-                   <div><p>Manu</p></div>
+                   <div><span className='letra-user'>{adm[0]}</span></div>
+                   <div className='nome-embaixo'><p>{adm}</p></div>
                    </div>
                     
                 </div>
