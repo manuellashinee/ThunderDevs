@@ -93,7 +93,7 @@ export default function MeusCombos(props) {
                             <div className='padrao '>
                                 <div>
                                     <h1>SITUAÇÃO:<span className='verde'>{props.item.status}</span></h1>
-                                </div><span className='vermelho'>EXPIRADO</span>
+                                </div><span className='vermelho'></span>
                                 
 
                                 <div className='desc'>

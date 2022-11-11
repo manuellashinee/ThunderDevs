@@ -125,6 +125,17 @@ export async function removerComboPagamento(id){
     return resposta.affectedRows;
 }
 
+export async function alterarStatusPedido(idpedido, status){
+    const comando= `    
+        update tb_pedido_combo 
+        set ds_status = ?
+        where id_pedido_combo = ?
+    `;
+    const [resposta] = await con.query(comando, [idpedido.id, status])
+    return resposta.affectedRows;
+}
+
+
 
 
 

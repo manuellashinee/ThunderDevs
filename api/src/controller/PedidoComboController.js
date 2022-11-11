@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { consultarTodosCombos, consultarTodosCombosAdm, pedidoCombo, removerComboPagamento, consultarPedidoComboNome } from '../repository/pedidoComboRepository.js';
+import { consultarTodosCombos, consultarTodosCombosAdm, pedidoCombo, removerComboPagamento, consultarPedidoComboNome, alterarStatusPedido } from '../repository/pedidoComboRepository.js';
 import { inserirPagamentoCombo } from '../repository/pedidoComboRepository.js';
 import { criarNovoPedidoCombo } from '../service/novoComboService.js';
 import { removerComboPedido } from '../repository/pedidoComboRepository.js';
@@ -84,6 +84,19 @@ server.get('/consulta/nomepedido/combo', async (req, resp)=>{
         }
 })
 
+server.put('/consulta/status/pedido/combo:id', async (req, resp)=>{
+    try{
+        const {id} = req.params.id;
+        const pedido = req.body;
+        const resposta = await alterarStatusPedido(id, pedido);
+        resp.send(resposta);
+    }
+        catch (err) {
+            return resp.status(400).send({
+                erro: err.message
+            })
+        }
+})
 
 export default server;
 

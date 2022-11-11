@@ -1,12 +1,24 @@
+import { useState } from 'react';
 import './index.scss';
+import { alterarStatusPedido } from '../../../api/pedidoAPI.js';
 
 export default function PedidoSnack(props) {
+    const [resposta, setResposta] = useState('');
 
     function mostrarImagem(imagem) {
         if (!imagem)
           return './images/logo.svg'
         else
           return `http://localhost:5000/${imagem}`
+      }
+
+      function aceitou(){
+        setResposta('Aceito !');
+        alterarStatusPedido(props.item.id);
+      }
+      function recusou(){
+        setResposta('Recusado !');
+        alterarStatusPedido(props.item.id);
       }
 
 
@@ -72,12 +84,12 @@ export default function PedidoSnack(props) {
         <div className='edit'>
         <div className='taltal'>
         <img className='aceitar-img' src='../images/check_circle.svg'/>
-        <p>ACEITAR</p>
+        <button onClick={aceitou}>ACEITAR</button>
         </div>
 
         <div className='taltal'>
         <img className='remove-img' src='../images/circle-x.svg'/>
-        <p>RECUSAR</p>
+        <button onClick={recusou}>RECUSAR</button>
         </div>
        
         

@@ -28,3 +28,8 @@ export async function FiltrarComboNome(nome){
     const asnwer= await api.get(`/consulta/nomepedido/combo/nome?nome=${nome}`)
     return asnwer.data;
 }
+
+export async function alterarStatusPedido(id) {
+    const resposta = await api.put(`consulta/status/pedido/combo/${id}`);
+    return resposta.data;
+}
