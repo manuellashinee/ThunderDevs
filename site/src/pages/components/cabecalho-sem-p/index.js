@@ -14,7 +14,6 @@ export default function CabecalhoP(){
 
     useEffect(() => {
         if(!storage('usuario-logado')) {
-            navigate('/');
         } else {
             const usuarioLogado = storage('usuario-logado');
             setUsuario(usuarioLogado.nome);
