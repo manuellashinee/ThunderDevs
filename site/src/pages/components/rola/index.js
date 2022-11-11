@@ -3,7 +3,7 @@ import '../../../common/common.scss'
 import Hora1 from '../hora1';
 import { useEffect, useState } from 'react';
 import { vizualizarThoras } from '../../../api/horaApi.js';
-import { adddataFilmeEmSala, addHorasFilmeEmSala, dataFilmeEmSala, horariosFilmeEmSala } from '../../../api/filmeHorario';
+import { adddataFilmeEmSala, addFinalFilmeEmSala, addHorasFilmeEmSala, dataFilmeEmSala, horariosFilmeEmSala } from '../../../api/filmeHorario';
 import { useParams } from 'react-router-dom';
 import { marcado } from './services.js';
 
@@ -42,23 +42,30 @@ export default function Rolaa(props) {
 
     function novosHorarios(hora) {
         let novasHoras = [...horasSelecionados];
+        let horasNovas= [...horasSelecionadosPuro];
 
 
-        if (horasSelecionados.find(item => item.horario === hora))
+        if (horasSelecionados.find(item => item.horario === hora)){
             novasHoras.splice(novasHoras.findIndex(item => item.horario === hora), 1);
+        }
         else {
             novasHoras.push({ horario: hora});
         }
 
-        console.log(novasHoras);
+        if (horasSelecionadosPuro.find(item => item === hora)){
+            horasNovas.splice(horasNovas.findIndex(item => item === hora), 1)
+        }
+        else {
+            horasNovas.push(hora);
+        }
+        setHorasSelecionadosPuro(horasNovas);
         setHorasSelecionados(novasHoras);
     }
 
     async function salvarDataFilme(){
+        const idsSalaHorario = await addHorasFilmeEmSala(props.item.idSala,horasSelecionadosPuro);
         const idfilmesala = await adddataFilmeEmSala(idParam, props.item.idSala, dataDe,dataAte);
-        const idsSalaHorario = await addHorasFilmeEmSala(props.item.idSala,horasSelecionadosPuro)
-        console.log(idsSalaHorario,idfilmesala);
-        alert("filme foi");
+        const fim= await addFinalFilmeEmSala(idfilmesala.idsalafilme ,idsSalaHorario);
     }
 
 
