@@ -38,10 +38,10 @@ server.get('/admin/filme/:filme/sala/:sala/data', async (req, resp) =>{
 server.post('/addsala/filme/:filme', async (req, resp) =>{
     try{
         const dados = req.body;
-        const remove1= await removerFilmeAntigoData(req.params.filme,dados.idsala);
         const remove2= await removerFilmeAntigoHoras(req.params.filme,dados.idsala);
-        const resposta = await colocarFilmeNaSala(req.params.filme, dados);
-        resp.send({idFilmeSala:resposta});
+        const remove1= await removerFilmeAntigoData(req.params.filme,dados.idsala);
+         const resposta = await colocarFilmeNaSala(req.params.filme, dados);
+        resp.send({idsalafilme:resposta});
         }catch(err){
             resp.status(404).send({
                 erro: err.message

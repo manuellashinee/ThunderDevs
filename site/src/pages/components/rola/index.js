@@ -3,7 +3,7 @@ import '../../../common/common.scss'
 import Hora1 from '../hora1';
 import { useEffect, useState } from 'react';
 import { vizualizarThoras } from '../../../api/horaApi.js';
-import { adddataFilmeEmSala, dataFilmeEmSala, horariosFilmeEmSala } from '../../../api/filmeHorario';
+import { adddataFilmeEmSala, addHorasFilmeEmSala, dataFilmeEmSala, horariosFilmeEmSala } from '../../../api/filmeHorario';
 import { useParams } from 'react-router-dom';
 import { marcado } from './services.js';
 
@@ -13,15 +13,21 @@ export default function Rolaa(props) {
     const [horasSelecionados, setHorasSelecionados] = useState([]);
     const [dataDe, setDataDe] = useState();
     const [dataAte, setDataAte] = useState();
+    const [horasSelecionadosPuro, setHorasSelecionadosPuro] = useState([]);
 
     const { idParam } = useParams();
 
     async function carregarHoras() {
+        let array= [];
         const resp = await vizualizarThoras();
         setHoras(resp);
 
         const resp2 = await horariosFilmeEmSala(idParam, props.item.idSala);
         setHorasSelecionados(resp2);
+        for(let i = 0; i < resp2.length; i++ ){
+            array.push(resp2[i].horario)
+            setHorasSelecionadosPuro(array);
+        }
 
         const resp3 = await dataFilmeEmSala(idParam, props.item.idSala);
         if (resp3[0] != null && resp3[0].de != null) {
@@ -37,6 +43,7 @@ export default function Rolaa(props) {
     function novosHorarios(hora) {
         let novasHoras = [...horasSelecionados];
 
+
         if (horasSelecionados.find(item => item.horario === hora))
             novasHoras.splice(novasHoras.findIndex(item => item.horario === hora), 1);
         else {
@@ -48,7 +55,9 @@ export default function Rolaa(props) {
     }
 
     async function salvarDataFilme(){
-        const resposta = await adddataFilmeEmSala(idParam, props.item.idSala, dataDe,dataAte);
+        const idfilmesala = await adddataFilmeEmSala(idParam, props.item.idSala, dataDe,dataAte);
+        const idsSalaHorario = await addHorasFilmeEmSala(props.item.idSala,horasSelecionadosPuro)
+        console.log(idsSalaHorario,idfilmesala);
         alert("filme foi");
     }
 
