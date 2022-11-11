@@ -2,9 +2,24 @@ import './index.scss'
 import '../../../common/common.scss'
 import { Link } from 'react-router-dom';
 import MeusPedidos from '../../components/meusPedidos/index'
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import storage from 'local-storage'
 
 export default function MyPedido()  {
 
+    const [usuario, setUsuario ] = useState('');
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!storage('usuario-logado')) {
+            navigate('/');
+        } else {
+            const usuarioLogado = storage('usuario-logado');
+            setUsuario(usuarioLogado.nome)
+        }
+    },{})
 
     return(
     <section className='meus-pedidos'>
@@ -22,10 +37,10 @@ export default function MyPedido()  {
                 <button  className='pesquisar-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
              </div>
 
-               <div className='foto-perfil'>
-               <div><img  className='perfil' src='../images/elizinha.svg'/></div>
-               <div><p>Manu</p></div>
-               </div>
+             <div className='foto-perfil'>
+                   <div><span className='letra-user'>{usuario[0]}</span></div>
+                   <div className='nome-embaixo'><p>{usuario}</p></div>
+             </div>
                 
             </div>
               
