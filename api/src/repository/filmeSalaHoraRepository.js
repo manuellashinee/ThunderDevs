@@ -122,3 +122,42 @@ export async function insertFinalSala(idsalafilme,idsalahorario){
     const [resposta] = await con.query(comando,[idsalafilme,idsalahorario]);
     return resposta.insertId
 }
+
+//pedidoFilme
+
+export async function salasPraPedido(idfilme){
+    const comando=`  SELECT 
+                    id_sala as sala,
+                    id_filme as idfilme,
+                    dt_de as de,
+                    dt_ate as ate,
+                    curdate() as hoje
+                    FROM
+                    TB_FILME_SALA
+                    where id_filme = ?
+                    order by sala`;
+const [resposta] = await con.query(comando,[idfilme]);
+return resposta;
+}
+
+export async function HorasPraPedido(idfilme,idsala){
+    const comando=`  SELECT 
+                NM_FILME AS FILME,
+                NR_SALA AS SALA,
+                DT_DE AS DE,
+                DT_ATE AS ATE,
+                tb_horario.id_horario as idhora,
+                DS_HORARIO HORARIO
+                FROM
+                TB_FILME_SALA_HORARIO
+                INNER JOIN tb_SALA_HORARIO  ON tb_SALA_HORARIO.ID_SALA_HORARIO = TB_FILME_SALA_HORARIO.ID_SALA_HORARIO
+                INNER JOIN tb_FILME_SALA  ON tb_FILME_SALA.ID_FILME_SALA = TB_FILME_SALA_HORARIO.ID_FILME_SALA
+                Inner join tb_filme on tb_filme.id_filme = TB_FILME_SALA.id_filme
+                Inner join tb_horario on tb_horario.id_horario = TB_SALA_horario.id_horario
+                Inner join tb_sala on tb_sala.id_sala = TB_SALA_horario.id_sala
+                where tb_FILME_SALA.id_filme= ? and tb_FILME_SALA.id_sala= ?
+                order by idhora`;
+const [resposta] = await con.query(comando,[idfilme,idsala]);
+return resposta;
+}
+

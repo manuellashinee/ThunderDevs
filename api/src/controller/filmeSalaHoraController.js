@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { colocarFilmeNaSala, DataFilmeEmSala, horariosFilmeEmSala, inserirUmaHora, insertFinalSala, odeioFilmes, removerFilmeAntigoData, removerFilmeAntigoHoras, umaHoraId, verHoraiosPrainserir, verUMHoraios } from '../repository/filmeSalaHoraRepository.js';
+import { colocarFilmeNaSala, DataFilmeEmSala, horariosFilmeEmSala, HorasPraPedido, inserirUmaHora, insertFinalSala, odeioFilmes, removerFilmeAntigoData, removerFilmeAntigoHoras, salasPraPedido, umaHoraId, verHoraiosPrainserir, verUMHoraios } from '../repository/filmeSalaHoraRepository.js';
 const server = Router();
 
 server.get('/plusfilme', async (req, resp) =>{
@@ -84,6 +84,33 @@ server.post('/addsala/final', async (req,resp) =>{
             const x= await insertFinalSala(ids.idsalafilme,ids.horas[i].idSalaHora)
         }
         resp.status(204).send();
+    }catch(err){
+        resp.status(404).send({
+            erro: err.message
+        });
+    }
+})
+
+//pedidoFilme
+
+server.get('/qtd/salas/:idfilme', async (req,resp) =>{
+    try{
+        const {idfilme}= req.params;
+        const resposta= await salasPraPedido(idfilme);
+        resp.send(resposta)
+    }catch(err){
+        resp.status(404).send({
+            erro: err.message
+        });
+    }
+})
+
+server.get('/qtd/horas', async (req,resp) =>{
+    try{
+        const idfilme = req.query.idfilme;
+        const idsala = req.query.idsala;
+        const resposta= await HorasPraPedido(idfilme,idsala);
+        resp.send(resposta)
     }catch(err){
         resp.status(404).send({
             erro: err.message

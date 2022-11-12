@@ -4,15 +4,12 @@ import { Link, useNavigate} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 export default function FilmeD(props){
-    const [atual, setAtual] = useState(true);
     const navigate = useNavigate();
+    
+    const [atual, setAtual] = useState(true);
 
-    // console.log('props.item.lancamento|>>>')
-    // console.log(props.item.lancamento)
 
     function verData(){
-        // console.log('props.item.lancamento')
-        // console.log(props.item.lancamento)
 
         let lanca= new Date(props.item.lancamento);
         let agora = new Date();
@@ -28,6 +25,9 @@ export default function FilmeD(props){
         else
             setAtual(true)
     
+    }
+    function irCompra(){
+        navigate(`/compra/${props.item.id}`)
     }
 
     function irComentarios(){
@@ -66,7 +66,7 @@ export default function FilmeD(props){
                 <div className='titu-botao'>
                     <p className='titulo'>{props.item.nome}</p>
                     <div>
-                    <Link to='/compra1'><p className='compra-botao'>Comprar Ingressos</p></Link>
+                    <p className='compra-botao' onClick={irCompra}>Comprar Ingressos</p>
                     </div>
                 </div>
             </div>
