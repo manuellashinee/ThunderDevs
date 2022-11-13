@@ -1,0 +1,28 @@
+.data-inicial2{
+    display: flex;
+    padding: 2.4em;
+
+    .data-p2{
+        color: white;
+        border: 2px solid white;
+        padding: 8px 30px;
+        width: max-content;
+        font-size: 1.1em;
+        border-radius: 5px;
+        font-family: 'LM';
+    }
+
+    .data-p2:hover{
+        cursor: pointer;
+        background-color: #532290;
+        transition: 0.3s;
+    }
+
+    .horario-marcado {
+        background-color: #532290;
+    }
+    .horario-marcado:hover {
+        background-color: inherit;
+    }
+}
+

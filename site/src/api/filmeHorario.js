@@ -30,7 +30,12 @@ export async function addFinalFilmeEmSala(idsalafilme,horas ){
 
 //pedido
 
-export async function prePedidoFilme(idfilme){
-    const asnwer = await api.get(`/qtd/salas/${idfilme}`, {idfilme});
+export async function prePedidoFilmeSala(idfilme){
+    const asnwer = await api.get(`/qtd/salas/${idfilme}`);
     return asnwer.data;
+}
+
+export async function prePedidoFilmeHoras(idfilme,idsala){
+    const resposta= await api.get(`/qtd/horas?idfilme=${idfilme}&idsala=${idsala}`);
+    return resposta.data;
 }

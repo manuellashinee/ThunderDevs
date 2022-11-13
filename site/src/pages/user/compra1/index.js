@@ -5,14 +5,13 @@ import CompraCima from '../../components/compra-cima';
 import Rodape from '../../components/rodape';
 import Data1 from '../../components/data1';
 import Sala from '../../components/sala';
-import Hora1 from '../../components/hora1';
 import { useEffect, useState } from 'react';
-import { prePedidoFilme } from '../../../api/filmeHorario.js';
+import { prePedidoFilmeSala } from '../../../api/filmeHorario.js';
 import { useParams } from 'react-router-dom';
 
 export default function Compra1(){
     const [atual, setAtual] = useState(true);
-    const [textoDatas, setTextoDatas]= useState([]);
+    const [textoDatas, setTextoDatas]= useState();
     const [filmeSalas, setFilmeSalas]= useState([]);
     const [data, setData]= useState();
     const [semana,setSemana]= useState([]);
@@ -58,7 +57,7 @@ export default function Compra1(){
     }
 
     async function dats(){
-        const x= await prePedidoFilme(idParam);
+        const x= await prePedidoFilmeSala(idParam);
         const d= verData(x[0].de);
         setTextoDatas(x[0]);
         setFilmeSalas(x);
@@ -102,22 +101,10 @@ export default function Compra1(){
                 <p className='preco'>O PREÇO PODE VARIAR DE ACORDO COM A SUA ESCOLHA.</p>
             </div>
 
-            <div>
-                <Sala numero='7'/>
-                <div className='salas'>
-                    <Hora1 hora='13:30'/>
-                    <Hora1 hora='14:30'/>
-                    <Hora1 hora='15:30'/>
-                </div>
-            </div>
-
-            <div>
-                <Sala numero='8'/>
-                <div className='salas'>
-                    <Hora1 hora='16:30'/>
-                    <Hora1 hora='17:30'/>
-                </div>
-            </div>
+            {filmeSalas.map(item=><div>
+                <Sala item={item}/>
+                
+            </div>)}
         </div>
        <Rodape/>
         </section>
