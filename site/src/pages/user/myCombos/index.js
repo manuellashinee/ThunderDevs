@@ -11,10 +11,9 @@ export default function MyCombos()  {
 
     const [vercombo, setVerCombo] = useState([]);
 
-    async function verCombos() {
+    async function verCombos(idusu) {
         const resp = await visualizarCombos(storage('usuario-logado').idUsuario);
-        setVerCombo(resp);
-      }
+        setVerCombo(resp);}
 
 
       useEffect(() => {
