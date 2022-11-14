@@ -1,8 +1,27 @@
 import './index.scss';
 import PedidosFeitos from '../../components/pedidosFeitos';
 import { Link } from 'react-router-dom';
+import storage from 'local-storage'
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function PedidosAdm() {
+
+    const [adm, setAdm ] = useState('');
+
+    const navigate = useNavigate();
+
+
+    useEffect(() => {
+        if(!storage('ADM-Logado')){
+            navigate('/homeadm');
+        }
+        else{
+          const admLogado = storage('ADM-Logado');
+          setAdm(admLogado.nome);
+        }
+    }, [])
+
     return (
 
         <section className='pedidos-adm'>
@@ -20,10 +39,10 @@ export default function PedidosAdm() {
                 <button  className='pesquisar-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
              </div>
 
-               <div className='foto-perfil'>
-               <div><img  className='perfil' src='../images/elizinha.svg'/></div>
-               <div><p>Manu</p></div>
-               </div>
+             <div className='foto-perfil'>
+                   <div><span className='letra-user'>{adm[0]}</span></div>
+                   <div className='nome-embaixo'><p>{adm}</p></div>
+             </div>
                 
             </div>
               

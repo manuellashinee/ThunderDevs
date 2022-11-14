@@ -1,25 +1,53 @@
 import './index.scss'
 import MeusCombos from '../../components/combosPedidos'
-import { visualizarCombos } from '../../../api/pedidoAPI';
+import { FiltrarComboNome, visualizarCombos } from '../../../api/pedidoAPI';
+
 import storage from 'local-storage'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 
 export default function MyCombos()  {
 
     const [vercombo, setVerCombo] = useState([]);
+    const [ nomecombo, setNomecombo ] = useState("");
 
-    async function verCombos(idusu) {
-        const resp = await visualizarCombos(storage('usuario-logado').idUsuario);
-        setVerCombo(resp);}
+    const [usuario, setUsuario ] = useState('');
+
+    const navigate = useNavigate();
+
+
+    async function verCombos() {
+        const resp = await visualizarCombos(storage('usuario-logado').id);
+        setVerCombo(resp);
+      }
+
+      async function filtrarPedidoCombo(){
+        const fil= await FiltrarComboNome(nomecombo)
+        setVerCombo(fil);
+    }
+
+    useEffect(() => {
+        filtrarPedidoCombo();
+    }, [nomecombo])
+     
 
 
       useEffect(() => {
         verCombos();
     
       }, [])
+
+      useEffect(() => {
+        if(!storage('usuario-logado')) {
+            navigate('/');
+        } else {
+            const usuarioLogado = storage('usuario-logado');
+            setUsuario(usuarioLogado.nome)
+        }
+    },{})
+
     return(
     <section className='meus-pedidos'>
         <section className='salvados'>
@@ -32,14 +60,14 @@ export default function MyCombos()  {
             <div className='foto'>
 
              <div className='pesquisa-input'>
-                <input className='pesquisa-design' type='text'/>
+                <input className='pesquisa-design' type='text'  value={nomecombo} onChange={e=> setNomecombo(e.target.value)}/>
                 <button  className='pesquisar-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
              </div>
 
-               <div className='foto-perfil'>
-               <div><img  className='perfil' src='../images/elizinha.svg'/></div>
-               <div><p>Manu</p></div>
-               </div>
+              <div className='foto-perfil'>
+                   <div><span className='letra-user'>{usuario[0]}</span></div>
+                   <div className='nome-embaixo'><p>{usuario}</p></div>
+             </div>
                 
             </div>
               

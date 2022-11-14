@@ -37,6 +37,23 @@
         margin-top: 1em;
     }
 
+    .letra-user{
+        color: #ffff;
+        font-family: 'LR';
+        font-size: 1em;
+        background-color: #AE4EDB;
+        padding: 1em 1.2em;
+        margin-right: 20px;
+        margin-top: 1em;
+        position: relative;
+        left: 8px;
+        border-radius: 32px;
+    }
+
+    .nome-embaixo {
+        margin-top: 15px;
+    }
+
     .cabecalho-pesquisa{
         display: flex;
         flex-direction: row;

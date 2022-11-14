@@ -4,6 +4,9 @@ import './index.scss'
 import { salvarNovoPedido } from '../../../api/pedidoAPI.js';
 import { useNavigate, useParams } from 'react-router-dom'
 import { buscarPorId } from '../../../api/comboapi';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { alterarStatusPedido } from '../../../api/pedidoAPI.js';
 
 export default function CartaoCredito(props) {
     const [nome, setNome] = useState ('');
@@ -81,7 +84,7 @@ export default function CartaoCredito(props) {
 
         <section className='cartao-credito3'>
 
-            <p>NOME: <span>{}</span></p>
+            <p><span>{}</span></p>
             <p></p>
 
             <div className='parte-2'>

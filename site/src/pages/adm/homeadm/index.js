@@ -37,10 +37,7 @@ export default function HomeAdm() {
             <div className='parte-cima'>
                 <div className='cabecalho-homeadm'>
                 <img className='logo' src='../images/logo.svg'/>
-                <div className='icon-texto'>
-                    <img className='icon-persona' src='../images/popcorn.png'/>
-                    <p className='texto-catalogo'>{adm}</p>
-                </div>
+               
                 </div>
                 <div className='tt-adm'>
                     <h1 className='titulo-adm'>BEM VINDO, <span className='cor-texto'>Administrador(a)!</span></h1>

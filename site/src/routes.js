@@ -51,12 +51,12 @@ export default function Rotas (){
         <Route path='/cadastraruser' element={<CadastrarUser/>}/>
         <Route path='/pedidosnack' element={<PedidosSnacks/>}/>
         <Route path='/snacks' element={<SnackCadastro/>}/>
-        <Route path='/compra1' element={<Compra1/>}/>
+        <Route path='/compra/:idParam' element={<Compra1/>}/>
         <Route path='/filmedetalhe/:idParam' element={<FilmeDetalhe/>}/>
         <Route path='/meuspedidos' element={<MyPedido/>}/>
         <Route path='/compra3' element={<Compra3/>}/>
         <Route path='/addsala/:idParam' element={<AddSaala/>}/>
-        <Route path='/assento' element={<Assento/>}/>
+        <Route path='/assento/:idParam' element={<Assento/>}/>
         <Route path='/compra4' element={<Compra4/>}/>
         <Route path='/meuscombos' element={<MyCombos/>}/>
         <Route path='/pedidosadm' element={<PedidosAdm/>}/>

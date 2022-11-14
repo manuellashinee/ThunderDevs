@@ -2,6 +2,7 @@
     border: 2px solid #fff;
     border-radius: 1em;
     margin-left: 2em;
+    margin-bottom: 1em;
     margin-right: 2em;
 
     .descricao {
@@ -72,7 +73,8 @@
     }
     
     .img-combo {
-        width: 182px;
+        width: 15em;
+        height: 10em;
         border-radius: 34px;
         position: relative;
         bottom: 9px;
@@ -116,10 +118,12 @@
         }
             .verde{
                 color: #0BB71C;
+                font-family: 'LSB';
             }
     
             .vermelho {
                 color: #CA0B0B;
+                font-family: 'LSB';
             }
         
     

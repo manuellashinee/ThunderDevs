@@ -47,7 +47,7 @@ export async function inserirPagamentoCombo(pagamentoCombo,idpedido){
         return info.affectedRows;
 }
 
-export async function consultarTodosCombos(id){
+export async function consultarTodosCombos(idusu){
     const comando= 
     ` SELECT
 	nm_usuario			as nomeusuario,
@@ -59,10 +59,83 @@ export async function consultarTodosCombos(id){
     DS_STATUS            as status,
     VL_TOTAL             as total
     FROM TB_PEDIDO_COMBO
-    inner join tb_combo on tb_combo.nm_combo = tb_combo.nm_combo
-    inner join tb_usuario on tb_usuario.nm_usuario = tb_usuario.nm_usuario
-    where tb_usuario.id_usuario = ?`;
+    inner join tb_combo on tb_pedido_combo.id_combo = tb_combo.id_combo
+    inner join tb_usuario on tb_usuario.id_usuario = TB_PEDIDO_COMBO.id_usuario
+    where tb_usuario.id_usuario = ? `;
 
-    const [resposta] = await con.query(comando, [id])
+    const [resposta] = await con.query(comando, [idusu])
     return resposta;
 }
+
+export async function consultarTodosCombosAdm(){
+    const comando= 
+    ` SELECT
+	nm_usuario			as nomeusuario,
+    nm_combo            as nome,
+    ds_combo            as descricao,
+    img_combo            as foto,
+    ID_PEDIDO_COMBO     as id,
+    DT_PEDIDO             as datapedido,
+    DS_STATUS            as status,
+    VL_TOTAL             as total
+    FROM TB_PEDIDO_COMBO
+    inner join tb_combo on tb_pedido_combo.id_combo = tb_combo.id_combo
+    inner join tb_usuario on tb_usuario.id_usuario = TB_PEDIDO_COMBO.id_usuario 
+    order by nm_combo`;
+
+    const [resposta] = await con.query(comando, [])
+    return resposta;
+}
+
+export async function consultarPedidoComboNome(nome){
+    const comando= 
+    ` SELECT
+	nm_usuario			as nomeusuario,
+    nm_combo            as nome,
+    ds_combo            as descricao,
+    img_combo            as foto,
+    ID_PEDIDO_COMBO     as id,
+    DT_PEDIDO             as datapedido,
+    DS_STATUS            as status,
+    VL_TOTAL             as total
+    FROM TB_PEDIDO_COMBO
+    inner join tb_combo on tb_pedido_combo.id_combo = tb_combo.id_combo
+    inner join tb_usuario on tb_usuario.id_usuario = TB_PEDIDO_COMBO.id_usuario 
+    order by nm_combo
+    where nm_combo like "%${nome}%"`;
+
+    const [resposta] = await con.query(comando, [nome])
+    return resposta;
+}
+
+export async function removerComboPedido(id){
+    const comando= `    
+                    delete from tb_pedido_combo 
+                        where id_pedido_combo = ? `;
+    const [resposta] = await con.query(comando, [id])
+    return resposta.affectedRows;
+}
+
+
+export async function removerComboPagamento(id){
+    const comando= `    
+                    delete from tb_pagamento_combo 
+                        where id_pagamento_combo = ? `;
+    const [resposta] = await con.query(comando, [id])
+    return resposta.affectedRows;
+}
+
+export async function alterarStatusPedido(idpedido, status){
+    const comando= `    
+        update tb_pedido_combo 
+        set ds_status = ?
+        where id_pedido_combo = ?
+    `;
+    const [resposta] = await con.query(comando, [idpedido.id, status])
+    return resposta.affectedRows;
+}
+
+
+
+
+

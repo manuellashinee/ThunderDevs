@@ -48,7 +48,8 @@
     .assento-baixo{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
+
     }
 
 
@@ -57,6 +58,8 @@
         flex-direction: row;
         justify-content: flex-end;
         align-items: flex-end;
+        width: 80%;
+        flex-wrap: wrap;
     }
 
     .assento-row{
@@ -117,12 +120,14 @@
         justify-content: center;
         display: flex;
         flex-direction: row;
+        margin-left:2em;
     }
 
     .n{
         color: white;
-        padding: 1em 23px;
         font-family: 'LM';
+        padding-right: 1.5em;
+        padding-left: 1.6em;
     }
 
     .tela{
@@ -137,6 +142,32 @@
         font-size: 1.2em;
         background-color: rgba(89, 89, 89, 1);
         padding: 7px 22em;
+    }
+
+    .desabilitado{
+        color: #666666;
+        background-color: #666666;
+        padding: 1em 1.2em;
+        margin-right: 10px;
+        margin-top: 1em;
+    }
+
+    .previo{
+        cursor: pointer;
+        color: #af2f2f;
+        background-color: #af2f2f;
+        padding: 1em 1.2em;
+        margin-right: 10px;
+        margin-top: 1em;
+    }
+
+    .previo:hover{
+        cursor: pointer;
+        color: #AE4EDB;
+        background-color: #AE4EDB;
+        padding: 1em 1.2em;
+        margin-right: 10px;
+        margin-top: 1em;
     }
 
 }

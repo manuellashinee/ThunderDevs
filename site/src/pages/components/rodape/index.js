@@ -1,5 +1,6 @@
 import './index.scss'
 import '../../../common/common.scss'
+import { Link } from 'react-router-dom';
 export default function Rodape(){
 
 return(
@@ -34,7 +35,7 @@ return(
     
     <div className='desc'>
     <div className='espaco'>Programação</div>
-    <div className='espaco'>Em Cartaz</div>
+   <Link to='/emcartaz'><div className='espaco  cor-branca'>Em Cartaz</div></Link>
     <div className='espaco'>Em Breve</div>
     <div className='espaco'>Ingressos</div>
     </div>
@@ -44,7 +45,7 @@ return(
    <div> <h1>SNACK BAR</h1></div>
 
     <div className='desc'>
-    <div className='espaco'>Cardápio Snack Bar</div>
+   <Link to='/snackbar'><div className='espaco  cor-branca'>Cardápio Snack Bar</div></Link>
     <div className='espaco'>Cardápios Prime</div>
     </div>
 </div>
@@ -53,9 +54,10 @@ return(
     <div> <h1>SALAS</h1></div>
    
    <div className='desc'>
-   <div className='espaco'>3D</div>
-    <div className='espaco'>XD</div>
-    <div className='espaco'>2D</div>
+   <Link to='/assentos'><div className='espaco  cor-branca'>3D</div></Link>
+   <Link to='/assentos'><div className='espaco  cor-branca'>XD</div></Link>  
+   <Link to='/assentos'><div className='espaco  cor-branca'>2D</div></Link>   
+   
    </div>
 
 </div>

@@ -1,6 +1,6 @@
 import './index.scss';
 import { confirmAlert } from 'react-confirm-alert';
-import { retirarCombo } from '../../../api/pedidoAPI';
+import { retirarComboPedido } from '../../../api/pedidoAPI';
 
 
 export default function MeusCombos(props) {
@@ -24,7 +24,7 @@ export default function MeusCombos(props) {
               {
                 label: 'Sim',
                 onClick: async () => {
-                    const resposta = await retirarCombo(id)
+                    const resposta = await retirarComboPedido(id)
                     recarregarPageCombo();
                     
                 }
@@ -63,7 +63,7 @@ export default function MeusCombos(props) {
                             </div>
                             <div className='remover'>
                                 <div className='desc'>
-                                    <label className='usuario'>{props.item.nomeUsuario}</label>
+                                    <label className='usuario'>{props.item.nomeusuario}</label>
                                 </div>
 
                             </div>
@@ -93,10 +93,8 @@ export default function MeusCombos(props) {
                             <div className='padrao '>
                                 <div>
                                     <h1>SITUAÇÃO:<span className='verde'>{props.item.status}</span></h1>
-                                </div>
-                                <div>
-                                    <h1>SITUAÇÃO:<span className='vermelho'>EXPIRADO</span></h1>
-                                </div>
+                                </div><span className='vermelho'></span>
+                                
 
                                 <div className='desc'>
                                     <label className='total'>{props.situacao}</label>
@@ -112,7 +110,8 @@ export default function MeusCombos(props) {
                 <div>
                     <div>
                         <div>
-                            <img className='situ' src='../images/circle-x.svg'  onClick={() => removerComboClick(props.item.idcombo , props.item.nome)} />
+                            <img className='situ' src='../images/circle-x.svg'  onClick={() => removerComboClick(props.item.id, props.item.nome)} />
+
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@
         background-image: url('../../../../public/images/comboback.svg');
         background-repeat: no-repeat;
         background-size: 100%;
+        border-radius: 20px;
     }
 
     .logo {
@@ -25,11 +26,12 @@
     }
 
     .flecha-c {
-        margin-left: 2em;
+        margin-left: 2.5em;
+        margin-top: 1em;
     }
 
     .foto-perfil{
-        margin-top: 1em;
+        margin-top: 1.5em;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -38,13 +40,30 @@
 
         p {
             color: white;
-        font-family: "LR";
+            font-family: "LR";
         }
     }
+
+    .letra-user{
+        color: #ffff;
+        font-family: 'LR';
+        font-size: 1em;
+        background-color: #AE4EDB;
+        padding: 1em 1.2em;
+        margin-right: 10px;
+        margin-top: 1em;
+        border-radius: 32px;
+    }
+
+    .nome-embaixo {
+        margin-top: 15px;
+    }
+
     
     .textos-column {
         display: flex;
         flex-direction: column;
+        margin-bottom: 1em;
 
         .pagamento {
         color: white;
