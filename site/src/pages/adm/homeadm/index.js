@@ -60,7 +60,6 @@ export default function HomeAdm() {
                 <Link to='/cadastrarcombo'><Cacete imagem='../images/pizza.svg' texto='ADICIONE UM COMBO (ALIMENTO)  E VEJA OS DO SNACK BAR.'/></Link>
                 <Link to='/pedidosadm'><Cacete imagem='../images/feito.svg' texto='VEJA OS PEDIDOS QUE FORAM FEITOS ATÉ AGORA.'/></Link>
                 </div>
-                <Cacete2 imagem='../images/image.svg' texto='ADICIONE UMA IMAGEM AO NOSSO CARROSSEL DA PÁGINA INICIAL.'/>
             </div> 
             <div className='sair-adm'>
                 <Link to='/'><img src='../images/Login.png'  onClick={sairClick}/></Link>
