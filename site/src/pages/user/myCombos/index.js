@@ -21,7 +21,7 @@ export default function MyCombos()  {
     async function verCombos() {
         const resp = await visualizarCombos(storage('usuario-logado').id);
         setVerCombo(resp);
-      }
+    }
 
       async function filtrarPedidoCombo(){
         const fil= await FiltrarComboNome(nomecombo)

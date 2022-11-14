@@ -101,10 +101,30 @@ export async function consultarPedidoComboNome(nome){
     FROM TB_PEDIDO_COMBO
     inner join tb_combo on tb_pedido_combo.id_combo = tb_combo.id_combo
     inner join tb_usuario on tb_usuario.id_usuario = TB_PEDIDO_COMBO.id_usuario 
-    order by nm_combo
-    where nm_combo like "%${nome}%"`;
+    where nm_combo like "${nome}%" `;
 
     const [resposta] = await con.query(comando, [nome])
+    return resposta;
+}
+
+
+export async function consultarPedidoComboNomeAdm(nomeusuario){
+    const comando= 
+    ` SELECT
+	nm_usuario			as nomeusuario,
+    nm_combo            as nome,
+    ds_combo            as descricao,
+    img_combo            as foto,
+    ID_PEDIDO_COMBO     as id,
+    DT_PEDIDO             as datapedido,
+    DS_STATUS            as status,
+    VL_TOTAL             as total
+    FROM TB_PEDIDO_COMBO
+    inner join tb_combo on tb_pedido_combo.id_combo = tb_combo.id_combo
+    inner join tb_usuario on tb_usuario.id_usuario = TB_PEDIDO_COMBO.id_usuario 
+    where nm_combo like "${nomeusuario}%" `;
+
+    const [resposta] = await con.query(comando, [nomeusuario])
     return resposta;
 }
 

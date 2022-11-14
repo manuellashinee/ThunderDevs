@@ -3,6 +3,7 @@ import '../../../common/common.scss'
 import { useState, useEffect } from 'react';
 import PedidoSnack from '../../components/snackCards/index'
 import { visualizarCombos, visualizarCombosAdm } from '../../../api/pedidoAPI';
+import { FiltrarComboNomeAdm } from '../../../api/pedidoAPI';
 import { Link } from 'react-router-dom'
 import storage from 'local-storage'
 import { useNavigate } from 'react-router-dom';
@@ -12,6 +13,9 @@ import { useNavigate } from 'react-router-dom';
 export default function PedidosSnacks()  {
 
     const [adm, setAdm ] = useState('');
+    const [ nomeusuario, setNomeusuario] = useState("");
+
+    const [usuario, setUsuario ] = useState('');
 
     const navigate = useNavigate();
 
@@ -22,6 +26,16 @@ export default function PedidosSnacks()  {
         const resp = await visualizarCombosAdm();
         setVerCombo(resp);
       }
+
+      async function filtrarPedidoComboAdm(){
+        const fil= await FiltrarComboNomeAdm(nomeusuario)
+        setVerCombo(fil);
+    }
+
+    useEffect(() => {
+        filtrarPedidoComboAdm();
+    }, [nomeusuario])
+     
 
 
       useEffect(() => {
@@ -43,7 +57,7 @@ export default function PedidosSnacks()  {
             <div className='foto'>
 
              <div className='pesquisa-input'>
-                <input className='pesquisa-design' type='text'/>
+                <input className='pesquisa-design' type='text'  value={nomeusuario} onChange={e=> setNomeusuario(e.target.value)}/>
                 <button  className='pesquisar-icon'><img className='img-pesquisa' src='../images/pesquisar.svg'/></button>
              </div>
 

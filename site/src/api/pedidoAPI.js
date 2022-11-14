@@ -25,9 +25,15 @@ export async function retirarComboPedido(id) {
 
 
 export async function FiltrarComboNome(nome){
-    const asnwer= await api.get(`/consulta/nomepedido/combo/nome?nome=${nome}`)
+    const asnwer= await api.get(`/consulta/nomepedido/combo?nome=${nome}`)
     return asnwer.data;
 }
+
+export async function FiltrarComboNomeAdm(nomeusuario){
+    const asnwer= await api.get(`/consulta/nomepedido/combousuario?nomeusuario=${nomeusuario}`)
+    return asnwer.data;
+}
+
 
 export async function alterarStatusPedido(id) {
     const resposta = await api.put(`consulta/status/pedido/combo/${id}`);
