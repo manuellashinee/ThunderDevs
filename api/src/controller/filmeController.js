@@ -2,7 +2,7 @@ import { Router } from 'express';
 const server = Router();
 
 import multer from "multer" ;
-import { cadastroFilme, alterarImagem, consultarTodosFilme, consultarFilmeGenero, consultarFilmeFranquia, removerFilme, alterarFilme, pesquisarFilmeNome, consultarFilmeId, filmeEmBreve} from '../repository/filmeRepository.js';
+import { cadastroFilme, alterarImagem, consultarTodosFilme, consultarFilmeGenero, consultarFilmeFranquia, removerFilme, alterarFilme, pesquisarFilmeNome, consultarFilmeId, filmeEmBreve, filmeEmCartaz} from '../repository/filmeRepository.js';
 const upload = multer({dest: 'storage/fotosfilmes'}) 
 
 server.post('/adm/filme', async (req, resp) =>{
@@ -149,9 +149,21 @@ server.get('/filme/breve', async (req, resp)=>{
     }
 })
 
-server.get('/filme/cartaz', async (req, resp)=>{
+server.get('/filme/breve', async (req, resp)=>{
     try{
         const resposta = await filmeEmBreve();
+        resp.send(resposta);
+    }
+    catch (err) {
+        return resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/filme/cartaz', async (req, resp)=>{
+    try{
+        const resposta = await filmeEmCartaz();
         resp.send(resposta);
     }
     catch (err) {
