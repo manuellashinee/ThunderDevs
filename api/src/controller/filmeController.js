@@ -149,5 +149,17 @@ server.get('/filme/breve', async (req, resp)=>{
     }
 })
 
+server.get('/filme/cartaz', async (req, resp)=>{
+    try{
+        const resposta = await filmeEmBreve();
+        resp.send(resposta);
+    }
+    catch (err) {
+        return resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
 
 export default server;
