@@ -14,6 +14,7 @@ import horarioController from './controller/horarioController.js'
 import filmeSalaHoraController from './controller/filmeSalaHoraController.js'
 import pedido from './controller/pedido.js'
 import pedidoComboController from './controller/pedidoComboController.js'
+import assentoController from './controller/assentoController.js'
 
 
 const server = express();
@@ -32,6 +33,7 @@ server.use(horarioController);
 server.use(filmeSalaHoraController);
 server.use(pedidoComboController);
 server.use(pedido);
+server.use(assentoController);
 
 
 server.use('/storage/fotosfilmes', express.static('storage/fotosfilmes'));

@@ -1,10 +1,46 @@
 import './index.scss'
 import '../../../common/common.scss'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import CabecalhoP from '../../components/cabecalho-sem-p';
 import Rodape from '../../components/rodape';
+import { useEffect, useState } from 'react';
+import { assentosEmIngresso, assentosSalas } from '../../../api/assentosApi.js';
+import { buy } from './sevices.js';
 
 export default function Assento(){
+    const [assentos,setAssentos] = useState([])
+    const [jaComprados, setJaComprados]= useState([]);
+    const [ assentosSelecionados, setAssentosSelecionados]= useState([])
+    const {idParam} = useParams();
+    
+    async function selectAssentos(){
+        const ass= await assentosSalas();
+        const comprados = await assentosEmIngresso(idParam,"13:00",1)
+        setAssentos(ass);
+        console.log(comprados);
+        
+        console.log(ass);
+
+        setJaComprados(comprados);
+    }
+
+    function assentosEscolhidos(idassetno){
+        let novosAssentos = [...assentosSelecionados];
+
+        if (assentosSelecionados.find(item => item === idassetno)){
+            novosAssentos.splice(novosAssentos.findIndex(item => item === idassetno), 1);
+        }
+        else {
+            novosAssentos.push(idassetno);
+        }
+        setAssentosSelecionados(novosAssentos);
+        console.log(novosAssentos);
+    }
+
+    useEffect(() => {
+        selectAssentos();
+      }, [])
+
     return(
         <section className='assento-page'>
             <CabecalhoP/>
@@ -14,154 +50,26 @@ export default function Assento(){
             </div>
 
             <div className='assentos-inicio'>
-                <div className='assento-row'>
-                 <p className='letra-assento1'>A</p>
-                    <div className='assento-cima'>
-                        <div className='assento-cima2'>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                         </div>
-                        </div>
-                    <p className='letra-assento'>A</p>
-                </div>
-                
-                <div className='assento-row'>
-                 <p className='letra-assento'>B</p>
-                    <div className='assento-baixo'>
-                        <div className='assento-cima2'>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p2'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                         </div>
-                        </div>
-                    <p className='letra-assento'>B</p>
-                </div>
 
-                
                 <div className='assento-row'>
-                 <p className='letra-assento'>C</p>
                     <div className='assento-baixo'>
                         <div className='assento-cima2'>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p2'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
+                            {assentos.map(item=>
+                            item.assento === 15? 
+                            <div>
+                            <br/>
+                            <span onClick={()=> assentosEscolhidos(item.idassento)}>
+                                <p className={buy(jaComprados,assentosSelecionados,item.idassento)}>A</p>
+                            </span>
+                            </div>
+                            :
+                            <span onClick={()=> assentosEscolhidos(item.idassento)}>
+                                <p className={buy(jaComprados,assentosSelecionados,item.idassento)}>A</p>
+                            </span>
+                            )}
+                            
                          </div>
                         </div>
-                    <p className='letra-assento'>C</p>
-                </div>
-
-                
-                <div className='assento-row'>
-                 <p className='letra-assento'>D</p>
-                    <div className='assento-baixo'>
-                        <div className='assento-cima2'>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p2'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                         </div>
-                        </div>
-                    <p className='letra-assento'>D</p>
-                </div>
-
-                
-                <div className='assento-row'>
-                 <p className='letra-assento'>E</p>
-                    <div className='assento-baixo'>
-                        <div className='assento-cima2'>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p2'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                         </div>
-                        </div>
-                    <p className='letra-assento'>E</p>
-                </div>
-
-                
-                <div className='assento-row'>
-                 <p className='letra-assento'>F</p>
-                    <div className='assento-baixo'>
-                        <div className='assento-cima2'>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p2'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                         </div>
-                        </div>
-                    <p className='letra-assento'>F</p>
-                </div>
-
-                
-                <div className='assento-row'>
-                 <p className='letra-assento'>G</p>
-                    <div className='assento-baixo'>
-                        <div className='assento-cima2'>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p2'>A</p>
-                            <p className='assento-p'>A</p>
-                            <p className='assento-p'>A</p>
-                         </div>
-                        </div>
-                    <p className='letra-assento'>G</p>
                 </div>
 
                 
