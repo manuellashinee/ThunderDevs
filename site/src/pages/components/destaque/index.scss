@@ -1,0 +1,39 @@
+
+    .ioio{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 3em;
+    }
+
+    .after-hours {
+        display: flex;
+        flex-direction: row;
+        
+    }
+
+    .Pray> *{
+    padding: 3em;
+    }
+    .Pray {
+        display: flex;
+        flex-direction: row;
+        
+    }
+
+    .cry {
+        height: 20em; 
+        border-radius: 2em;
+        margin-bottom: 1em;
+    }
+
+    .luv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'LB';
+        color: #ffff;
+      
+    }

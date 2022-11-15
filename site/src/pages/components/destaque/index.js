@@ -13,7 +13,7 @@ export default function DestaqueProps(props){
 
     return (
         <div className='luv'>
-        <img className='cry' src={mostrarImagem(props.item.imagem)}/>
+        <img className='cry' src={mostrarImagem(props.item.capa)}/>
         <p>{props.item.nome}</p>
         <p>R$ 42,00</p>
         </div>

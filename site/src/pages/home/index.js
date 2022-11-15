@@ -10,7 +10,7 @@ import DestaqueProps from '../components/destaque';
 
 
 export default function Home(){
-    const [destaque, setDestaque] = useState('');
+    const [destaque, setDestaque] = useState([]);
 
     var counter = 1;
     setInterval(function(){
@@ -107,8 +107,10 @@ export default function Home(){
                             <p>R$ 42,00</p>
                         </div>
 
-                      {// {destaque.map(item=> <DestaqueProps item={item}/>)}
-                      }                         
+                      {destaque.map(item=> 
+                      <DestaqueProps item={item}/>)
+                      }
+                                               
                     
                     
                     </div>
