@@ -1,6 +1,6 @@
 import './index.scss'
 import '../../../common/common.scss'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import CabecalhoP from '../../components/cabecalho-sem-p';
 import Rodape from '../../components/rodape';
 import { useEffect, useState } from 'react';
@@ -8,6 +8,7 @@ import { assentosEmIngresso, assentosSalas } from '../../../api/assentosApi.js';
 import { buy } from './sevices.js';
 
 export default function Assento(){
+    const navigate = useNavigate();
     const [assentos,setAssentos] = useState([])
     const [jaComprados, setJaComprados]= useState([]);
     const [ assentosSelecionados, setAssentosSelecionados]= useState([])
@@ -22,6 +23,10 @@ export default function Assento(){
         console.log(ass);
 
         setJaComprados(comprados);
+    }
+
+    function proxPag(){
+        navigate(`/compra3/${idParam}`)
     }
 
     function assentosEscolhidos(idassetno){
@@ -46,7 +51,7 @@ export default function Assento(){
             <CabecalhoP/>
             <div className='seta-botao'>
                 <Link to='/'><img className='flecha-c' src='../images/flecha.svg' /></Link>
-                <Link to='/compra3'><p className='botao-continuar'>CONTINUAR</p></Link>
+                <p onClick={proxPag}className='botao-continuar'>CONTINUAR</p>
             </div>
 
             <div className='assentos-inicio'>

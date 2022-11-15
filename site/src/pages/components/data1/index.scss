@@ -16,4 +16,20 @@
         background-color: #532290;
         transition: 0.3s;
     }
+
+    .datainversa{
+        color: white;
+        border: 2px solid white;
+        background-color: #532290;
+        padding: 8px 30px;
+        font-size: 1.1em;
+        border-radius: 5px;
+        font-family: 'LM';
+    }
+
+    .datainversa:hover{
+        cursor: pointer;
+        background-color: #ffffff;
+        transition: 0.3s;
+    }
 }

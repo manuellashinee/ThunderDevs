@@ -8,8 +8,10 @@ import Sala from '../../components/sala';
 import { useEffect, useState } from 'react';
 import { prePedidoFilmeSala } from '../../../api/filmeHorario.js';
 import { useParams } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 export default function Compra1(){
+    const navigate = useNavigate();
     const [atual, setAtual] = useState(true);
     const [textoDatas, setTextoDatas]= useState();
     const [filmeSalas, setFilmeSalas]= useState([]);
@@ -17,7 +19,9 @@ export default function Compra1(){
     const [semana,setSemana]= useState([]);
     const {idParam} = useParams();
 
-    
+    function proxPag(){
+        navigate(`/assento/${idParam}`)
+    }
 
     function semanando(dataInicio,datafinal){
         let arrdates= [];
@@ -105,6 +109,9 @@ export default function Compra1(){
                 <Sala item={item}/>
                 
             </div>)}
+            <div className='batida'> 
+                 <p onClick={proxPag} className='botao-ir'>PROSSEGUIR</p> 
+            </div>
         </div>
        <Rodape/>
         </section>

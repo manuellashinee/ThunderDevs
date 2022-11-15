@@ -4,9 +4,16 @@ import CompraCima from '../../components/compra-cima';
 import AssentoS from '../../components/assento-s';
 import Rodape from '../../components/rodape';
 import Sessao2 from '../../components/horario2';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate,useParams } from 'react-router-dom';
 
-export default function Compra3(){
+export default function Compra3(){    
+    const navigate = useNavigate();
+    const {idParam}= useParams();
+
+    function proxPag(){
+        navigate(`/compra4/${idParam}`)
+    }
+
     return(
         <section className='compra3-principal'>
             <CompraCima/>
@@ -42,7 +49,7 @@ export default function Compra3(){
                 <div className='total-botao'>
                     <p className='titulo2'>TOTAL: <span className='valor-total'>R$ 42,00</span></p>
                     <div className='botao-prosseguir'>
-                       <Link to='/compra4'> <p className='botao-ir'>PROSSEGUIR</p> </Link>
+                       <p onClick={proxPag} className='botao-ir'>PROSSEGUIR</p> 
                     </div>
                 </div>
             </div>

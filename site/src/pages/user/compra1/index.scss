@@ -228,8 +228,25 @@
             color: #ffff;
         }
 
+        .batida{
+            display: flex;
+            justify-content: center;
+        }
         
-
+        .botao-ir{
+            color: white;
+            background-color: #AE4EDB;
+            font-family: 'LM';
+            padding: 1em 5em;
+            border-radius: 20px;
+        }
+    
+        .botao-ir:hover{
+            cursor: pointer;
+            color: #AE4EDB;
+            background-color: #ffff;
+            transition: 0.3s;
+        }
        
 
 }
