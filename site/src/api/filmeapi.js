@@ -71,3 +71,8 @@ export async function consultaFilmeCartaz(){
     const asnwer= await api.get(`/filme/cartaz`)
     return asnwer.data;
 }
+
+export async function colocarFilmeDestaque(){
+    const asnwer= await api.get(`/filme/destaque`)
+    return asnwer.data;
+}
