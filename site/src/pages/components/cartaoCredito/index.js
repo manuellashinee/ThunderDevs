@@ -77,7 +77,7 @@ export default function CartaoCredito(props) {
 
     useEffect(() => {
         carregarCombo(idParamCombo)
-        calcularTotal(combo)
+        Number(calcularTotal(combo))
     }, [idParamCombo])
 
     return(
