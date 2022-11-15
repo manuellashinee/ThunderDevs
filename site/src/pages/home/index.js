@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom';
 import Cacete3 from '../components/cardshome';
 import Cabecalho from  '../components/cabecalho/index'
 import Rodape from '../components/rodape';
+import { useState, useEffect } from 'react';
+import { colocarFilmeDestaque } from '../../api/filmeapi';
+import DestaqueProps from '../components/destaque';
 
 
 export default function Home(){
+    const [destaque, setDestaque] = useState('');
 
     var counter = 1;
     setInterval(function(){
@@ -17,6 +21,15 @@ export default function Home(){
         }
     }, 5000);
 
+    async function verDestaque() {
+        const resp = await colocarFilmeDestaque();
+        setDestaque(resp);
+      }
+
+      useEffect(() => {
+        verDestaque();
+    
+      }, [])
     return(
         <section className='landing-page'>
 
@@ -93,13 +106,9 @@ export default function Home(){
                             <p>INGRESSO</p>
                             <p>R$ 42,00</p>
                         </div>
-                        <div className='luv'>
-                            <img className='cry' src='../images/mini.jpg'/>
-                            <p>INGRESSO</p>
-                            <p>R$ 42,00</p>
-                        </div>
 
-                        
+                      {// {destaque.map(item=> <DestaqueProps item={item}/>)}
+                      }                         
                     
                     
                     </div>
