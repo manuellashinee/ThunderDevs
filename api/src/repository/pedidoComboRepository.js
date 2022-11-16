@@ -133,8 +133,9 @@ export async function removerComboPedido(id){
                     delete from tb_pedido_combo 
                         where id_pedido_combo = ? `;
     const [resposta] = await con.query(comando, [id])
-    return resposta.affectedRows;
     console.log(resposta);
+    return resposta.affectedRows;
+  
 }
 
 
