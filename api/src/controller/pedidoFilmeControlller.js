@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { inserirAssentosPedido, pedidoFilme } from '../repository/pedidoFilmeRepository.js';
+import { inserirAssentosPedido, inserirPagamentoFilme, pedidoFilme } from '../repository/pedidoFilmeRepository.js';
 import { criarNovoPedidoFilme } from '../service/novoPedidoFilmeService.js';
 
 const server = Router();
@@ -15,10 +15,10 @@ server.post('/pedidoFilme/:idFilme', async (req, resp) => {
         for(let i =0; i<novoPedido.assentos.length;i++){
             const adass= await inserirAssentosPedido(novoPedido.assentos[i],idPedidoFilmeCriado);
         }
-        const idPagCombo = await inserirPagamentoCombo(info.pagamento, idPedidoFilmeCriado);
+        const idPagCombo = await inserirPagamentoFilme(info.pagamento, idPedidoFilmeCriado);
           
 
-         resp.status.send();
+         resp.status(204).send();
 
     }
     catch(err){

@@ -4,7 +4,7 @@ export function criarNovoPedidoFilme(idFilme, info) {
     return{
         idusuario : info.idusuario,
         idFilme : idFilme,
-        inteiras: info.interias,
+        inteiras: info.inteiras,
         meias:info.meias,
         total:info.total,
         pagamento: info.pagamento,
@@ -12,7 +12,7 @@ export function criarNovoPedidoFilme(idFilme, info) {
         data: agora,
         dataFilme: info.dataFilme,
         horario: info.horario,
-        sala:sala,
+        sala:info.sala,
         assentos: info.assentos
     }
 }
