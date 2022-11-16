@@ -43,7 +43,15 @@ export default function PedidosSnacks()  {
     
       }, [])
 
-    
+      useEffect(() => {
+        if(!storage('ADM-logado')){
+            navigate('/');
+        }
+        else{
+          const AdmLogado = storage('ADM-logado');
+          setAdm(AdmLogado.nome);
+        }
+    }, [])
 
     return(
         <section className='pedidos-combos'>

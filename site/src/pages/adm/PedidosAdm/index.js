@@ -13,14 +13,15 @@ export default function PedidosAdm() {
 
 
     useEffect(() => {
-        if(!storage('ADM-Logado')){
+        if(!storage('ADM-logado')){
             navigate('/homeadm');
         }
         else{
-          const admLogado = storage('ADM-Logado');
-          setAdm(admLogado.nome);
+          const AdmLogado = storage('ADM-logado');
+          setAdm(AdmLogado.nome);
         }
     }, [])
+  
 
     return (
 

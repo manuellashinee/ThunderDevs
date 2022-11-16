@@ -18,8 +18,7 @@ export default function Compra1(){
     const [filmeSalas, setFilmeSalas]= useState([]);
     const [data, setData]= useState();
     const [semana,setSemana]= useState([]);
-
-    const [atualizarTela,setAtualizarTela]= useState(0);
+    const [atualizarTela,setAtualizarTela]= useState("");
 
     const {idParam} = useParams();
 
@@ -85,9 +84,10 @@ export default function Compra1(){
     }
 
 
+
     useEffect(() => {
         dats();
-       // Storage('ingresso',[])
+        Storage('ingresso',[])
       }, [atual])
 
     return(
@@ -114,9 +114,8 @@ export default function Compra1(){
                 <p className='preco'>O PREÇO PODE VARIAR DE ACORDO COM A SUA ESCOLHA.</p>
             </div>
 
-            {filmeSalas.map(item=><div>
-                <Sala item={item}/>
-                
+            {filmeSalas.map(item=><div onClick={atualizarData}>
+                <Sala item={item} />
             </div>)}
             <div className='batida'> 
                  <p onClick={proxPag} className='botao-ir'>PROSSEGUIR</p> 

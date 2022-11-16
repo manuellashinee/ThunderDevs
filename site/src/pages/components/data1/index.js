@@ -17,25 +17,18 @@ export default function Data1(props){
     }
 
     function adicionarDataIngresso(data){
-        // let ingresso = []
-        // let dataMarcada= [];
+        let ingresso = [];
+        let dataMarcada= [];
 
-        // if(Storage('ingresso')){
-        //     ingresso = Storage('ingresso')
-        // }
-        // if(ingresso[Storage('ingresso').findIndex(item => item.data === item.data)]){
-        //     ingresso.splice(ingresso.findIndex(item => item.data === item.data), 1)
-        //     dataMarcada.splice(dataMarcada.findIndex(item => item === data), 1)
-        // }
-        // if(!ingresso.find(item=> item.data === data)){
-        //     ingresso.push({data:data})
-        //     dataMarcada.push(data)
-        // }
+        if(ingresso[Storage('ingresso').findIndex(item => item.data === item.data)]){
+           dataMarcada.splice(dataMarcada.findIndex(item => item === data), 1)
+        }
+         if(!ingresso.find(item=> item.data === data)){
+            dataMarcada.push(data)
+         }
         
-        Storage('ingresso', data);
+        Storage('ingresso', dataMarcada);
         props.atualizarData();
-        setDatapaPura(Math.random());
-        //console.log(dataMarcada);
     }
 
     useEffect(() => {
