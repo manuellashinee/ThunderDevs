@@ -18,6 +18,9 @@ export default function Compra1(){
     const [filmeSalas, setFilmeSalas]= useState([]);
     const [data, setData]= useState();
     const [semana,setSemana]= useState([]);
+
+    const [atualizarTela,setAtualizarTela]= useState(0);
+
     const {idParam} = useParams();
 
     function proxPag(){
@@ -77,10 +80,14 @@ export default function Compra1(){
         }
     }
 
+    function atualizarData() {
+        setAtualizarTela(Math.random());
+    }
+
 
     useEffect(() => {
         dats();
-        Storage('ingresso',[])
+       // Storage('ingresso',[])
       }, [atual])
 
     return(
@@ -99,7 +106,7 @@ export default function Compra1(){
             <div className='data-p'>
                 <div className='data-p2'>
                     {semana.map(item => 
-                    <Data1 item={item}/>)}
+                    <Data1 item={item} atualizarData={atualizarData} />)}
                 </div>
             </div>
             <div className='textos-p2'>
