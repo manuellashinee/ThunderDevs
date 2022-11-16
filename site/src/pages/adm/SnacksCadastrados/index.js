@@ -34,7 +34,15 @@ export default function SnackCadastro() {
         carregarCombos();
     }, [])
 
-
+    useEffect(() => {
+        if(!storage('ADM-logado')){
+            navigate('/');
+        }
+        else{
+          const AdmLogado = storage('ADM-logado');
+          setAdm(AdmLogado.nome);
+        }
+    }, [])
 
     return (
         <section className='combos-cadastrados'>

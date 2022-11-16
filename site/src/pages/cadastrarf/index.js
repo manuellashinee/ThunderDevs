@@ -9,6 +9,7 @@ import storage from 'local-storage'
 import { useParams} from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cadastrar(){
     const [fraquias, setFranquias] = useState([]);
@@ -30,8 +31,8 @@ export default function Cadastrar(){
     const [imagem, setImagem] = useState();
     const [idfilme, setIdFilme] = useState(0);
     const {idParam} = useParams();
-    
-   
+    const [adm, setAdm] = useState();
+    const navigate = useNavigate();
 
     async function carregarFilme(){
         const [resposta] = await buscarFilmePorId(Number(idParam));
@@ -129,6 +130,16 @@ export default function Cadastrar(){
             return buscarImagem(imagem);
         }
     }
+
+    useEffect(() => {
+        if(!storage('ADM-logado')){
+            navigate('/homeadm');
+        }
+        else{
+          const AdmLogado = storage('ADM-logado');
+          setAdm(AdmLogado);
+        }
+    }, [])
 
     return (
         <section className='pagina-cadastro'>
