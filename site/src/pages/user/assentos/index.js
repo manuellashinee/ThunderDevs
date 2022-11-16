@@ -5,11 +5,13 @@ import CabecalhoP from '../../components/cabecalho-sem-p';
 import Rodape from '../../components/rodape';
 import { useEffect, useState } from 'react';
 import { assentosEmIngresso, assentosSalas } from '../../../api/assentosApi.js';
+import Storage from "local-storage";
 import { buy } from './sevices.js';
 
 export default function Assento(){
     const navigate = useNavigate();
     const [assentos,setAssentos] = useState([])
+    const [assentosas,setAssentosas] = useState([])
     const [jaComprados, setJaComprados]= useState([]);
     const [ assentosSelecionados, setAssentosSelecionados]= useState([])
     const {idParam} = useParams();
@@ -24,18 +26,26 @@ export default function Assento(){
     function proxPag(){
         navigate(`/compra3/${idParam}`)
     }
-
-    function assentosEscolhidos(idassetno){
+    function assentosEscolhidos(idassento,fil,ass){
         let novosAssentos = [...assentosSelecionados];
+        let x= [...assentosas]
 
-        if (assentosSelecionados.find(item => item === idassetno)){
-            novosAssentos.splice(novosAssentos.findIndex(item => item === idassetno), 1);
+        if (assentosSelecionados.find(item => item.idassento === idassento)){
+            novosAssentos.splice(novosAssentos.findIndex(item => item.idassento === idassento), 1);
+           
         }
         else {
-            novosAssentos.push(idassetno);
+            novosAssentos.push(idassento)
+            x.push({idassento:idassento,
+            fileira:fil,
+            assento:ass}
+            );
         }
         setAssentosSelecionados(novosAssentos);
+        setAssentosas(x);
         console.log(novosAssentos);
+        console.log(x);
+
     }
 
     useEffect(() => {
@@ -59,12 +69,12 @@ export default function Assento(){
                             item.assento === 15? 
                             <div>
                             <br/>
-                            <span onClick={()=> assentosEscolhidos(item.idassento)}>
+                            <span onClick={()=> assentosEscolhidos(item.idassento, item.fileira, item.assento)}>
                                 <p className={buy(jaComprados,assentosSelecionados,item.idassento)}>A</p>
                             </span>
                             </div>
                             :
-                            <span onClick={()=> assentosEscolhidos(item.idassento)}>
+                            <span onClick={()=> assentosEscolhidos(item.idassento, item.fileira, item.assento)}>
                                 <p className={buy(jaComprados,assentosSelecionados,item.idassento)}>A</p>
                             </span>
                             )}
