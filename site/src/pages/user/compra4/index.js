@@ -48,10 +48,6 @@ export default function Compra4(){
                 </div>
 
                 <div className='cartao2'>
-                    <div className='campo2'>
-                            <p className='texto-pagar'>VALOR:<span className='cartao-texto'>R$ 42,00</span></p>
-                            <p className='texto-pagar'>TAXA:<span className='cartao-texto'>R$ 05,00</span></p>
-                    </div>
                     <hr/>
                     <div className='texto-centro'>
                     <p className='texto-pagar'>TOTAL:<span className='cartao-texto'>R$ 47,00</span></p>
