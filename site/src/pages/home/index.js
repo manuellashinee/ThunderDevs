@@ -91,7 +91,13 @@ export default function Home(){
                 
                 <div className='after-hours'>
                     <div className='Pray'>
-
+                   
+                        
+                        <div className='luv'>
+                            <img className='cry' src='../images/mini.jpg'/>
+                            <p>INGRESSO</p>
+                            <p>R$ 42,00</p>
+                        </div>
                       {destaque.map(item=> 
                       <DestaqueProps item={item}/>)
                       }
