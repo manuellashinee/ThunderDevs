@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { prePedidoFilmeSala } from '../../../api/filmeHorario.js';
 import { useParams } from 'react-router-dom';
 import { Link, useNavigate} from 'react-router-dom';
+import Storage from "local-storage";
 
 export default function Compra1(){
     const navigate = useNavigate();
@@ -79,6 +80,7 @@ export default function Compra1(){
 
     useEffect(() => {
         dats();
+        Storage('ingresso',[])
       }, [atual])
 
     return(

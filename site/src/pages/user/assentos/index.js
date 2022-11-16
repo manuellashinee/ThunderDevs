@@ -18,10 +18,6 @@ export default function Assento(){
         const ass= await assentosSalas();
         const comprados = await assentosEmIngresso(idParam,"13:00",1)
         setAssentos(ass);
-        console.log(comprados);
-        
-        console.log(ass);
-
         setJaComprados(comprados);
     }
 

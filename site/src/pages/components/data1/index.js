@@ -6,7 +6,6 @@ import { datam } from './service.js';
 
 export default function Data1(props){
     const [dataform,setDataForm] = useState("")
-    const [marca, setMarca] = useState(false)
     const [datapaPura, setDatapaPura] = useState([])
 
     function tenis(){
@@ -14,9 +13,7 @@ export default function Data1(props){
         setDataForm(dataFormatada);
         console.log(props.item);
         
-        let dataMarcada= [];
-        dataMarcada.push(Storage('ingresso')[Storage('ingresso').findIndex(item => item.data === item.data)].data)
-        setDatapaPura(dataMarcada)
+    
     }
 
     function adicionarDataIngresso(data){
@@ -26,7 +23,7 @@ export default function Data1(props){
         if(Storage('ingresso')){
             ingresso = Storage('ingresso')
         }
-        if(ingresso[0]){
+        if(ingresso[Storage('ingresso').findIndex(item => item.data === item.data)]){
             ingresso.splice(ingresso.findIndex(item => item.data === item.data), 1)
             dataMarcada.splice(dataMarcada.findIndex(item => item === data), 1)
         }
