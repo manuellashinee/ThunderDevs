@@ -30,9 +30,9 @@ export default function Assento(){
         let novosAssentos = [...assentosSelecionados];
         let x= [...assentosas]
 
-        if (assentosSelecionados.find(item => item.idassento === idassento)){
-            novosAssentos.splice(novosAssentos.findIndex(item => item.idassento === idassento), 1);
-           
+        if (assentosSelecionados.find(item => item === idassento)){
+            novosAssentos.splice(novosAssentos.findIndex(item => item === idassento), 1);
+            x.splice(x.findIndex(item => item.idassento === idassento), 1)
         }
         else {
             novosAssentos.push(idassento)
