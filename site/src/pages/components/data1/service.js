@@ -5,7 +5,7 @@ export function datam(dataok, data){
     console.log(Storage('ingresso'));
     console.log(data);
 
-    if (Storage('ingresso') === data)
+    if (Storage('ingresso')[0] === data)
         return('datainversa')
     else 
         return('data-p');

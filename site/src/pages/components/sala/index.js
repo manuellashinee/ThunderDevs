@@ -5,25 +5,19 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { prePedidoFilmeHoras } from '../../../api/filmeHorario.js';
 import { ToastContainer, toast } from 'react-toastify';
-import Storage from 'local-storage';
+import Storage, { set } from 'local-storage';
 
 export default function Sala(props){
     const [filmeHoras, setFilmeHoras]= useState([]);
     const {idParam} = useParams();
-    const [ horapura, setHorapura] = useState([]);
+    const [ horapura, setHorapura] = useState();
 
-    function marcadin(horasTotais,hora) {
-        if (horasTotais.find(item => item=> item.horario === hora))
-            return true;
-        else
-            return false;
-    }
-    
     
     async function pegarHoras(){
         const f= await prePedidoFilmeHoras(idParam,props.item.sala);
         setFilmeHoras(f);
     }
+
 
     
     function adicionarHrSlIngresso(sala,hora){
@@ -66,7 +60,7 @@ export default function Sala(props){
             <div className='salas'>
                    { filmeHoras.map(item => 
                    <span onClick={e=>adicionarHrSlIngresso(props.item.sala,item.HORARIO)}>
-                   <Hora3 item={item} marcado={marcadin(horapura,horapura[0])} />
+                   <Hora3 item={item}/>
                    </span>)}
             </div>
         </section>
