@@ -1,29 +1,63 @@
 import { useState } from 'react';
 import './index.scss';
-import { alterarStatusPedido } from '../../../api/pedidoAPI.js';
+import { alterarStatusPedido1 } from '../../../api/pedidoAPI.js';
+import { toast, ToastContainer } from 'react-toastify';
 
 export default function PedidoSnack(props) {
-    const [resposta, setResposta] = useState('');
+    const [resposta, setResposta] = useState();
+    const[status, setStatus]= useState('ACEITO');
 
-    function mostrarImagem(imagem) {
+    const[status2, setStatus2]= useState('RECUSADO');
+
+        function mostrarImagem(imagem) {
         if (!imagem)
           return './images/logo.svg'
         else
           return `http://localhost:5000/${imagem}`
-      }
+        }
 
-      function aceitou(){
-        setResposta('Aceito !');
-        alterarStatusPedido(props.item.id);
-      }
-      function recusou(){
-        setResposta('Recusado !');
-        alterarStatusPedido(props.item.id);
-      }
+     
+
+        async function alterarPedidox() {
+            try{
+                const pedidoId = props.item.id;
+                console.log(pedidoId)
+
+                const r = await alterarStatusPedido1(pedidoId, status)
+
+                toast.success('Status alterado com sucesso')
+            }catch (err) {
+                toast.err(err.response.data.erro)
+            }
+
+    
+    }
+
+    async function alterarPedidoJ() {
+        try{
+            const pedidoId = props.item.id;
+            console.log(pedidoId)
+
+            const r = await alterarStatusPedido1(pedidoId, status2)
+
+            toast('Status alterado com sucesso')
+        }catch (err) {
+            toast(err.response.data.erro)
+        }
+    }
+            
+    
+    function BatataDoce(){
+        const pedidoId = props.pedidoId;
+        alert(pedidoId)
+    }
+
+
 
 
     return(
         <section className="lanches">
+            <ToastContainer/>
             
         <div className='borda'>
            
@@ -83,13 +117,19 @@ export default function PedidoSnack(props) {
         </div>
         <div className='edit'>
         <div className='taltal'>
-        <img className='aceitar-img' src='../images/check_circle.svg'/>
-        <button onClick={aceitou}>ACEITAR</button>
+        <button className='botaotal' onClick={alterarPedidox}><img className='aceitar-img' src='../images/check_circle.svg'/></button>
+        <p>ACEITAR</p>
         </div>
 
+        <input className='oi' type='text' value={status} onChange = {e => setStatus(e.target.value)}/>
+
         <div className='taltal'>
-        <img className='remove-img' src='../images/circle-x.svg'/>
-        <button onClick={recusou}>RECUSAR</button>
+        <button className='botaotal' onClick={alterarPedidoJ}><img className='remove-img' src='../images/circle-x.svg'/></button>
+        <p>RECUSAR</p>
+
+
+        <input className='oi' type='text' value={status2} onChange = {e => setStatus2(e.target.value)}/>
+
         </div>
        
         

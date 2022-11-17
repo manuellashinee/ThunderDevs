@@ -56,7 +56,7 @@ export default function Cadastrarcombo(){
     }
 
     async function carregarCombo(){
-        const [resposta] = await buscarPorId(Number(idParam));
+        const resposta = await buscarPorId(Number(idParam));
         setDescricao(resposta.descricao);
         setPreco(resposta.preco);
         setNome(resposta.nome);

@@ -34,9 +34,7 @@ export default function Home(){
         <section className='landing-page'>
 
             <Cabecalho/>
-
             
-
         <div className='container2'>
       <div class="slider">
         <div class="slides">
@@ -94,11 +92,6 @@ export default function Home(){
                     <div className='Pray'>
                    
                         
-                        <div className='luv'>
-                            <img className='cry' src='../images/mini.jpg'/>
-                            <p>INGRESSO</p>
-                            <p>R$ 42,00</p>
-                        </div>
                       {destaque.map(item=> 
                       <DestaqueProps item={item}/>)
                       }
