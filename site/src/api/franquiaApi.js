@@ -1,7 +1,8 @@
-import axios from "axios" ;
+
+import { api } from "./url";
 
 
 export async function consultarFranquias(){
-    const asnwer = await axios.get('http://localhost:5000/franquia');
+    const asnwer = await api.get('/franquia');
     return asnwer.data;
 }

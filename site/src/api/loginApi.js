@@ -1,7 +1,8 @@
-import axios from "axios" ;
+
+import { api } from "./url";
 
 export async function loginUsu(email, senha) {
-    const asnwer = await axios.post('http://localhost:5000/usuario/login' , {
+    const asnwer = await api.post('/usuario/login' , {
         email : email, 
         senha : senha 
     });
