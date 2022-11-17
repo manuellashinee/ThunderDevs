@@ -7,6 +7,7 @@ import Rodape from '../components/rodape';
 import { useState, useEffect } from 'react';
 import { colocarFilmeDestaque } from '../../api/filmeapi';
 import DestaqueProps from '../components/destaque';
+import Storage from "local-storage";
 
 
 export default function Home(){
@@ -28,7 +29,7 @@ export default function Home(){
 
       useEffect(() => {
         verDestaque();
-    
+        Storage('ingresso',[]);
       }, [])
     return(
         <section className='landing-page'>
