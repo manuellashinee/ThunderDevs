@@ -1,10 +1,39 @@
 import { useEffect, useState } from 'react';
-import { assentosIngresso } from '../../../api/pedidoFilmeApi.js';
+import { assentosIngresso, mudarStatusPedidoFilme } from '../../../api/pedidoFilmeApi.js';
 import { AseentosP } from '../assentospedidos/index.js';
+import { toast, ToastContainer } from 'react-toastify';
 import './index.scss';
 
 export default function PedidosFeitos(props) {
     const [assent,setAssent]= useState([]);
+    const[status, setStatus]= useState(1);
+    const[status2, setStatus2]= useState(0);
+
+    
+    async function alterarPedidox() {
+        try{
+            const pedidoId = props.item.idingresso;
+            console.log(pedidoId)
+
+            const r = await mudarStatusPedidoFilme(status,pedidoId)
+        }catch (err) {
+            toast.err(err.response.data.erro)
+        }
+
+
+    }
+
+    async function alterarPedidoJ() {
+    try{
+        const pedidoId = props.item.idingresso;
+
+        const r = await mudarStatusPedidoFilme(status2,pedidoId)
+
+    }catch (err) {
+        toast(err.response.data.erro)
+    }
+    }
+
 
     
     function mostrarImagem(imagem) {
@@ -12,12 +41,11 @@ export default function PedidosFeitos(props) {
           return './images/logo.svg'
         else
           return `http://localhost:5000/${imagem}`
-      }
+    }
 
       
       async function verAssentos(id){
         const x= await assentosIngresso(id)
-        console.log(x)
         setAssent(x);
       }
 
@@ -28,7 +56,7 @@ export default function PedidosFeitos(props) {
 
     return(
     <section className="pedidos-feitos">
-            
+            <ToastContainer/>
             <div className='borda'>
                
                 
@@ -149,12 +177,12 @@ export default function PedidosFeitos(props) {
             <div className='edit'>
 
                 <div className='aceitar-recusa'>
-                    <div><img className='check-img' src='../images/check_circle.svg' /></div>
+                    <div><img className='check-img' src='../images/check_circle.svg' onClick={alterarPedidox} /></div>
                     <div><p className='a-r'>ACEITAR</p></div>
                 </div>
 
                 <div className='aceitar-recusa'>
-                    <div><img className='remove-img' src='../images/circle-x.svg' /></div>
+                    <div><img className='remove-img' src='../images/circle-x.svg'onClick={alterarPedidoJ} /></div>
                     <div><p className='a-r'>RECUSAR</p></div>
                 </div>
       

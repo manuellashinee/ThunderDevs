@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { assentosIngresso } from '../../../api/pedidoFilmeApi';
+import { assentosIngresso, tirarFilmePedido } from '../../../api/pedidoFilmeApi';
 import { AseentosP } from '../assentospedidos';
+import { confirmAlert } from 'react-confirm-alert';
 import './index.scss';
 
 export default function MeusPedidos(props) {
@@ -19,6 +20,34 @@ export default function MeusPedidos(props) {
         console.log(x)
         setAssent(x);
       }
+
+      
+      async function recarregarPageFilme(){
+        window.location.reload();
+     }
+
+      async function removerFilmeClick(id, nome){
+        confirmAlert({
+            title: 'Remover filme',
+            message:`Deseja remover ${nome}?`,
+            buttons: [
+              {
+                label: 'Sim',
+                onClick: async () => {
+                    const resposta = await tirarFilmePedido(id)
+                    recarregarPageFilme();
+                    
+                }
+              },
+              {
+                label:'Não'
+              }
+            ]
+          })
+      
+    }
+
+
 
       useEffect(()=>{
         verAssentos(props.item.idingresso)
@@ -155,7 +184,7 @@ export default function MeusPedidos(props) {
                 <div>
                     <div>
                         <div>
-                            <img className='situ' src='../images/circle-x.svg' />
+                            <img onClick={()=>removerFilmeClick(props.item.idingresso,"ingresso")} className='situ' src='../images/circle-x.svg' />
                         </div>
                     </div>
                 </div>

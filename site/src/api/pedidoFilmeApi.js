@@ -24,12 +24,12 @@ export async function assentosIngresso(idingresso){
 
 
 export async function tirarFilmePedido(id) {
-    const resposta = await api.delete(`/pedido/filme${id}`);
+    const resposta = await api.delete(`/pedido/filme/${id}`);
     return resposta.status;
 }
 
 
-export async function mudarStatusPedidoFilme(id,status) {
-    const resposta = await api.put(`consulta/status/pedido/filme/${id}`,{status});
+export async function mudarStatusPedidoFilme(pedido,id) {
+    const resposta = await api.put(`consulta/status/pedido/filme/${id}`,{pedido});
     return resposta.data;
 }

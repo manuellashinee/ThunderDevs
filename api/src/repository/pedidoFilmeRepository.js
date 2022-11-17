@@ -127,13 +127,14 @@ export async function removerFilmepedido(id){
                     delete from tb_ingresso
                         where id_ingresso = ? `;
     const [resposta] = await con.query(comando, [id])
-    console.log(resposta);
     return resposta.affectedRows;
   
 }
 
 
 export async function removerFilmePagamento(id){
+    
+    console.log(id)
     const comando= `    
                     delete from tb_pagamento_filme
                         where id_ingresso = ? `;
@@ -142,13 +143,14 @@ export async function removerFilmePagamento(id){
 }
 
 
-export async function alterarStatusPedidoFilme(idpedido, status){
+export async function alterarStatusPedidoFilme(statusa,idpedido){
     const comando= `    
-        update tb_ingresso
-        set ds_status = ?
-        where id_ingresso = ?
+    update tb_ingresso
+    set ds_status = ?
+    where id_ingresso = ?
+            
     `;
-    const [resposta] = await con.query(comando, [ status,idpedido])
+    const [resposta] = await con.query(comando, [ statusa,idpedido])
     return resposta.affectedRows;
 }
 

@@ -77,11 +77,11 @@ server.get('/assento/pedido/:ingresso',async (req,resp)=>{
 
 server.delete('/pedido/filme/:id', async (req, resp)=>{
     try{
-        const  id = req.params.id;
-        
+        const  {id} = req.params;
         
         await removerFilmePagamento(id);
         await removerFilmepedido(id);
+    
         
         
 
@@ -98,10 +98,10 @@ server.delete('/pedido/filme/:id', async (req, resp)=>{
 
 server.put('/consulta/status/pedido/filme/:id', async (req, resp)=>{
     try{
-        const {id} = req.params.id;
-        const pedido = req.body;
-        const resposta = await alterarStatusPedidoFilme(id, pedido.status);
-        resp.send(resposta);
+        const {id} = req.params;
+        const perele = req.body;
+        const resposta = await alterarStatusPedidoFilme(perele.pedido,id);
+        resp.send();
     }
         catch (err) {
             return resp.status(400).send({

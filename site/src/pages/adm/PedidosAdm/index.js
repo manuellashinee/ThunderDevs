@@ -14,7 +14,7 @@ export default function PedidosAdm(){
     async function carregarIngreessos(){
         const x= await todosIngressos();
         setIngressos(x);
-    
+        console.log(x)
     }
 
 
