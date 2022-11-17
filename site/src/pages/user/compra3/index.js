@@ -7,6 +7,7 @@ import Sessao2 from '../../components/horario2';
 import { Link, useNavigate,useParams } from 'react-router-dom';
 import Storage from "local-storage";
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 export default function Compra3(){    
     const navigate = useNavigate();
@@ -25,7 +26,7 @@ export default function Compra3(){
 
     function proxPag(){
         if(Number(meias)+Number(inteiras) != Storage('ingresso')[2].assentos.length){
-            alert('os Ingressos comprados devem ser iguais a quantidade de assentos')
+            toast.error('Os ingressos comprados devem ser iguais a quantidade de assentos')
         }else{
             if(Storage('ingresso')[3]){
                 dadostotais.splice(3,1)
