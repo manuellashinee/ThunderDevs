@@ -57,12 +57,10 @@ server.get('/consulta/pedido/combo', async (req, resp) =>{
 server.delete('/pedido/combo/:id', async (req, resp)=>{
     try{
         const  id = req.params.id;
+        const resposta2 = await removerComboPagamento(id);
+        const resposta = await removerComboPedido(id);
+       
         
-        await removerComboPedido(id);
-        await removerComboPagamento(id);
-        
-        
-
         resp.status(204).send();
     }
     catch (err) {
@@ -99,16 +97,21 @@ server.get('/consulta/nomepedido/combousuario', async (req, resp)=>{
 })
 
 server.put('/consulta/status/pedido/combo/:id', async (req, resp)=>{
-    try{
-        const {id} = req.params.id;
-        const pedido = req.body;
-        const resposta = await alterarStatusPedido(id, pedido);
-        resp.send(resposta);
-    }
+        try {
+            const { id } = req.params;
+            const status = req.body;
+    
+            const resposta = await alterarStatusPedido(id, status);
+            if (resposta != 1)
+                throw new Error('pedido  não pode ser alterado')
+            else
+                resp.status(204).send();
+        }
+    
         catch (err) {
-            return resp.status(400).send({
+            resp.status(400).send({
                 erro: err.message
-            })
+            });
         }
 })
 

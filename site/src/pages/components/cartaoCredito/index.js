@@ -23,6 +23,8 @@ export default function CartaoCredito(props) {
     async function carregarCombo(){
         const resp= await buscarPorId(idParamCombo)
         setCombo(resp);
+
+        calcularTotal(resp)
     }
 
 
@@ -69,15 +71,14 @@ export default function CartaoCredito(props) {
     }
 
 
-    function calcularTotal(){
+    function calcularTotal(combo){
         let total = Number(combo.preco) + 5.00;
         setTotal(Number(total));
-        console.log(combo.preco)
+        console.log(combo)
     }
 
     useEffect(() => {
-        carregarCombo(idParamCombo)
-        Number(calcularTotal(combo))
+        carregarCombo()
     }, [idParamCombo])
 
     return(
@@ -99,7 +100,7 @@ export default function CartaoCredito(props) {
                             <input  className='input-pagar' type='text' value={nome} onChange={e => setNome(e.target.value)}/>
                             <p className='texto-pagar'>FORMA DE PAGAMENTO</p>
                             <select className='input-pagar' value={formaPagamento}  onChange={e => setFormaPagamento(e.target.value)}>
-                                <option disabled selected hidden> Selecione </option>
+                                <option selected hidden> Selecione </option>
                                 <option>CRÉDITO</option>
                                 <option>DÉBITO</option>
                             </select>
@@ -113,7 +114,7 @@ export default function CartaoCredito(props) {
 
                             <p className='texto-pagar'>BANDEIRA</p>
                             <select className='input-pagar' value={bandeira}  onChange={e => setBandeira(e.target.value)}>
-                                <option disabled selected hidden> Selecione</option>
+                                <option selected hidden> Selecione</option>
                                 <option value={"elo"}>ELO</option>
                                 <option value={"mastercard"}>Mastercard</option>
                                 <option value={"visa"}>Visa</option>
@@ -129,7 +130,7 @@ export default function CartaoCredito(props) {
                     </div>
                     <hr/>
                     <div className='texto-centro'>
-                    <p className='texto-pagar'>TOTAL:<span className='cartao-texto'>{total}</span></p>
+                    <p className='texto-pagar'>TOTAL:<span className='cartao-texto'>{total},00</span></p>
                     </div>
                 </div>
 

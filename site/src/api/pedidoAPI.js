@@ -34,8 +34,7 @@ export async function FiltrarComboNomeAdm(nomeusuario){
     return asnwer.data;
 }
 
-
-export async function alterarStatusPedido(id) {
-    const resposta = await api.put(`consulta/status/pedido/combo/${id}`);
-    return resposta.data;
-}
+export async function alterarStatusPedido1(id,status) {
+    const r = await api.put(`/consulta/status/pedido/combo/` + id, {status});
+    return r.data;
+ }

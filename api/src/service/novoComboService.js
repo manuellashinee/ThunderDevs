@@ -6,7 +6,7 @@ export function criarNovoPedidoCombo(idUsuario, info) {
         idcombo : info.idcombo,
         pagamento: info.pagamento,
         data: agora,
-        status: '',
+        status: 'Esperando Confirmação...',
         total: info.total
     }
 }

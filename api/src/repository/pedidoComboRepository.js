@@ -134,25 +134,24 @@ export async function removerComboPedido(id){
                         where id_pedido_combo = ? `;
     const [resposta] = await con.query(comando, [id])
     return resposta.affectedRows;
-    console.log(resposta);
 }
 
 
 export async function removerComboPagamento(id){
     const comando= `    
-                    delete from tb_pagamento_combo 
-                        where id_pagamento_combo = ? `;
+        delete from tb_pagamento_combo 
+            where id_pedido_combo = ? `;
     const [resposta] = await con.query(comando, [id])
     return resposta.affectedRows;
 }
 
-export async function alterarStatusPedido(idpedido, status){
+export async function alterarStatusPedido(id, pedido){
     const comando= `    
         update tb_pedido_combo 
         set ds_status = ?
         where id_pedido_combo = ?
     `;
-    const [resposta] = await con.query(comando, [idpedido.id, status])
+    const [resposta] = await con.query(comando, [ pedido.status, id])
     return resposta.affectedRows;
 }
 
