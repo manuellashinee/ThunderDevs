@@ -3,7 +3,7 @@ const server = Router();
 
 import multer from "multer" ;
 import { removerComents } from '../repository/comentarioRepository.js';
-import { cadastroFilme, alterarImagem, consultarTodosFilme, consultarFilmeGenero, consultarFilmeFranquia, removerFilme, alterarFilme, pesquisarFilmeNome, consultarFilmeId, filmeEmBreve, filmeEmCartaz, filmeDestaque, removerFilmeSala, removerFilmeSalaHora, verIDFilmeSala} from '../repository/filmeRepository.js';
+import { cadastroFilme, alterarImagem, consultarTodosFilme, consultarFilmeGenero, consultarFilmeFranquia, removerFilme, alterarFilme, pesquisarFilmeNome, consultarFilmeId, filmeEmBreve, filmeEmCartaz, filmeDestaque, removerFilmeSala, removerFilmeSalaHora, verIDFilmeSala, verinrgressoFilme, deletarPagamento, deletarAssentos, deletaIngresso} from '../repository/filmeRepository.js';
 const upload = multer({dest: 'storage/fotosfilmes'}) 
 
 server.post('/adm/filme', async (req, resp) =>{
@@ -84,9 +84,15 @@ server.delete('/adm/filme/:id', async (req, resp)=>{
         const  {id} = req.params;   
         
         const idsFilmeSala = await verIDFilmeSala(id)
+        const idsIngressos = await verinrgressoFilme(id)
+        for(let i=0; i<idsIngressos.length;i++){
+            const remove5= await deletarPagamento(idsIngressos[i].idingresso)
+            const remove6= await deletarAssentos(idsIngressos[i].idingresso)
+        }
         for(let i=0; i<idsFilmeSala.length;i++){
         const remove4 = await removerFilmeSalaHora(idsFilmeSala[i].idsala)
         }
+        const remove7= await deletaIngresso(id);
         const remove3= await removerFilmeSala(id)
         const remove2= await removerComents(id);
         const remove = await removerFilme(id);

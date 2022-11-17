@@ -286,4 +286,41 @@ export async function verIDFilmeSala(idfilme){
 }
 
 
+export async function verinrgressoFilme(idfilme){
+    const comando= `select id_ingresso idingresso
+    from tb_ingresso
+    where id_filme=?`;
+    const [resposta]= await con.query(comando, [idfilme])
+    return resposta;
+}
+
+
+export async function deletarPagamento(idingresso){
+    const comando= `delete from tb_pagamento_filme
+    where id_ingresso = ?`;
+    const [resposta]= await con.query(comando, [idingresso])
+    return resposta.affectedRows;
+}
+
+
+export async function deletarAssentos(idingresso){
+    const comando= `
+                    delete from tb_ingresso_assento
+                        where id_ingresso = ?`;
+    const [resposta]= await con.query(comando, [idingresso])
+    return resposta.affectedRows;
+}
+
+
+export async function deletaIngresso(idfilme){
+    const comando= `
+                    delete from tb_ingresso
+                        where id_filme = ?`;
+    const [resposta]= await con.query(comando, [idfilme])
+    return resposta.affectedRows;
+}
+
+
+
+
 //select idingresso where id_filme 
