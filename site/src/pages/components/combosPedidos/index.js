@@ -92,12 +92,20 @@ export default function MeusCombos(props) {
 
                             <div className='padrao '>
                                 <div>
+                                   
+                                    {props.item.status === 'ACEITO' ?
+                                <div>
                                     <h1>SITUAÇÃO:<span className='verde'>{props.item.status}</span></h1>
+                                </div> :
+                                <div>
+                                    <h1>SITUAÇÃO:<span className='vermelho'>{props.item.status}</span></h1>
+                                </div>}
                                 </div><span className='vermelho'></span>
                                 
 
                                 <div className='desc'>
                                     <label className='total'>{props.situacao}</label>
+                                    
                                 </div>
                             </div>
 

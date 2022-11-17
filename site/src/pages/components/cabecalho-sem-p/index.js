@@ -31,7 +31,7 @@ export default function CabecalhoP(){
                 </div>
                 <div className='foto'>
                    <div className='foto-perfil'>
-                   <div><span className='letra-user'>{usuario[0]}</span></div>
+                   <div className='set'><span className='letra-user'>{usuario[0]}</span></div>
                    <div><p className='nome-user'>{usuario}</p></div>
                    </div>
                 </div>

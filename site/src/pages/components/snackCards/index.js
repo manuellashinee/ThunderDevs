@@ -117,14 +117,14 @@ export default function PedidoSnack(props) {
         </div>
         <div className='edit'>
         <div className='taltal'>
-        <button className='botaotal' onClick={alterarPedidox}><img className='aceitar-img' src='../images/check_circle.svg'/></button>
+        <img onClick={alterarPedidoJ} className='aceitar-img' src='../images/check_circle.svg'/>
         <p>ACEITAR</p>
         </div>
 
         <input className='oi' type='text' value={status} onChange = {e => setStatus(e.target.value)}/>
 
         <div className='taltal'>
-        <button className='botaotal' onClick={alterarPedidoJ}><img className='remove-img' src='../images/circle-x.svg'/></button>
+        <img onClick={alterarPedidoJ} className='remove-img' src='../images/circle-x.svg'/>
         <p>RECUSAR</p>
 
 
