@@ -7,3 +7,29 @@ export async function salvarNovoPedidoFilme(idfilme, novoPedido){
     console.log(err.message)
 };
 }
+
+export async function todosIngressos(){
+    const r = await api.get(`/pedidosfilme`);
+    return r.data
+}
+export async function ingressosUsuario(idusu){
+    const r = await api.get(`/pedidosfilme/${idusu}`);
+    return r.data
+}
+export async function assentosIngresso(idingresso){
+    const r = await api.get(`/assento/pedido/${idingresso}`);
+    return r.data
+}
+
+
+
+export async function tirarFilmePedido(id) {
+    const resposta = await api.delete(`/pedido/filme${id}`);
+    return resposta.status;
+}
+
+
+export async function mudarStatusPedidoFilme(id,status) {
+    const resposta = await api.put(`consulta/status/pedido/filme/${id}`,{status});
+    return resposta.data;
+}

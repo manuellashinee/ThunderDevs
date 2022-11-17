@@ -5,12 +5,18 @@ import MeusPedidos from '../../components/meusPedidos/index'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage'
+import { ingressosUsuario } from '../../../api/pedidoFilmeApi.js';
 
-export default function MyPedido()  {
-
+export default function MyPedido(){
+    const [ingressos,setIngressos]=useState([])
     const [usuario, setUsuario ] = useState('');
 
     const navigate = useNavigate();
+
+    async function carregarIngreessos(){
+        const x= await ingressosUsuario(storage('usuario-logado').id);
+        setIngressos(x);
+    }
 
     useEffect(() => {
         if(!storage('usuario-logado')) {
@@ -19,13 +25,15 @@ export default function MyPedido()  {
             const usuarioLogado = storage('usuario-logado');
             setUsuario(usuarioLogado.nome)
         }
-    },{})
+
+        carregarIngreessos();
+    },[])
 
     return(
     <section className='meus-pedidos'>
         <section className='salvados'>
             
-    <div className='head'>
+        <div className='head'>
         <div className='cabecalho-pesquisa'>
             <div>
                 <img className='logo' src='../images/logo.svg'/>
@@ -57,9 +65,9 @@ export default function MyPedido()  {
             <Link to='/catalogo'>  <img className='voltar'  src='../images/Arrow 1.svg'/></Link>
             </div>
         </div>
-
-        <MeusPedidos capa='../images/mini.jpg' nome='MINIONS 2' usuario='MANUELLA' meias='2' inteiras='2' pagamento='credito' sala='2' assento='D6'  hora='13' exibicao='01/12/99' total='127,00' />
-           
+        
+        {ingressos.map(item=>
+        <MeusPedidos item={item} />)}  
         </section>
     </section>
     )

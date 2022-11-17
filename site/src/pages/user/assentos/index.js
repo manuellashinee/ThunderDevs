@@ -18,7 +18,7 @@ export default function Assento(){
     
     async function selectAssentos(){
         const ass= await assentosSalas();
-        const comprados = await assentosEmIngresso(idParam,"13:00",1)
+        const comprados = await assentosEmIngresso(idParam,Storage('ingresso')[1].horario,Storage('ingresso')[1].sala)
         setAssentos(ass);
         setJaComprados(comprados);
 

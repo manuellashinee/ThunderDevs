@@ -66,3 +66,89 @@ export async function inserirPagamentoFilme(pagamentoFilme,idpedido){
         ]);
         return info.affectedRows;
 }
+
+
+export async function consultarPedidosfilmesGeral(){
+    const comando = `select tb_ingresso.id_ingresso as idingresso,
+                    Nm_usuario as usuario,
+                    NM_filme as filme,
+                    img_capa as capa,
+                    NR_INTEIRAS AS inteiras,
+                    NR_MEIAS AS meias,
+                    DS_FORMA_PAGAMENTO as formaDePagamento,
+                    VL_TOTAL AS TOTAL,
+                    DS_STATUS AS statusa,
+                    DT_EXIBICAO AS dataExibicao,
+                    ds_horario as horario,
+                    nr_sala as sala
+                    from TB_ingresso
+                    Inner join tb_usuario on tb_usuario.id_usuario = TB_ingresso.id_usuario
+                    Inner join tb_filme on tb_filme.id_filme = TB_ingresso.id_filme
+                    inner join tb_pagamento_filme on tb_pagamento_filme.id_ingresso = tb_ingresso.id_ingresso`;
+    const [resposta] = await con.query(comando,[]);
+    return resposta
+}
+
+export async function consultarPedidosfilmesUsuario(idusu){
+    const comando = `select tb_ingresso.id_ingresso as idingresso,
+                    Nm_usuario as usuario,
+                    NM_filme as filme,
+                    img_capa as capa,
+                    NR_INTEIRAS AS inteiras,
+                    NR_MEIAS AS meias,
+                    DS_FORMA_PAGAMENTO as formaDePagamento,
+                    VL_TOTAL AS TOTAL,
+                    DS_STATUS AS statusa,
+                    DT_EXIBICAO AS dataExibicao,
+                    ds_horario as horario,
+                    nr_sala as sala
+                    from TB_ingresso
+                    Inner join tb_usuario on tb_usuario.id_usuario = TB_ingresso.id_usuario
+                    Inner join tb_filme on tb_filme.id_filme = TB_ingresso.id_filme
+                    inner join tb_pagamento_filme on tb_pagamento_filme.id_ingresso = tb_ingresso.id_ingresso
+                    where tb_ingresso.id_usuario = ?`;
+    const [resposta] = await con.query(comando,[idusu]);
+    return resposta
+}
+
+
+export async function consultarPedidosAssentos(ingressoid){
+    const comando = `select ds_fileira as fileira,
+                    nr_assento as assento from tb_ingresso_assento
+                    inner join tb_assento on tb_assento.id_assento = tb_ingresso_assento.id_assento
+                    where id_ingresso = ?`;
+    const [resposta] = await con.query(comando,[ingressoid]);
+    return resposta
+}
+
+
+export async function removerFilmepedido(id){
+    const comando= `    
+                    delete from tb_ingresso
+                        where id_ingresso = ? `;
+    const [resposta] = await con.query(comando, [id])
+    console.log(resposta);
+    return resposta.affectedRows;
+  
+}
+
+
+export async function removerFilmePagamento(id){
+    const comando= `    
+                    delete from tb_pagamento_filme
+                        where id_ingresso = ? `;
+    const [resposta] = await con.query(comando, [id])
+    return resposta.affectedRows;
+}
+
+
+export async function alterarStatusPedidoFilme(idpedido, status){
+    const comando= `    
+        update tb_ingresso
+        set ds_status = ?
+        where id_ingresso = ?
+    `;
+    const [resposta] = await con.query(comando, [ status,idpedido])
+    return resposta.affectedRows;
+}
+

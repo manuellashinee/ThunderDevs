@@ -1,8 +1,8 @@
 .pedidos{
     border: 2px solid #fff;
     border-radius: 1em;
-    margin-left: 2em;
-    margin-right: 2em;
+    margin: 2em 1em;
+    padding: 2em 0em 2em 0em;
 
     .descricao {
         display: flex;
@@ -115,7 +115,7 @@
             }
     
             .vermelho {
-                color: #CA0B0B;
+                color: #d36e0fce;
             }
         
     

@@ -1,9 +1,33 @@
+import { useEffect, useState } from 'react';
+import { assentosIngresso } from '../../../api/pedidoFilmeApi.js';
+import { AseentosP } from '../assentospedidos/index.js';
 import './index.scss';
 
 export default function PedidosFeitos(props) {
+    const [assent,setAssent]= useState([]);
+
+    
+    function mostrarImagem(imagem) {
+        if (!imagem)
+          return './images/logo.svg'
+        else
+          return `http://localhost:5000/${imagem}`
+      }
+
+      
+      async function verAssentos(id){
+        const x= await assentosIngresso(id)
+        console.log(x)
+        setAssent(x);
+      }
+
+      useEffect(()=>{
+        verAssentos(props.item.idingresso)
+      },[])
+
 
     return(
-<section className="pedidos-feitos">
+    <section className="pedidos-feitos">
             
             <div className='borda'>
                
@@ -11,12 +35,12 @@ export default function PedidosFeitos(props) {
                 <div className='alinhamento'>
                     
                 <div>
-                <img className='img-capa-filme' src={props.foto}/>
+                <img className='img-capa-filme' src={mostrarImagem(props.item.capa)}/>
                 </div>
     
                 <div className='descricao'>
                 <div className='titulo'>
-                    <h1>{props.nome}</h1>
+                    <h1>{props.item.filme}</h1>
                     </div>
                   
     
@@ -27,7 +51,7 @@ export default function PedidosFeitos(props) {
                     </div>
     
                     <div className='desc'>
-                    <label className='usuario'>{props.usuario}</label>
+                    <label className='usuario'>{props.item.usuario}</label>
                     </div>
                     
                 </div>
@@ -38,7 +62,7 @@ export default function PedidosFeitos(props) {
                     </div>
     
                     <div className='desc'>
-                    <label className='meias'>{props.meias}</label>
+                    <label className='meias'>{props.item.meias}</label>
                     </div>
                     
                 </div>
@@ -49,7 +73,7 @@ export default function PedidosFeitos(props) {
                     </div>
     
                     <div className='desc'>
-                    <label className='inteiras'>{props.inteiras}</label>
+                    <label className='inteiras'>{props.item.inteiras}</label>
                     </div>
                     
                 </div>
@@ -60,7 +84,7 @@ export default function PedidosFeitos(props) {
                     </div>
     
                     <div className='desc'>
-                    <label className='pagamento'>{props.pagamento}</label>
+                    <label className='pagamento'>{props.item.formaDePagamento}</label>
                     </div>
                     
                 </div>
@@ -71,7 +95,7 @@ export default function PedidosFeitos(props) {
                     </div>
     
                     <div className='desc'>
-                    <label className='sala'>{props.sala}</label>
+                    <label className='sala'>{props.item.sala}</label>
                     </div>
                     
                 </div>
@@ -80,10 +104,8 @@ export default function PedidosFeitos(props) {
                     <div>
                     <h2>ASSENTO:</h2>     
                     </div>
-    
-                    <div className='desc'>
-                    <label className='assento'>{props.assento}</label>
-                    </div>
+                {assent.map(item=>
+                <AseentosP item={item}/>)}
                     
                 </div>
 
@@ -93,7 +115,7 @@ export default function PedidosFeitos(props) {
                     </div>
     
                     <div className='desc'>
-                    <label className='horario'>{props.horario}</label>
+                    <label className='horario'>{props.item.horario}</label>
                     </div>
                     
                 </div>
@@ -104,7 +126,7 @@ export default function PedidosFeitos(props) {
                     </div>
     
                     <div className='desc'>
-                    <label className='data'>{props.data}</label>
+                    <label className='data'>{props.item.dataExibicao.substr(8,2)}/{props.item.dataExibicao.substr(5,2)}/{props.item.dataExibicao.substr(0,4)}</label>
                     </div>
                     
                 </div>
@@ -115,7 +137,7 @@ export default function PedidosFeitos(props) {
                                 </div>
 
                                 <div className='desc'>
-                                    <label className='total'>{props.total}</label>
+                                    <label className='total'>{props.item.TOTAL}</label>
                                 </div>
                             </div>
     

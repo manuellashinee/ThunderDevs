@@ -4,12 +4,18 @@ import { Link } from 'react-router-dom';
 import storage from 'local-storage'
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { todosIngressos } from '../../../api/pedidoFilmeApi.js';
 
-export default function PedidosAdm() {
-
+export default function PedidosAdm(){
+    const [ingressos,setIngressos]=useState([])
     const [adm, setAdm ] = useState('');
-
     const navigate = useNavigate();
+
+    async function carregarIngreessos(){
+        const x= await todosIngressos();
+        setIngressos(x);
+    
+    }
 
 
     useEffect(() => {
@@ -20,15 +26,16 @@ export default function PedidosAdm() {
           const AdmLogado = storage('ADM-logado');
           setAdm(AdmLogado.nome);
         }
+        carregarIngreessos();
     }, [])
   
 
     return (
 
-        <section className='pedidos-adm'>
+    <section className='pedidos-adm'>
         <section className='salvados'>
             
-    <div className='head'>
+        <div className='head'>
         <div className='cabecalho-pesquisa'>
             <div>
                 <img className='logo' src='../images/logo.svg'/>
@@ -60,8 +67,8 @@ export default function PedidosAdm() {
               <Link to='/homeadm' > <img className='voltar'  src='../images/Arrow 1.svg'/></Link>
             </div>
         </div>
-
-           <PedidosFeitos capa='../images/mini.jpg' nome='MINIONS 2' usuario='Manuella' meias='2' inteiras=''/>
+        {ingressos.map(item=>
+           <PedidosFeitos item={item}/>)}
         </section>
     </section>
     )
