@@ -6,6 +6,7 @@ import { vizualizarThoras } from '../../../api/horaApi.js';
 import { adddataFilmeEmSala, addFinalFilmeEmSala, addHorasFilmeEmSala, dataFilmeEmSala, horariosFilmeEmSala } from '../../../api/filmeHorario';
 import { useParams } from 'react-router-dom';
 import { marcado } from './services.js';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 export default function Rolaa(props) {
@@ -66,6 +67,7 @@ export default function Rolaa(props) {
         const idsSalaHorario = await addHorasFilmeEmSala(props.item.idSala,horasSelecionadosPuro);
         const idfilmesala = await adddataFilmeEmSala(idParam, props.item.idSala, dataDe,dataAte);
         const fim= await addFinalFilmeEmSala(idfilmesala.idsalafilme ,idsSalaHorario);
+        toast.success('Filme Adicionado a sala '+ props.item.idSala)
     }
 
 
@@ -77,6 +79,7 @@ export default function Rolaa(props) {
 
     return (
         <section className='rola-p'>
+            <ToastContainer/>
             <div className='data-sala'>
                 <p className='sala-cor'>SALA <span>{props.item.Numero}</span></p>
                 <p className='datas'>DATAS DISPONÍVEIS:</p>
