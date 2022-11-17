@@ -34,7 +34,8 @@ export default function Home(){
         <section className='landing-page'>
 
             <Cabecalho/>
-            <div className='container2'>
+            
+        <div className='container2'>
       <div class="slider">
         <div class="slides">
             <input type= "radio" name ="radio-btn" id="radio1"/>

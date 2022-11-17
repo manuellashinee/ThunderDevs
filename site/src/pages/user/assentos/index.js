@@ -21,14 +21,20 @@ export default function Assento(){
         const comprados = await assentosEmIngresso(idParam,"13:00",1)
         setAssentos(ass);
         setJaComprados(comprados);
+
+        
     }
 
     function proxPag(){
-        navigate(`/compra3/${idParam}`)
+        let adicionar =[...Storage('ingresso')];
+        adicionar.push({assentos:assentosas});
+        Storage('ingresso',adicionar);
+        navigate(`/compra3/${idParam}`);
     }
     function assentosEscolhidos(idassento,fil,ass){
         let novosAssentos = [...assentosSelecionados];
         let x= [...assentosas]
+
 
         if (assentosSelecionados.find(item => item === idassento)){
             novosAssentos.splice(novosAssentos.findIndex(item => item === idassento), 1);
