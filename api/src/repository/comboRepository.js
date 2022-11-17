@@ -79,3 +79,28 @@ export async function alterarCombo(combo, idcombo){
     const [resposta] = await con.query(comando, [combo.nome, combo.descricao, combo.preco, idcombo])
     return resposta.affectedRows;  
 }
+
+
+export async function verPedidosCombo(idcombo){
+    const comando= `select ID_PEDIDO_COMBO idpedidocombo
+    from tb_PEDIDO_COMBO
+    where id_combo=?`;
+    const [resposta]= await con.query(comando, [idcombo])
+    return resposta;
+}
+
+
+export async function deletarPagamentoCombo(idpedcombo){
+    const comando= `delete from tb_pagamento_combo
+    where id_pedido_combo = ?`;
+    const [resposta]= await con.query(comando, [idpedcombo])
+    return resposta.affectedRows;
+}
+
+export async function deletarPedidoCombo(idcombo){
+    const comando=`delete from tb_pedido_combo
+    where id_combo = ?`;
+    const [resposta]= await con.query(comando, [idcombo])
+    return resposta.affectedRows;
+}
+

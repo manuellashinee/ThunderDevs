@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import multer from "multer" ;
-import { inserirCombo, pesquisarComboId, pesquisarComboNome, pesquisarCombos, removerCombo, alterarImagemCombo, alterarCombo } from '../repository/comboRepository.js';
+import { inserirCombo, pesquisarComboId, pesquisarComboNome, pesquisarCombos, removerCombo, alterarImagemCombo, alterarCombo, verPedidosCombo, deletarPagamentoCombo, deletarPedidoCombo } from '../repository/comboRepository.js';
 const server = Router();
 const upload = multer({dest: 'storage/fotosfilmes'}) 
 
@@ -68,7 +68,14 @@ server.get('/consulta/combo/:id', async (req, resp)=>{
 
 server.delete('/adm/combo/:id', async (req, resp)=>{
     try{
-        const  id = req.params.id;
+        const  {id} = req.params;
+
+        const idsPedidos = await verPedidosCombo(id);
+    
+        for(let i=0; i<idsPedidos.length;i++){
+            const x=await deletarPagamentoCombo(idsPedidos[i].idpedidocombo)
+        }
+        const remove2= await deletarPedidoCombo(id);
         const remove = await removerCombo(id);
         resp.status(204).send();
     }
