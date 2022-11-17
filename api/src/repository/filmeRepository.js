@@ -261,3 +261,29 @@ export async function filmeDestaque(){
 
 
 
+export async function removerFilmeSala(idfilme){
+    const comando= `delete from tb_filme_sala where id_filme = ?`;
+    const [resposta]= await con.query(comando, [idfilme])
+    console.log(resposta)
+    return resposta.insertId;
+}
+
+
+
+
+export async function removerFilmeSalaHora(idfilmesala){
+    const comando= `delete from tb_filme_sala_horario where id_filme_sala = ?`;
+    const [resposta]= await con.query(comando, [idfilmesala])
+    return resposta.affectedRows;
+}
+
+export async function verIDFilmeSala(idfilme){
+    const comando= `select id_filme_sala idsala
+    from tb_filme_sala
+    where id_filme=?`;
+    const [resposta]= await con.query(comando, [idfilme])
+    return resposta;
+}
+
+
+//select idingresso where id_filme 

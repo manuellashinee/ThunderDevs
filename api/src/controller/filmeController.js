@@ -2,7 +2,8 @@ import { Router } from 'express';
 const server = Router();
 
 import multer from "multer" ;
-import { cadastroFilme, alterarImagem, consultarTodosFilme, consultarFilmeGenero, consultarFilmeFranquia, removerFilme, alterarFilme, pesquisarFilmeNome, consultarFilmeId, filmeEmBreve, filmeEmCartaz, filmeDestaque} from '../repository/filmeRepository.js';
+import { removerComents } from '../repository/comentarioRepository.js';
+import { cadastroFilme, alterarImagem, consultarTodosFilme, consultarFilmeGenero, consultarFilmeFranquia, removerFilme, alterarFilme, pesquisarFilmeNome, consultarFilmeId, filmeEmBreve, filmeEmCartaz, filmeDestaque, removerFilmeSala, removerFilmeSalaHora, verIDFilmeSala} from '../repository/filmeRepository.js';
 const upload = multer({dest: 'storage/fotosfilmes'}) 
 
 server.post('/adm/filme', async (req, resp) =>{
@@ -80,7 +81,14 @@ server.get('/consulta/franquia/filme/:idfranquia', async (req, resp) =>{
 
 server.delete('/adm/filme/:id', async (req, resp)=>{
     try{
-        const  id = req.params.id;
+        const  {id} = req.params;   
+        
+        const idsFilmeSala = await verIDFilmeSala(id)
+        for(let i=0; i<idsFilmeSala.length;i++){
+        const remove4 = await removerFilmeSalaHora(idsFilmeSala[i].idsala)
+        }
+        const remove3= await removerFilmeSala(id)
+        const remove2= await removerComents(id);
         const remove = await removerFilme(id);
         resp.status(204).send();
     }

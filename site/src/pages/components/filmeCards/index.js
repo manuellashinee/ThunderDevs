@@ -29,8 +29,8 @@ export default function FilmeCards(props) {
               {
                 label: 'Sim',
                 onClick: async () => {
+                        console.log(id)
                       const resposta = await removerFilme(id);
-                    
                       recarregarFilme();
                      
                 }

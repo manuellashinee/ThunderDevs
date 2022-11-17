@@ -24,3 +24,9 @@ export async function vizualizarComentarios(idfilme){
     const [resposta]= await con.query(comando, [idfilme])
     return resposta;
 }
+
+export async function removerComents(idfilme){
+    const comando= `delete from tb_comentario where id_filme = ?`;
+    const [resposta]= await con.query(comando, [idfilme])
+    return resposta.affectedRows;
+}

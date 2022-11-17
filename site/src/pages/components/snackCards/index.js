@@ -109,7 +109,7 @@ export default function PedidoSnack(props) {
         </div>
         <div className='edit'>
         <div className='taltal'>
-        <img onClick={alterarPedidoJ} className='aceitar-img' src='../images/check_circle.svg'/>
+        <img onClick={alterarPedidox} className='aceitar-img' src='../images/check_circle.svg'/>
         <p>ACEITAR</p>
         </div>
 
