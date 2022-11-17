@@ -4,9 +4,9 @@ import './index.scss'
 import { salvarNovoPedido } from '../../../api/pedidoAPI.js';
 import { useNavigate, useParams } from 'react-router-dom'
 import { buscarPorId } from '../../../api/comboapi';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { alterarStatusPedido } from '../../../api/pedidoAPI.js';
+import {  toast } from 'react-toastify';
+
 
 export default function CartaoCredito(props) {
     const [nome, setNome] = useState ('');
@@ -58,13 +58,13 @@ export default function CartaoCredito(props) {
             }
     
             const r = await salvarNovoPedido(id, pedido);
-            alert('O pedido foi!');
+            toast.success('Pedido do combo realizado!');
             Storage('combospedidos', []);
             navigate('/');
 
         }
         catch (err) {
-            alert(err);
+            toast.error(err);
         }
 
 
@@ -84,10 +84,12 @@ export default function CartaoCredito(props) {
     return(
 
         <section className='cartao-credito3'>
+              
+            
 
             <p><span>{}</span></p>
             <p></p>
-
+         
             <div className='parte-2'>
                 <div className='cartao1'>
                     <p className='cartao-texto'>CARTÃO DE CRÉDITO</p>
