@@ -45,14 +45,6 @@ export default function PedidoSnack(props) {
             toast(err.response.data.erro)
         }
     }
-            
-    
-    function BatataDoce(){
-        const pedidoId = props.pedidoId;
-        alert(pedidoId)
-    }
-
-
 
 
     return(

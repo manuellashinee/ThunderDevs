@@ -56,13 +56,15 @@ export default function Cadastrarcombo(){
     }
 
     async function carregarCombo(){
-        const [resposta] = await buscarPorId(Number(idParam));
+        if(idParam){
+        const resposta = await buscarPorId(Number(idParam));
+        console.log(resposta)
         setDescricao(resposta.descricao);
         setPreco(resposta.preco);
         setNome(resposta.nome);
         setImagem(resposta.foto);
         setIdCombo(resposta.idcombo);
-
+        }
     }
 
     useEffect(() => {

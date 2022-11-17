@@ -14,7 +14,7 @@ import Storage from "local-storage";
 export default function Compra1(){
     const navigate = useNavigate();
     const [atual, setAtual] = useState(true);
-    const [textoDatas, setTextoDatas]= useState();
+    const [textoDatas, setTextoDatas]= useState("");
     const [filmeSalas, setFilmeSalas]= useState([]);
     const [data, setData]= useState();
     const [semana,setSemana]= useState([]);
@@ -43,6 +43,8 @@ export default function Compra1(){
         arrdates.push(new Date(a))
         } 
         setSemana(arrdates);
+
+        
     }
     
     function verData(datinha){
@@ -60,15 +62,21 @@ export default function Compra1(){
         }
         else
             setAtual(true)
+
+            
     
     }
 
     async function dats(){
+         
         const x= await prePedidoFilmeSala(idParam);
+        console.log(x[0])
+        if(x[0]=== undefined){
+            setData('Sinto muito, este filme não está em uma sala...')
+        }
         const d= verData(x[0].de);
         setTextoDatas(x[0]);
         setFilmeSalas(x);
-        console.log(atual)
         if(atual === true){
             setData(`DATAS`)
             const f= semanando(x[0].hoje,x[0].ate);
@@ -77,6 +85,8 @@ export default function Compra1(){
         const f= semanando(x[0].de,x[0].ate);
         setData(`ESTREIA - ${x[0].de.substr(8,2)}/${x[0].de.substr(5,2)}/${x[0].de.substr(0,4)}`)
         }
+
+      
     }
 
     function atualizarData() {
@@ -117,8 +127,10 @@ export default function Compra1(){
             {filmeSalas.map(item=><div onClick={atualizarData}>
                 <Sala item={item} />
             </div>)}
-            <div className='batida'> 
-                 <p onClick={proxPag} className='botao-ir'>PROSSEGUIR</p> 
+            <div className='batida'> {!filmeSalas[0]?<div></div>
+            :
+            
+            <p onClick={proxPag} className='botao-ir'>PROSSEGUIR</p> }
             </div>
         </div>
        <Rodape/>

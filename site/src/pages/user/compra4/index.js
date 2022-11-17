@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Storage from 'local-storage';
 import { salvarNovoPedidoFilme } from '../../../api/pedidoFilmeApi';
+import { toast } from 'react-toastify';
 
 export default function Compra4(){
     const [nome, setNome] = useState ('');
@@ -57,13 +58,13 @@ export default function Compra4(){
             }
     
             const r = await salvarNovoPedidoFilme(idParam, pedido);
-            alert('O pedido foi!');
+            toast.success('Ingresso solicitado');
             Storage('ingresso', []);
             navigate('/');
 
         }
         catch (err) {
-            alert(err);
+            toast.error(err);
         }
 
 
