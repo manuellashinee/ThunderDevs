@@ -16,6 +16,7 @@ export default function PedidosFeitos(props) {
             console.log(pedidoId)
 
             const r = await mudarStatusPedidoFilme(status,pedidoId)
+            toast.success("Pedido Aceito")
         }catch (err) {
             toast.err(err.response.data.erro)
         }
@@ -28,7 +29,8 @@ export default function PedidosFeitos(props) {
         const pedidoId = props.item.idingresso;
 
         const r = await mudarStatusPedidoFilme(status2,pedidoId)
-
+        
+        toast.error("Pedido Recusado")
     }catch (err) {
         toast.err(err.response.data.erro)
     }
