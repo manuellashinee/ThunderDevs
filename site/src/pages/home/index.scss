@@ -49,22 +49,7 @@
     .Pray {
         display: flex;
         flex-direction: row;
-        overflow-x: auto;
-    }
-
-    
-    .Pray::-webkit-scrollbar{
-        
-        height: 1.2em;      
-    }
-
-    .Pray::-webkit-scrollbar-track {
-        background: #1A1919;  
-    }
-
-    .Pray::-webkit-scrollbar-thumb{
-        background-color: none;
-        border: 2px solid white;
+        flex-wrap: wrap;
     }
 
     .cry {
