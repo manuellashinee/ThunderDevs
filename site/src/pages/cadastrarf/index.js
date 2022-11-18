@@ -87,7 +87,6 @@ export default function Cadastrar(){
             if (isNaN (duracao)) throw new Error('O campo duração é obrigatório.');
             if (!lancamento) throw new Error('O campo lançamento é obrigatório.');
             if (!diretor) throw new Error('O campo diretor é obrigatório.');
-            if (!destaque) throw new Error('O campo destaque é obrigatório.');
             if (!situacao) throw new Error('O campo situação é obrigatório.');
             
 

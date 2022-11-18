@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { assentosIngresso, mudarStatusPedidoFilme } from '../../../api/pedidoFilmeApi.js';
 import { AseentosP } from '../assentospedidos/index.js';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import './index.scss';
 
 export default function PedidosFeitos(props) {
@@ -30,7 +30,7 @@ export default function PedidosFeitos(props) {
         const r = await mudarStatusPedidoFilme(status2,pedidoId)
 
     }catch (err) {
-        toast(err.response.data.erro)
+        toast.err(err.response.data.erro)
     }
     }
 
@@ -56,7 +56,7 @@ export default function PedidosFeitos(props) {
 
     return(
     <section className="pedidos-feitos">
-            <ToastContainer/>
+           
             <div className='borda'>
                
                 
